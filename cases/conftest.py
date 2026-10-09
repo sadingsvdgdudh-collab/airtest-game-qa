@@ -1,22 +1,45 @@
+import itertools
 import os
 from pathlib import Path
 
 import pytest
 
+from gameqa.accounts import pair_for
 from gameqa.bridge import Bridge, redact
 from gameqa.config import resolve_path
 from gameqa.stendhal import Stendhal
 from gameqa.stendhal_ui import StendhalUI
 
 
+_CASE_INDEX = itertools.count()
+
+
 @pytest.fixture
-def api_player(qa, qa_config, game_config):
+def case_index():
+    """本用例在整轮里的序号。用来轮换账号：相邻用例不用同一个账号。
+
+    动机：服务端对同一账号的重复登录会静默踢掉前一个会话，上一条用例的断开若晚于本次登录被处理，
+    就会把新会话当成旧的移除（实测复现）。错开账号即可绕开这个时间窗。
+    """
+    return next(_CASE_INDEX)
+
+
+@pytest.fixture
+def qa_pair(game_config, case_index):
+    """本用例使用的（观察者, 目标）账号对。"""
+    return pair_for(case_index, game_config)
+
+
+@pytest.fixture
+def api_player(qa, qa_config, game_config, qa_pair):
     """每个用例一条独立的角色会话。
 
     曾经改成整轮复用（会话池），实测**没有**降低抖动率，却因为少了"重新登录会从数据库重载角色"
     这一层意外的状态重置，暴露出两个真实的状态泄漏（宠物羊、HP/atk_xp）。所以退回复用，
     等把宠物/运行期状态的回收补齐之后再考虑。
     """
+    observer_name, target_name = qa_pair
+    game_config = {**game_config, "observer": observer_name, "target": target_name}
     command = [os.path.expandvars(part) for part in game_config["bridge_command"]]
     log = resolve_path(qa_config, game_config["server_log"]) if game_config.get("server_log") else None
     connection = Bridge(command, cwd=resolve_path(qa_config, game_config.get("bridge_cwd", ".")),
@@ -33,12 +56,16 @@ def api_player(qa, qa_config, game_config):
 
 
 @pytest.fixture
-def observer(bridge, game_config, qa, request):
+def observer(bridge, game_config, qa, request, qa_pair):
     if request.node._qa_meta["kind"] == "api":
         request.getfixturevalue("api_player")
     else:
         request.getfixturevalue("stendhal_ui")
-    return Stendhal(bridge, game_config, qa)
+    observer_name, target_name = qa_pair
+    if request.node._qa_meta["kind"] == "api":
+        return Stendhal(bridge, {**game_config, "observer": observer_name, "target": target_name}, qa)
+    # UI 用例的目标是模拟器里那个角色，只轮换观察者账号
+    return Stendhal(bridge, {**game_config, "observer": observer_name}, qa)
 
 
 @pytest.fixture

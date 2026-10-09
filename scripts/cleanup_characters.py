@@ -47,6 +47,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from gameqa.bridge import Bridge                                    # noqa: E402
 from gameqa.config import load_config, resolve_path                 # noqa: E402
 from gameqa.evidence import Evidence                                # noqa: E402
+from gameqa.accounts import target_pool
 from gameqa.recovery import clear_bag, normalize_weapon             # noqa: E402
 from gameqa.stendhal import Stendhal                                 # noqa: E402
 
@@ -58,7 +59,8 @@ def characters(game):
     也 prepare 不了自己（实测 `Probe must use a separate observer character`）。
     它只负责读，不会攒道具，跳过即可（`--only qaobserver` 会如实报错）。
     """
-    names = [game.get("target"), game.get("api_target")]
+    # 默认清理 target（UI 角色）与整个 API 目标池
+    names = [game.get("target")] + list(target_pool(game))
     return [name for index, name in enumerate(names) if name and name not in names[:index]]
 
 

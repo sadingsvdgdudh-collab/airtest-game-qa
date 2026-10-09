@@ -105,8 +105,14 @@ def main():
         ini.write_text(text + "\n# Isolated local QA only\ntcp_host=127.0.0.1\nhttp_host=127.0.0.1\nhttp_port=8080\nallow_account_creation=true\nallow_character_creation=true\n")
     admin_file = runtime / "data/conf/admins.txt"
     admin_names = admin_file.read_text().splitlines()
-    if "qaobserver" not in admin_names:
-        admin_file.write_text("\n".join(admin_names + ["qaobserver"]) + "\n")
+    # 观察者池的每个账号都要有管理员权限：inspect/prepare/restore 需要它。
+    # 池大小以环境变量 QA_POOL_SIZE 为准（默认 3），与 config 里的 pool_size 保持一致。
+    from gameqa.accounts import observer_pool
+    pool = observer_pool({"observer": "qaobserver", "pool_size": int(os.environ.get("QA_POOL_SIZE", "3"))})
+    for name in pool:
+        if name not in admin_names:
+            admin_names.append(name)
+    admin_file.write_text("\n".join(admin_names) + "\n")
     patches = base / "patches/classes"
     patches.mkdir(parents=True, exist_ok=True)
     subprocess.run([str(java.with_name("javac")), "--release", "8", "-cp", str(runtime / "libs/*"), "-d", str(patches), str(PROJECT / "integrations/stendhal/network_patch/NIONetworkConnectionManager.java")], check=True)
