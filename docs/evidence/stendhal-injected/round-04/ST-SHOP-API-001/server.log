@@ -1,0 +1,3 @@
+2026-10-03 00:48:41 INFO  [verManager] SellerBehaviour          ( 112) - INJECTED_QA_DEFECT cheese_overcharge_one_gold for qaplayera
+2026-10-03 00:48:42 INFO  [NioServer ] NIONetworkConnectionManager( 122) - NET Disconnecting /127.0.0.1:51399
+2026-10-03 00:48:42 INFO  [NioServer ] GameServerManager        ( 122) - GAME Disconnecting /127.0.0.1:51399

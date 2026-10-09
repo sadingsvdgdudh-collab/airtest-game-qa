@@ -1,0 +1,163 @@
+{
+  "verified_at": 1790959845.1051059,
+  "experiment": "ST-SHOP-OVERCHARGE",
+  "original_assertion_unchanged": true,
+  "qa_probe_class_copied_exactly": true,
+  "rounds": [
+    {
+      "round": 1,
+      "case": "round-01/ST-SHOP-API-001/case.json",
+      "outcome": "failed",
+      "prepared": {
+        "money": 100,
+        "cheese": 0
+      },
+      "purchase": {
+        "money": 59,
+        "cheese": 2,
+        "looted_items": {
+          "bought.cheese": "2"
+        },
+        "item_counter_cache_bought": {
+          "cheese": 2
+        }
+      },
+      "expected_money": 60,
+      "restoration": {
+        "confirmed": true,
+        "commerce_equals_snapshot": true,
+        "item_counter_cache_equals_snapshot": true,
+        "exact_original_location": true,
+        "money": 0,
+        "looted_items": {},
+        "item_counter_cache_bought": {}
+      },
+      "observation_retries": 0,
+      "injected_log": "2026-10-03 00:48:24 INFO  [verManager] SellerBehaviour          ( 112) - INJECTED_QA_DEFECT cheese_overcharge_one_gold for qaplayera"
+    },
+    {
+      "round": 2,
+      "case": "round-02/ST-SHOP-API-001/case.json",
+      "outcome": "failed",
+      "prepared": {
+        "money": 100,
+        "cheese": 0
+      },
+      "purchase": {
+        "money": 59,
+        "cheese": 2,
+        "looted_items": {
+          "bought.cheese": "2"
+        },
+        "item_counter_cache_bought": {
+          "cheese": 2
+        }
+      },
+      "expected_money": 60,
+      "restoration": {
+        "confirmed": true,
+        "commerce_equals_snapshot": true,
+        "item_counter_cache_equals_snapshot": true,
+        "exact_original_location": true,
+        "money": 0,
+        "looted_items": {},
+        "item_counter_cache_bought": {}
+      },
+      "observation_retries": 0,
+      "injected_log": "2026-10-03 00:48:30 INFO  [verManager] SellerBehaviour          ( 112) - INJECTED_QA_DEFECT cheese_overcharge_one_gold for qaplayera"
+    },
+    {
+      "round": 3,
+      "case": "round-03/ST-SHOP-API-001/case.json",
+      "outcome": "failed",
+      "prepared": {
+        "money": 100,
+        "cheese": 0
+      },
+      "purchase": {
+        "money": 59,
+        "cheese": 2,
+        "looted_items": {
+          "bought.cheese": "2"
+        },
+        "item_counter_cache_bought": {
+          "cheese": 2
+        }
+      },
+      "expected_money": 60,
+      "restoration": {
+        "confirmed": true,
+        "commerce_equals_snapshot": true,
+        "item_counter_cache_equals_snapshot": true,
+        "exact_original_location": true,
+        "money": 0,
+        "looted_items": {},
+        "item_counter_cache_bought": {}
+      },
+      "observation_retries": 0,
+      "injected_log": "2026-10-03 00:48:35 INFO  [verManager] SellerBehaviour          ( 112) - INJECTED_QA_DEFECT cheese_overcharge_one_gold for qaplayera"
+    },
+    {
+      "round": 4,
+      "case": "round-04/ST-SHOP-API-001/case.json",
+      "outcome": "failed",
+      "prepared": {
+        "money": 100,
+        "cheese": 0
+      },
+      "purchase": {
+        "money": 59,
+        "cheese": 2,
+        "looted_items": {
+          "bought.cheese": "2"
+        },
+        "item_counter_cache_bought": {
+          "cheese": 2
+        }
+      },
+      "expected_money": 60,
+      "restoration": {
+        "confirmed": true,
+        "commerce_equals_snapshot": true,
+        "item_counter_cache_equals_snapshot": true,
+        "exact_original_location": true,
+        "money": 0,
+        "looted_items": {},
+        "item_counter_cache_bought": {}
+      },
+      "observation_retries": 0,
+      "injected_log": "2026-10-03 00:48:41 INFO  [verManager] SellerBehaviour          ( 112) - INJECTED_QA_DEFECT cheese_overcharge_one_gold for qaplayera"
+    },
+    {
+      "round": 5,
+      "case": "round-05/ST-SHOP-API-001/case.json",
+      "outcome": "failed",
+      "prepared": {
+        "money": 100,
+        "cheese": 0
+      },
+      "purchase": {
+        "money": 59,
+        "cheese": 2,
+        "looted_items": {
+          "bought.cheese": "2"
+        },
+        "item_counter_cache_bought": {
+          "cheese": 2
+        }
+      },
+      "expected_money": 60,
+      "restoration": {
+        "confirmed": true,
+        "commerce_equals_snapshot": true,
+        "item_counter_cache_equals_snapshot": true,
+        "exact_original_location": true,
+        "money": 0,
+        "looted_items": {},
+        "item_counter_cache_bought": {}
+      },
+      "observation_retries": 0,
+      "injected_log": "2026-10-03 00:48:46 INFO  [verManager] SellerBehaviour          ( 112) - INJECTED_QA_DEFECT cheese_overcharge_one_gold for qaplayera"
+    }
+  ]
+}

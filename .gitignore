@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.venv/
+.idea/
+config.local.toml
+reports/
+assets/generated/
+.local-runtime/
+*.local.toml
+*.env
+panel/last.json
+panel/__pycache__/
+
+docs/evidence/
+
+# macOS 垃圾文件
+.DS_Store

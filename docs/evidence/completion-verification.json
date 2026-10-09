@@ -1,0 +1,191 @@
+{
+  "verified_utc": "2026-10-03T22:04:24.195315+00:00",
+  "all_passed": true,
+  "formal_execution_ids": [
+    "ST-QUEST-UI-007",
+    "ST-SHOP-API-006-no-space",
+    "ST-COMBAT-API-004-distance",
+    "ST-COMBAT-API-004-cancel"
+  ],
+  "new_execution_ids": 4,
+  "formal_rounds_per_id": 5,
+  "new_formal_passes": 20,
+  "counts": {
+    "cases": 20,
+    "assertions": 880,
+    "observations": 1464,
+    "recorded_actions": 575,
+    "screenshots": 810,
+    "restores": 20,
+    "permitted_location_adjustments": 0
+  },
+  "source_files": 144,
+  "installed_helper_classes": 6,
+  "business_jars": 3,
+  "source_captured_before_first_case": true,
+  "source_hashes_match": true,
+  "phases_all_passed": true,
+  "unstable_cases": 0,
+  "retried_observations": 0,
+  "all_restored": true,
+  "framework_self_checks": 41,
+  "collected_execution_ids": 39,
+  "current_normal_ids": 37,
+  "historical_normal_passes": 185,
+  "designs": 73,
+  "designs_integrated": 24,
+  "designs_not_integrated": 49,
+  "partially_accepted_design": "ST-SHOP-API-006 (no-space only; full-slot merging still pending)",
+  "controlled_fault_preserves_first_failure": true,
+  "controlled_and_rerun_normal_count_added": 0,
+  "configured_credentials_absent_from_report_text": true,
+  "per_round": [
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 1,
+      "id": "ST-QUEST-UI-007",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 2,
+      "id": "ST-QUEST-UI-007",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 3,
+      "id": "ST-QUEST-UI-007",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 4,
+      "id": "ST-QUEST-UI-007",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 5,
+      "id": "ST-QUEST-UI-007",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 1,
+      "id": "ST-SHOP-API-006-no-space",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 2,
+      "id": "ST-SHOP-API-006-no-space",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 3,
+      "id": "ST-SHOP-API-006-no-space",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 4,
+      "id": "ST-SHOP-API-006-no-space",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 5,
+      "id": "ST-SHOP-API-006-no-space",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 1,
+      "id": "ST-COMBAT-API-004-distance",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 2,
+      "id": "ST-COMBAT-API-004-distance",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 3,
+      "id": "ST-COMBAT-API-004-distance",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 4,
+      "id": "ST-COMBAT-API-004-distance",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 5,
+      "id": "ST-COMBAT-API-004-distance",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 1,
+      "id": "ST-COMBAT-API-004-cancel",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 2,
+      "id": "ST-COMBAT-API-004-cancel",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 3,
+      "id": "ST-COMBAT-API-004-cancel",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 4,
+      "id": "ST-COMBAT-API-004-cancel",
+      "passed": true,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 5,
+      "id": "ST-COMBAT-API-004-cancel",
+      "passed": true,
+      "restored": true
+    }
+  ],
+  "limitations": [
+    "各历史验收组分别取证，不声称同一新版统一执行37ID",
+    "无空间仅拒绝子例，满槽可合并仍待",
+    "三异常是原版玩家协议，不声称Android异常菜单已验",
+    "固定720x1280指定路线，不声称任意分辨率自主探索",
+    "R1不回滚银行、成就DB、持续状态、血迹或全世界；复用本机环境，非新机器"
+  ]
+}

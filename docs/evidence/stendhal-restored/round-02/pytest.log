@@ -1,0 +1,9 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa
+configfile: pyproject.toml
+collected 17 items / 16 deselected / 1 selected
+
+cases/test_stendhal_api.py .                                             [100%]
+
+======================= 1 passed, 16 deselected in 5.35s =======================

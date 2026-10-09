@@ -1,0 +1,758 @@
+[
+  {
+    "group": "stendhal-api-baseline",
+    "executions": 45,
+    "summary": {
+      "rounds": 5,
+      "cases": [
+        {
+          "id": "ST-BAG-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-COMBAT-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-COMBAT-API-002",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-GROWTH-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-MAP-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-QUEST-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-SHOP-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-SHOP-API-002",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "ST-SHOP-API-003",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        }
+      ],
+      "consistent": true,
+      "all_passed": true,
+      "experiment": "baseline",
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "independently_checked_no_retry": true,
+    "checked_teardown_passed": true,
+    "checked_combat_rat_and_corpse_removed": true
+  },
+  {
+    "group": "stendhal-ui-baseline",
+    "executions": 5,
+    "summary": {
+      "rounds": 5,
+      "cases": [
+        {
+          "id": "ST-SHOP-UI-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        }
+      ],
+      "consistent": true,
+      "all_passed": true,
+      "experiment": "baseline",
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "independently_checked_no_retry": true,
+    "checked_teardown_passed": true
+  },
+  {
+    "group": "shardy-api-baseline",
+    "executions": 20,
+    "summary": {
+      "rounds": 5,
+      "cases": [
+        {
+          "id": "SH-ILLEGAL-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "SH-MATCH-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "SH-TURN-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "SH-WIN-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        }
+      ],
+      "consistent": true,
+      "all_passed": true,
+      "experiment": "baseline",
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "independently_checked_no_retry": true,
+    "checked_teardown_passed": true
+  },
+  {
+    "group": "shardy-ui-baseline",
+    "executions": 5,
+    "summary": {
+      "rounds": 5,
+      "cases": [
+        {
+          "id": "SH-TURN-UI-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        }
+      ],
+      "consistent": true,
+      "all_passed": true,
+      "experiment": "baseline",
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "independently_checked_no_retry": true,
+    "checked_teardown_passed": true
+  },
+  {
+    "group": "shardy-known-defects",
+    "executions": 10,
+    "summary": {
+      "rounds": 5,
+      "cases": [
+        {
+          "id": "SH-DEFECT-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "failed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        },
+        {
+          "id": "SH-DEFECT-API-002",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "failed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        }
+      ],
+      "consistent": true,
+      "all_passed": false,
+      "experiment": "baseline",
+      "exit_codes": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "independently_checked_no_retry": true,
+    "checked_teardown_passed": true
+  },
+  {
+    "group": "stendhal-injected",
+    "executions": 5,
+    "summary": {
+      "rounds": 5,
+      "cases": [
+        {
+          "id": "ST-SHOP-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "failed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "failed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        }
+      ],
+      "consistent": true,
+      "all_passed": false,
+      "experiment": "ST-SHOP-OVERCHARGE",
+      "exit_codes": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "independently_checked_no_retry": true,
+    "checked_teardown_passed": true
+  },
+  {
+    "group": "stendhal-restored",
+    "executions": 5,
+    "summary": {
+      "rounds": 5,
+      "cases": [
+        {
+          "id": "ST-SHOP-API-001",
+          "observations": [
+            {
+              "round": 1,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 2,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 3,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 4,
+              "outcome": "passed",
+              "unstable": false
+            },
+            {
+              "round": 5,
+              "outcome": "passed",
+              "unstable": false
+            }
+          ],
+          "consistent": true,
+          "repeatable": true
+        }
+      ],
+      "consistent": true,
+      "all_passed": true,
+      "experiment": "restored-original",
+      "exit_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "independently_checked_no_retry": true,
+    "checked_teardown_passed": true
+  }
+]

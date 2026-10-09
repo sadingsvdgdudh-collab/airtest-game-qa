@@ -1,0 +1,3208 @@
+{
+  "id": "ST-QUEST-API-003",
+  "metadata": {
+    "id": "ST-QUEST-API-003",
+    "game": "stendhal",
+    "module": "quest",
+    "kind": "api",
+    "nodeid": "cases/test_stendhal_quest_edges.py::test_missing_beer_keeps_active_quest_without_rewards",
+    "experiment": "batch1-diagnosis",
+    "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-QUEST-API-003 --rounds 1 --experiment batch1-diagnosis"
+  },
+  "outcome": "failed",
+  "unstable": false,
+  "steps": [
+    {
+      "title": "玩家对话：bye",
+      "kind": "business_action",
+      "outcome": "passed"
+    },
+    {
+      "title": "玩家对话：hi Hayunn Naratha",
+      "kind": "business_action",
+      "outcome": "passed"
+    },
+    {
+      "title": "玩家对话：task",
+      "kind": "business_action",
+      "outcome": "passed"
+    },
+    {
+      "title": "玩家对话：yes",
+      "kind": "business_action",
+      "outcome": "passed"
+    },
+    {
+      "title": "独立管理员读取目标角色",
+      "kind": "observation",
+      "attempts": [
+        {
+          "number": 1,
+          "outcome": "passed",
+          "elapsed": 0.0850834169978043
+        }
+      ],
+      "outcome": "passed"
+    },
+    {
+      "title": "NPC实际提醒仍需beer",
+      "expected": true,
+      "actual": false,
+      "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/maps/quests/BeerForHayunn.java#L77-L97; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/npc/quest/QuestOfferBuilder.java#L194-L259",
+      "outcome": "failed"
+    }
+  ],
+  "attachments": [
+    {
+      "label": "本用例服务端日志",
+      "path": "server.log"
+    }
+  ],
+  "diagnostics": {
+    "preparation": {
+      "npc": {
+        "zone": "int_semos_guard_house",
+        "name": "Hayunn Naratha",
+        "x": 6,
+        "y": 10
+      },
+      "snapshot_id": "5fddcce8-cc57-4285-b0bd-be4fa1aeba73",
+      "before": {
+        "karma": 10.0,
+        "item_counter_cache": {
+          "mined": {},
+          "sold": {},
+          "sown": {},
+          "bought": {
+            "cheese": 14
+          },
+          "obtained": {},
+          "looted": {},
+          "harvested": {},
+          "produced": {}
+        },
+        "def": 10,
+        "quests": {},
+        "level": 0,
+        "atk_xp": 0,
+        "hp": 100,
+        "inventory": [
+          {
+            "quantity": 1,
+            "name": "club",
+            "slot": "rhand"
+          },
+          {
+            "quantity": 1,
+            "name": "leather armor",
+            "slot": "armor"
+          }
+        ],
+        "commerce": {
+          "npc_purchases": {},
+          "npc_sales": {},
+          "looted_items": {
+            "bought.cheese": "14"
+          }
+        },
+        "keyed": {
+          "skills": {},
+          "!kills": {},
+          "!visited": {
+            "int_semos_tavern_0": "1790942298137",
+            "int_semos_guard_house": "1790978618486"
+          },
+          "!tutorial": {
+            "visit_semos_tavern": "1",
+            "timed_help": "1",
+            "first_login": "1"
+          }
+        },
+        "def_xp": 0,
+        "slots": {
+          "bank_kirdneh": [],
+          "feet": [],
+          "bag": [],
+          "bank_deniran": [],
+          "!ignore": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "5"
+              }
+            }
+          ],
+          "skills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "7"
+              }
+            }
+          ],
+          "head": [],
+          "bank_nalwor": [],
+          "bank": [],
+          "!quests": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "2"
+              }
+            }
+          ],
+          "rhand": [
+            {
+              "slots": {},
+              "name": "club",
+              "attributes": {
+                "visibility": "100",
+                "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "rate": "4",
+                "x": "0",
+                "width": "1",
+                "subclass": "club",
+                "name": "club",
+                "y": "0",
+                "atk": "6",
+                "id": "818",
+                "class": "club",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "legs": [],
+          "bank_ados": [],
+          "bank_fado": [],
+          "spells": [],
+          "finger": [],
+          "pouch": [],
+          "!tutorial": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "id": "8",
+                "first_login": "1"
+              }
+            }
+          ],
+          "zaras_chest_ados": [],
+          "!kills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "816"
+              }
+            }
+          ],
+          "!visited": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "int_semos_tavern_0": "1790942298137",
+                "id": "817",
+                "int_semos_guard_house": "1790978618486"
+              }
+            }
+          ],
+          "armor": [
+            {
+              "slots": {},
+              "name": "leather armor",
+              "attributes": {
+                "visibility": "100",
+                "def": "6",
+                "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "x": "0",
+                "width": "1",
+                "subclass": "leather_armor",
+                "name": "leather armor",
+                "y": "0",
+                "id": "819",
+                "class": "armor",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "trade": [],
+          "cloak": [],
+          "lhand": [],
+          "bank_magic": [],
+          "keyring": []
+        },
+        "money": 0,
+        "name": "qaplayera",
+        "xp": 0,
+        "statuses": [],
+        "atk": 10,
+        "attributes": {
+          "def": "10",
+          "release": "1.49",
+          "hp": "100",
+          "def_item": "6",
+          "#clientid": "822082710",
+          "type": "player",
+          "base_mana": "0",
+          "def_xp": "0",
+          "#db_id": "3",
+          "outfit": "0",
+          "atk": "10",
+          "base_hp": "100",
+          "id": "51",
+          "height": "1",
+          "karma": "10.0",
+          "visibility": "100",
+          "atk_xp": "0",
+          "level": "0",
+          "resistance": "100",
+          "mana": "0",
+          "x": "7",
+          "name": "qaplayera",
+          "xp": "0",
+          "width": "1",
+          "y": "12",
+          "zoneid": "int_semos_guard_house",
+          "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+          "atk_item": "6",
+          "age": "7"
+        },
+        "base_hp": 100
+      },
+      "name": "qaplayera",
+      "restorable_fields": [
+        "bag",
+        "equipment",
+        "quests",
+        "xp",
+        "hp",
+        "level",
+        "base_hp",
+        "karma",
+        "location",
+        "npc_purchases",
+        "npc_sales",
+        "looted_items",
+        "item_counter_cache",
+        "atk_xp",
+        "def_xp",
+        "atk",
+        "def",
+        "!kills",
+        "!tutorial",
+        "!visited",
+        "skills"
+      ],
+      "after": {
+        "karma": 0.0,
+        "item_counter_cache": {
+          "mined": {},
+          "sold": {},
+          "sown": {},
+          "bought": {
+            "cheese": 14
+          },
+          "obtained": {},
+          "looted": {},
+          "harvested": {},
+          "produced": {}
+        },
+        "def": 10,
+        "quests": {
+          "meet_hayunn": "done",
+          "beer_hayunn": "start"
+        },
+        "level": 0,
+        "atk_xp": 0,
+        "hp": 100,
+        "inventory": [
+          {
+            "quantity": 100,
+            "name": "money",
+            "slot": "bag"
+          },
+          {
+            "quantity": 1,
+            "name": "club",
+            "slot": "rhand"
+          },
+          {
+            "quantity": 1,
+            "name": "leather armor",
+            "slot": "armor"
+          }
+        ],
+        "commerce": {
+          "npc_purchases": {},
+          "npc_sales": {},
+          "looted_items": {
+            "bought.cheese": "14"
+          }
+        },
+        "keyed": {
+          "skills": {},
+          "!kills": {},
+          "!visited": {
+            "int_semos_tavern_0": "1790942298137",
+            "int_semos_guard_house": "1790978618486"
+          },
+          "!tutorial": {
+            "visit_semos_tavern": "1",
+            "timed_help": "1",
+            "first_login": "1"
+          }
+        },
+        "def_xp": 0,
+        "slots": {
+          "bank_kirdneh": [],
+          "feet": [],
+          "bag": [
+            {
+              "slots": {},
+              "name": "money",
+              "attributes": {
+                "quantity": "100",
+                "visibility": "100",
+                "description": "",
+                "type": "item",
+                "resistance": "0",
+                "x": "0",
+                "width": "1",
+                "subclass": "gold",
+                "name": "money",
+                "y": "0",
+                "id": "820",
+                "class": "money",
+                "height": "1"
+              }
+            }
+          ],
+          "bank_deniran": [],
+          "!ignore": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "5"
+              }
+            }
+          ],
+          "skills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "7"
+              }
+            }
+          ],
+          "head": [],
+          "bank_nalwor": [],
+          "bank": [],
+          "!quests": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "meet_hayunn": "done",
+                "beer_hayunn": "start",
+                "id": "2"
+              }
+            }
+          ],
+          "rhand": [
+            {
+              "slots": {},
+              "name": "club",
+              "attributes": {
+                "visibility": "100",
+                "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "rate": "4",
+                "x": "0",
+                "width": "1",
+                "subclass": "club",
+                "name": "club",
+                "y": "0",
+                "atk": "6",
+                "id": "818",
+                "class": "club",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "legs": [],
+          "bank_ados": [],
+          "bank_fado": [],
+          "spells": [],
+          "finger": [],
+          "pouch": [],
+          "!tutorial": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "id": "8",
+                "first_login": "1"
+              }
+            }
+          ],
+          "zaras_chest_ados": [],
+          "!kills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "816"
+              }
+            }
+          ],
+          "!visited": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "int_semos_tavern_0": "1790942298137",
+                "id": "817",
+                "int_semos_guard_house": "1790978618486"
+              }
+            }
+          ],
+          "armor": [
+            {
+              "slots": {},
+              "name": "leather armor",
+              "attributes": {
+                "visibility": "100",
+                "def": "6",
+                "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "x": "0",
+                "width": "1",
+                "subclass": "leather_armor",
+                "name": "leather armor",
+                "y": "0",
+                "id": "819",
+                "class": "armor",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "trade": [],
+          "cloak": [],
+          "lhand": [],
+          "bank_magic": [],
+          "keyring": []
+        },
+        "money": 100,
+        "name": "qaplayera",
+        "xp": 0,
+        "statuses": [],
+        "atk": 10,
+        "attributes": {
+          "def": "10",
+          "release": "1.49",
+          "hp": "100",
+          "def_item": "6",
+          "#clientid": "822082710",
+          "type": "player",
+          "dir": "3",
+          "base_mana": "0",
+          "def_xp": "0",
+          "#db_id": "3",
+          "outfit": "0",
+          "atk": "10",
+          "base_hp": "100",
+          "id": "51",
+          "height": "1",
+          "karma": "0.0",
+          "visibility": "100",
+          "atk_xp": "0",
+          "level": "0",
+          "resistance": "100",
+          "mana": "0",
+          "x": "5",
+          "name": "qaplayera",
+          "xp": "0",
+          "width": "1",
+          "y": "10",
+          "zoneid": "int_semos_guard_house",
+          "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+          "atk_item": "6",
+          "age": "7"
+        },
+        "base_hp": 100
+      }
+    },
+    "dialogue_observations": [
+      {
+        "input": "bye",
+        "reads": 9,
+        "elapsed": 1.871008083995548,
+        "messages": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "bye",
+            "perception_timestamp": 4
+          }
+        ]
+      },
+      {
+        "input": "hi Hayunn Naratha",
+        "reads": 9,
+        "elapsed": 1.8687380410119658,
+        "messages": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "hi Hayunn Naratha",
+            "perception_timestamp": 10
+          }
+        ]
+      },
+      {
+        "input": "task",
+        "reads": 9,
+        "elapsed": 1.8735939589969348,
+        "messages": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "task",
+            "perception_timestamp": 16
+          }
+        ]
+      },
+      {
+        "input": "yes",
+        "reads": 9,
+        "elapsed": 1.8614747089886805,
+        "messages": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "yes",
+            "perception_timestamp": 22
+          }
+        ]
+      }
+    ],
+    "npc_dialogue": [
+      {
+        "name": "qaplayera",
+        "type": "player",
+        "text": "bye",
+        "perception_timestamp": 4
+      },
+      {
+        "name": "qaplayera",
+        "type": "player",
+        "text": "hi Hayunn Naratha",
+        "perception_timestamp": 10
+      },
+      {
+        "name": "qaplayera",
+        "type": "player",
+        "text": "task",
+        "perception_timestamp": 16
+      },
+      {
+        "name": "qaplayera",
+        "type": "player",
+        "text": "yes",
+        "perception_timestamp": 22
+      }
+    ],
+    "restoration": {
+      "snapshot_id": "5fddcce8-cc57-4285-b0bd-be4fa1aeba73",
+      "before": {
+        "karma": 0.0,
+        "item_counter_cache": {
+          "mined": {},
+          "sold": {},
+          "sown": {},
+          "bought": {
+            "cheese": 14
+          },
+          "obtained": {},
+          "looted": {},
+          "harvested": {},
+          "produced": {}
+        },
+        "def": 10,
+        "quests": {
+          "meet_hayunn": "done",
+          "beer_hayunn": "start"
+        },
+        "level": 0,
+        "atk_xp": 0,
+        "hp": 100,
+        "inventory": [
+          {
+            "quantity": 100,
+            "name": "money",
+            "slot": "bag"
+          },
+          {
+            "quantity": 1,
+            "name": "club",
+            "slot": "rhand"
+          },
+          {
+            "quantity": 1,
+            "name": "leather armor",
+            "slot": "armor"
+          }
+        ],
+        "commerce": {
+          "npc_purchases": {},
+          "npc_sales": {},
+          "looted_items": {
+            "bought.cheese": "14"
+          }
+        },
+        "keyed": {
+          "skills": {},
+          "!kills": {},
+          "!visited": {
+            "int_semos_tavern_0": "1790942298137",
+            "int_semos_guard_house": "1790978618486"
+          },
+          "!tutorial": {
+            "visit_semos_tavern": "1",
+            "timed_help": "1",
+            "first_login": "1"
+          }
+        },
+        "def_xp": 0,
+        "slots": {
+          "bank_kirdneh": [],
+          "feet": [],
+          "bag": [
+            {
+              "slots": {},
+              "name": "money",
+              "attributes": {
+                "quantity": "100",
+                "visibility": "100",
+                "description": "",
+                "type": "item",
+                "resistance": "0",
+                "x": "0",
+                "width": "1",
+                "subclass": "gold",
+                "name": "money",
+                "y": "0",
+                "id": "820",
+                "class": "money",
+                "height": "1"
+              }
+            }
+          ],
+          "bank_deniran": [],
+          "!ignore": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "5"
+              }
+            }
+          ],
+          "skills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "7"
+              }
+            }
+          ],
+          "head": [],
+          "bank_nalwor": [],
+          "bank": [],
+          "!quests": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "meet_hayunn": "done",
+                "beer_hayunn": "start",
+                "id": "2"
+              }
+            }
+          ],
+          "rhand": [
+            {
+              "slots": {},
+              "name": "club",
+              "attributes": {
+                "visibility": "100",
+                "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "rate": "4",
+                "x": "0",
+                "width": "1",
+                "subclass": "club",
+                "name": "club",
+                "y": "0",
+                "atk": "6",
+                "id": "818",
+                "class": "club",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "legs": [],
+          "bank_ados": [],
+          "bank_fado": [],
+          "spells": [],
+          "finger": [],
+          "pouch": [],
+          "!tutorial": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "id": "8",
+                "first_login": "1"
+              }
+            }
+          ],
+          "zaras_chest_ados": [],
+          "!kills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "816"
+              }
+            }
+          ],
+          "!visited": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "int_semos_tavern_0": "1790942298137",
+                "id": "817",
+                "int_semos_guard_house": "1790978618486"
+              }
+            }
+          ],
+          "armor": [
+            {
+              "slots": {},
+              "name": "leather armor",
+              "attributes": {
+                "visibility": "100",
+                "def": "6",
+                "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "x": "0",
+                "width": "1",
+                "subclass": "leather_armor",
+                "name": "leather armor",
+                "y": "0",
+                "id": "819",
+                "class": "armor",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "trade": [],
+          "cloak": [],
+          "lhand": [],
+          "bank_magic": [],
+          "keyring": []
+        },
+        "money": 100,
+        "name": "qaplayera",
+        "xp": 0,
+        "statuses": [],
+        "atk": 10,
+        "attributes": {
+          "def": "10",
+          "release": "1.49",
+          "hp": "100",
+          "def_item": "6",
+          "#clientid": "822082710",
+          "type": "player",
+          "dir": "3",
+          "base_mana": "0",
+          "def_xp": "0",
+          "#db_id": "3",
+          "outfit": "0",
+          "atk": "10",
+          "base_hp": "100",
+          "id": "51",
+          "height": "1",
+          "karma": "0.0",
+          "visibility": "100",
+          "atk_xp": "0",
+          "level": "0",
+          "resistance": "100",
+          "mana": "0",
+          "x": "5",
+          "name": "qaplayera",
+          "xp": "0",
+          "width": "1",
+          "y": "10",
+          "zoneid": "int_semos_guard_house",
+          "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+          "atk_item": "6",
+          "age": "8"
+        },
+        "base_hp": 100
+      },
+      "location_adjusted": false,
+      "name": "qaplayera",
+      "restored": true,
+      "location": {
+        "actual": {
+          "zone": "int_semos_guard_house",
+          "x": 7,
+          "y": 12
+        },
+        "reason": "Exact original position restored",
+        "requested": {
+          "zone": "int_semos_guard_house",
+          "x": 7,
+          "y": 12
+        },
+        "max_manhattan_distance": 1,
+        "location_adjusted": false
+      },
+      "after": {
+        "karma": 10.0,
+        "item_counter_cache": {
+          "mined": {},
+          "sold": {},
+          "sown": {},
+          "bought": {
+            "cheese": 14
+          },
+          "obtained": {},
+          "looted": {},
+          "harvested": {},
+          "produced": {}
+        },
+        "def": 10,
+        "quests": {},
+        "level": 0,
+        "atk_xp": 0,
+        "hp": 100,
+        "inventory": [
+          {
+            "quantity": 1,
+            "name": "club",
+            "slot": "rhand"
+          },
+          {
+            "quantity": 1,
+            "name": "leather armor",
+            "slot": "armor"
+          }
+        ],
+        "commerce": {
+          "npc_purchases": {},
+          "npc_sales": {},
+          "looted_items": {
+            "bought.cheese": "14"
+          }
+        },
+        "keyed": {
+          "skills": {},
+          "!kills": {},
+          "!visited": {
+            "int_semos_tavern_0": "1790942298137",
+            "int_semos_guard_house": "1790978618486"
+          },
+          "!tutorial": {
+            "visit_semos_tavern": "1",
+            "timed_help": "1",
+            "first_login": "1"
+          }
+        },
+        "def_xp": 0,
+        "slots": {
+          "bank_kirdneh": [],
+          "feet": [],
+          "bag": [],
+          "bank_deniran": [],
+          "!ignore": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "5"
+              }
+            }
+          ],
+          "skills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "7"
+              }
+            }
+          ],
+          "head": [],
+          "bank_nalwor": [],
+          "bank": [],
+          "!quests": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "2"
+              }
+            }
+          ],
+          "rhand": [
+            {
+              "slots": {},
+              "name": "club",
+              "attributes": {
+                "visibility": "100",
+                "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "rate": "4",
+                "x": "0",
+                "width": "1",
+                "subclass": "club",
+                "name": "club",
+                "y": "0",
+                "atk": "6",
+                "id": "821",
+                "class": "club",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "legs": [],
+          "bank_ados": [],
+          "bank_fado": [],
+          "spells": [],
+          "finger": [],
+          "pouch": [],
+          "!tutorial": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "id": "8",
+                "first_login": "1"
+              }
+            }
+          ],
+          "zaras_chest_ados": [],
+          "!kills": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "id": "816"
+              }
+            }
+          ],
+          "!visited": [
+            {
+              "slots": {},
+              "name": null,
+              "attributes": {
+                "int_semos_tavern_0": "1790942298137",
+                "id": "817",
+                "int_semos_guard_house": "1790978618486"
+              }
+            }
+          ],
+          "armor": [
+            {
+              "slots": {},
+              "name": "leather armor",
+              "attributes": {
+                "visibility": "100",
+                "def": "6",
+                "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                "type": "item",
+                "resistance": "0",
+                "undroppableondeath": "1",
+                "x": "0",
+                "width": "1",
+                "subclass": "leather_armor",
+                "name": "leather armor",
+                "y": "0",
+                "id": "822",
+                "class": "armor",
+                "min_level": "0",
+                "height": "1"
+              }
+            }
+          ],
+          "trade": [],
+          "cloak": [],
+          "lhand": [],
+          "bank_magic": [],
+          "keyring": []
+        },
+        "money": 0,
+        "name": "qaplayera",
+        "xp": 0,
+        "statuses": [],
+        "atk": 10,
+        "attributes": {
+          "def": "10",
+          "release": "1.49",
+          "hp": "100",
+          "def_item": "6",
+          "#clientid": "822082710",
+          "type": "player",
+          "dir": "3",
+          "base_mana": "0",
+          "def_xp": "0",
+          "#db_id": "3",
+          "outfit": "0",
+          "atk": "10",
+          "base_hp": "100",
+          "id": "51",
+          "height": "1",
+          "karma": "10.0",
+          "visibility": "100",
+          "atk_xp": "0",
+          "level": "0",
+          "resistance": "100",
+          "mana": "0",
+          "x": "7",
+          "name": "qaplayera",
+          "xp": "0",
+          "width": "1",
+          "y": "12",
+          "zoneid": "int_semos_guard_house",
+          "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+          "atk_item": "6",
+          "age": "8"
+        },
+        "base_hp": 100
+      },
+      "restored_fields": [
+        "bag",
+        "equipment",
+        "quests",
+        "xp",
+        "hp",
+        "level",
+        "base_hp",
+        "karma",
+        "location",
+        "npc_purchases",
+        "npc_sales",
+        "looted_items",
+        "item_counter_cache",
+        "atk_xp",
+        "def_xp",
+        "atk",
+        "def",
+        "!kills",
+        "!tutorial",
+        "!visited",
+        "skills"
+      ]
+    },
+    "interface_messages": [
+      {
+        "direction": "request",
+        "time": 1790978618.6966689,
+        "id": 1,
+        "op": "connect",
+        "args": {
+          "host": "127.0.0.1",
+          "port": 32160
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978618.817893,
+        "id": 1,
+        "ok": true,
+        "result": {
+          "connected": true,
+          "host": "127.0.0.1",
+          "port": 32160
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978618.81795,
+        "id": 2,
+        "op": "login",
+        "args": {
+          "username": "qaobserver",
+          "password": "[redacted]",
+          "character": "qaobserver"
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978619.3206022,
+        "id": 2,
+        "ok": true,
+        "result": {
+          "characters": [
+            "qaobserver"
+          ],
+          "character": "qaobserver",
+          "selected": true
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978619.3227499,
+        "id": 3,
+        "op": "prepare",
+        "args": {
+          "target": "qaplayera",
+          "money": 100,
+          "items": {
+            "beer": 0
+          },
+          "quests": {
+            "beer_hayunn": "start",
+            "meet_hayunn": "done"
+          },
+          "xp": 0,
+          "karma": 0,
+          "near_npc": "Hayunn Naratha"
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978619.6160011,
+        "id": 3,
+        "ok": true,
+        "result": {
+          "npc": {
+            "zone": "int_semos_guard_house",
+            "name": "Hayunn Naratha",
+            "x": 6,
+            "y": 10
+          },
+          "snapshot_id": "5fddcce8-cc57-4285-b0bd-be4fa1aeba73",
+          "before": {
+            "karma": 10.0,
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {},
+            "level": 0,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1790978618486"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "818",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "816"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "817",
+                    "int_semos_guard_house": "1790978618486"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "819",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "money": 0,
+            "name": "qaplayera",
+            "xp": 0,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "822082710",
+              "type": "player",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "100",
+              "id": "51",
+              "height": "1",
+              "karma": "10.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "0",
+              "resistance": "100",
+              "mana": "0",
+              "x": "7",
+              "name": "qaplayera",
+              "xp": "0",
+              "width": "1",
+              "y": "12",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "7"
+            },
+            "base_hp": 100
+          },
+          "name": "qaplayera",
+          "restorable_fields": [
+            "bag",
+            "equipment",
+            "quests",
+            "xp",
+            "hp",
+            "level",
+            "base_hp",
+            "karma",
+            "location",
+            "npc_purchases",
+            "npc_sales",
+            "looted_items",
+            "item_counter_cache",
+            "atk_xp",
+            "def_xp",
+            "atk",
+            "def",
+            "!kills",
+            "!tutorial",
+            "!visited",
+            "skills"
+          ],
+          "after": {
+            "karma": 0.0,
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {
+              "meet_hayunn": "done",
+              "beer_hayunn": "start"
+            },
+            "level": 0,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 100,
+                "name": "money",
+                "slot": "bag"
+              },
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1790978618486"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [
+                {
+                  "slots": {},
+                  "name": "money",
+                  "attributes": {
+                    "quantity": "100",
+                    "visibility": "100",
+                    "description": "",
+                    "type": "item",
+                    "resistance": "0",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "gold",
+                    "name": "money",
+                    "y": "0",
+                    "id": "820",
+                    "class": "money",
+                    "height": "1"
+                  }
+                }
+              ],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "meet_hayunn": "done",
+                    "beer_hayunn": "start",
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "818",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "816"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "817",
+                    "int_semos_guard_house": "1790978618486"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "819",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "money": 100,
+            "name": "qaplayera",
+            "xp": 0,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "822082710",
+              "type": "player",
+              "dir": "3",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "100",
+              "id": "51",
+              "height": "1",
+              "karma": "0.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "0",
+              "resistance": "100",
+              "mana": "0",
+              "x": "5",
+              "name": "qaplayera",
+              "xp": "0",
+              "width": "1",
+              "y": "10",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "7"
+            },
+            "base_hp": 100
+          }
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978627.257287,
+        "id": 4,
+        "op": "inspect",
+        "args": {
+          "target": "qaplayera"
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978627.334823,
+        "id": 4,
+        "ok": true,
+        "result": {
+          "karma": 0.0,
+          "item_counter_cache": {
+            "mined": {},
+            "sold": {},
+            "sown": {},
+            "bought": {
+              "cheese": 14
+            },
+            "obtained": {},
+            "looted": {},
+            "harvested": {},
+            "produced": {}
+          },
+          "def": 10,
+          "quests": {
+            "meet_hayunn": "done",
+            "beer_hayunn": "start"
+          },
+          "level": 0,
+          "atk_xp": 0,
+          "hp": 100,
+          "inventory": [
+            {
+              "quantity": 100,
+              "name": "money",
+              "slot": "bag"
+            },
+            {
+              "quantity": 1,
+              "name": "club",
+              "slot": "rhand"
+            },
+            {
+              "quantity": 1,
+              "name": "leather armor",
+              "slot": "armor"
+            }
+          ],
+          "commerce": {
+            "npc_purchases": {},
+            "npc_sales": {},
+            "looted_items": {
+              "bought.cheese": "14"
+            }
+          },
+          "keyed": {
+            "skills": {},
+            "!kills": {},
+            "!visited": {
+              "int_semos_tavern_0": "1790942298137",
+              "int_semos_guard_house": "1790978618486"
+            },
+            "!tutorial": {
+              "visit_semos_tavern": "1",
+              "timed_help": "1",
+              "first_login": "1"
+            }
+          },
+          "def_xp": 0,
+          "slots": {
+            "bank_kirdneh": [],
+            "feet": [],
+            "bag": [
+              {
+                "slots": {},
+                "name": "money",
+                "attributes": {
+                  "quantity": "100",
+                  "visibility": "100",
+                  "description": "",
+                  "type": "item",
+                  "resistance": "0",
+                  "x": "0",
+                  "width": "1",
+                  "subclass": "gold",
+                  "name": "money",
+                  "y": "0",
+                  "id": "820",
+                  "class": "money",
+                  "height": "1"
+                }
+              }
+            ],
+            "bank_deniran": [],
+            "!ignore": [
+              {
+                "slots": {},
+                "name": null,
+                "attributes": {
+                  "id": "5"
+                }
+              }
+            ],
+            "skills": [
+              {
+                "slots": {},
+                "name": null,
+                "attributes": {
+                  "id": "7"
+                }
+              }
+            ],
+            "head": [],
+            "bank_nalwor": [],
+            "bank": [],
+            "!quests": [
+              {
+                "slots": {},
+                "name": null,
+                "attributes": {
+                  "meet_hayunn": "done",
+                  "beer_hayunn": "start",
+                  "id": "2"
+                }
+              }
+            ],
+            "rhand": [
+              {
+                "slots": {},
+                "name": "club",
+                "attributes": {
+                  "visibility": "100",
+                  "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                  "type": "item",
+                  "resistance": "0",
+                  "undroppableondeath": "1",
+                  "rate": "4",
+                  "x": "0",
+                  "width": "1",
+                  "subclass": "club",
+                  "name": "club",
+                  "y": "0",
+                  "atk": "6",
+                  "id": "818",
+                  "class": "club",
+                  "min_level": "0",
+                  "height": "1"
+                }
+              }
+            ],
+            "legs": [],
+            "bank_ados": [],
+            "bank_fado": [],
+            "spells": [],
+            "finger": [],
+            "pouch": [],
+            "!tutorial": [
+              {
+                "slots": {},
+                "name": null,
+                "attributes": {
+                  "visit_semos_tavern": "1",
+                  "timed_help": "1",
+                  "id": "8",
+                  "first_login": "1"
+                }
+              }
+            ],
+            "zaras_chest_ados": [],
+            "!kills": [
+              {
+                "slots": {},
+                "name": null,
+                "attributes": {
+                  "id": "816"
+                }
+              }
+            ],
+            "!visited": [
+              {
+                "slots": {},
+                "name": null,
+                "attributes": {
+                  "int_semos_tavern_0": "1790942298137",
+                  "id": "817",
+                  "int_semos_guard_house": "1790978618486"
+                }
+              }
+            ],
+            "armor": [
+              {
+                "slots": {},
+                "name": "leather armor",
+                "attributes": {
+                  "visibility": "100",
+                  "def": "6",
+                  "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                  "type": "item",
+                  "resistance": "0",
+                  "undroppableondeath": "1",
+                  "x": "0",
+                  "width": "1",
+                  "subclass": "leather_armor",
+                  "name": "leather armor",
+                  "y": "0",
+                  "id": "819",
+                  "class": "armor",
+                  "min_level": "0",
+                  "height": "1"
+                }
+              }
+            ],
+            "trade": [],
+            "cloak": [],
+            "lhand": [],
+            "bank_magic": [],
+            "keyring": []
+          },
+          "money": 100,
+          "name": "qaplayera",
+          "xp": 0,
+          "statuses": [],
+          "atk": 10,
+          "attributes": {
+            "def": "10",
+            "release": "1.49",
+            "hp": "100",
+            "def_item": "6",
+            "#clientid": "822082710",
+            "type": "player",
+            "dir": "3",
+            "base_mana": "0",
+            "def_xp": "0",
+            "#db_id": "3",
+            "outfit": "0",
+            "atk": "10",
+            "base_hp": "100",
+            "id": "51",
+            "height": "1",
+            "karma": "0.0",
+            "visibility": "100",
+            "atk_xp": "0",
+            "level": "0",
+            "resistance": "100",
+            "mana": "0",
+            "x": "5",
+            "name": "qaplayera",
+            "xp": "0",
+            "width": "1",
+            "y": "10",
+            "zoneid": "int_semos_guard_house",
+            "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+            "atk_item": "6",
+            "age": "8"
+          },
+          "base_hp": 100
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978627.376889,
+        "id": 5,
+        "op": "restore",
+        "args": {
+          "target": "qaplayera",
+          "snapshot_id": "5fddcce8-cc57-4285-b0bd-be4fa1aeba73"
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978627.64099,
+        "id": 5,
+        "ok": true,
+        "result": {
+          "snapshot_id": "5fddcce8-cc57-4285-b0bd-be4fa1aeba73",
+          "before": {
+            "karma": 0.0,
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {
+              "meet_hayunn": "done",
+              "beer_hayunn": "start"
+            },
+            "level": 0,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 100,
+                "name": "money",
+                "slot": "bag"
+              },
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1790978618486"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [
+                {
+                  "slots": {},
+                  "name": "money",
+                  "attributes": {
+                    "quantity": "100",
+                    "visibility": "100",
+                    "description": "",
+                    "type": "item",
+                    "resistance": "0",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "gold",
+                    "name": "money",
+                    "y": "0",
+                    "id": "820",
+                    "class": "money",
+                    "height": "1"
+                  }
+                }
+              ],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "meet_hayunn": "done",
+                    "beer_hayunn": "start",
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "818",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "816"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "817",
+                    "int_semos_guard_house": "1790978618486"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "819",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "money": 100,
+            "name": "qaplayera",
+            "xp": 0,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "822082710",
+              "type": "player",
+              "dir": "3",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "100",
+              "id": "51",
+              "height": "1",
+              "karma": "0.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "0",
+              "resistance": "100",
+              "mana": "0",
+              "x": "5",
+              "name": "qaplayera",
+              "xp": "0",
+              "width": "1",
+              "y": "10",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "8"
+            },
+            "base_hp": 100
+          },
+          "location_adjusted": false,
+          "name": "qaplayera",
+          "restored": true,
+          "location": {
+            "actual": {
+              "zone": "int_semos_guard_house",
+              "x": 7,
+              "y": 12
+            },
+            "reason": "Exact original position restored",
+            "requested": {
+              "zone": "int_semos_guard_house",
+              "x": 7,
+              "y": 12
+            },
+            "max_manhattan_distance": 1,
+            "location_adjusted": false
+          },
+          "after": {
+            "karma": 10.0,
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {},
+            "level": 0,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1790978618486"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "821",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "816"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "817",
+                    "int_semos_guard_house": "1790978618486"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "822",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "money": 0,
+            "name": "qaplayera",
+            "xp": 0,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "822082710",
+              "type": "player",
+              "dir": "3",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "100",
+              "id": "51",
+              "height": "1",
+              "karma": "10.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "0",
+              "resistance": "100",
+              "mana": "0",
+              "x": "7",
+              "name": "qaplayera",
+              "xp": "0",
+              "width": "1",
+              "y": "12",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "8"
+            },
+            "base_hp": 100
+          },
+          "restored_fields": [
+            "bag",
+            "equipment",
+            "quests",
+            "xp",
+            "hp",
+            "level",
+            "base_hp",
+            "karma",
+            "location",
+            "npc_purchases",
+            "npc_sales",
+            "looted_items",
+            "item_counter_cache",
+            "atk_xp",
+            "def_xp",
+            "atk",
+            "def",
+            "!kills",
+            "!tutorial",
+            "!visited",
+            "skills"
+          ]
+        }
+      }
+    ],
+    "bridge_stderr": [
+      "Cannot find log4j.properties in classpath. Using default properties.",
+      "Server info: [1.41.5, https://sourceforge.net/tracker/?atid=514826&group_id=66537&func=browse, stendhal Marauroa server, stendhal]"
+    ],
+    "player_interface_messages": [
+      {
+        "direction": "request",
+        "time": 1790978618.232108,
+        "id": 1,
+        "op": "connect",
+        "args": {
+          "host": "127.0.0.1",
+          "port": 32160
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978618.342138,
+        "id": 1,
+        "ok": true,
+        "result": {
+          "connected": true,
+          "host": "127.0.0.1",
+          "port": 32160
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978618.342217,
+        "id": 2,
+        "op": "login",
+        "args": {
+          "username": "qaplayera",
+          "password": "[redacted]",
+          "character": "qaplayera"
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978618.692731,
+        "id": 2,
+        "ok": true,
+        "result": {
+          "characters": [
+            "qaplayera"
+          ],
+          "character": "qaplayera",
+          "selected": true
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978619.622624,
+        "id": 3,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978619.6229172,
+        "id": 3,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978619.622932,
+        "id": 4,
+        "op": "send_action",
+        "args": {
+          "action": {
+            "type": "chat",
+            "text": "bye"
+          }
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978619.7784781,
+        "id": 4,
+        "ok": true,
+        "result": {
+          "sent": true,
+          "note": "Queued by SDK; verify server state separately"
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978620.387768,
+        "id": 5,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978620.388957,
+        "id": 5,
+        "ok": true,
+        "result": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "bye",
+            "perception_timestamp": 4
+          }
+        ]
+      },
+      {
+        "direction": "request",
+        "time": 1790978620.549264,
+        "id": 6,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978620.5503192,
+        "id": 6,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978620.710471,
+        "id": 7,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978620.712013,
+        "id": 7,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978620.866513,
+        "id": 8,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978620.867587,
+        "id": 8,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978621.024647,
+        "id": 9,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978621.026098,
+        "id": 9,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978621.183727,
+        "id": 10,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978621.1850638,
+        "id": 10,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978621.3413608,
+        "id": 11,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978621.342714,
+        "id": 11,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978621.4940832,
+        "id": 12,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978621.49526,
+        "id": 12,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978621.648103,
+        "id": 13,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978621.6494908,
+        "id": 13,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978621.649544,
+        "id": 14,
+        "op": "send_action",
+        "args": {
+          "action": {
+            "type": "chat",
+            "text": "hi Hayunn Naratha"
+          }
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978621.65118,
+        "id": 14,
+        "ok": true,
+        "result": {
+          "sent": true,
+          "note": "Queued by SDK; verify server state separately"
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978622.258021,
+        "id": 15,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978622.2597198,
+        "id": 15,
+        "ok": true,
+        "result": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "hi Hayunn Naratha",
+            "perception_timestamp": 10
+          }
+        ]
+      },
+      {
+        "direction": "request",
+        "time": 1790978622.418187,
+        "id": 16,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978622.420054,
+        "id": 16,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978622.578559,
+        "id": 17,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978622.579864,
+        "id": 17,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978622.738081,
+        "id": 18,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978622.7395132,
+        "id": 18,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978622.894191,
+        "id": 19,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978622.895357,
+        "id": 19,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978623.0467682,
+        "id": 20,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978623.048168,
+        "id": 20,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978623.2038112,
+        "id": 21,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978623.20499,
+        "id": 21,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978623.365073,
+        "id": 22,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978623.366368,
+        "id": 22,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978623.519386,
+        "id": 23,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978623.5200572,
+        "id": 23,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978623.520088,
+        "id": 24,
+        "op": "send_action",
+        "args": {
+          "action": {
+            "type": "chat",
+            "text": "task"
+          }
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978623.520926,
+        "id": 24,
+        "ok": true,
+        "result": {
+          "sent": true,
+          "note": "Queued by SDK; verify server state separately"
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978624.1310642,
+        "id": 25,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978624.131932,
+        "id": 25,
+        "ok": true,
+        "result": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "task",
+            "perception_timestamp": 16
+          }
+        ]
+      },
+      {
+        "direction": "request",
+        "time": 1790978624.291313,
+        "id": 26,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978624.292264,
+        "id": 26,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978624.448171,
+        "id": 27,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978624.449136,
+        "id": 27,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978624.607986,
+        "id": 28,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978624.609073,
+        "id": 28,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978624.765684,
+        "id": 29,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978624.766277,
+        "id": 29,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978624.9263518,
+        "id": 30,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978624.927443,
+        "id": 30,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978625.079117,
+        "id": 31,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978625.080487,
+        "id": 31,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978625.236038,
+        "id": 32,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978625.237296,
+        "id": 32,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978625.393427,
+        "id": 33,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978625.3945699,
+        "id": 33,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978625.394618,
+        "id": 34,
+        "op": "send_action",
+        "args": {
+          "action": {
+            "type": "chat",
+            "text": "yes"
+          }
+        }
+      },
+      {
+        "direction": "response",
+        "time": 1790978625.3956711,
+        "id": 34,
+        "ok": true,
+        "result": {
+          "sent": true,
+          "note": "Queued by SDK; verify server state separately"
+        }
+      },
+      {
+        "direction": "request",
+        "time": 1790978626.0033941,
+        "id": 35,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978626.0047581,
+        "id": 35,
+        "ok": true,
+        "result": [
+          {
+            "name": "qaplayera",
+            "type": "player",
+            "text": "yes",
+            "perception_timestamp": 22
+          }
+        ]
+      },
+      {
+        "direction": "request",
+        "time": 1790978626.1579342,
+        "id": 36,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978626.159036,
+        "id": 36,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978626.3149178,
+        "id": 37,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978626.316225,
+        "id": 37,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978626.4747121,
+        "id": 38,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978626.476015,
+        "id": 38,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978626.627079,
+        "id": 39,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978626.6282392,
+        "id": 39,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978626.7810261,
+        "id": 40,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978626.782489,
+        "id": 40,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978626.941356,
+        "id": 41,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978626.9427001,
+        "id": 41,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978627.0956092,
+        "id": 42,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978627.096889,
+        "id": 42,
+        "ok": true,
+        "result": []
+      },
+      {
+        "direction": "request",
+        "time": 1790978627.256045,
+        "id": 43,
+        "op": "get_chat_messages",
+        "args": {}
+      },
+      {
+        "direction": "response",
+        "time": 1790978627.2572002,
+        "id": 43,
+        "ok": true,
+        "result": []
+      }
+    ],
+    "player_bridge_stderr": [
+      "Cannot find log4j.properties in classpath. Using default properties.",
+      "Server info: [1.41.5, https://sourceforge.net/tracker/?atid=514826&group_id=66537&func=browse, stendhal Marauroa server, stendhal]"
+    ]
+  },
+  "started": 1790978618.230144,
+  "phases": {
+    "setup": "passed",
+    "call": "failed",
+    "call_detail": "qa = <gameqa.evidence.Evidence object at 0x101ee09e0>\napi_player = <gameqa.stendhal.Stendhal object at 0x101ee37a0>\nobserver = <gameqa.stendhal.Stendhal object at 0x101f4ba40>\nprepare = <function prepare.<locals>.start at 0x101eba840>\n\n    @pytest.mark.case(id=\"ST-QUEST-API-003\", game=\"stendhal\", module=\"quest\", kind=\"api\")\n    def test_missing_beer_keeps_active_quest_without_rewards(qa, api_player, observer, prepare):\n        before = prepare(money=100, items={\"beer\": 0},\n                         quests={\"beer_hayunn\": \"start\", \"meet_hayunn\": \"done\"},\n                         xp=0, karma=0, near_npc=NPC)\n        messages = dialogue(api_player, \"bye\", \"hi Hayunn Naratha\", \"task\", \"yes\")\n        after = observer.inspect()\n>       qa.check(\"NPC实际提醒仍需beer\", npc_said(messages, \"I'm still waiting for that beer\"), True, BEER + \"; \" + OFFER)\n\ncases/test_stendhal_quest_edges.py:47: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <gameqa.evidence.Evidence object at 0x101ee09e0>, title = 'NPC实际提醒仍需beer'\nactual = False, expected = True\nsource = 'https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/maps/ques...b/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/npc/quest/QuestOfferBuilder.java#L194-L259'\n\n    def check(self, title, actual, expected, source):\n        if not source:\n            raise ValueError(\"business assertion needs a rule source\")\n        passed = actual == expected\n        self.data[\"steps\"].append({\"title\": title, \"expected\": redact(expected),\n                                   \"actual\": redact(actual), \"source\": source,\n                                   \"outcome\": \"passed\" if passed else \"failed\"})\n        if not passed:\n>           raise AssertionError(f\"{title}: expected={expected!r}, actual={actual!r}; source={source}\")\nE           AssertionError: NPC实际提醒仍需beer: expected=True, actual=False; source=https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/maps/quests/BeerForHayunn.java#L77-L97; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/npc/quest/QuestOfferBuilder.java#L194-L259\n\nsrc/gameqa/evidence.py:25: AssertionError",
+    "teardown": "passed"
+  },
+  "finished": 1790978628.609517
+}

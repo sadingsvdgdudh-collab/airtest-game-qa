@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/mopsicus/shardy-tictactoe",
+  "commit": "ed8e978917cbe5aba79009928e8c3b92a34b81cc",
+  "business_source_modified": false,
+  "shardy_dependency": "1.2.0",
+  "backend": "ws://127.0.0.1:3000",
+  "test_client": "two real official Shardy Bot clients via shared gameqa.bridge",
+  "business_source_sha256": {
+    "src/Game.ts": "1fb0198d9c7ff524e3cb7e5b886423ffb7cb5f98c8e6a031c8deeb8bf1a24b1c",
+    "src/T3Service.ts": "1818eb8583644d30107c153074638173f83f58c2aa900e46233f4b6d95d3f061",
+    "src/commands/turn.ts": "7dc495f6f5a475138d5be0b8d8e9be23fbf7d75dc633be5995e4157f5fb51e3a",
+    "src/commands/exit.ts": "5397a81d4f9ea86bf6fc7005da35c240e0574d940683dbc2e08789c671b85766",
+    "README.md": "3ad4b0dfe6e3a683abd20214acc4758b6089dfd648f9ea0b7a7b2974028d501b"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "pytest": "9.1.1",
+    "node": "24.19.0"
+  },
+  "copied_reports": [
+    "shardy-api-baseline",
+    "shardy-known-defects"
+  ],
+  "raw_reports_altered": false
+}

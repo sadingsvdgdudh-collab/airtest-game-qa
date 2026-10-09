@@ -1,0 +1,16 @@
+--- upstream/SellerBehaviour.java
++++ fault/SellerBehaviour.java
+@@ -105,6 +105,13 @@
+ 			price = (int) (BAD_BOY_BUYING_PENALTY * price);
+ 		}
+ 
++		// Controlled QA experiment: only the isolated test characters and cheese.
++		// Keep the configured quote unchanged so the business test detects the extra debit.
++		if ("cheese".equals(chosenItemName) && player.getName().matches("qaplayer[a-z]*")) {
++			price += 1;
++			logger.info("INJECTED_QA_DEFECT cheese_overcharge_one_gold for " + player.getName());
++		}
++
+ 		if (player.isEquipped("money", price)) {
+ 			if (player.equipToInventoryOnly(item)) {
+ 				player.drop("money", price);

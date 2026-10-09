@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shardy 测试展示客户端</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0c1424; color: #edf2fb; font: 16px system-ui, sans-serif; }
+  main { max-width: 440px; margin: auto; padding: 14px 18px; }
+  h1 { font-size: 23px; margin: 0 0 5px; }
+  .note { color: #9eaeca; font-size: 12px; margin: 0 0 17px; }
+  #status { border-left: 3px solid #55c9a1; padding: 8px 10px; background: #17233b; font-size: 14px; min-height: 36px; }
+  #scores { display: flex; justify-content: space-between; font-size: 14px; margin: 15px 0; }
+  #board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; width: min(100%, 250px); margin: 8px auto 12px; }
+  .cell { aspect-ratio: 1; border: 1px solid #344766; background: #1a2943; color: #7db9ff; font-size: 53px; font-weight: 700; border-radius: 10px; }
+  .cell.circle { color: #55c9a1; }
+  .actions { display: flex; gap: 8px; }
+  .actions button { flex: 1; border: 0; border-radius: 8px; background: #55c9a1; color: #092117; padding: 11px 5px; font-size: 15px; font-weight: 650; }
+  .actions button.secondary { background: #263852; color: #e6eefb; }
+  button:disabled { opacity: .5; }
+  #player { font-size: 13px; color: #b3c2db; margin: 13px 0 0; }
+</style>
+<main>
+  <h1>Shardy 井字棋</h1>
+  <p class="note">本项目编写的测试展示客户端 · 使用官方游戏服务端</p>
+  <div id="status" role="status">尚未连接</div>
+  <div id="scores"><span>玩家 X：<b id="score-x">0</b></span><span>玩家 O：<b id="score-o">0</b></span></div>
+  <div id="board" aria-label="井字棋棋盘"></div>
+  <div class="actions">
+    <button id="connect">连接</button>
+    <button id="start" disabled>开始匹配</button>
+    <button id="disconnect" class="secondary" disabled>断开</button>
+  </div>
+  <p id="player">等待连接</p>
+</main>
+<script>
+  // The official Shardy transport is a four-byte header followed by UTF-8 data.
+  const encoder = new TextEncoder(), decoder = new TextDecoder();
+  const initial = () => ({ connected: false, matched: false, game: null, player: null, turn: null, score: [0, 0], board: Array(9).fill(null) });
+  let ws, heartbeat, requestId = 0;
+  window.shardyState = initial();
+  window.shardyMessages = [];
+  const status = document.querySelector('#status');
+  const board = document.querySelector('#board');
+  for (let i = 0; i < 9; i++) {
+    const button = document.createElement('button');
+    button.id = `cell-${i}`; button.className = 'cell'; button.type = 'button';
+    button.setAttribute('aria-label', `第${Math.floor(i / 3) + 1}行第${i % 3 + 1}列`);
+    button.onclick = () => {
+      const state = window.shardyState;
+      if (state.connected && state.game && state.player === state.turn && state.board[i] === null) request('turn', { g: state.game, p: state.player, x: i % 3, y: Math.floor(i / 3) });
+    };
+    board.append(button);
+  }
+  function render() {
+    const state = window.shardyState;
+    state.board.forEach((value, index) => {
+      const cell = document.querySelector(`#cell-${index}`);
+      cell.textContent = value === 0 ? 'X' : value === 1 ? 'O' : '';
+      cell.classList.toggle('circle', value === 1);
+      cell.disabled = !state.connected || !state.game || state.player !== state.turn || value !== null;
+    });
+    document.querySelector('#score-x').textContent = state.score[0];
+    document.querySelector('#score-o').textContent = state.score[1];
+    document.querySelector('#connect').disabled = state.connected || (ws && ws.readyState === WebSocket.CONNECTING);
+    document.querySelector('#start').disabled = !state.connected || state.matched;
+    document.querySelector('#disconnect').disabled = !state.connected;
+    document.querySelector('#player').textContent = state.player === null ? '等待进入对局' : `你是 ${state.player === 0 ? 'X' : 'O'} · 当前轮到 ${state.turn === 0 ? 'X' : 'O'}`;
+  }
+  function block(type, body = new Uint8Array()) {
+    if (!ws || ws.readyState !== WebSocket.OPEN) throw new Error('连接尚未就绪');
+    const packet = new Uint8Array(body.length + 4);
+    packet[0] = type; packet[1] = body.length >> 16 & 255; packet[2] = body.length >> 8 & 255; packet[3] = body.length & 255;
+    packet.set(body, 4); ws.send(packet);
+  }
+  function request(name, data) {
+    block(3, encoder.encode(JSON.stringify({ type: 0, name, id: ++requestId, error: '', data: data === undefined ? '' : JSON.stringify(data) })));
+  }
+  document.querySelector('#connect').onclick = () => {
+    window.shardyState = initial(); window.shardyMessages = []; requestId = 0;
+    status.textContent = '正在连接…';
+    ws = new WebSocket(`ws://${location.hostname}:3000`); ws.binaryType = 'arraybuffer';
+    ws.onopen = () => block(0, encoder.encode('gameqa_web_client'));
+    ws.onerror = () => { status.textContent = '连接失败，请检查本地服务'; };
+    ws.onclose = () => { clearInterval(heartbeat); window.shardyState.connected = false; status.textContent = '连接已断开'; render(); };
+    ws.onmessage = event => {
+      try {
+        const packet = new Uint8Array(event.data);
+        if (packet.length < 4) throw new Error('收到不完整的数据');
+        const size = packet[1] * 65536 + packet[2] * 256 + packet[3];
+        if (size + 4 !== packet.length) throw new Error('数据长度不匹配');
+        const type = packet[0], body = packet.slice(4);
+        if (type === 1) {
+          block(1, body); window.shardyState.connected = true; status.textContent = '连接成功，可以开始匹配';
+          heartbeat = setInterval(() => { if (ws.readyState === WebSocket.OPEN) block(2); }, 1000);
+        } else if (type === 4) {
+          status.textContent = '服务端结束了连接'; ws.close();
+        } else if (type === 3) {
+          const payload = JSON.parse(decoder.decode(body));
+          const data = payload.data ? JSON.parse(payload.data) : null;
+          window.shardyMessages.push({ ...payload, data });
+          if (window.shardyMessages.length > 1000) window.shardyMessages.shift();
+          const state = window.shardyState;
+          if (payload.error) status.textContent = `请求失败：${payload.error}`;
+          if (payload.type === 1 && payload.name === 'play') { state.matched = true; status.textContent = '已匹配，等待回合开始'; }
+          if (payload.type === 1 && payload.name === 'round') {
+            Object.assign(state, { game: data.g, player: data.p, turn: data.t, score: data.s, board: Array(9).fill(null), matched: true });
+            status.textContent = '回合开始';
+          }
+          if (payload.type === 1 && payload.name === 'turn') { state.board[data.y * 3 + data.x] = data.t; state.turn = 1 - data.t; status.textContent = '落子已确认'; }
+          if (payload.type === 1 && payload.name === 'exit') { state.matched = false; state.game = null; status.textContent = '对方已离开'; }
+        }
+        render();
+      } catch (error) { status.textContent = `通信错误：${error.message}`; ws.close(); }
+    };
+    render();
+  };
+  document.querySelector('#start').onclick = () => { request('start'); status.textContent = '正在匹配对手…'; };
+  document.querySelector('#disconnect').onclick = () => ws.close();
+  render();
+</script>
+</html>

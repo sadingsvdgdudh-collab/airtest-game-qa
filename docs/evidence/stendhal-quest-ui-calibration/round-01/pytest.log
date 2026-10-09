@@ -1,0 +1,65 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa
+configfile: pyproject.toml
+collected 32 items / 31 deselected / 1 selected
+
+cases/test_stendhal_quest_ui.py E                                        [100%]
+
+==================================== ERRORS ====================================
+____ ERROR at setup of test_android_quest_rewards_log_growth_and_reconnect _____
+
+android = <gameqa.device.AndroidDevice object at 0x102eb9430>
+game_config = {'version': '1.49', 'bridge_command': ['sh', 'adapters/stendhal_bridge/run.sh'], 'bridge_cwd': '../outputs/airtest-game-qa', 'server_log': 'stendhal/runtime/log/server.log', ...}
+
+    @pytest.fixture
+    def stendhal_ui(android, game_config):
+        ui = StendhalUI(android, game_config)
+        try:
+>           ui.ensure_login()
+
+cases/conftest.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/gameqa/stendhal_ui.py:26: in ensure_login
+    self.android.locate_image(ASSETS / 'username-qaplayer.png', '登录前确认用户名已实际输入',
+src/gameqa/device.py:42: in locate_image
+    return self.evidence.observe(f"定位：{title}", locate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/gameqa/evidence.py:36: in observe
+    result = operation()
+             ^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def locate():
+        template = Template(str(Path(path)), threshold=threshold)
+        if region is None:
+            target = exists(template)
+        else:
+            x1, y1, x2, y2 = region
+            screen = self.device.snapshot()
+            target = template.match_in(screen[y1:y2, x1:x2])
+            if target:
+                target = (target[0] + x1, target[1] + y1)
+        self.evidence.data['diagnostics'].setdefault('visual_observations', []).append(
+            {'title': title, 'template': Path(path).name, 'region': region,
+             'threshold': threshold, 'matched': bool(target), 'position': target or None})
+        if not target:
+            self.screenshot(f"{title}：定位失败")
+>           raise TransientError(f"image not found: {path}")
+E           gameqa.bridge.TransientError: image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png
+
+src/gameqa/device.py:40: TransientError
+=============================== warnings summary ===============================
+cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect
+cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect
+  /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/python-env/lib/python3.12/site-packages/airtest/core/android/cap_methods/adbcap.py:10: UserWarning: Currently using ADB screenshots, the efficiency may be very low.
+    warnings.warn("Currently using ADB screenshots, the efficiency may be very low.")
+
+cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect
+  /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/python-env/lib/python3.12/site-packages/airtest/core/android/touch_methods/touch_proxy.py:82: UserWarning: Currently using ADB touch, the efficiency may be very low.
+    warnings.warn("Currently using ADB touch, the efficiency may be very low.")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+ERROR cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect
+================= 31 deselected, 3 warnings, 1 error in 12.65s =================

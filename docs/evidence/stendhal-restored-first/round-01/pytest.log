@@ -1,0 +1,46 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
+rootdir: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa
+configfile: pyproject.toml
+collected 17 items / 16 deselected / 1 selected
+
+cases/test_stendhal_api.py F                                             [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_buy_two_cheese ______________________________
+
+qa = <gameqa.evidence.Evidence object at 0x102d24620>
+api_player = <gameqa.stendhal.Stendhal object at 0x102d56960>
+observer = <gameqa.stendhal.Stendhal object at 0x102d26db0>
+prepare = <function prepare.<locals>.start at 0x102c649a0>
+
+    @pytest.mark.case(id="ST-SHOP-API-001", game="stendhal", module="shop", kind="api")
+    def test_buy_two_cheese(qa, api_player, observer, prepare):
+        before = prepare(money=100, items={"cheese": 0}, near_npc="Margaret")
+        qa.check("准备初始金币", before["money"], 100, "测试夹具：100 gold")
+        dialogue(api_player, "bye", "hi Margaret", "buy 2 cheese", "yes")
+        after = observer.await_state(lambda s: quantity(s, "cheese") == 2, "等待购买处理")
+>       qa.check("金币扣除2×20", after["money"], 60, SHOP)
+
+cases/test_stendhal_api.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <gameqa.evidence.Evidence object at 0x102d24620>, title = '金币扣除2×20'
+actual = 100, expected = 60
+source = 'https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/data/conf/shops/sell_items.xml#L6-L16 (Margaret: cheese=20, beer=10)'
+
+    def check(self, title, actual, expected, source):
+        if not source:
+            raise ValueError("business assertion needs a rule source")
+        passed = actual == expected
+        self.data["steps"].append({"title": title, "expected": redact(expected),
+                                   "actual": redact(actual), "source": source,
+                                   "outcome": "passed" if passed else "failed"})
+        if not passed:
+>           raise AssertionError(f"{title}: expected={expected!r}, actual={actual!r}; source={source}")
+E           AssertionError: 金币扣除2×20: expected=60, actual=100; source=https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/data/conf/shops/sell_items.xml#L6-L16 (Margaret: cheese=20, beer=10)
+
+src/gameqa/evidence.py:25: AssertionError
+=========================== short test summary info ============================
+FAILED cases/test_stendhal_api.py::test_buy_two_cheese - AssertionError: 金币...
+====================== 1 failed, 16 deselected in 11.21s =======================

@@ -1,0 +1,2333 @@
+{
+  "audit_time_utc": "2026-10-03T11:10:00.616995+00:00",
+  "complete": true,
+  "completed_rounds": [
+    "round-01",
+    "round-02",
+    "round-03",
+    "round-04",
+    "round-05"
+  ],
+  "counts": {
+    "business_image_replays": 75,
+    "menu_image_replays": 30,
+    "login_guard_image_replays": 20,
+    "fresh_refusal_absence_counterexamples": 5,
+    "weapon_bag_not_hand_counterexamples": 5,
+    "equipment_round_trips": 5,
+    "actual_slot_refusals": 5,
+    "cases": 10,
+    "steps": 670,
+    "observations": 260,
+    "assertions": 230,
+    "recorded_actions": 180,
+    "attachments": 255,
+    "screenshots": 245,
+    "restores": 10,
+    "wrong_hp_counterexamples": 30,
+    "wrong_potion_quantity_counterexamples": 10,
+    "remaining_potion_not_empty_counterexamples": 5,
+    "actual_drinks": 10,
+    "heal_and_cap_flows": 5
+  },
+  "source_files": 123,
+  "source_hashes_match": true,
+  "freeze_seconds_before_first_case": 0.22371411323547363,
+  "manifest_mtime_seconds_before_first_case": 0.19186067581176758,
+  "restoration_projection_matches": true,
+  "location_exact": true,
+  "serial_case_execution": true,
+  "observer_requests_exclude_business_actions": true,
+  "recorded_image_replays": [
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-10.png",
+      "label": "空手界面显示ATK10 x 0"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-14.png",
+      "label": "右手界面实际显示短剑"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "atk-sword.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "装备后界面显示ATK10 x 11"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-19.png",
+      "label": "背包界面实际显示返回的短剑"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "rhand-empty.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-20.png",
+      "label": "卸下后界面右手槽为空"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-21.png",
+      "label": "卸下后界面恢复ATK10 x 0"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-25.png",
+      "label": "本次错误槽操作出现原服拒绝提示"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-26.png",
+      "label": "拒绝后短剑仍显示在背包"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "feet-empty.png",
+      "threshold": 0.9,
+      "region": [
+        597,
+        313,
+        625,
+        341
+      ],
+      "screenshot": "screen-27.png",
+      "label": "拒绝后脚部槽仍为空"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-07.png",
+      "label": "长按道具打开菜单：club-icon"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-11.png",
+      "label": "长按道具打开菜单：short-sword-first"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "hold-rhand-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-16.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-22.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png",
+      "label": "开始时界面显示HP40/100"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png",
+      "label": "开始时背包显示两瓶药水"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png",
+      "label": "Drink后界面显示HP90/100"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png",
+      "label": "Drink后背包数量或空槽：剩1"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "Drink后界面显示HP100/100"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-16.png",
+      "label": "Drink后背包数量或空槽：剩0"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-09.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-13.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-10.png",
+      "label": "空手界面显示ATK10 x 0"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-14.png",
+      "label": "右手界面实际显示短剑"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "atk-sword.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "装备后界面显示ATK10 x 11"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-19.png",
+      "label": "背包界面实际显示返回的短剑"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "rhand-empty.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-20.png",
+      "label": "卸下后界面右手槽为空"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-21.png",
+      "label": "卸下后界面恢复ATK10 x 0"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-25.png",
+      "label": "本次错误槽操作出现原服拒绝提示"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-26.png",
+      "label": "拒绝后短剑仍显示在背包"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "feet-empty.png",
+      "threshold": 0.9,
+      "region": [
+        597,
+        313,
+        625,
+        341
+      ],
+      "screenshot": "screen-27.png",
+      "label": "拒绝后脚部槽仍为空"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-07.png",
+      "label": "长按道具打开菜单：club-icon"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-11.png",
+      "label": "长按道具打开菜单：short-sword-first"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "hold-rhand-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-16.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-22.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png",
+      "label": "开始时界面显示HP40/100"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png",
+      "label": "开始时背包显示两瓶药水"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png",
+      "label": "Drink后界面显示HP90/100"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png",
+      "label": "Drink后背包数量或空槽：剩1"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "Drink后界面显示HP100/100"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-16.png",
+      "label": "Drink后背包数量或空槽：剩0"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-09.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-13.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-10.png",
+      "label": "空手界面显示ATK10 x 0"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-14.png",
+      "label": "右手界面实际显示短剑"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "atk-sword.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "装备后界面显示ATK10 x 11"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-19.png",
+      "label": "背包界面实际显示返回的短剑"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "rhand-empty.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-20.png",
+      "label": "卸下后界面右手槽为空"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-21.png",
+      "label": "卸下后界面恢复ATK10 x 0"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-25.png",
+      "label": "本次错误槽操作出现原服拒绝提示"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-26.png",
+      "label": "拒绝后短剑仍显示在背包"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "feet-empty.png",
+      "threshold": 0.9,
+      "region": [
+        597,
+        313,
+        625,
+        341
+      ],
+      "screenshot": "screen-27.png",
+      "label": "拒绝后脚部槽仍为空"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-07.png",
+      "label": "长按道具打开菜单：club-icon"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-11.png",
+      "label": "长按道具打开菜单：short-sword-first"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "hold-rhand-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-16.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-22.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png",
+      "label": "开始时界面显示HP40/100"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png",
+      "label": "开始时背包显示两瓶药水"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png",
+      "label": "Drink后界面显示HP90/100"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png",
+      "label": "Drink后背包数量或空槽：剩1"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "Drink后界面显示HP100/100"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-16.png",
+      "label": "Drink后背包数量或空槽：剩0"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-09.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-13.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-10.png",
+      "label": "空手界面显示ATK10 x 0"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-14.png",
+      "label": "右手界面实际显示短剑"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "atk-sword.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "装备后界面显示ATK10 x 11"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-19.png",
+      "label": "背包界面实际显示返回的短剑"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "rhand-empty.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-20.png",
+      "label": "卸下后界面右手槽为空"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-21.png",
+      "label": "卸下后界面恢复ATK10 x 0"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-25.png",
+      "label": "本次错误槽操作出现原服拒绝提示"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-26.png",
+      "label": "拒绝后短剑仍显示在背包"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "feet-empty.png",
+      "threshold": 0.9,
+      "region": [
+        597,
+        313,
+        625,
+        341
+      ],
+      "screenshot": "screen-27.png",
+      "label": "拒绝后脚部槽仍为空"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-07.png",
+      "label": "长按道具打开菜单：club-icon"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-11.png",
+      "label": "长按道具打开菜单：short-sword-first"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "hold-rhand-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-16.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-22.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png",
+      "label": "开始时界面显示HP40/100"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png",
+      "label": "开始时背包显示两瓶药水"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png",
+      "label": "Drink后界面显示HP90/100"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png",
+      "label": "Drink后背包数量或空槽：剩1"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "Drink后界面显示HP100/100"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-16.png",
+      "label": "Drink后背包数量或空槽：剩0"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-09.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-13.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-10.png",
+      "label": "空手界面显示ATK10 x 0"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-14.png",
+      "label": "右手界面实际显示短剑"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "atk-sword.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "装备后界面显示ATK10 x 11"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-19.png",
+      "label": "背包界面实际显示返回的短剑"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "rhand-empty.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-20.png",
+      "label": "卸下后界面右手槽为空"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "atk-empty.png",
+      "threshold": 0.9,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-21.png",
+      "label": "卸下后界面恢复ATK10 x 0"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-25.png",
+      "label": "本次错误槽操作出现原服拒绝提示"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "short-sword-icon.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        343,
+        657,
+        461
+      ],
+      "screenshot": "screen-26.png",
+      "label": "拒绝后短剑仍显示在背包"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "feet-empty.png",
+      "threshold": 0.9,
+      "region": [
+        597,
+        313,
+        625,
+        341
+      ],
+      "screenshot": "screen-27.png",
+      "label": "拒绝后脚部槽仍为空"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-07.png",
+      "label": "长按道具打开菜单：club-icon"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-11.png",
+      "label": "长按道具打开菜单：short-sword-first"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "hold-rhand-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-16.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "hold-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-22.png",
+      "label": "长按道具打开菜单：short-sword-icon"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png",
+      "label": "开始时界面显示HP40/100"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png",
+      "label": "开始时背包显示两瓶药水"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png",
+      "label": "Drink后界面显示HP90/100"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png",
+      "label": "Drink后背包数量或空槽：剩1"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png",
+      "label": "Drink后界面显示HP100/100"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-16.png",
+      "label": "Drink后背包数量或空槽：剩0"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-09.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "drink-menu.png",
+      "threshold": 0.9,
+      "region": [
+        530,
+        220,
+        665,
+        570
+      ],
+      "screenshot": "screen-13.png",
+      "label": "长按道具打开菜单：minor-potion-icon"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "username-focused.png",
+      "threshold": 0.9,
+      "region": [
+        170,
+        255,
+        352,
+        285
+      ],
+      "screenshot": "screen-02.png",
+      "label": "聚焦用户名输入框"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "username-qaplayer.png",
+      "threshold": 0.9,
+      "region": [
+        175,
+        255,
+        347,
+        283
+      ],
+      "screenshot": "screen-03.png",
+      "label": "密码输入框"
+    }
+  ],
+  "recorded_image_counterexamples": [
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-21.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-001",
+      "template": "short-sword-first.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-10.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png"
+    },
+    {
+      "case": "round-01/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-21.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-001",
+      "template": "short-sword-first.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-10.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png"
+    },
+    {
+      "case": "round-02/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-21.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-001",
+      "template": "short-sword-first.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-10.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png"
+    },
+    {
+      "case": "round-03/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-21.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-001",
+      "template": "short-sword-first.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-10.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png"
+    },
+    {
+      "case": "round-04/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "feet-refusal.png",
+      "threshold": 0.9,
+      "region": [
+        100,
+        575,
+        565,
+        1220
+      ],
+      "screenshot": "screen-21.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-001",
+      "template": "short-sword-first.png",
+      "threshold": 0.9,
+      "region": [
+        568,
+        260,
+        596,
+        289
+      ],
+      "screenshot": "screen-10.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-40.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-90.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-15.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-07.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "hp-100.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "screenshot": "screen-11.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "potion-two.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "potion-one.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-08.png"
+    },
+    {
+      "case": "round-05/ST-BAG-UI-007",
+      "template": "bag-empty.png",
+      "threshold": 0.98,
+      "region": [
+        568,
+        343,
+        596,
+        372
+      ],
+      "screenshot": "screen-12.png"
+    }
+  ],
+  "archive_files": 287,
+  "archive_byte_identical": true,
+  "archive_path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/docs/evidence/stendhal-items-ui-final"
+}

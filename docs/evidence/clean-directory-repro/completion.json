@@ -1,0 +1,23 @@
+{
+  "verified_utc": "2026-10-03T06:50:54.339439+00:00",
+  "scope": "新工作目录及独立Python环境，复用本机Java/原版游戏服务/Android",
+  "locked_dependencies": 40,
+  "framework_self_checks": 28,
+  "collected_unique_game_ids": 32,
+  "actual_ui_executions": 10,
+  "actual_ui_ids": [
+    "ST-QUEST-UI-001",
+    "ST-SHOP-UI-001"
+  ],
+  "actual_api_executions": 1,
+  "actual_api_id": "ST-SHOP-API-001",
+  "all_passed": true,
+  "all_restored": true,
+  "unmodified_public_execution_source_files": 91,
+  "ui_report": "../stendhal-ui-batch2-final/index.html",
+  "api_report": "../clean-directory-api/index.html",
+  "prechecks_are_not_game_passes": true,
+  "whole_new_machine_validated": false,
+  "http_account_logout_path_status": 404,
+  "website_account_logout_validated": false
+}

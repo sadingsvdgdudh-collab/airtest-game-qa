@@ -1,0 +1,133 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>Game QA report</title><style>body{max-width:1100px;margin:32px auto;padding:0 20px;font:16px system-ui;color:#1b2838}article{border:1px solid #ccd3dc;border-radius:8px;padding:18px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f9;padding:16px}a{margin-right:16px}</style><h1>游戏测试执行报告</h1><p>失败、跳过和不稳定均保留；受控实验单独标识。</p><pre>{
+  &quot;exit_code&quot;: 1,
+  &quot;experiment&quot;: &quot;quest-ui-calibration&quot;,
+  &quot;generated&quot;: 1790984162.670142,
+  &quot;collected&quot;: 1
+}</pre><article id="ST-QUEST-UI-001"><h2>ST-QUEST-UI-001 · error · 不稳定</h2><a href="ST-QUEST-UI-001/screen-01.png">用户名输入框</a> <a href="ST-QUEST-UI-001/screen-02.png">登录前确认用户名已实际输入：定位失败</a> <a href="ST-QUEST-UI-001/screen-03.png">登录前确认用户名已实际输入：定位失败</a> <a href="ST-QUEST-UI-001/screen-04.png">用例结束时界面</a><details open><summary>步骤、预期、实际与证据</summary><pre>{
+  &quot;id&quot;: &quot;ST-QUEST-UI-001&quot;,
+  &quot;metadata&quot;: {
+    &quot;id&quot;: &quot;ST-QUEST-UI-001&quot;,
+    &quot;game&quot;: &quot;stendhal&quot;,
+    &quot;module&quot;: &quot;quest&quot;,
+    &quot;kind&quot;: &quot;ui&quot;,
+    &quot;nodeid&quot;: &quot;cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect&quot;,
+    &quot;experiment&quot;: &quot;quest-ui-calibration&quot;,
+    &quot;reproduce&quot;: &quot;python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-QUEST-UI-001 --rounds 1 --experiment quest-ui-calibration --config /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/config.local.toml&quot;,
+    &quot;device&quot;: {
+      &quot;uri&quot;: &quot;Android:///emulator-5554?cap_method=ADBCAP&amp;touch_method=ADBTOUCH&amp;ime_method=ADBIME&quot;,
+      &quot;system&quot;: &quot;Android 14 / API 34 ARM64&quot;,
+      &quot;resolution&quot;: &quot;720x1280&quot;
+    }
+  },
+  &quot;outcome&quot;: &quot;error&quot;,
+  &quot;unstable&quot;: true,
+  &quot;steps&quot;: [
+    {
+      &quot;title&quot;: &quot;定位：登录按钮&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.8456992080027703
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;用户名输入框&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;输入测试用户名&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：登录前确认用户名已实际输入&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;failed&quot;,
+          &quot;error&quot;: &quot;image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png&quot;,
+          &quot;elapsed&quot;: 0.7965333340107463
+        },
+        {
+          &quot;number&quot;: 2,
+          &quot;outcome&quot;: &quot;failed&quot;,
+          &quot;error&quot;: &quot;image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png&quot;,
+          &quot;elapsed&quot;: 0.7162589169893181
+        }
+      ],
+      &quot;outcome&quot;: &quot;failed&quot;
+    }
+  ],
+  &quot;attachments&quot;: [
+    {
+      &quot;label&quot;: &quot;用户名输入框&quot;,
+      &quot;path&quot;: &quot;screen-01.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;登录前确认用户名已实际输入：定位失败&quot;,
+      &quot;path&quot;: &quot;screen-02.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;登录前确认用户名已实际输入：定位失败&quot;,
+      &quot;path&quot;: &quot;screen-03.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;用例结束时界面&quot;,
+      &quot;path&quot;: &quot;screen-04.png&quot;
+    }
+  ],
+  &quot;diagnostics&quot;: {
+    &quot;visual_observations&quot;: [
+      {
+        &quot;title&quot;: &quot;登录按钮&quot;,
+        &quot;template&quot;: &quot;login.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          100,
+          307
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;登录前确认用户名已实际输入&quot;,
+        &quot;template&quot;: &quot;username-qaplayer.png&quot;,
+        &quot;region&quot;: [
+          175,
+          255,
+          347,
+          283
+        ],
+        &quot;threshold&quot;: 0.9,
+        &quot;matched&quot;: false,
+        &quot;position&quot;: null
+      },
+      {
+        &quot;title&quot;: &quot;登录前确认用户名已实际输入&quot;,
+        &quot;template&quot;: &quot;username-qaplayer.png&quot;,
+        &quot;region&quot;: [
+          175,
+          255,
+          347,
+          283
+        ],
+        &quot;threshold&quot;: 0.9,
+        &quot;matched&quot;: false,
+        &quot;position&quot;: null
+      }
+    ]
+  },
+  &quot;started&quot;: 1790984150.0350761,
+  &quot;phases&quot;: {
+    &quot;setup&quot;: &quot;failed&quot;,
+    &quot;setup_detail&quot;: &quot;android = &lt;gameqa.device.AndroidDevice object at 0x102eb9430&gt;\ngame_config = {&#x27;version&#x27;: &#x27;1.49&#x27;, &#x27;bridge_command&#x27;: [&#x27;sh&#x27;, &#x27;adapters/stendhal_bridge/run.sh&#x27;], &#x27;bridge_cwd&#x27;: &#x27;../outputs/airtest-game-qa&#x27;, &#x27;server_log&#x27;: &#x27;stendhal/runtime/log/server.log&#x27;, ...}\n\n    @pytest.fixture\n    def stendhal_ui(android, game_config):\n        ui = StendhalUI(android, game_config)\n        try:\n&gt;           ui.ensure_login()\n\ncases/conftest.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/gameqa/stendhal_ui.py:26: in ensure_login\n    self.android.locate_image(ASSETS / &#x27;username-qaplayer.png&#x27;, &#x27;登录前确认用户名已实际输入&#x27;,\nsrc/gameqa/device.py:42: in locate_image\n    return self.evidence.observe(f\&quot;定位：{title}\&quot;, locate)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/gameqa/evidence.py:36: in observe\n    result = operation()\n             ^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def locate():\n        template = Template(str(Path(path)), threshold=threshold)\n        if region is None:\n            target = exists(template)\n        else:\n            x1, y1, x2, y2 = region\n            screen = self.device.snapshot()\n            target = template.match_in(screen[y1:y2, x1:x2])\n            if target:\n                target = (target[0] + x1, target[1] + y1)\n        self.evidence.data[&#x27;diagnostics&#x27;].setdefault(&#x27;visual_observations&#x27;, []).append(\n            {&#x27;title&#x27;: title, &#x27;template&#x27;: Path(path).name, &#x27;region&#x27;: region,\n             &#x27;threshold&#x27;: threshold, &#x27;matched&#x27;: bool(target), &#x27;position&#x27;: target or None})\n        if not target:\n            self.screenshot(f\&quot;{title}：定位失败\&quot;)\n&gt;           raise TransientError(f\&quot;image not found: {path}\&quot;)\nE           gameqa.bridge.TransientError: image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png\n\nsrc/gameqa/device.py:40: TransientError&quot;,
+    &quot;teardown&quot;: &quot;passed&quot;
+  },
+  &quot;finished&quot;: 1790984162.667351
+}</pre></details></article></html>

@@ -1,0 +1,35 @@
+{
+  "before_stop": {
+    "timestamp": 1790959845.109243,
+    "fault_pid": 32283,
+    "fault_command": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/tools/zulu21.40.17-ca-jdk21.0.6-macosx_aarch64/zulu-21.jdk/Contents/Home/bin/java -Xmx512m -Duser.home=/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime-fault/home -Djava.io.tmpdir=/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime-fault/tmp -cp /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/fault/classes:/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/patches/classes:.:stendhal-server-1.49.jar:stendhal-maps-1.49.jar:stendhal-xmlconf-1.49.jar:/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/client/lib/stendhal-data.jar:/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/client/lib/stendhal-sound-data.jar:libs/* games.stendhal.server.StendhalServer",
+    "main_tcp_open": true,
+    "fault_tcp_open": true
+  },
+  "database_files_before_stop": [
+    "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime-fault/database/h2db.h2.db",
+    "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime-fault/database/h2db.lock.db"
+  ],
+  "after_stop": {
+    "timestamp": 1790960065.254441,
+    "main_tcp_open": true,
+    "fault_tcp_open": false,
+    "main_http_open": true,
+    "fault_http_open": false,
+    "fault_pid_file_exists": false,
+    "database_files": [
+      {
+        "name": "h2db.trace.db",
+        "bytes": 16424
+      },
+      {
+        "name": "h2db.h2.db",
+        "bytes": 5742592
+      },
+      {
+        "name": "h2db.lock.db",
+        "bytes": 99
+      }
+    ]
+  }
+}

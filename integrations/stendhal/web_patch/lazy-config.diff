@@ -1,0 +1,19 @@
+--- upstream/src/js/stendhal/entity/ItemMap.ts
++++ local/src/js/stendhal/entity/ItemMap.ts
+@@ -13,7 +13,6 @@
+ import { singletons } from "../SingletonRepo";
+ import { MenuItem } from "../action/MenuItem";
+ 
+-const config = singletons.getConfigManager();
+ 
+ declare var marauroa: any;
+ 
+@@ -121,6 +120,8 @@
+ 	 *     Cursor name.
+ 	 */
+ 	getCursor: function(clazz: string, name: string) {
++		// Avoid reading the cyclic SingletonRepo import before module initialization.
++		const config = singletons.getConfigManager();
+ 		let cursor = "normal";
+ 		for (const imap of [ItemMap["class"][clazz], ItemMap["name"][name]]) {
+ 			if (imap && imap.cursor) {

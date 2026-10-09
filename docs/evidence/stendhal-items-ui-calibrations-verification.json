@@ -1,0 +1,109 @@
+{
+  "verified_utc": "2026-10-03T11:06:11.819190+00:00",
+  "rows": [
+    {
+      "calibration": 1,
+      "id": "ST-BAG-UI-001",
+      "outcome": "failed",
+      "unstable": true,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    },
+    {
+      "calibration": 1,
+      "id": "ST-BAG-UI-007",
+      "outcome": "passed",
+      "unstable": false,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    },
+    {
+      "calibration": 2,
+      "id": "ST-BAG-UI-001",
+      "outcome": "failed",
+      "unstable": false,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    },
+    {
+      "calibration": 2,
+      "id": "ST-BAG-UI-007",
+      "outcome": "passed",
+      "unstable": false,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    },
+    {
+      "calibration": 3,
+      "id": "ST-BAG-UI-001",
+      "outcome": "failed",
+      "unstable": true,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    },
+    {
+      "calibration": 3,
+      "id": "ST-BAG-UI-007",
+      "outcome": "passed",
+      "unstable": false,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    },
+    {
+      "calibration": 4,
+      "id": "ST-BAG-UI-001",
+      "outcome": "passed",
+      "unstable": false,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    },
+    {
+      "calibration": 4,
+      "id": "ST-BAG-UI-007",
+      "outcome": "passed",
+      "unstable": false,
+      "restored": true,
+      "independent_projection_matches": true,
+      "exact_position": true
+    }
+  ],
+  "all_8_restored": true,
+  "restored_fields": [
+    "money",
+    "xp",
+    "hp",
+    "level",
+    "base_hp",
+    "karma",
+    "atk_xp",
+    "def_xp",
+    "atk",
+    "def",
+    "quests",
+    "commerce",
+    "item_counter_cache",
+    "keyed",
+    "inventory",
+    "statuses",
+    "bag",
+    "head",
+    "armor",
+    "cloak",
+    "legs",
+    "feet",
+    "lhand",
+    "rhand",
+    "finger",
+    "attributes.atk_item",
+    "attributes.def_item",
+    "attributes.target"
+  ],
+  "not_five_round_acceptance": true
+}

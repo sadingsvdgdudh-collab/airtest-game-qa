@@ -1,0 +1,211 @@
+[
+  {
+    "direction": "request",
+    "time": 1790959678.5683331,
+    "id": 1,
+    "op": "connect",
+    "args": {
+      "host": "127.0.0.1",
+      "port": 32161
+    }
+  },
+  {
+    "direction": "response",
+    "time": 1790959678.6965592,
+    "id": 1,
+    "ok": true,
+    "result": {
+      "connected": true,
+      "host": "127.0.0.1",
+      "port": 32161
+    }
+  },
+  {
+    "direction": "request",
+    "time": 1790959678.696634,
+    "id": 2,
+    "op": "create_account",
+    "args": {
+      "username": "qaobserver",
+      "password": "[redacted]"
+    }
+  },
+  {
+    "direction": "response",
+    "time": 1790959678.7454422,
+    "id": 2,
+    "ok": true,
+    "result": {
+      "username": "qaobserver",
+      "status": "OK_CREATED"
+    }
+  },
+  {
+    "direction": "request",
+    "time": 1790959678.74552,
+    "id": 3,
+    "op": "login",
+    "args": {
+      "username": "qaobserver",
+      "password": "[redacted]"
+    }
+  },
+  {
+    "direction": "response",
+    "time": 1790959678.894191,
+    "id": 3,
+    "ok": true,
+    "result": {
+      "characters": [],
+      "character": null,
+      "selected": false
+    }
+  },
+  {
+    "direction": "request",
+    "time": 1790959678.894203,
+    "id": 4,
+    "op": "create_character",
+    "args": {
+      "character": "qaobserver"
+    }
+  },
+  {
+    "direction": "response",
+    "time": 1790959678.944234,
+    "id": 4,
+    "ok": true,
+    "result": {
+      "status": "OK_CREATED",
+      "character": "qaobserver",
+      "characters": [
+        "qaobserver"
+      ]
+    }
+  },
+  {
+    "direction": "request",
+    "time": 1790959678.944336,
+    "id": 5,
+    "op": "choose_character",
+    "args": {
+      "character": "qaobserver"
+    }
+  },
+  {
+    "direction": "response",
+    "time": 1790959679.150632,
+    "id": 5,
+    "ok": true,
+    "result": {
+      "name": "qaobserver",
+      "attributes": {
+        "def": "10",
+        "release": "1.49",
+        "hp": "100",
+        "def_item": "6",
+        "type": "player",
+        "base_mana": "0",
+        "def_xp": "0",
+        "outfit": "0",
+        "atk": "10",
+        "base_hp": "100",
+        "id": "7",
+        "height": "1",
+        "adminlevel": "5000",
+        "karma": "10.0",
+        "visibility": "100",
+        "level": "0",
+        "atk_xp": "0",
+        "resistance": "100",
+        "mana": "0",
+        "x": "8",
+        "name": "qaobserver",
+        "xp": "0",
+        "width": "1",
+        "y": "12",
+        "zoneid": "int_semos_guard_house",
+        "outfit_ext": "body=0,dress=62,head=0,mouth=1,eyes=6,mask=0,hair=8,hat=0,detail=0",
+        "atk_item": "6"
+      },
+      "slots": {
+        "trade": [],
+        "spells": [],
+        "!ignore": [
+          {
+            "name": null,
+            "attributes": {
+              "id": "5"
+            },
+            "slots": {}
+          }
+        ],
+        "bag": [],
+        "rhand": [
+          {
+            "name": "club",
+            "attributes": {
+              "visibility": "100",
+              "x": "0",
+              "width": "1",
+              "subclass": "club",
+              "name": "club",
+              "y": "0",
+              "id": "11",
+              "type": "item",
+              "class": "club",
+              "resistance": "0",
+              "height": "1"
+            },
+            "slots": {}
+          }
+        ],
+        "lhand": [],
+        "head": [],
+        "armor": [
+          {
+            "name": "leather armor",
+            "attributes": {
+              "visibility": "100",
+              "x": "0",
+              "width": "1",
+              "subclass": "leather_armor",
+              "name": "leather armor",
+              "y": "0",
+              "id": "12",
+              "type": "item",
+              "class": "armor",
+              "resistance": "0",
+              "height": "1"
+            },
+            "slots": {}
+          }
+        ],
+        "legs": [],
+        "feet": [],
+        "finger": [],
+        "cloak": [],
+        "keyring": [],
+        "pouch": []
+      },
+      "perception_timestamp": 0,
+      "character": "qaobserver"
+    }
+  },
+  {
+    "direction": "request",
+    "time": 1790959679.1525881,
+    "id": 6,
+    "op": "disconnect",
+    "args": {}
+  },
+  {
+    "direction": "response",
+    "time": 1790959679.156297,
+    "id": 6,
+    "ok": true,
+    "result": {
+      "disconnected": true
+    }
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-COMBAT-API-004-distance",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": true,
+  "experiment": "distance-calibration-03",
+  "exit_codes": [
+    0
+  ]
+}

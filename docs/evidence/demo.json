@@ -1,0 +1,20 @@
+{
+  "file": "demo-stendhal.mp4",
+  "bytes": 5284128,
+  "resolution": [
+    720,
+    1280
+  ],
+  "frames": 654,
+  "fps": 15.718857314382754,
+  "duration_seconds": 41.60607777777778,
+  "case": "ST-SHOP-UI-001",
+  "actual_case_report": "stendhal-demo/index.html",
+  "verified_decoding": {
+    "first_frame": true,
+    "purchase_frame": true,
+    "last_frame": true
+  },
+  "business_case_outcome": "passed",
+  "restored": true
+}

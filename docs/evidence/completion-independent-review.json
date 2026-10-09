@@ -1,0 +1,1743 @@
+{
+  "verified_utc": "2026-10-03T22:07:14.519015+00:00",
+  "independent_offline_review": true,
+  "all_checks_passed": true,
+  "formal_execution_ids": [
+    "ST-QUEST-UI-007",
+    "ST-SHOP-API-006-no-space",
+    "ST-COMBAT-API-004-distance",
+    "ST-COMBAT-API-004-cancel"
+  ],
+  "formal_unique_ids": 4,
+  "formal_passed_executions": 20,
+  "all_formal_phases_passed": true,
+  "formal_unstable_cases": 0,
+  "formal_observation_retries": 0,
+  "source_files": 144,
+  "source_hashes_match": true,
+  "source_captured_before_all_formal_cases": true,
+  "installed_classes_compared": 6,
+  "runtime_business_jars_compared": 3,
+  "fault_checked": true,
+  "counts": {
+    "source_integrity": 2,
+    "public_source_hash": 144,
+    "installed_class_hash": 7,
+    "business_jar_hash": 4,
+    "native_pixel_calibration": 22,
+    "summary": 8,
+    "execution": 80,
+    "pytest_phase": 60,
+    "recorded_step": 2919,
+    "first_observation": 1464,
+    "recorded_assertion": 880,
+    "attachment": 830,
+    "preparation_scope": 40,
+    "restoration": 100,
+    "restored_scalar": 840,
+    "restored_item": 400,
+    "interface_exchange": 1637,
+    "interface_scope": 1605,
+    "chain": 5,
+    "chain_checkpoint": 35,
+    "chain_reward": 5,
+    "chain_purchase": 20,
+    "chain_route": 680,
+    "business_cardinality": 45,
+    "chain_persistence": 20,
+    "image_identity": 77,
+    "image_read": 77,
+    "image_positive": 61,
+    "image_negative": 16,
+    "no_space": 55,
+    "combat": 20,
+    "combat_original_response": 20,
+    "combat_cleanup": 20,
+    "combat_distance": 10,
+    "combat_window": 100,
+    "combat_cancel": 25,
+    "chronology": 2,
+    "historical_source": 2,
+    "historical_source_hash": 144,
+    "historical_failure": 14,
+    "historical_calibration": 5,
+    "fault": 7,
+    "fault_business_cardinality": 2,
+    "fault_business_state": 2,
+    "fault_step": 40,
+    "fault_first_observation": 14,
+    "fault_assertion": 7,
+    "fault_attachment": 20,
+    "fault_rerun": 6,
+    "fault_rerun_phase": 3,
+    "fault_rerun_step": 33,
+    "fault_rerun_observation": 12,
+    "fault_rerun_assertion": 3,
+    "fault_rerun_attachment": 20,
+    "fault_summary": 1
+  },
+  "totals": {
+    "restores": 40,
+    "permitted_location_adjustments": 0,
+    "cases": 20,
+    "observations": 1464,
+    "assertions": 880,
+    "recorded_actions": 575,
+    "screenshots": 810,
+    "controlled_faults": 1,
+    "recovered_existing_cases": 1
+  },
+  "formal_records": [
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 1,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "started": 1791048841.168405,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 2,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "started": 1791049148.157213,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 3,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "started": 1791049452.7708569,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 4,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "started": 1791049751.6042502,
+      "restored": true
+    },
+    {
+      "group": "stendhal-quest-chain-final",
+      "round": 5,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "started": 1791050051.8540611,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 1,
+      "id": "ST-SHOP-API-006-no-space",
+      "outcome": "passed",
+      "started": 1791050348.660598,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 2,
+      "id": "ST-SHOP-API-006-no-space",
+      "outcome": "passed",
+      "started": 1791050359.154597,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 3,
+      "id": "ST-SHOP-API-006-no-space",
+      "outcome": "passed",
+      "started": 1791050369.3701508,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 4,
+      "id": "ST-SHOP-API-006-no-space",
+      "outcome": "passed",
+      "started": 1791050379.563622,
+      "restored": true
+    },
+    {
+      "group": "stendhal-no-space-final",
+      "round": 5,
+      "id": "ST-SHOP-API-006-no-space",
+      "outcome": "passed",
+      "started": 1791050389.771287,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 1,
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "passed",
+      "started": 1791050400.0516748,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 2,
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "passed",
+      "started": 1791050407.635215,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 3,
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "passed",
+      "started": 1791050414.98645,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 4,
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "passed",
+      "started": 1791050422.376061,
+      "restored": true
+    },
+    {
+      "group": "stendhal-distance-final",
+      "round": 5,
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "passed",
+      "started": 1791050429.78221,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 1,
+      "id": "ST-COMBAT-API-004-cancel",
+      "outcome": "passed",
+      "started": 1791050437.302468,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 2,
+      "id": "ST-COMBAT-API-004-cancel",
+      "outcome": "passed",
+      "started": 1791050446.8921978,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 3,
+      "id": "ST-COMBAT-API-004-cancel",
+      "outcome": "passed",
+      "started": 1791050456.798589,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 4,
+      "id": "ST-COMBAT-API-004-cancel",
+      "outcome": "passed",
+      "started": 1791050466.741027,
+      "restored": true
+    },
+    {
+      "group": "stendhal-cancel-final",
+      "round": 5,
+      "id": "ST-COMBAT-API-004-cancel",
+      "outcome": "passed",
+      "started": 1791050476.564026,
+      "restored": true
+    }
+  ],
+  "independent_image_replays": [
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "quest-promised.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-19.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-136.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-154.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-138.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-139.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-140.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-141.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-156.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-157.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-158.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 1",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-01/ST-QUEST-UI-007/screen-159.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "quest-promised.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-19.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-136.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-154.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-138.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-139.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-140.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-141.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-156.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-157.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-158.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 2",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-02/ST-QUEST-UI-007/screen-159.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "quest-promised.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-19.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-136.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-154.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-138.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-139.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-140.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-141.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-156.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-157.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-158.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 3",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-03/ST-QUEST-UI-007/screen-159.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "quest-promised.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-19.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-136.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-154.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-138.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-139.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-140.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-141.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-156.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-157.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-158.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 4",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-04/ST-QUEST-UI-007/screen-159.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "quest-promised.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-19.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-136.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-154.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-138.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-139.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-140.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-141.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-156.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-157.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-158.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-final round 5",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-final/round-05/ST-QUEST-UI-007/screen-159.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "controlled fault",
+      "template": "quest-completed.png",
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-observation-fault/controlled/CONTROLLED-LOCATE-FAILURE/screen-17.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "controlled fault",
+      "template": "send.png",
+      "region": [
+        96,
+        555,
+        565,
+        578
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-observation-fault/controlled/CONTROLLED-LOCATE-FAILURE/screen-18.png",
+      "expected_match": true,
+      "matched": true
+    }
+  ],
+  "native_pixel_calibration": {
+    "samples": [
+      {
+        "physical": [
+          35,
+          269
+        ],
+        "actual_offset": [
+          47,
+          90
+        ],
+        "calibrated_offset": [
+          47,
+          90
+        ]
+      },
+      {
+        "physical": [
+          36,
+          269
+        ],
+        "actual_offset": [
+          48,
+          90
+        ],
+        "calibrated_offset": [
+          48,
+          90
+        ]
+      },
+      {
+        "physical": [
+          37,
+          269
+        ],
+        "actual_offset": [
+          50,
+          90
+        ],
+        "calibrated_offset": [
+          50,
+          90
+        ]
+      },
+      {
+        "physical": [
+          38,
+          269
+        ],
+        "actual_offset": [
+          51,
+          90
+        ],
+        "calibrated_offset": [
+          51,
+          90
+        ]
+      },
+      {
+        "physical": [
+          39,
+          269
+        ],
+        "actual_offset": [
+          52,
+          90
+        ],
+        "calibrated_offset": [
+          52,
+          90
+        ]
+      },
+      {
+        "physical": [
+          53,
+          268
+        ],
+        "actual_offset": [
+          71,
+          89
+        ],
+        "calibrated_offset": [
+          71,
+          89
+        ]
+      },
+      {
+        "physical": [
+          54,
+          268
+        ],
+        "actual_offset": [
+          73,
+          89
+        ],
+        "calibrated_offset": [
+          73,
+          89
+        ]
+      },
+      {
+        "physical": [
+          55,
+          268
+        ],
+        "actual_offset": [
+          74,
+          89
+        ],
+        "calibrated_offset": [
+          74,
+          89
+        ]
+      },
+      {
+        "physical": [
+          25,
+          252
+        ],
+        "actual_offset": [
+          33,
+          67
+        ],
+        "calibrated_offset": [
+          33,
+          67
+        ]
+      },
+      {
+        "physical": [
+          29,
+          253
+        ],
+        "actual_offset": [
+          39,
+          69
+        ],
+        "calibrated_offset": [
+          39,
+          69
+        ]
+      },
+      {
+        "physical": [
+          36,
+          260
+        ],
+        "actual_offset": [
+          48,
+          78
+        ],
+        "calibrated_offset": [
+          48,
+          78
+        ]
+      },
+      {
+        "physical": [
+          37,
+          261
+        ],
+        "actual_offset": [
+          50,
+          80
+        ],
+        "calibrated_offset": [
+          50,
+          80
+        ]
+      },
+      {
+        "physical": [
+          47,
+          262
+        ],
+        "actual_offset": [
+          63,
+          81
+        ],
+        "calibrated_offset": [
+          63,
+          81
+        ]
+      },
+      {
+        "physical": [
+          61,
+          267
+        ],
+        "actual_offset": [
+          82,
+          88
+        ],
+        "calibrated_offset": [
+          82,
+          88
+        ]
+      },
+      {
+        "physical": [
+          74,
+          268
+        ],
+        "actual_offset": [
+          100,
+          89
+        ],
+        "calibrated_offset": [
+          100,
+          89
+        ]
+      },
+      {
+        "physical": [
+          86,
+          269
+        ],
+        "actual_offset": [
+          116,
+          90
+        ],
+        "calibrated_offset": [
+          116,
+          90
+        ]
+      },
+      {
+        "physical": [
+          36,
+          270
+        ],
+        "actual_offset": [
+          48,
+          92
+        ],
+        "calibrated_offset": [
+          48,
+          92
+        ]
+      },
+      {
+        "physical": [
+          37,
+          271
+        ],
+        "actual_offset": [
+          50,
+          93
+        ],
+        "calibrated_offset": [
+          50,
+          93
+        ]
+      },
+      {
+        "physical": [
+          38,
+          273
+        ],
+        "actual_offset": [
+          51,
+          96
+        ],
+        "calibrated_offset": [
+          51,
+          96
+        ]
+      },
+      {
+        "physical": [
+          39,
+          275
+        ],
+        "actual_offset": [
+          52,
+          99
+        ],
+        "calibrated_offset": [
+          52,
+          99
+        ]
+      }
+    ],
+    "origin": [
+      0.5,
+      202.55
+    ],
+    "physical_to_css": "980/720",
+    "scope": "empirical fixed Chrome/emulator baseline"
+  },
+  "historical_failures": [
+    {
+      "group": "stendhal-quest-chain-first",
+      "round": 1,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-first",
+      "round": 2,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-first",
+      "round": 3,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-first",
+      "round": 4,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-first",
+      "round": 5,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-calibration-01",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-calibration-02",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-minimap-calibration",
+      "id": "ST-QUEST-UI-007",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-minimap-calibration-02",
+      "id": "ST-QUEST-UI-007",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-minimap-calibration-03",
+      "id": "ST-QUEST-UI-007",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-quest-chain-minimap-calibration-04",
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-abnormal-calibration-01",
+      "id": "ST-SHOP-API-006-no-space",
+      "outcome": "failed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-abnormal-calibration-01",
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "error",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-abnormal-calibration-01",
+      "id": "ST-COMBAT-API-004-cancel",
+      "outcome": "passed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-abnormal-calibration-02",
+      "id": "ST-SHOP-API-006-no-space",
+      "outcome": "passed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-abnormal-calibration-02",
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "error",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-abnormal-calibration-02",
+      "id": "ST-COMBAT-API-004-cancel",
+      "outcome": "passed",
+      "normal_regression_count": 0
+    },
+    {
+      "group": "stendhal-distance-calibration-03",
+      "id": "ST-COMBAT-API-004-distance",
+      "outcome": "passed",
+      "normal_regression_count": 0
+    }
+  ],
+  "limitations": [
+    "R1 compares the declared player projection, not the entire world/database/audit logs.",
+    "Only item protocol id/zoneid excluded from item equality; item audit attributes retained.",
+    "Map UI movement uses the documented fixed canvas projection.",
+    "No-space covers purchase rejection; full-slot merging remains pending.",
+    "Distance/cancellation are original protocol tests, not Android menu tests.",
+    "Controlled and recovered fault runs contribute zero normal regression executions."
+  ]
+}

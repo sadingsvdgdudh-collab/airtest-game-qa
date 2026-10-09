@@ -1,0 +1,47 @@
+{
+  "rounds": 5,
+  "cases": [
+    {
+      "id": "ST-SHOP-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "failed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "failed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "failed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "failed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "failed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": false,
+  "experiment": "ST-SHOP-OVERCHARGE",
+  "exit_codes": [
+    1,
+    1,
+    1,
+    1,
+    1
+  ]
+}

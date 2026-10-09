@@ -1,0 +1,23 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-QUEST-UI-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "error",
+          "unstable": true
+        }
+      ],
+      "consistent": true,
+      "repeatable": false
+    }
+  ],
+  "consistent": false,
+  "all_passed": false,
+  "experiment": "quest-ui-calibration",
+  "exit_codes": [
+    1
+  ]
+}

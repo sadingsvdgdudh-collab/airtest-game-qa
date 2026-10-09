@@ -1,0 +1,119 @@
+{
+  "verified_utc": "2026-10-03T13:57:45.772513+00:00",
+  "normal_coverage_count": 0,
+  "records": [
+    {
+      "report": "stendhal-combat-ui-first",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-first/round-01/ST-COMBAT-UI-001/case.json",
+      "outcome": "failed",
+      "unstable": true,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-first",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-first/round-02/ST-COMBAT-UI-001/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-first",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-first/round-03/ST-COMBAT-UI-001/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-first",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-first/round-04/ST-COMBAT-UI-001/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-first",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-first/round-05/ST-COMBAT-UI-001/case.json",
+      "outcome": "failed",
+      "unstable": true,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-calibration-01",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-calibration-01/round-01/ST-COMBAT-UI-001/case.json",
+      "outcome": "failed",
+      "unstable": true,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-calibration-02",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-calibration-02/round-01/ST-COMBAT-UI-001/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-calibration-03",
+      "case": "ST-COMBAT-UI-001",
+      "path": "stendhal-combat-ui-calibration-03/round-01/ST-COMBAT-UI-001/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-api-regression",
+      "case": "ST-COMBAT-API-001",
+      "path": "stendhal-combat-ui-api-regression/round-01/ST-COMBAT-API-001/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-api-regression",
+      "case": "ST-COMBAT-API-002",
+      "path": "stendhal-combat-ui-api-regression/round-01/ST-COMBAT-API-002/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-api-regression",
+      "case": "ST-MAP-API-001",
+      "path": "stendhal-combat-ui-api-regression/round-01/ST-MAP-API-001/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    },
+    {
+      "report": "stendhal-combat-ui-disconnect-recovery",
+      "case": "COMBAT-UI-DISCONNECT-RECOVERY",
+      "path": "stendhal-combat-ui-disconnect-recovery/COMBAT-UI-DISCONNECT-RECOVERY/case.json",
+      "outcome": "passed",
+      "unstable": false,
+      "restore_projection_matches": true,
+      "location_adjusted": false
+    }
+  ],
+  "counts": {
+    "failed": 3,
+    "passed": 9
+  },
+  "all_restoration_projections_match": true
+}

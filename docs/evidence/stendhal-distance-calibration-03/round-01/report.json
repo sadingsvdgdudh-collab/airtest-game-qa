@@ -1,0 +1,4781 @@
+{
+  "metadata": {
+    "exit_code": 0,
+    "experiment": "distance-calibration-03",
+    "generated": 1791043994.829389,
+    "collected": 1
+  },
+  "cases": [
+    {
+      "id": "ST-COMBAT-API-004-distance",
+      "metadata": {
+        "id": "ST-COMBAT-API-004-distance",
+        "game": "stendhal",
+        "module": "combat",
+        "kind": "api",
+        "nodeid": "cases/test_stendhal_combat_edges.py::test_distant_melee_attack_selects_target_without_dealing_damage",
+        "experiment": "distance-calibration-03",
+        "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-COMBAT-API-004-distance --rounds 1 --experiment distance-calibration-03 --config /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/config.local.toml"
+      },
+      "outcome": "passed",
+      "unstable": false,
+      "steps": [
+        {
+          "title": "独立管理员读取目标角色",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.5837017920002836
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "使用角色既有原版木棍",
+          "expected": [
+            "club"
+          ],
+          "actual": [
+            "club"
+          ],
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/data/conf/items/clubs.xml#L28-L38",
+          "outcome": "passed"
+        },
+        {
+          "title": "远距前置没有远程武器射程",
+          "expected": 0,
+          "actual": 0,
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L302-L317; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/Entity.java#L399-L425",
+          "outcome": "passed"
+        },
+        {
+          "title": "远距前置确实不邻接且超出射程",
+          "expected": [
+            false,
+            true
+          ],
+          "actual": [
+            false,
+            true
+          ],
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L302-L317; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/Entity.java#L399-L425",
+          "outcome": "passed"
+        },
+        {
+          "title": "远距rat初始为原版20HP",
+          "expected": 20,
+          "actual": 20,
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/data/conf/creatures/rodent.xml#L36-L48",
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.002680875000805827
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "玩家一次实际选择远处rat攻击",
+          "kind": "business_action",
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0003538749988365453
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0014470000005530892
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "原版允许选中远处rat但尚未造成伤害",
+          "expected": [
+            true,
+            20
+          ],
+          "actual": [
+            true,
+            20
+          ],
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/actions/attack/AttackAction.java; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L302-L317; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/Entity.java#L399-L425",
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0006895419992360985
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0008828329991956707
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0007534169999416918
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0005055840010754764
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0006087919991841773
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0009154170002148021
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0006020000000717118
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "读取并保留玩家原版事件队列",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.0004966249998687999
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "按原服回合覆盖至少两个实际攻击周期",
+          "expected": true,
+          "actual": true,
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/player/Player.java#L2085-L2098",
+          "outcome": "passed"
+        },
+        {
+          "title": "整个远距窗口均非邻接、超射程、目标仍为该rat",
+          "expected": true,
+          "actual": true,
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L302-L317; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/Entity.java#L399-L425",
+          "outcome": "passed"
+        },
+        {
+          "title": "远距窗口rat始终20HP且没有尸体",
+          "expected": true,
+          "actual": true,
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L302-L317; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/Entity.java#L399-L425",
+          "outcome": "passed"
+        },
+        {
+          "title": "远距没有本玩家命中、未命中或伤害事件",
+          "expected": [],
+          "actual": [],
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/events/AttackEvent.java#L57-L71; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L423-L430; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L302-L317; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/Entity.java#L399-L425",
+          "outcome": "passed"
+        },
+        {
+          "title": "独立管理员读取目标角色",
+          "kind": "observation",
+          "attempts": [
+            {
+              "number": 1,
+              "outcome": "passed",
+              "elapsed": 0.3378478329996142
+            }
+          ],
+          "outcome": "passed"
+        },
+        {
+          "title": "远距没有错误改变角色生命、经验、金币及击杀记录",
+          "expected": [
+            100,
+            800,
+            0,
+            {}
+          ],
+          "actual": [
+            100,
+            800,
+            0,
+            {}
+          ],
+          "source": "https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/core/rp/StendhalRPAction.java#L302-L317; https://github.com/arianne/stendhal/blob/cbe0825e9b46f2a8adf9adce8c5747ece13b17a0/src/games/stendhal/server/entity/Entity.java#L399-L425",
+          "outcome": "passed"
+        }
+      ],
+      "attachments": [
+        {
+          "label": "本用例服务端日志",
+          "path": "server.log"
+        }
+      ],
+      "diagnostics": {
+        "preparation": {
+          "snapshot_id": "22852354-7a07-4816-ae79-d556f091e25c",
+          "before": {
+            "karma": 10.0,
+            "trade_state": "NO_ACTIVE_TRADE",
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {},
+            "level": 0,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1791043987555"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "features": {},
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "1921",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "1919"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "1920",
+                    "int_semos_guard_house": "1791043987555"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "1922",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "ground_items": [],
+            "money": 0,
+            "name": "qaplayera",
+            "xp": 0,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "1785707427",
+              "type": "player",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "100",
+              "id": "26",
+              "height": "1",
+              "karma": "10.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "0",
+              "resistance": "100",
+              "mana": "0",
+              "x": "7",
+              "name": "qaplayera",
+              "xp": "0",
+              "width": "1",
+              "y": "12",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "21"
+            },
+            "base_hp": 100,
+            "bag_full": false
+          },
+          "name": "qaplayera",
+          "restorable_fields": [
+            "bag",
+            "equipment",
+            "quests",
+            "xp",
+            "hp",
+            "level",
+            "base_hp",
+            "karma",
+            "location",
+            "npc_purchases",
+            "npc_sales",
+            "looted_items",
+            "item_counter_cache",
+            "atk_xp",
+            "def_xp",
+            "atk",
+            "def",
+            "!kills",
+            "!tutorial",
+            "!visited",
+            "skills"
+          ],
+          "after": {
+            "karma": 10.0,
+            "trade_state": "NO_ACTIVE_TRADE",
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {},
+            "level": 5,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1791043987555"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "features": {},
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "1921",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "1919"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "1920",
+                    "int_semos_guard_house": "1791043987555"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "1922",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "ground_items": [],
+            "money": 0,
+            "name": "qaplayera",
+            "xp": 800,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "1785707427",
+              "type": "player",
+              "dir": "3",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "150",
+              "id": "26",
+              "height": "1",
+              "karma": "10.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "5",
+              "resistance": "100",
+              "mana": "0",
+              "x": "17",
+              "name": "qaplayera",
+              "xp": "800",
+              "width": "1",
+              "y": "5",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "21"
+            },
+            "base_hp": 150,
+            "bag_full": false
+          }
+        },
+        "combat_fixture": [
+          {
+            "operation": "prepare",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "visibility": "100",
+                "def": "3",
+                "level": "0",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "title_type": "enemy",
+                "resistance": "100",
+                "ratk": "0",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "15",
+                "atk": "8",
+                "zoneid": "int_semos_guard_house",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "atk_item": "5",
+                "height": "1"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1131,
+              "squared_distance": 81.0,
+              "target_fixture": false,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "visibility": "100",
+                "def": "3",
+                "level": "0",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "resistance": "100",
+                "ratk": "0",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "15",
+                "atk": "8",
+                "zoneid": "int_semos_guard_house",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "atk_item": "5",
+                "height": "1"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1132,
+              "squared_distance": 81.0,
+              "target_fixture": false,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "15",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1133,
+              "squared_distance": 81.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "14",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1134,
+              "squared_distance": 64.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "14",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1135,
+              "squared_distance": 64.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "4",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1136,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "4",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1137,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "4",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1138,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1139,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1140,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "inspect",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "12",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1141,
+              "squared_distance": 36.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "operation": "cleanup",
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.0",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "11",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": false,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1143,
+              "squared_distance": 25.0,
+              "target_fixture": false,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          }
+        ],
+        "coverage_limit": "原版协议远距离近战；允许选中远方目标，验证连续两个实际攻击周期不能造成伤害。rat保留AI，逐次读取真实邻接/距离；不验证远程武器或Android菜单。",
+        "events_before_attack": [
+          {
+            "event": "player_logged_on",
+            "name": "qaplayera",
+            "source_name": "qaplayera",
+            "source_type": "player",
+            "perception_timestamp": 0
+          },
+          {
+            "event": "private_text",
+            "texttype": "SERVER",
+            "text": "Welcome to Stendhal. Need help? #https://stendhalgame.org/player-guide/ask-for-help.html - please report problems, suggestions and bugs. Remember to keep your password completely secret, never tell to another friend, player, or admin.",
+            "source_name": "qaplayera",
+            "source_type": "player",
+            "perception_timestamp": 0
+          },
+          {
+            "event": "player_logged_on",
+            "name": "qaobserver",
+            "source_name": "qaplayera",
+            "source_type": "player",
+            "perception_timestamp": 2
+          },
+          {
+            "event": "sound_event",
+            "sound_id": "level_up",
+            "layer": "4",
+            "source_name": "qaplayera",
+            "source_type": "player",
+            "perception_timestamp": 5
+          }
+        ],
+        "distant_attack_ack_observations": [
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "visibility": "100",
+              "def": "3",
+              "level": "0",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "resistance": "100",
+              "ratk": "0",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "15",
+              "atk": "8",
+              "zoneid": "int_semos_guard_house",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "atk_item": "5",
+              "height": "1"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1132,
+            "squared_distance": 81.0,
+            "target_fixture": false,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "15",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1133,
+            "squared_distance": 81.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          }
+        ],
+        "distant_combat_events": [
+          {
+            "event": "sound_event",
+            "volume": "100",
+            "sound": "rat-squeak-03",
+            "radius": "23",
+            "layer": "2",
+            "source_name": "rat",
+            "source_type": "creature",
+            "perception_timestamp": 8
+          }
+        ],
+        "distant_combat_observations": [
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "15",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1133,
+            "squared_distance": 81.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "14",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1134,
+            "squared_distance": 64.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "14",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1135,
+            "squared_distance": 64.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "4",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "13",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1136,
+            "squared_distance": 49.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "4",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "pathset": "",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "target": "26",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "13",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1137,
+            "squared_distance": 49.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "4",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "pathset": "",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "target": "26",
+              "x": "17",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "13",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1138,
+            "squared_distance": 49.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "pathset": "",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "target": "26",
+              "x": "16",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "13",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1139,
+            "squared_distance": 49.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "pathset": "",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "target": "26",
+              "x": "16",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "13",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1140,
+            "squared_distance": 49.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          },
+          {
+            "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+            "rat": {
+              "def": "3",
+              "hp": "20",
+              "def_item": "0",
+              "description": "You see a small rat that seems to be extremely hungry.",
+              "type": "creature",
+              "dir": "1",
+              "title_type": "enemy",
+              "speed": "0.5",
+              "pathset": "",
+              "ratk": "0",
+              "atk": "8",
+              "base_hp": "20",
+              "id": "28",
+              "class": "rodent",
+              "height": "1",
+              "visibility": "100",
+              "level": "0",
+              "resistance": "100",
+              "target": "26",
+              "x": "16",
+              "width": "1",
+              "subclass": "rat",
+              "xp": "100",
+              "name": "rat",
+              "y": "12",
+              "zoneid": "int_semos_guard_house",
+              "atk_item": "5"
+            },
+            "rat_present": true,
+            "attack_rate": 4,
+            "range": 0,
+            "corpse_present": false,
+            "turn": 1141,
+            "squared_distance": 36.0,
+            "target_fixture": true,
+            "zone": "int_semos_guard_house",
+            "name": "qaplayera",
+            "corpse": null,
+            "next_to": false
+          }
+        ],
+        "restoration": {
+          "snapshot_id": "22852354-7a07-4816-ae79-d556f091e25c",
+          "before": {
+            "karma": 10.0,
+            "trade_state": "NO_ACTIVE_TRADE",
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {},
+            "level": 5,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1791043987555"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "features": {},
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "1921",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "1919"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "1920",
+                    "int_semos_guard_house": "1791043987555"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "1922",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "ground_items": [],
+            "money": 0,
+            "name": "qaplayera",
+            "xp": 800,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "1785707427",
+              "type": "player",
+              "dir": "3",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "150",
+              "id": "26",
+              "height": "1",
+              "karma": "10.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "5",
+              "resistance": "100",
+              "mana": "0",
+              "x": "17",
+              "name": "qaplayera",
+              "xp": "800",
+              "width": "1",
+              "y": "5",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "21"
+            },
+            "base_hp": 150,
+            "bag_full": false
+          },
+          "location_adjusted": false,
+          "name": "qaplayera",
+          "restored": true,
+          "location": {
+            "actual": {
+              "zone": "int_semos_guard_house",
+              "x": 7,
+              "y": 12
+            },
+            "reason": "Exact original position restored",
+            "requested": {
+              "zone": "int_semos_guard_house",
+              "x": 7,
+              "y": 12
+            },
+            "max_manhattan_distance": 1,
+            "location_adjusted": false
+          },
+          "after": {
+            "karma": 10.0,
+            "trade_state": "NO_ACTIVE_TRADE",
+            "item_counter_cache": {
+              "mined": {},
+              "sold": {},
+              "sown": {},
+              "bought": {
+                "cheese": 14
+              },
+              "obtained": {},
+              "looted": {},
+              "harvested": {},
+              "produced": {}
+            },
+            "def": 10,
+            "quests": {},
+            "level": 0,
+            "atk_xp": 0,
+            "hp": 100,
+            "inventory": [
+              {
+                "quantity": 1,
+                "name": "club",
+                "slot": "rhand"
+              },
+              {
+                "quantity": 1,
+                "name": "leather armor",
+                "slot": "armor"
+              }
+            ],
+            "commerce": {
+              "npc_purchases": {},
+              "npc_sales": {},
+              "looted_items": {
+                "bought.cheese": "14"
+              }
+            },
+            "keyed": {
+              "skills": {},
+              "!kills": {},
+              "!visited": {
+                "int_semos_tavern_0": "1790942298137",
+                "int_semos_guard_house": "1791043987555"
+              },
+              "!tutorial": {
+                "visit_semos_tavern": "1",
+                "timed_help": "1",
+                "first_login": "1"
+              }
+            },
+            "features": {},
+            "def_xp": 0,
+            "slots": {
+              "bank_kirdneh": [],
+              "feet": [],
+              "bag": [],
+              "bank_deniran": [],
+              "!ignore": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "5"
+                  }
+                }
+              ],
+              "skills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "7"
+                  }
+                }
+              ],
+              "head": [],
+              "bank_nalwor": [],
+              "bank": [],
+              "!quests": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "2"
+                  }
+                }
+              ],
+              "rhand": [
+                {
+                  "slots": {},
+                  "name": "club",
+                  "attributes": {
+                    "visibility": "100",
+                    "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "rate": "4",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "club",
+                    "name": "club",
+                    "y": "0",
+                    "atk": "6",
+                    "id": "1923",
+                    "class": "club",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "legs": [],
+              "bank_ados": [],
+              "bank_fado": [],
+              "spells": [],
+              "finger": [],
+              "pouch": [],
+              "!tutorial": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "id": "8",
+                    "first_login": "1"
+                  }
+                }
+              ],
+              "zaras_chest_ados": [],
+              "!kills": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "id": "1919"
+                  }
+                }
+              ],
+              "!visited": [
+                {
+                  "slots": {},
+                  "name": null,
+                  "attributes": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "id": "1920",
+                    "int_semos_guard_house": "1791043987555"
+                  }
+                }
+              ],
+              "armor": [
+                {
+                  "slots": {},
+                  "name": "leather armor",
+                  "attributes": {
+                    "visibility": "100",
+                    "def": "6",
+                    "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                    "type": "item",
+                    "resistance": "0",
+                    "undroppableondeath": "1",
+                    "x": "0",
+                    "width": "1",
+                    "subclass": "leather_armor",
+                    "name": "leather armor",
+                    "y": "0",
+                    "id": "1924",
+                    "class": "armor",
+                    "min_level": "0",
+                    "height": "1"
+                  }
+                }
+              ],
+              "trade": [],
+              "cloak": [],
+              "lhand": [],
+              "bank_magic": [],
+              "keyring": []
+            },
+            "ground_items": [],
+            "money": 0,
+            "name": "qaplayera",
+            "xp": 0,
+            "statuses": [],
+            "atk": 10,
+            "attributes": {
+              "def": "10",
+              "release": "1.49",
+              "hp": "100",
+              "def_item": "6",
+              "#clientid": "1785707427",
+              "type": "player",
+              "dir": "3",
+              "base_mana": "0",
+              "def_xp": "0",
+              "#db_id": "3",
+              "outfit": "0",
+              "atk": "10",
+              "base_hp": "100",
+              "id": "26",
+              "height": "1",
+              "karma": "10.0",
+              "visibility": "100",
+              "atk_xp": "0",
+              "level": "0",
+              "resistance": "100",
+              "mana": "0",
+              "x": "7",
+              "name": "qaplayera",
+              "xp": "0",
+              "width": "1",
+              "y": "12",
+              "zoneid": "int_semos_guard_house",
+              "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+              "atk_item": "6",
+              "age": "21"
+            },
+            "base_hp": 100,
+            "bag_full": false
+          },
+          "restored_fields": [
+            "bag",
+            "equipment",
+            "quests",
+            "xp",
+            "hp",
+            "level",
+            "base_hp",
+            "karma",
+            "location",
+            "npc_purchases",
+            "npc_sales",
+            "looted_items",
+            "item_counter_cache",
+            "atk_xp",
+            "def_xp",
+            "atk",
+            "def",
+            "!kills",
+            "!tutorial",
+            "!visited",
+            "skills"
+          ]
+        },
+        "interface_messages": [
+          {
+            "direction": "request",
+            "time": 1791043987.8771892,
+            "id": 1,
+            "op": "connect",
+            "args": {
+              "host": "127.0.0.1",
+              "port": 32160
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043988.0290282,
+            "id": 1,
+            "ok": true,
+            "result": {
+              "connected": true,
+              "host": "127.0.0.1",
+              "port": 32160
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043988.0290911,
+            "id": 2,
+            "op": "login",
+            "args": {
+              "username": "qaobserver",
+              "password": "[redacted]",
+              "character": "qaobserver"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043988.493723,
+            "id": 2,
+            "ok": true,
+            "result": {
+              "characters": [
+                "qaobserver"
+              ],
+              "character": "qaobserver",
+              "selected": true
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043988.495004,
+            "id": 3,
+            "op": "inspect",
+            "args": {
+              "target": "qaplayera"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043989.072213,
+            "id": 3,
+            "ok": true,
+            "result": {
+              "karma": 10.0,
+              "trade_state": "NO_ACTIVE_TRADE",
+              "item_counter_cache": {
+                "mined": {},
+                "sold": {},
+                "sown": {},
+                "bought": {
+                  "cheese": 14
+                },
+                "obtained": {},
+                "looted": {},
+                "harvested": {},
+                "produced": {}
+              },
+              "def": 10,
+              "quests": {},
+              "level": 0,
+              "atk_xp": 0,
+              "hp": 100,
+              "inventory": [
+                {
+                  "quantity": 1,
+                  "name": "club",
+                  "slot": "rhand"
+                },
+                {
+                  "quantity": 1,
+                  "name": "leather armor",
+                  "slot": "armor"
+                }
+              ],
+              "commerce": {
+                "npc_purchases": {},
+                "npc_sales": {},
+                "looted_items": {
+                  "bought.cheese": "14"
+                }
+              },
+              "keyed": {
+                "skills": {},
+                "!kills": {},
+                "!visited": {
+                  "int_semos_tavern_0": "1790942298137",
+                  "int_semos_guard_house": "1791043987555"
+                },
+                "!tutorial": {
+                  "visit_semos_tavern": "1",
+                  "timed_help": "1",
+                  "first_login": "1"
+                }
+              },
+              "features": {},
+              "def_xp": 0,
+              "slots": {
+                "bank_kirdneh": [],
+                "feet": [],
+                "bag": [],
+                "bank_deniran": [],
+                "!ignore": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "5"
+                    }
+                  }
+                ],
+                "skills": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "7"
+                    }
+                  }
+                ],
+                "head": [],
+                "bank_nalwor": [],
+                "bank": [],
+                "!quests": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "2"
+                    }
+                  }
+                ],
+                "rhand": [
+                  {
+                    "slots": {},
+                    "name": "club",
+                    "attributes": {
+                      "visibility": "100",
+                      "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                      "type": "item",
+                      "resistance": "0",
+                      "undroppableondeath": "1",
+                      "rate": "4",
+                      "x": "0",
+                      "width": "1",
+                      "subclass": "club",
+                      "name": "club",
+                      "y": "0",
+                      "atk": "6",
+                      "id": "1921",
+                      "class": "club",
+                      "min_level": "0",
+                      "height": "1"
+                    }
+                  }
+                ],
+                "legs": [],
+                "bank_ados": [],
+                "bank_fado": [],
+                "spells": [],
+                "finger": [],
+                "pouch": [],
+                "!tutorial": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "visit_semos_tavern": "1",
+                      "timed_help": "1",
+                      "id": "8",
+                      "first_login": "1"
+                    }
+                  }
+                ],
+                "zaras_chest_ados": [],
+                "!kills": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "1919"
+                    }
+                  }
+                ],
+                "!visited": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "int_semos_tavern_0": "1790942298137",
+                      "id": "1920",
+                      "int_semos_guard_house": "1791043987555"
+                    }
+                  }
+                ],
+                "armor": [
+                  {
+                    "slots": {},
+                    "name": "leather armor",
+                    "attributes": {
+                      "visibility": "100",
+                      "def": "6",
+                      "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                      "type": "item",
+                      "resistance": "0",
+                      "undroppableondeath": "1",
+                      "x": "0",
+                      "width": "1",
+                      "subclass": "leather_armor",
+                      "name": "leather armor",
+                      "y": "0",
+                      "id": "1922",
+                      "class": "armor",
+                      "min_level": "0",
+                      "height": "1"
+                    }
+                  }
+                ],
+                "trade": [],
+                "cloak": [],
+                "lhand": [],
+                "bank_magic": [],
+                "keyring": []
+              },
+              "ground_items": [],
+              "money": 0,
+              "name": "qaplayera",
+              "xp": 0,
+              "statuses": [],
+              "atk": 10,
+              "attributes": {
+                "def": "10",
+                "release": "1.49",
+                "hp": "100",
+                "def_item": "6",
+                "#clientid": "1785707427",
+                "type": "player",
+                "base_mana": "0",
+                "def_xp": "0",
+                "#db_id": "3",
+                "outfit": "0",
+                "atk": "10",
+                "base_hp": "100",
+                "id": "26",
+                "height": "1",
+                "karma": "10.0",
+                "visibility": "100",
+                "atk_xp": "0",
+                "level": "0",
+                "resistance": "100",
+                "mana": "0",
+                "x": "7",
+                "name": "qaplayera",
+                "xp": "0",
+                "width": "1",
+                "y": "12",
+                "zoneid": "int_semos_guard_house",
+                "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+                "atk_item": "6",
+                "age": "21"
+              },
+              "base_hp": 100,
+              "bag_full": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043989.078707,
+            "id": 4,
+            "op": "prepare",
+            "args": {
+              "target": "qaplayera",
+              "xp": 800,
+              "hp": 100,
+              "zone": "int_semos_guard_house",
+              "x": 17,
+              "y": 5
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043989.3771389,
+            "id": 4,
+            "ok": true,
+            "result": {
+              "snapshot_id": "22852354-7a07-4816-ae79-d556f091e25c",
+              "before": {
+                "karma": 10.0,
+                "trade_state": "NO_ACTIVE_TRADE",
+                "item_counter_cache": {
+                  "mined": {},
+                  "sold": {},
+                  "sown": {},
+                  "bought": {
+                    "cheese": 14
+                  },
+                  "obtained": {},
+                  "looted": {},
+                  "harvested": {},
+                  "produced": {}
+                },
+                "def": 10,
+                "quests": {},
+                "level": 0,
+                "atk_xp": 0,
+                "hp": 100,
+                "inventory": [
+                  {
+                    "quantity": 1,
+                    "name": "club",
+                    "slot": "rhand"
+                  },
+                  {
+                    "quantity": 1,
+                    "name": "leather armor",
+                    "slot": "armor"
+                  }
+                ],
+                "commerce": {
+                  "npc_purchases": {},
+                  "npc_sales": {},
+                  "looted_items": {
+                    "bought.cheese": "14"
+                  }
+                },
+                "keyed": {
+                  "skills": {},
+                  "!kills": {},
+                  "!visited": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "int_semos_guard_house": "1791043987555"
+                  },
+                  "!tutorial": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "first_login": "1"
+                  }
+                },
+                "features": {},
+                "def_xp": 0,
+                "slots": {
+                  "bank_kirdneh": [],
+                  "feet": [],
+                  "bag": [],
+                  "bank_deniran": [],
+                  "!ignore": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "5"
+                      }
+                    }
+                  ],
+                  "skills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "7"
+                      }
+                    }
+                  ],
+                  "head": [],
+                  "bank_nalwor": [],
+                  "bank": [],
+                  "!quests": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "2"
+                      }
+                    }
+                  ],
+                  "rhand": [
+                    {
+                      "slots": {},
+                      "name": "club",
+                      "attributes": {
+                        "visibility": "100",
+                        "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "rate": "4",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "club",
+                        "name": "club",
+                        "y": "0",
+                        "atk": "6",
+                        "id": "1921",
+                        "class": "club",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "legs": [],
+                  "bank_ados": [],
+                  "bank_fado": [],
+                  "spells": [],
+                  "finger": [],
+                  "pouch": [],
+                  "!tutorial": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "visit_semos_tavern": "1",
+                        "timed_help": "1",
+                        "id": "8",
+                        "first_login": "1"
+                      }
+                    }
+                  ],
+                  "zaras_chest_ados": [],
+                  "!kills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "1919"
+                      }
+                    }
+                  ],
+                  "!visited": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "int_semos_tavern_0": "1790942298137",
+                        "id": "1920",
+                        "int_semos_guard_house": "1791043987555"
+                      }
+                    }
+                  ],
+                  "armor": [
+                    {
+                      "slots": {},
+                      "name": "leather armor",
+                      "attributes": {
+                        "visibility": "100",
+                        "def": "6",
+                        "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "leather_armor",
+                        "name": "leather armor",
+                        "y": "0",
+                        "id": "1922",
+                        "class": "armor",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "trade": [],
+                  "cloak": [],
+                  "lhand": [],
+                  "bank_magic": [],
+                  "keyring": []
+                },
+                "ground_items": [],
+                "money": 0,
+                "name": "qaplayera",
+                "xp": 0,
+                "statuses": [],
+                "atk": 10,
+                "attributes": {
+                  "def": "10",
+                  "release": "1.49",
+                  "hp": "100",
+                  "def_item": "6",
+                  "#clientid": "1785707427",
+                  "type": "player",
+                  "base_mana": "0",
+                  "def_xp": "0",
+                  "#db_id": "3",
+                  "outfit": "0",
+                  "atk": "10",
+                  "base_hp": "100",
+                  "id": "26",
+                  "height": "1",
+                  "karma": "10.0",
+                  "visibility": "100",
+                  "atk_xp": "0",
+                  "level": "0",
+                  "resistance": "100",
+                  "mana": "0",
+                  "x": "7",
+                  "name": "qaplayera",
+                  "xp": "0",
+                  "width": "1",
+                  "y": "12",
+                  "zoneid": "int_semos_guard_house",
+                  "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+                  "atk_item": "6",
+                  "age": "21"
+                },
+                "base_hp": 100,
+                "bag_full": false
+              },
+              "name": "qaplayera",
+              "restorable_fields": [
+                "bag",
+                "equipment",
+                "quests",
+                "xp",
+                "hp",
+                "level",
+                "base_hp",
+                "karma",
+                "location",
+                "npc_purchases",
+                "npc_sales",
+                "looted_items",
+                "item_counter_cache",
+                "atk_xp",
+                "def_xp",
+                "atk",
+                "def",
+                "!kills",
+                "!tutorial",
+                "!visited",
+                "skills"
+              ],
+              "after": {
+                "karma": 10.0,
+                "trade_state": "NO_ACTIVE_TRADE",
+                "item_counter_cache": {
+                  "mined": {},
+                  "sold": {},
+                  "sown": {},
+                  "bought": {
+                    "cheese": 14
+                  },
+                  "obtained": {},
+                  "looted": {},
+                  "harvested": {},
+                  "produced": {}
+                },
+                "def": 10,
+                "quests": {},
+                "level": 5,
+                "atk_xp": 0,
+                "hp": 100,
+                "inventory": [
+                  {
+                    "quantity": 1,
+                    "name": "club",
+                    "slot": "rhand"
+                  },
+                  {
+                    "quantity": 1,
+                    "name": "leather armor",
+                    "slot": "armor"
+                  }
+                ],
+                "commerce": {
+                  "npc_purchases": {},
+                  "npc_sales": {},
+                  "looted_items": {
+                    "bought.cheese": "14"
+                  }
+                },
+                "keyed": {
+                  "skills": {},
+                  "!kills": {},
+                  "!visited": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "int_semos_guard_house": "1791043987555"
+                  },
+                  "!tutorial": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "first_login": "1"
+                  }
+                },
+                "features": {},
+                "def_xp": 0,
+                "slots": {
+                  "bank_kirdneh": [],
+                  "feet": [],
+                  "bag": [],
+                  "bank_deniran": [],
+                  "!ignore": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "5"
+                      }
+                    }
+                  ],
+                  "skills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "7"
+                      }
+                    }
+                  ],
+                  "head": [],
+                  "bank_nalwor": [],
+                  "bank": [],
+                  "!quests": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "2"
+                      }
+                    }
+                  ],
+                  "rhand": [
+                    {
+                      "slots": {},
+                      "name": "club",
+                      "attributes": {
+                        "visibility": "100",
+                        "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "rate": "4",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "club",
+                        "name": "club",
+                        "y": "0",
+                        "atk": "6",
+                        "id": "1921",
+                        "class": "club",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "legs": [],
+                  "bank_ados": [],
+                  "bank_fado": [],
+                  "spells": [],
+                  "finger": [],
+                  "pouch": [],
+                  "!tutorial": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "visit_semos_tavern": "1",
+                        "timed_help": "1",
+                        "id": "8",
+                        "first_login": "1"
+                      }
+                    }
+                  ],
+                  "zaras_chest_ados": [],
+                  "!kills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "1919"
+                      }
+                    }
+                  ],
+                  "!visited": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "int_semos_tavern_0": "1790942298137",
+                        "id": "1920",
+                        "int_semos_guard_house": "1791043987555"
+                      }
+                    }
+                  ],
+                  "armor": [
+                    {
+                      "slots": {},
+                      "name": "leather armor",
+                      "attributes": {
+                        "visibility": "100",
+                        "def": "6",
+                        "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "leather_armor",
+                        "name": "leather armor",
+                        "y": "0",
+                        "id": "1922",
+                        "class": "armor",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "trade": [],
+                  "cloak": [],
+                  "lhand": [],
+                  "bank_magic": [],
+                  "keyring": []
+                },
+                "ground_items": [],
+                "money": 0,
+                "name": "qaplayera",
+                "xp": 800,
+                "statuses": [],
+                "atk": 10,
+                "attributes": {
+                  "def": "10",
+                  "release": "1.49",
+                  "hp": "100",
+                  "def_item": "6",
+                  "#clientid": "1785707427",
+                  "type": "player",
+                  "dir": "3",
+                  "base_mana": "0",
+                  "def_xp": "0",
+                  "#db_id": "3",
+                  "outfit": "0",
+                  "atk": "10",
+                  "base_hp": "150",
+                  "id": "26",
+                  "height": "1",
+                  "karma": "10.0",
+                  "visibility": "100",
+                  "atk_xp": "0",
+                  "level": "5",
+                  "resistance": "100",
+                  "mana": "0",
+                  "x": "17",
+                  "name": "qaplayera",
+                  "xp": "800",
+                  "width": "1",
+                  "y": "5",
+                  "zoneid": "int_semos_guard_house",
+                  "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+                  "atk_item": "6",
+                  "age": "21"
+                },
+                "base_hp": 150,
+                "bag_full": false
+              }
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043989.394614,
+            "id": 5,
+            "op": "combat_prepare",
+            "args": {
+              "target": "qaplayera",
+              "placement": "far"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043989.687813,
+            "id": 5,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "visibility": "100",
+                "def": "3",
+                "level": "0",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "title_type": "enemy",
+                "resistance": "100",
+                "ratk": "0",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "15",
+                "atk": "8",
+                "zoneid": "int_semos_guard_house",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "atk_item": "5",
+                "height": "1"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1131,
+              "squared_distance": 81.0,
+              "target_fixture": false,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043989.880289,
+            "id": 6,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043989.980729,
+            "id": 6,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "visibility": "100",
+                "def": "3",
+                "level": "0",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "resistance": "100",
+                "ratk": "0",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "15",
+                "atk": "8",
+                "zoneid": "int_semos_guard_house",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "atk_item": "5",
+                "height": "1"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1132,
+              "squared_distance": 81.0,
+              "target_fixture": false,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043990.1425018,
+            "id": 7,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043990.2927098,
+            "id": 7,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "15",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1133,
+              "squared_distance": 81.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043990.455807,
+            "id": 8,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043990.6046689,
+            "id": 8,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "14",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1134,
+              "squared_distance": 64.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043990.768708,
+            "id": 9,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043990.923274,
+            "id": 9,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "14",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1135,
+              "squared_distance": 64.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043991.08761,
+            "id": 10,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043991.206054,
+            "id": 10,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "4",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1136,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043991.368544,
+            "id": 11,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043991.552691,
+            "id": 11,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "4",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1137,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043991.716038,
+            "id": 12,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043991.828615,
+            "id": 12,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "4",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "17",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1138,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043991.992123,
+            "id": 13,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043992.182663,
+            "id": 13,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1139,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043992.341812,
+            "id": 14,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043992.451533,
+            "id": 14,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "13",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1140,
+              "squared_distance": 49.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043992.6151779,
+            "id": 15,
+            "op": "combat_inspect",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043992.7637792,
+            "id": 15,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.5",
+                "pathset": "",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "target": "26",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "12",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": true,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1141,
+              "squared_distance": 36.0,
+              "target_fixture": true,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043992.766696,
+            "id": 16,
+            "op": "inspect",
+            "args": {
+              "target": "qaplayera"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043993.095221,
+            "id": 16,
+            "ok": true,
+            "result": {
+              "karma": 10.0,
+              "trade_state": "NO_ACTIVE_TRADE",
+              "item_counter_cache": {
+                "mined": {},
+                "sold": {},
+                "sown": {},
+                "bought": {
+                  "cheese": 14
+                },
+                "obtained": {},
+                "looted": {},
+                "harvested": {},
+                "produced": {}
+              },
+              "def": 10,
+              "quests": {},
+              "level": 5,
+              "atk_xp": 0,
+              "hp": 100,
+              "inventory": [
+                {
+                  "quantity": 1,
+                  "name": "club",
+                  "slot": "rhand"
+                },
+                {
+                  "quantity": 1,
+                  "name": "leather armor",
+                  "slot": "armor"
+                }
+              ],
+              "commerce": {
+                "npc_purchases": {},
+                "npc_sales": {},
+                "looted_items": {
+                  "bought.cheese": "14"
+                }
+              },
+              "keyed": {
+                "skills": {},
+                "!kills": {},
+                "!visited": {
+                  "int_semos_tavern_0": "1790942298137",
+                  "int_semos_guard_house": "1791043987555"
+                },
+                "!tutorial": {
+                  "visit_semos_tavern": "1",
+                  "timed_help": "1",
+                  "first_login": "1"
+                }
+              },
+              "features": {},
+              "def_xp": 0,
+              "slots": {
+                "bank_kirdneh": [],
+                "feet": [],
+                "bag": [],
+                "bank_deniran": [],
+                "!ignore": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "5"
+                    }
+                  }
+                ],
+                "skills": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "7"
+                    }
+                  }
+                ],
+                "head": [],
+                "bank_nalwor": [],
+                "bank": [],
+                "!quests": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "2"
+                    }
+                  }
+                ],
+                "rhand": [
+                  {
+                    "slots": {},
+                    "name": "club",
+                    "attributes": {
+                      "visibility": "100",
+                      "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                      "type": "item",
+                      "resistance": "0",
+                      "undroppableondeath": "1",
+                      "rate": "4",
+                      "x": "0",
+                      "width": "1",
+                      "subclass": "club",
+                      "name": "club",
+                      "y": "0",
+                      "atk": "6",
+                      "id": "1921",
+                      "class": "club",
+                      "min_level": "0",
+                      "height": "1"
+                    }
+                  }
+                ],
+                "legs": [],
+                "bank_ados": [],
+                "bank_fado": [],
+                "spells": [],
+                "finger": [],
+                "pouch": [],
+                "!tutorial": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "visit_semos_tavern": "1",
+                      "timed_help": "1",
+                      "id": "8",
+                      "first_login": "1"
+                    }
+                  }
+                ],
+                "zaras_chest_ados": [],
+                "!kills": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "id": "1919"
+                    }
+                  }
+                ],
+                "!visited": [
+                  {
+                    "slots": {},
+                    "name": null,
+                    "attributes": {
+                      "int_semos_tavern_0": "1790942298137",
+                      "id": "1920",
+                      "int_semos_guard_house": "1791043987555"
+                    }
+                  }
+                ],
+                "armor": [
+                  {
+                    "slots": {},
+                    "name": "leather armor",
+                    "attributes": {
+                      "visibility": "100",
+                      "def": "6",
+                      "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                      "type": "item",
+                      "resistance": "0",
+                      "undroppableondeath": "1",
+                      "x": "0",
+                      "width": "1",
+                      "subclass": "leather_armor",
+                      "name": "leather armor",
+                      "y": "0",
+                      "id": "1922",
+                      "class": "armor",
+                      "min_level": "0",
+                      "height": "1"
+                    }
+                  }
+                ],
+                "trade": [],
+                "cloak": [],
+                "lhand": [],
+                "bank_magic": [],
+                "keyring": []
+              },
+              "ground_items": [],
+              "money": 0,
+              "name": "qaplayera",
+              "xp": 800,
+              "statuses": [],
+              "atk": 10,
+              "attributes": {
+                "def": "10",
+                "release": "1.49",
+                "hp": "100",
+                "def_item": "6",
+                "#clientid": "1785707427",
+                "type": "player",
+                "dir": "3",
+                "base_mana": "0",
+                "def_xp": "0",
+                "#db_id": "3",
+                "outfit": "0",
+                "atk": "10",
+                "base_hp": "150",
+                "id": "26",
+                "height": "1",
+                "karma": "10.0",
+                "visibility": "100",
+                "atk_xp": "0",
+                "level": "5",
+                "resistance": "100",
+                "target": "28",
+                "mana": "0",
+                "x": "17",
+                "name": "qaplayera",
+                "xp": "800",
+                "width": "1",
+                "y": "5",
+                "zoneid": "int_semos_guard_house",
+                "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+                "atk_item": "6",
+                "age": "21"
+              },
+              "base_hp": 150,
+              "bag_full": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043993.105479,
+            "id": 17,
+            "op": "combat_cleanup",
+            "args": {
+              "target": "qaplayera",
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043993.402762,
+            "id": 17,
+            "ok": true,
+            "result": {
+              "fixture_id": "6e9379dc-5cd9-48f5-a48a-6720ec48b9ac",
+              "rat": {
+                "def": "3",
+                "hp": "20",
+                "def_item": "0",
+                "description": "You see a small rat that seems to be extremely hungry.",
+                "type": "creature",
+                "dir": "1",
+                "title_type": "enemy",
+                "speed": "0.0",
+                "ratk": "0",
+                "atk": "8",
+                "base_hp": "20",
+                "id": "28",
+                "class": "rodent",
+                "height": "1",
+                "visibility": "100",
+                "level": "0",
+                "resistance": "100",
+                "x": "16",
+                "width": "1",
+                "subclass": "rat",
+                "xp": "100",
+                "name": "rat",
+                "y": "11",
+                "zoneid": "int_semos_guard_house",
+                "atk_item": "5"
+              },
+              "rat_present": false,
+              "attack_rate": 4,
+              "range": 0,
+              "corpse_present": false,
+              "turn": 1143,
+              "squared_distance": 25.0,
+              "target_fixture": false,
+              "zone": "int_semos_guard_house",
+              "name": "qaplayera",
+              "corpse": null,
+              "next_to": false
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043993.4040918,
+            "id": 18,
+            "op": "restore",
+            "args": {
+              "target": "qaplayera",
+              "snapshot_id": "22852354-7a07-4816-ae79-d556f091e25c"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043993.688033,
+            "id": 18,
+            "ok": true,
+            "result": {
+              "snapshot_id": "22852354-7a07-4816-ae79-d556f091e25c",
+              "before": {
+                "karma": 10.0,
+                "trade_state": "NO_ACTIVE_TRADE",
+                "item_counter_cache": {
+                  "mined": {},
+                  "sold": {},
+                  "sown": {},
+                  "bought": {
+                    "cheese": 14
+                  },
+                  "obtained": {},
+                  "looted": {},
+                  "harvested": {},
+                  "produced": {}
+                },
+                "def": 10,
+                "quests": {},
+                "level": 5,
+                "atk_xp": 0,
+                "hp": 100,
+                "inventory": [
+                  {
+                    "quantity": 1,
+                    "name": "club",
+                    "slot": "rhand"
+                  },
+                  {
+                    "quantity": 1,
+                    "name": "leather armor",
+                    "slot": "armor"
+                  }
+                ],
+                "commerce": {
+                  "npc_purchases": {},
+                  "npc_sales": {},
+                  "looted_items": {
+                    "bought.cheese": "14"
+                  }
+                },
+                "keyed": {
+                  "skills": {},
+                  "!kills": {},
+                  "!visited": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "int_semos_guard_house": "1791043987555"
+                  },
+                  "!tutorial": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "first_login": "1"
+                  }
+                },
+                "features": {},
+                "def_xp": 0,
+                "slots": {
+                  "bank_kirdneh": [],
+                  "feet": [],
+                  "bag": [],
+                  "bank_deniran": [],
+                  "!ignore": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "5"
+                      }
+                    }
+                  ],
+                  "skills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "7"
+                      }
+                    }
+                  ],
+                  "head": [],
+                  "bank_nalwor": [],
+                  "bank": [],
+                  "!quests": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "2"
+                      }
+                    }
+                  ],
+                  "rhand": [
+                    {
+                      "slots": {},
+                      "name": "club",
+                      "attributes": {
+                        "visibility": "100",
+                        "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "rate": "4",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "club",
+                        "name": "club",
+                        "y": "0",
+                        "atk": "6",
+                        "id": "1921",
+                        "class": "club",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "legs": [],
+                  "bank_ados": [],
+                  "bank_fado": [],
+                  "spells": [],
+                  "finger": [],
+                  "pouch": [],
+                  "!tutorial": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "visit_semos_tavern": "1",
+                        "timed_help": "1",
+                        "id": "8",
+                        "first_login": "1"
+                      }
+                    }
+                  ],
+                  "zaras_chest_ados": [],
+                  "!kills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "1919"
+                      }
+                    }
+                  ],
+                  "!visited": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "int_semos_tavern_0": "1790942298137",
+                        "id": "1920",
+                        "int_semos_guard_house": "1791043987555"
+                      }
+                    }
+                  ],
+                  "armor": [
+                    {
+                      "slots": {},
+                      "name": "leather armor",
+                      "attributes": {
+                        "visibility": "100",
+                        "def": "6",
+                        "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "leather_armor",
+                        "name": "leather armor",
+                        "y": "0",
+                        "id": "1922",
+                        "class": "armor",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "trade": [],
+                  "cloak": [],
+                  "lhand": [],
+                  "bank_magic": [],
+                  "keyring": []
+                },
+                "ground_items": [],
+                "money": 0,
+                "name": "qaplayera",
+                "xp": 800,
+                "statuses": [],
+                "atk": 10,
+                "attributes": {
+                  "def": "10",
+                  "release": "1.49",
+                  "hp": "100",
+                  "def_item": "6",
+                  "#clientid": "1785707427",
+                  "type": "player",
+                  "dir": "3",
+                  "base_mana": "0",
+                  "def_xp": "0",
+                  "#db_id": "3",
+                  "outfit": "0",
+                  "atk": "10",
+                  "base_hp": "150",
+                  "id": "26",
+                  "height": "1",
+                  "karma": "10.0",
+                  "visibility": "100",
+                  "atk_xp": "0",
+                  "level": "5",
+                  "resistance": "100",
+                  "mana": "0",
+                  "x": "17",
+                  "name": "qaplayera",
+                  "xp": "800",
+                  "width": "1",
+                  "y": "5",
+                  "zoneid": "int_semos_guard_house",
+                  "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+                  "atk_item": "6",
+                  "age": "21"
+                },
+                "base_hp": 150,
+                "bag_full": false
+              },
+              "location_adjusted": false,
+              "name": "qaplayera",
+              "restored": true,
+              "location": {
+                "actual": {
+                  "zone": "int_semos_guard_house",
+                  "x": 7,
+                  "y": 12
+                },
+                "reason": "Exact original position restored",
+                "requested": {
+                  "zone": "int_semos_guard_house",
+                  "x": 7,
+                  "y": 12
+                },
+                "max_manhattan_distance": 1,
+                "location_adjusted": false
+              },
+              "after": {
+                "karma": 10.0,
+                "trade_state": "NO_ACTIVE_TRADE",
+                "item_counter_cache": {
+                  "mined": {},
+                  "sold": {},
+                  "sown": {},
+                  "bought": {
+                    "cheese": 14
+                  },
+                  "obtained": {},
+                  "looted": {},
+                  "harvested": {},
+                  "produced": {}
+                },
+                "def": 10,
+                "quests": {},
+                "level": 0,
+                "atk_xp": 0,
+                "hp": 100,
+                "inventory": [
+                  {
+                    "quantity": 1,
+                    "name": "club",
+                    "slot": "rhand"
+                  },
+                  {
+                    "quantity": 1,
+                    "name": "leather armor",
+                    "slot": "armor"
+                  }
+                ],
+                "commerce": {
+                  "npc_purchases": {},
+                  "npc_sales": {},
+                  "looted_items": {
+                    "bought.cheese": "14"
+                  }
+                },
+                "keyed": {
+                  "skills": {},
+                  "!kills": {},
+                  "!visited": {
+                    "int_semos_tavern_0": "1790942298137",
+                    "int_semos_guard_house": "1791043987555"
+                  },
+                  "!tutorial": {
+                    "visit_semos_tavern": "1",
+                    "timed_help": "1",
+                    "first_login": "1"
+                  }
+                },
+                "features": {},
+                "def_xp": 0,
+                "slots": {
+                  "bank_kirdneh": [],
+                  "feet": [],
+                  "bag": [],
+                  "bank_deniran": [],
+                  "!ignore": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "5"
+                      }
+                    }
+                  ],
+                  "skills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "7"
+                      }
+                    }
+                  ],
+                  "head": [],
+                  "bank_nalwor": [],
+                  "bank": [],
+                  "!quests": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "2"
+                      }
+                    }
+                  ],
+                  "rhand": [
+                    {
+                      "slots": {},
+                      "name": "club",
+                      "attributes": {
+                        "visibility": "100",
+                        "description": "You see a wooden club. It won't kill much but is better than no weapon.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "rate": "4",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "club",
+                        "name": "club",
+                        "y": "0",
+                        "atk": "6",
+                        "id": "1923",
+                        "class": "club",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "legs": [],
+                  "bank_ados": [],
+                  "bank_fado": [],
+                  "spells": [],
+                  "finger": [],
+                  "pouch": [],
+                  "!tutorial": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "visit_semos_tavern": "1",
+                        "timed_help": "1",
+                        "id": "8",
+                        "first_login": "1"
+                      }
+                    }
+                  ],
+                  "zaras_chest_ados": [],
+                  "!kills": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "id": "1919"
+                      }
+                    }
+                  ],
+                  "!visited": [
+                    {
+                      "slots": {},
+                      "name": null,
+                      "attributes": {
+                        "int_semos_tavern_0": "1790942298137",
+                        "id": "1920",
+                        "int_semos_guard_house": "1791043987555"
+                      }
+                    }
+                  ],
+                  "armor": [
+                    {
+                      "slots": {},
+                      "name": "leather armor",
+                      "attributes": {
+                        "visibility": "100",
+                        "def": "6",
+                        "description": "You see a worn suit of leather armor. It will provide only minimal protection.",
+                        "type": "item",
+                        "resistance": "0",
+                        "undroppableondeath": "1",
+                        "x": "0",
+                        "width": "1",
+                        "subclass": "leather_armor",
+                        "name": "leather armor",
+                        "y": "0",
+                        "id": "1924",
+                        "class": "armor",
+                        "min_level": "0",
+                        "height": "1"
+                      }
+                    }
+                  ],
+                  "trade": [],
+                  "cloak": [],
+                  "lhand": [],
+                  "bank_magic": [],
+                  "keyring": []
+                },
+                "ground_items": [],
+                "money": 0,
+                "name": "qaplayera",
+                "xp": 0,
+                "statuses": [],
+                "atk": 10,
+                "attributes": {
+                  "def": "10",
+                  "release": "1.49",
+                  "hp": "100",
+                  "def_item": "6",
+                  "#clientid": "1785707427",
+                  "type": "player",
+                  "dir": "3",
+                  "base_mana": "0",
+                  "def_xp": "0",
+                  "#db_id": "3",
+                  "outfit": "0",
+                  "atk": "10",
+                  "base_hp": "100",
+                  "id": "26",
+                  "height": "1",
+                  "karma": "10.0",
+                  "visibility": "100",
+                  "atk_xp": "0",
+                  "level": "0",
+                  "resistance": "100",
+                  "mana": "0",
+                  "x": "7",
+                  "name": "qaplayera",
+                  "xp": "0",
+                  "width": "1",
+                  "y": "12",
+                  "zoneid": "int_semos_guard_house",
+                  "outfit_ext": "body=1,dress=53,head=1,mouth=4,eyes=6,mask=0,hair=13,hat=0,detail=0",
+                  "atk_item": "6",
+                  "age": "21"
+                },
+                "base_hp": 100,
+                "bag_full": false
+              },
+              "restored_fields": [
+                "bag",
+                "equipment",
+                "quests",
+                "xp",
+                "hp",
+                "level",
+                "base_hp",
+                "karma",
+                "location",
+                "npc_purchases",
+                "npc_sales",
+                "looted_items",
+                "item_counter_cache",
+                "atk_xp",
+                "def_xp",
+                "atk",
+                "def",
+                "!kills",
+                "!tutorial",
+                "!visited",
+                "skills"
+              ]
+            }
+          }
+        ],
+        "bridge_stderr": [
+          "Cannot find log4j.properties in classpath. Using default properties.",
+          "Server info: [1.41.5, https://sourceforge.net/tracker/?atid=514826&group_id=66537&func=browse, stendhal Marauroa server, stendhal]"
+        ],
+        "player_interface_messages": [
+          {
+            "direction": "request",
+            "time": 1791043987.279266,
+            "id": 1,
+            "op": "connect",
+            "args": {
+              "host": "127.0.0.1",
+              "port": 32160
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043987.39792,
+            "id": 1,
+            "ok": true,
+            "result": {
+              "connected": true,
+              "host": "127.0.0.1",
+              "port": 32160
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043987.397998,
+            "id": 2,
+            "op": "login",
+            "args": {
+              "username": "qaplayera",
+              "password": "[redacted]",
+              "character": "qaplayera"
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043987.870174,
+            "id": 2,
+            "ok": true,
+            "result": {
+              "characters": [
+                "qaplayera"
+              ],
+              "character": "qaplayera",
+              "selected": true
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043989.690583,
+            "id": 3,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043989.691573,
+            "id": 3,
+            "ok": true,
+            "result": [
+              {
+                "event": "player_logged_on",
+                "name": "qaplayera",
+                "source_name": "qaplayera",
+                "source_type": "player",
+                "perception_timestamp": 0
+              },
+              {
+                "event": "private_text",
+                "texttype": "SERVER",
+                "text": "Welcome to Stendhal. Need help? #https://stendhalgame.org/player-guide/ask-for-help.html - please report problems, suggestions and bugs. Remember to keep your password completely secret, never tell to another friend, player, or admin.",
+                "source_name": "qaplayera",
+                "source_type": "player",
+                "perception_timestamp": 0
+              },
+              {
+                "event": "player_logged_on",
+                "name": "qaobserver",
+                "source_name": "qaplayera",
+                "source_type": "player",
+                "perception_timestamp": 2
+              },
+              {
+                "event": "sound_event",
+                "sound_id": "level_up",
+                "layer": "4",
+                "source_name": "qaplayera",
+                "source_type": "player",
+                "perception_timestamp": 5
+              }
+            ]
+          },
+          {
+            "direction": "request",
+            "time": 1791043989.6932962,
+            "id": 4,
+            "op": "send_action",
+            "args": {
+              "action": {
+                "type": "attack",
+                "target": "#28"
+              }
+            }
+          },
+          {
+            "direction": "response",
+            "time": 1791043989.8802078,
+            "id": 4,
+            "ok": true,
+            "result": {
+              "sent": true,
+              "note": "Queued by SDK; verify server state separately"
+            }
+          },
+          {
+            "direction": "request",
+            "time": 1791043989.9822888,
+            "id": 5,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043989.9826372,
+            "id": 5,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043990.295181,
+            "id": 6,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043990.295948,
+            "id": 6,
+            "ok": true,
+            "result": [
+              {
+                "event": "sound_event",
+                "volume": "100",
+                "sound": "rat-squeak-03",
+                "radius": "23",
+                "layer": "2",
+                "source_name": "rat",
+                "source_type": "creature",
+                "perception_timestamp": 8
+              }
+            ]
+          },
+          {
+            "direction": "request",
+            "time": 1791043990.6079512,
+            "id": 7,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043990.608623,
+            "id": 7,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043990.926497,
+            "id": 8,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043990.927361,
+            "id": 8,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043991.2096179,
+            "id": 9,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043991.210359,
+            "id": 9,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043991.555462,
+            "id": 10,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043991.555958,
+            "id": 10,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043991.831437,
+            "id": 11,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043991.832032,
+            "id": 11,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043992.185662,
+            "id": 12,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043992.186562,
+            "id": 12,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043992.454506,
+            "id": 13,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043992.455096,
+            "id": 13,
+            "ok": true,
+            "result": []
+          },
+          {
+            "direction": "request",
+            "time": 1791043992.7661262,
+            "id": 14,
+            "op": "get_events",
+            "args": {}
+          },
+          {
+            "direction": "response",
+            "time": 1791043992.76661,
+            "id": 14,
+            "ok": true,
+            "result": []
+          }
+        ],
+        "player_bridge_stderr": [
+          "Cannot find log4j.properties in classpath. Using default properties.",
+          "Server info: [1.41.5, https://sourceforge.net/tracker/?atid=514826&group_id=66537&func=browse, stendhal Marauroa server, stendhal]"
+        ]
+      },
+      "started": 1791043987.277072,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "finished": 1791043994.726177
+    }
+  ]
+}

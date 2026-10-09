@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airtest-game-qa"
+version = "0.1.0"
+description = "Local game functional and UI regression testing with pytest and Airtest"
+requires-python = ">=3.11"
+dependencies = ["pytest>=8,<10", "airtest>=1.3,<2"]
+
+[project.scripts]
+gameqa = "gameqa.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers"
+testpaths = ["tests", "cases"]
+markers = [
+  "case(id, game, module, kind): stable functional case identity",
+  "experiment: isolated controlled defect experiment",
+]

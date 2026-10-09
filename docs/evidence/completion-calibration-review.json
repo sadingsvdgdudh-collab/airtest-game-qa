@@ -1,0 +1,262 @@
+{
+  "scope": "single calibration round independent review; not formal five-round acceptance",
+  "formal_unique_ids_added": 0,
+  "formal_regression_count_added": 0,
+  "checks": 1699,
+  "counts": {
+    "execution": 4,
+    "pytest_phase": 3,
+    "recorded_step": 489,
+    "first_observation": 258,
+    "recorded_assertion": 127,
+    "attachment": 163,
+    "restoration": 3,
+    "restored_scalar": 21,
+    "restored_item": 10,
+    "interface_exchange": 210,
+    "interface_scope": 210,
+    "preparation_scope": 1,
+    "chain": 1,
+    "chain_checkpoint": 7,
+    "chain_reward": 1,
+    "chain_purchase": 4,
+    "chain_route": 136,
+    "business_cardinality": 2,
+    "chain_persistence": 4,
+    "image_identity": 15,
+    "image_read": 15,
+    "image_positive": 12,
+    "image_negative": 3
+  },
+  "totals": {
+    "restores": 1,
+    "permitted_location_adjustments": 0,
+    "cases": 1,
+    "observations": 258,
+    "assertions": 127,
+    "recorded_actions": 104,
+    "screenshots": 162
+  },
+  "records": [
+    {
+      "group": "stendhal-quest-chain-minimap-calibration-04",
+      "round": 1,
+      "id": "ST-QUEST-UI-007",
+      "outcome": "passed",
+      "started": 1791048511.430779,
+      "restored": true
+    }
+  ],
+  "image_replays": [
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "quest-promised.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-19.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "quest-material-ready.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-136.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-154.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-18.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "quest-completed.png",
+      "region": [
+        290,
+        290,
+        597,
+        555
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-78.png",
+      "expected_match": false,
+      "matched": false
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-138.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-139.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-140.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-141.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "xp-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-156.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "level-1.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-157.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "xp-next-50.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-158.png",
+      "expected_match": true,
+      "matched": true
+    },
+    {
+      "case": "stendhal-quest-chain-minimap-calibration-04 round 1",
+      "template": "hp-110.png",
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "threshold": 0.9,
+      "attachment": "reports/stendhal-quest-chain-minimap-calibration-04/round-01/ST-QUEST-UI-007/screen-159.png",
+      "expected_match": true,
+      "matched": true
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-COMBAT-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-COMBAT-API-002",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-MAP-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": true,
+  "experiment": "combat-ui-api-regression",
+  "exit_codes": [
+    0
+  ]
+}

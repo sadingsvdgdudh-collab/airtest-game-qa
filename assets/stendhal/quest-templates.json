@@ -1,0 +1,143 @@
+{
+  "travel-log-title": {
+    "source": "calibration/quest-start.png",
+    "crop": [
+      120,
+      239,
+      180,
+      255
+    ],
+    "sha256": "65f4defdb9c3413952e7c8ac01b24c03a7ad6e418eb700ebe17bcc6c13b47cfb"
+  },
+  "travel-log-close": {
+    "source": "calibration/quest-start.png",
+    "crop": [
+      584,
+      239,
+      601,
+      258
+    ],
+    "sha256": "8748079b7c51db198c1e6adac57fc576ee4efc89fcb7e1f9eb7c73d1780b3bb3"
+  },
+  "travel-log-completed-tab": {
+    "source": "calibration/quest-start.png",
+    "crop": [
+      207,
+      267,
+      309,
+      285
+    ],
+    "sha256": "e18f25c2ae13acf77576616470b7cb431713672ec1c317cd10c608c373d086a7"
+  },
+  "quest-promised": {
+    "source": "calibration/quest-start.png",
+    "crop": [
+      301,
+      399,
+      586,
+      433
+    ],
+    "sha256": "07c2d8d350bd003af6e70403873221cef1867b8eb81fdce69f90559624b4d917"
+  },
+  "quest-title": {
+    "source": "calibration/quest-start.png",
+    "crop": [
+      299,
+      306,
+      402,
+      326
+    ],
+    "sha256": "c70dde77d08cfb95eba1cc9056feaae54a0fc5cd930d5d2fd2756efde75af213"
+  },
+  "quest-completed": {
+    "source": "calibration/quest-completed.png",
+    "crop": [
+      302,
+      450,
+      584,
+      482
+    ],
+    "sha256": "17a624e3fc9d702fdfd037e9d9129310fa86357c11201f8bf2b0e241d77b7a2d"
+  },
+  "xp-50": {
+    "source": "calibration/quest-completed.png",
+    "crop": [
+      0,
+      404,
+      40,
+      418
+    ],
+    "sha256": "de32177920183556bf9fe3612fa637f00697c490110faa753a748c594d30a933"
+  },
+  "level-1": {
+    "source": "calibration/quest-completed.png",
+    "crop": [
+      0,
+      417,
+      44,
+      430
+    ],
+    "sha256": "af22110fdd52d959aa1359d3d3c055ff396ae9c5514c13c54e715d85b1918196"
+  },
+  "xp-next-50": {
+    "source": "calibration/quest-completed.png",
+    "crop": [
+      0,
+      417,
+      44,
+      443
+    ],
+    "sha256": "e51108ffcd780d3237ecfe00c47bd0986e4e83ecf1bfef0240f012ad34b93e4b"
+  },
+  "username-qaplayer": {
+    "source": "calibration/login-username.png",
+    "crop": [
+      180,
+      266,
+      224,
+      277
+    ],
+    "sha256": "5f8064ff41a7799c6f3bc6d82236be7511df5618768a815ad58511846569d38f"
+  },
+  "hp-110": {
+    "source": "calibration/quest-completed.png",
+    "crop": [
+      0,
+      336,
+      87,
+      352
+    ],
+    "sha256": "2cdeba4b8039bb2931ee114e1e93f318baf85d6d738050372019ae691f48448e"
+  },
+  "quest-unrepeatable": {
+    "source": "calibration/quest-repeat.png",
+    "crop": [
+      131,
+      903,
+      535,
+      925
+    ],
+    "sha256": "e72d573bc7c899d09a8d8ca7460eef421b942e4fcd54b2b3ce945031906eebd6"
+  },
+  "username-focused": {
+    "source": "calibration/login-focused.png",
+    "crop": [
+      174,
+      260,
+      348,
+      282
+    ],
+    "sha256": "9d16565d94cbf15039adc2e74703391e714f822a71b3f0c59573b442fc688e75"
+  },
+  "quest-material-ready": {
+    "source": "calibration/quest-start.png",
+    "crop": [
+      299,
+      434,
+      460,
+      453
+    ],
+    "sha256": "05f76c327de8ab17e36fb55fb0903e412e4bcf00c64bd6ae9af2b1ee057641f8",
+    "rule": "BuiltQuest only displays material-history when required beer is held or the quest is complete"
+  }
+}

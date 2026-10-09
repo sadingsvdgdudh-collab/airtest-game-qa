@@ -1,0 +1,1107 @@
+{
+  "verified_utc": "2026-10-03T14:00:53.053936+00:00",
+  "experiment": "combat-ui-final-fixed",
+  "audit_mode": "formal five-round verification",
+  "report_dir": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-final",
+  "rounds": 5,
+  "all_checks_passed": true,
+  "source_manifest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/combat_ui_final_source.json",
+  "source_manifest_sha256": "2b7842cf76e1dac5142812790d13c7655e5d028a0c178e7de334b78f806d2f9f",
+  "checks_performed": 1969,
+  "checks_by_category": {
+    "source_integrity": 4,
+    "public_source_hash": 136,
+    "installed_class_hash": 3,
+    "summary": 5,
+    "execution": 30,
+    "pytest_phase": 15,
+    "recorded_step": 320,
+    "first_observation": 120,
+    "recorded_business_assertion": 110,
+    "combat": 55,
+    "recorded_visual": 95,
+    "visual_parameters": 25,
+    "combat_approach": 20,
+    "restoration": 15,
+    "independent_restore_field": 105,
+    "independent_restore_slot": 45,
+    "interface_scope": 106,
+    "interface_exchange": 106,
+    "cleanup_order": 30,
+    "attachment": 115,
+    "attachment_identity": 30,
+    "attachment_image": 30,
+    "image_positive_replay": 25,
+    "image_negative_replay": 30,
+    "archive_inventory": 7,
+    "archive_file_bytes": 385,
+    "archive_source_manifest": 1,
+    "archive_sidecar_bytes": 1
+  },
+  "recorded_execution_totals": {
+    "cases": 5,
+    "observations": 120,
+    "assertions": 110,
+    "recorded_actions": 90,
+    "screenshots": 110,
+    "restores": 5,
+    "location_adjustments": 0,
+    "real_attack_touches": 5
+  },
+  "unstable_cases": 0,
+  "retried_observations": 0,
+  "frozen_public_files": 136,
+  "source_hashes_match": true,
+  "source_captured_before_first_case": true,
+  "independently_compared_scalar_fields": [
+    "money",
+    "xp",
+    "hp",
+    "level",
+    "base_hp",
+    "karma",
+    "atk_xp",
+    "def_xp",
+    "atk",
+    "def",
+    "quests",
+    "commerce",
+    "item_counter_cache",
+    "keyed",
+    "statuses"
+  ],
+  "independently_compared_slots_all_attributes_except_protocol_ids": [
+    "bag",
+    "head",
+    "armor",
+    "cloak",
+    "legs",
+    "feet",
+    "lhand",
+    "rhand",
+    "finger"
+  ],
+  "image_replays": [
+    {
+      "round": 1,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-16.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        262.0,
+        174.0
+      ]
+    },
+    {
+      "round": 1,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 1,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-17.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 1,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        270.0,
+        100.0
+      ]
+    },
+    {
+      "round": 1,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 1,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        269.0,
+        135.0
+      ]
+    },
+    {
+      "round": 1,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 1,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 1,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 1,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 1,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-01/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 2,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-16.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        262.0,
+        174.0
+      ]
+    },
+    {
+      "round": 2,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 2,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-17.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 2,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        270.0,
+        100.0
+      ]
+    },
+    {
+      "round": 2,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 2,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        269.0,
+        135.0
+      ]
+    },
+    {
+      "round": 2,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 2,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 2,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 2,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 2,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-02/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 3,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-16.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        262.0,
+        174.0
+      ]
+    },
+    {
+      "round": 3,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 3,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-17.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 3,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        270.0,
+        100.0
+      ]
+    },
+    {
+      "round": 3,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 3,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        269.0,
+        135.0
+      ]
+    },
+    {
+      "round": 3,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 3,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 3,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 3,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 3,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-03/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 4,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-16.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        262.0,
+        174.0
+      ]
+    },
+    {
+      "round": 4,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 4,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-17.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 4,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        270.0,
+        100.0
+      ]
+    },
+    {
+      "round": 4,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 4,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        269.0,
+        135.0
+      ]
+    },
+    {
+      "round": 4,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 4,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 4,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 4,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 4,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-04/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 5,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-16.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        262.0,
+        174.0
+      ]
+    },
+    {
+      "round": 5,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 5,
+      "template": "attack-menu.png",
+      "threshold": 0.85,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-17.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 5,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        270.0,
+        100.0
+      ]
+    },
+    {
+      "round": 5,
+      "template": "rat-title.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 5,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-19.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        269.0,
+        135.0
+      ]
+    },
+    {
+      "round": 5,
+      "template": "rat-corpse.png",
+      "threshold": 0.9,
+      "region": [
+        96,
+        203,
+        565,
+        555
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-15.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 5,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 5,
+      "template": "xp-800.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    },
+    {
+      "round": 5,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-18.png",
+      "expected_match": true,
+      "matched": true,
+      "position_in_roi": [
+        19.0,
+        86.0
+      ]
+    },
+    {
+      "round": 5,
+      "template": "xp-805.png",
+      "threshold": 0.98,
+      "region": [
+        0,
+        325,
+        96,
+        470
+      ],
+      "attachment": "round-05/ST-COMBAT-UI-001/screen-14.png",
+      "expected_match": false,
+      "matched": false,
+      "position_in_roi": null
+    }
+  ],
+  "per_round": [
+    {
+      "round": 1,
+      "hp_after": 97,
+      "xp_before": 800,
+      "xp_after": 805,
+      "solo_rat_delta": 1,
+      "all_phases_passed": true,
+      "rat_hp_after": 0,
+      "corpse_killer": "qaplayer",
+      "fixture_cleaned_before_restore": true,
+      "independently_restored": true,
+      "location_adjustment_tiles": 0
+    },
+    {
+      "round": 2,
+      "hp_after": 98,
+      "xp_before": 800,
+      "xp_after": 805,
+      "solo_rat_delta": 1,
+      "all_phases_passed": true,
+      "rat_hp_after": 0,
+      "corpse_killer": "qaplayer",
+      "fixture_cleaned_before_restore": true,
+      "independently_restored": true,
+      "location_adjustment_tiles": 0
+    },
+    {
+      "round": 3,
+      "hp_after": 94,
+      "xp_before": 800,
+      "xp_after": 805,
+      "solo_rat_delta": 1,
+      "all_phases_passed": true,
+      "rat_hp_after": 0,
+      "corpse_killer": "qaplayer",
+      "fixture_cleaned_before_restore": true,
+      "independently_restored": true,
+      "location_adjustment_tiles": 0
+    },
+    {
+      "round": 4,
+      "hp_after": 99,
+      "xp_before": 800,
+      "xp_after": 805,
+      "solo_rat_delta": 1,
+      "all_phases_passed": true,
+      "rat_hp_after": 0,
+      "corpse_killer": "qaplayer",
+      "fixture_cleaned_before_restore": true,
+      "independently_restored": true,
+      "location_adjustment_tiles": 0
+    },
+    {
+      "round": 5,
+      "hp_after": 97,
+      "xp_before": 800,
+      "xp_after": 805,
+      "solo_rat_delta": 1,
+      "all_phases_passed": true,
+      "rat_hp_after": 0,
+      "corpse_killer": "qaplayer",
+      "fixture_cleaned_before_restore": true,
+      "independently_restored": true,
+      "location_adjustment_tiles": 0
+    }
+  ],
+  "archive_comparison": {
+    "groups": [
+      {
+        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-final",
+        "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-final",
+        "files_compared": 142,
+        "byte_identical": true
+      },
+      {
+        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-first",
+        "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-first",
+        "files_compared": 130,
+        "byte_identical": true
+      },
+      {
+        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-calibration-01",
+        "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-calibration-01",
+        "files_compared": 27,
+        "byte_identical": true
+      },
+      {
+        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-calibration-02",
+        "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-calibration-02",
+        "files_compared": 28,
+        "byte_identical": true
+      },
+      {
+        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-calibration-03",
+        "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-calibration-03",
+        "files_compared": 28,
+        "byte_identical": true
+      },
+      {
+        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-api-regression",
+        "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-api-regression",
+        "files_compared": 11,
+        "byte_identical": true
+      },
+      {
+        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/combat-ui-disconnect-recovery",
+        "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-disconnect-recovery",
+        "files_compared": 19,
+        "byte_identical": true
+      }
+    ],
+    "groups_compared": 7,
+    "files_compared": 385,
+    "all_original_report_and_recovery_bytes_match": true
+  },
+  "limitations": [
+    "Recorded Airtest touch proves one submitted Attack; no client packet instrumentation.",
+    "R1 is a player fixture projection; blood, audit logs, banks, achievements and the world are not rolled back.",
+    "Fixed local Android screen/character baseline; image replay does not establish other resolutions."
+  ]
+}

@@ -1,0 +1,30 @@
+# Copy to config.local.toml and set environment variables. Never publish passwords.
+[device]
+uri = "Android:///emulator-5554?cap_method=ADBCAP&touch_method=ADBTOUCH&ime_method=ADBIME"
+system = "Android 14 / API 34 ARM64"
+resolution = "720x1280"
+
+[games.stendhal]
+version = "1.49"
+bridge_command = ["sh", "adapters/stendhal_bridge/run.sh"]
+bridge_cwd = "."
+server_log = "${GAMEQA_WORK_DIR}/stendhal/runtime/log/server.log"
+host = "127.0.0.1"
+port = 32160
+url = "http://127.0.0.1:8080/stendhal.html"
+observer = "qaobserver"
+observer_password_env = "GAMEQA_OBSERVER_PASSWORD"
+target = "qaplayer"
+api_target = "qaplayera"
+player_password_env = "GAMEQA_PLAYER_PASSWORD"
+timeout = 30
+
+[games.shardy]
+version = "ed8e978917cbe5aba79009928e8c3b92a34b81cc"
+bridge_command = ["${GAMEQA_NODE}", "adapters/shardy_bridge/bridge.mjs"]
+bridge_cwd = "."
+host = "127.0.0.1"
+port = 3000
+url = "http://127.0.0.1:3001/"
+server_log = "${SHARDY_LOGS}/backend.log"
+timeout = 15

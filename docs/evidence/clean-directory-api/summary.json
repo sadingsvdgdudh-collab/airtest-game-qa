@@ -1,0 +1,23 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-SHOP-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": true,
+  "experiment": "clean-directory-api-smoke",
+  "exit_codes": [
+    0
+  ]
+}

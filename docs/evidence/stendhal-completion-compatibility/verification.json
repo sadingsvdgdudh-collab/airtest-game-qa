@@ -1,0 +1,15 @@
+{
+  "checked_utc": "2026-10-03T22:08:09.774123+00:00",
+  "all_passed": true,
+  "cases": [
+    "ST-COMBAT-API-001",
+    "ST-COMBAT-API-002",
+    "ST-MAP-API-001"
+  ],
+  "rounds_per_case": 1,
+  "all_phases_passed": true,
+  "all_restored": true,
+  "unchanged_near_fixture_kill_and_corpse_cleanup_verified": true,
+  "normal_coverage_count_added": 0,
+  "normal_five_round_pass_count_added": 0
+}

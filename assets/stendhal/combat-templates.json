@@ -1,0 +1,52 @@
+{
+  "rat-title": {
+    "source": "calibration/combat-menu.png",
+    "crop": [
+      358,
+      297,
+      375,
+      310
+    ],
+    "sha256": "ff1e3101841ce045c1cb92cf7e1b8f94c4ea695dc1ecad5a4245a0a7e8a25f37"
+  },
+  "attack-menu": {
+    "source": "calibration/combat-menu.png",
+    "crop": [
+      338,
+      370,
+      379,
+      387
+    ],
+    "sha256": "fff8c6244be4ebdef9902c650326ff7df9e7416c18b488aa459d0ea883630f41"
+  },
+  "xp-805": {
+    "source": "calibration/combat-killed.png",
+    "crop": [
+      0,
+      405,
+      38,
+      418
+    ],
+    "sha256": "7cf685bbd3438dc45eaad65d4f89acc0bcdccbad938ba78ac4fa8513597b49bb"
+  },
+  "rat-corpse": {
+    "source": "calibration/combat-killed.png",
+    "crop": [
+      354,
+      333,
+      377,
+      343
+    ],
+    "sha256": "7722c5cf1673c372cf91a8ad1eb3026eb194dee6ae369615fff12026caceb823"
+  },
+  "xp-800": {
+    "source": "calibration/combat-rat.png",
+    "crop": [
+      0,
+      405,
+      38,
+      418
+    ],
+    "sha256": "bc7197fd6e3cb3db07de01ef9ae8b935d6e34e0d16ce24abe4ce1a1c75fe5fa3"
+  }
+}

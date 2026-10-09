@@ -1,0 +1,394 @@
+{
+  "captured_utc": "2026-10-03T06:11:44.541293+00:00",
+  "python": "3.12.14",
+  "python_executable": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/bin/python",
+  "base_python": "/Users/Zhuanz/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "system_site_packages": false,
+  "requirements_lock_sha256": "f5ffa4b7b9e8493a62ec29496a7b5ff19c44243fd1e8d46f0da6c49bf8f3c475",
+  "lock_package_count": 40,
+  "all_locked_versions_match": true,
+  "locked_versions": {
+    "airtest": {
+      "locked": "1.4.3",
+      "installed": "1.4.3",
+      "matches": true
+    },
+    "cached-property": {
+      "locked": "1.5.2",
+      "installed": "1.5.2",
+      "matches": true
+    },
+    "certifi": {
+      "locked": "2026.7.22",
+      "installed": "2026.7.22",
+      "matches": true
+    },
+    "charset-normalizer": {
+      "locked": "3.5.2",
+      "installed": "3.5.2",
+      "matches": true
+    },
+    "colored": {
+      "locked": "2.3.2",
+      "installed": "2.3.2",
+      "matches": true
+    },
+    "construct": {
+      "locked": "2.10.70",
+      "installed": "2.10.70",
+      "matches": true
+    },
+    "decorator": {
+      "locked": "5.3.1",
+      "installed": "5.3.1",
+      "matches": true
+    },
+    "Deprecated": {
+      "locked": "1.2.18",
+      "installed": "1.2.18",
+      "matches": true
+    },
+    "deprecation": {
+      "locked": "2.1.0",
+      "installed": "2.1.0",
+      "matches": true
+    },
+    "facebook-wda": {
+      "locked": "1.5.0",
+      "installed": "1.5.0",
+      "matches": true
+    },
+    "ffmpeg-python": {
+      "locked": "0.2.0",
+      "installed": "0.2.0",
+      "matches": true
+    },
+    "filelock": {
+      "locked": "4.0.9",
+      "installed": "4.0.9",
+      "matches": true
+    },
+    "future": {
+      "locked": "1.0.0",
+      "installed": "1.0.0",
+      "matches": true
+    },
+    "idna": {
+      "locked": "3.20",
+      "installed": "3.20",
+      "matches": true
+    },
+    "iniconfig": {
+      "locked": "2.3.0",
+      "installed": "2.3.0",
+      "matches": true
+    },
+    "Jinja2": {
+      "locked": "3.1.6",
+      "installed": "3.1.6",
+      "matches": true
+    },
+    "logzero": {
+      "locked": "1.7.0",
+      "installed": "1.7.0",
+      "matches": true
+    },
+    "MarkupSafe": {
+      "locked": "3.0.3",
+      "installed": "3.0.3",
+      "matches": true
+    },
+    "mss": {
+      "locked": "6.1.0",
+      "installed": "6.1.0",
+      "matches": true
+    },
+    "numpy": {
+      "locked": "1.26.4",
+      "installed": "1.26.4",
+      "matches": true
+    },
+    "opencv-contrib-python": {
+      "locked": "4.6.0.66",
+      "installed": "4.6.0.66",
+      "matches": true
+    },
+    "packaging": {
+      "locked": "26.3",
+      "installed": "26.3",
+      "matches": true
+    },
+    "pillow": {
+      "locked": "12.3.0",
+      "installed": "12.3.0",
+      "matches": true
+    },
+    "pluggy": {
+      "locked": "1.6.0",
+      "installed": "1.6.0",
+      "matches": true
+    },
+    "psutil": {
+      "locked": "7.2.2",
+      "installed": "7.2.2",
+      "matches": true
+    },
+    "py": {
+      "locked": "1.11.0",
+      "installed": "1.11.0",
+      "matches": true
+    },
+    "Pygments": {
+      "locked": "2.21.0",
+      "installed": "2.21.0",
+      "matches": true
+    },
+    "pytest": {
+      "locked": "9.1.1",
+      "installed": "9.1.1",
+      "matches": true
+    },
+    "python-xlib": {
+      "locked": "0.33",
+      "installed": "0.33",
+      "matches": true
+    },
+    "pywinauto": {
+      "locked": "0.6.3",
+      "installed": "0.6.3",
+      "matches": true
+    },
+    "requests": {
+      "locked": "2.34.2",
+      "installed": "2.34.2",
+      "matches": true
+    },
+    "retry": {
+      "locked": "0.9.2",
+      "installed": "0.9.2",
+      "matches": true
+    },
+    "simple-tornado": {
+      "locked": "0.2.2",
+      "installed": "0.2.2",
+      "matches": true
+    },
+    "simplejson": {
+      "locked": "4.1.2",
+      "installed": "4.1.2",
+      "matches": true
+    },
+    "six": {
+      "locked": "1.16.0",
+      "installed": "1.16.0",
+      "matches": true
+    },
+    "tabulate": {
+      "locked": "0.10.0",
+      "installed": "0.10.0",
+      "matches": true
+    },
+    "tidevice": {
+      "locked": "0.12.11",
+      "installed": "0.12.11",
+      "matches": true
+    },
+    "tornado": {
+      "locked": "6.5.10",
+      "installed": "6.5.10",
+      "matches": true
+    },
+    "urllib3": {
+      "locked": "2.8.0",
+      "installed": "2.8.0",
+      "matches": true
+    },
+    "wrapt": {
+      "locked": "1.17.3",
+      "installed": "1.17.3",
+      "matches": true
+    }
+  },
+  "installed_distributions": [
+    {
+      "name": "airtest",
+      "version": "1.4.3"
+    },
+    {
+      "name": "airtest-game-qa",
+      "version": "0.1.0"
+    },
+    {
+      "name": "airtest-game-qa",
+      "version": "0.1.0"
+    },
+    {
+      "name": "cached-property",
+      "version": "1.5.2"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.7.22"
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2"
+    },
+    {
+      "name": "colored",
+      "version": "2.3.2"
+    },
+    {
+      "name": "construct",
+      "version": "2.10.70"
+    },
+    {
+      "name": "decorator",
+      "version": "5.3.1"
+    },
+    {
+      "name": "Deprecated",
+      "version": "1.2.18"
+    },
+    {
+      "name": "deprecation",
+      "version": "2.1.0"
+    },
+    {
+      "name": "facebook-wda",
+      "version": "1.5.0"
+    },
+    {
+      "name": "ffmpeg-python",
+      "version": "0.2.0"
+    },
+    {
+      "name": "filelock",
+      "version": "4.0.9"
+    },
+    {
+      "name": "future",
+      "version": "1.0.0"
+    },
+    {
+      "name": "idna",
+      "version": "3.20"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.0"
+    },
+    {
+      "name": "Jinja2",
+      "version": "3.1.6"
+    },
+    {
+      "name": "logzero",
+      "version": "1.7.0"
+    },
+    {
+      "name": "MarkupSafe",
+      "version": "3.0.3"
+    },
+    {
+      "name": "mss",
+      "version": "6.1.0"
+    },
+    {
+      "name": "numpy",
+      "version": "1.26.4"
+    },
+    {
+      "name": "opencv-contrib-python",
+      "version": "4.6.0.66"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3"
+    },
+    {
+      "name": "pillow",
+      "version": "12.3.0"
+    },
+    {
+      "name": "pip",
+      "version": "25.0.1"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.6.0"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2"
+    },
+    {
+      "name": "py",
+      "version": "1.11.0"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0"
+    },
+    {
+      "name": "pytest",
+      "version": "9.1.1"
+    },
+    {
+      "name": "python-xlib",
+      "version": "0.33"
+    },
+    {
+      "name": "pywinauto",
+      "version": "0.6.3"
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2"
+    },
+    {
+      "name": "retry",
+      "version": "0.9.2"
+    },
+    {
+      "name": "simple-tornado",
+      "version": "0.2.2"
+    },
+    {
+      "name": "simplejson",
+      "version": "4.1.2"
+    },
+    {
+      "name": "six",
+      "version": "1.16.0"
+    },
+    {
+      "name": "tabulate",
+      "version": "0.10.0"
+    },
+    {
+      "name": "tidevice",
+      "version": "0.12.11"
+    },
+    {
+      "name": "tornado",
+      "version": "6.5.10"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0"
+    },
+    {
+      "name": "wrapt",
+      "version": "1.17.3"
+    }
+  ],
+  "import_origins": {
+    "gameqa": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project/src/gameqa/__init__.py",
+    "pytest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/lib/python3.12/site-packages/pytest/__init__.py",
+    "airtest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/lib/python3.12/site-packages/airtest/__init__.py",
+    "numpy": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/lib/python3.12/site-packages/numpy/__init__.py"
+  },
+  "scope": "new project directory and new Python venv; shared host and base Python runtime; Java/Android/game installation not performed"
+}

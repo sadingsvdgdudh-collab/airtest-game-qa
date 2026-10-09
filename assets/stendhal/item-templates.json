@@ -1,0 +1,182 @@
+{
+  "club-icon": {
+    "source": "calibration/items-prepared.png",
+    "crop": [
+      572,
+      264,
+      590,
+      285
+    ],
+    "sha256": "dd9f7fa04307e7826c5d572ea3e3092aad16aa2c6f833b77a6836610eb48c3a1"
+  },
+  "short-sword-icon": {
+    "source": "calibration/items-prepared.png",
+    "crop": [
+      601,
+      347,
+      621,
+      370
+    ],
+    "sha256": "6558c6542290f866d0f5c5047472d5de689dc0f17154d93c78b6f6315744e773"
+  },
+  "hold-menu": {
+    "source": "calibration/items-menu.png",
+    "crop": [
+      590,
+      394,
+      619,
+      408
+    ],
+    "sha256": "98f66bffb91c96f0afb0cce12f0871f52ca925afafcdd8a92fb3caf8468aa3e1"
+  },
+  "rhand-empty": {
+    "source": "calibration/items-empty-hand.png",
+    "crop": [
+      569,
+      262,
+      594,
+      287
+    ],
+    "sha256": "5e80f4ec6740740ab706b6ba9824d8f72e7481e5c1482e79d0213158959d3d9d"
+  },
+  "feet-empty": {
+    "source": "calibration/items-empty-hand.png",
+    "crop": [
+      598,
+      315,
+      623,
+      339
+    ],
+    "sha256": "05833ddb3d9e8fc6f9491a89b278ac64bca27514a338c6382cd69d1a4d87a768"
+  },
+  "bag-empty": {
+    "source": "calibration/items-armed.png",
+    "crop": [
+      629,
+      346,
+      653,
+      370
+    ],
+    "sha256": "f42f617c54942df34a0644b17d45945bb2cb7d26fe23462f2ac6e22b7d535696"
+  },
+  "atk-empty": {
+    "source": "calibration/items-empty-hand.png",
+    "crop": [
+      0,
+      360,
+      46,
+      373
+    ],
+    "sha256": "50c4b8b20c38051cfcd53bc00d39cedc55695e00ea303870ac0f03a9b9c82d12"
+  },
+  "atk-sword": {
+    "source": "calibration/items-armed.png",
+    "crop": [
+      0,
+      360,
+      54,
+      373
+    ],
+    "sha256": "08a9491658b0242f168237eb740babdb2a334664b16601e49426a2145209c68f"
+  },
+  "feet-refusal": {
+    "source": "calibration/items-rejected.png",
+    "crop": [
+      130,
+      829,
+      501,
+      849
+    ],
+    "sha256": "39adaac5b34b8bb8678f8b2a435d05180a5125732adc4da1572830deab58c2d3"
+  },
+  "minor-potion-icon": {
+    "source": "calibration/potion-two.png",
+    "crop": [
+      576,
+      352,
+      589,
+      367
+    ],
+    "sha256": "5961ba45788d3126562f678578aecc015e702368a35c135559012e8bf42c2b01"
+  },
+  "drink-menu": {
+    "source": "calibration/potion-menu.png",
+    "crop": [
+      557,
+      375,
+      590,
+      390
+    ],
+    "sha256": "78ef1c61e2422ea8fbfa889c626d42c3728be81274a5119df3193c2e42775089"
+  },
+  "potion-two": {
+    "source": "calibration/potion-two.png",
+    "crop": [
+      576,
+      346,
+      595,
+      368
+    ],
+    "sha256": "37b67a3059aaff15b6238b4fd6873819633315019fd3da009bce03d661676456"
+  },
+  "potion-one": {
+    "source": "calibration/potion-one.png",
+    "crop": [
+      576,
+      346,
+      595,
+      368
+    ],
+    "sha256": "2e02f96890f8c84594b45f2bc96594ee3290600bce98e3c01eec9940ebbb7dca"
+  },
+  "hp-40": {
+    "source": "calibration/potion-two.png",
+    "crop": [
+      0,
+      337,
+      74,
+      351
+    ],
+    "sha256": "cab858c0de6112bfb9476912e2c1f7a54777b8b2bf78fae94c701f7c5c5d374e"
+  },
+  "hp-90": {
+    "source": "calibration/potion-one.png",
+    "crop": [
+      0,
+      337,
+      74,
+      351
+    ],
+    "sha256": "d19ff45cc6a876ef4e07920c3e8ce6d2754e6b22a59fe8463cb42384e84709f4"
+  },
+  "hp-100": {
+    "source": "calibration/potion-empty.png",
+    "crop": [
+      0,
+      337,
+      82,
+      351
+    ],
+    "sha256": "3d41068aab0ab1b9fd0a23bda053e86021db31812e929b7ef073efc35b7c5133"
+  },
+  "short-sword-first": {
+    "source": "calibration/items-sword-first.png",
+    "crop": [
+      573,
+      347,
+      593,
+      370
+    ],
+    "sha256": "60b1e502e19995134962c7b8be22dac9aca480775cf124c7a773f21634ad4b60"
+  },
+  "hold-rhand-menu": {
+    "source": "calibration/items-rhand-menu.png",
+    "crop": [
+      558,
+      310,
+      586,
+      324
+    ],
+    "sha256": "54e892f09617044d3d6feaf6739b5257acde1aa8c4481b593ec3bdd71e3795c8"
+  }
+}
