@@ -867,7 +867,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
   <div id="pane-rep" hidden>
     <p id="rep-retry" class="muted">重试率：读取中…</p>
     <p class="muted">口径：<b>重试才过不算一次通过</b>；超过 35% 只作提示，不阻断运行。</p>
-    <table><thead><tr><th>运行</th><th>实验</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>失败用例</th><th></th></tr></thead>
+    <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>失败用例</th><th></th></tr></thead>
     <tbody id="rep-body"></tbody></table>
     <p class="muted">报告目录：<span id="rep-root"></span></p>
   </div>
@@ -1064,7 +1064,6 @@ async function loadReports() {
   $('rep-root').textContent = '项目 reports/（目录名是 UTC 时间）';
   $('rep-body').innerHTML = rows.map((r) =>
     '<tr><td>' + r.run + '</td>'
-    + '<td class="muted">' + (r.experiment || '未命名') + '</td>'
     + '<td>' + r.rounds + '</td>'
     + '<td>' + r.first_try_passed + ' / ' + r.observations + '</td>'
     + '<td' + (r.infra_retry_rate > 0.35 ? ' class="warnbox"' : '') + '>' + r.infra_retry_count
