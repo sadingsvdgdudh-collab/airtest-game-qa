@@ -335,7 +335,7 @@ def start_job(name, argv=None, selected=None, rounds=None):
     return job_id
 
 
-def start_selection(payload, experiment="custom"):
+def start_selection(payload, experiment="未命名-面板"):
     """自定义选择执行：白名单、同 kind、轮次范围都在服务端校验，命令用 list 拼。"""
     cases, rounds = payload.get("cases"), payload.get("rounds", 1)
     if not isinstance(cases, list) or not cases or any(not isinstance(c, str) for c in cases):
@@ -351,7 +351,7 @@ def start_selection(payload, experiment="custom"):
         return "不能把 api 和 ui 用例混在一次运行里（共用管理员、商店NPC和浏览器）"
     argv = [str(PY), "-m", "gameqa", "run", "--case", ",".join(chosen), "--rounds", str(rounds),
             "--experiment", experiment, "--stop-after-failure"]
-    return start_job("custom-" + kinds[chosen[0]], argv, selected=chosen, rounds=rounds)
+    return start_job("自选-" + kinds[chosen[0]], argv, selected=chosen, rounds=rounds)
 
 
 def start_service(name):
@@ -979,8 +979,7 @@ async function loadReports() {
   $('rep-root').textContent = '项目 reports/（目录名是 UTC 时间）';
   $('rep-body').innerHTML = rows.map((r) =>
     '<tr><td>' + r.run + '</td>'
-    + '<td class="muted">' + (r.experiment === 'custom'
-        ? '<span class="badge no">非验收组</span> custom' : (r.experiment || '—')) + '</td>'
+    + '<td class="muted">' + (r.experiment || '未命名') + '</td>'
     + '<td>' + r.rounds + '</td>'
     + '<td>' + r.first_try_passed + ' / ' + r.observations + '</td>'
     + '<td' + (r.infra_retry_rate > 0.35 ? ' class="warnbox"' : '') + '>' + r.infra_retry_count

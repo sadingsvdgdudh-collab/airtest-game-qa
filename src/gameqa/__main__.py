@@ -86,7 +86,8 @@ def main(argv=None):
     run.add_argument("--retry-infra", type=int, default=1, choices=(0, 1),
                      help="基础设施抖动（掉线/超时）报错的用例重跑一次；只认这类签名，重试恢复的不计完成验收")
     run.add_argument("--report-dir", type=Path)
-    run.add_argument("--experiment", default="baseline")
+    run.add_argument("--experiment", default="未命名",
+                     help="这次运行的用途标签（结果页会显示）；不写就是「未命名」")
     run.add_argument("--stop-after-failure", action="store_true")
     run.add_argument("--qa-lock-fd", type=int, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
