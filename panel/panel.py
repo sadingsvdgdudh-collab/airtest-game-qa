@@ -762,7 +762,7 @@ section h2{margin:0 0 var(--s3);font-size:14px;letter-spacing:.01em;display:flex
 .dot{width:10px;height:10px;border-radius:50%;background:#bbb;display:inline-block;flex:none}
 .dot.on{background:var(--ok)} .dot.off{background:#bbb} .dot.warn{background:var(--warn)} .dot.bad{background:var(--bad)}
 
-button{font:inherit;padding:6px 13px;margin:0 var(--s2) var(--s2) 0;border:1px solid var(--line-2);border-radius:var(--r1);
+button{font:inherit;padding:5px 12px;margin:0 var(--s2) var(--s2) 0;border:1px solid var(--line-2);border-radius:var(--r1);
   background:var(--card);color:var(--ink);cursor:pointer;transition:background .12s,border-color .12s,transform .04s}
 button:hover:enabled{background:#eef2f7;border-color:var(--line-2)}
 button:active:enabled{transform:translateY(1px)}
@@ -776,14 +776,20 @@ button:disabled{opacity:.5;cursor:not-allowed;background:#f2f4f7;color:var(--mut
 .hint{margin:var(--s3) var(--s5) 0;padding:10px 14px;border-radius:var(--r2);background:#fff8e6;
   border:1px solid #f0d9a0;font-size:14px}
 #lower{margin:0 var(--s5) var(--s5)}
-.tabs{display:flex;gap:var(--s2);margin:0 0 var(--s3)}
+.tabs{display:flex;gap:var(--s2);margin:0 0 var(--s2)}
 .tabs button{margin:0}
 .tabs button.active{background:var(--ink-2);border-color:var(--ink-2);color:#fff}
 pre{margin:0;background:var(--ink-2);color:#d7e3f2;padding:14px;border-radius:var(--r2);max-height:320px;overflow:auto;
   font:12.5px/1.5 var(--mono);white-space:pre-wrap}
 pre:empty{display:none}
 table{width:100%;border-collapse:collapse;font-size:14px}
-td,th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+td,th{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;font-size:13px}
+#lower > div[id^="pane-"]{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:var(--s3) var(--s4);box-shadow:var(--shadow)}
+#rep-body td:first-child,#cases-body td:nth-child(2){font-family:var(--mono);font-size:12.5px}
+.recent{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s2);margin-bottom:var(--s3)}
+.recent .cell{border:1px solid var(--line);border-radius:var(--r2);padding:8px 10px;background:#fbfcfe}
+.recent .cell .num{font:600 17px/1.2 var(--mono)}
+.recent .cell .lbl{font-size:12px;color:var(--muted)}
 thead th{position:sticky;top:0;background:var(--card);z-index:1;font-size:13px;color:var(--muted);
   border-bottom:1px solid var(--line-2)}
 tbody tr:hover{background:#f7fafc}
@@ -853,6 +859,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
 <div id="lower">
   <div class="tabs"><button id="t-job" class="active">当前任务</button><button id="t-cases">用例清单</button><button id="t-rep">结果</button></div>
   <div id="pane-job">
+      <div class="recent" id="recent"></div>
     <p class="muted" id="job-note">还没有任务。到「用例清单」勾选执行；上面只有环境与服务的按钮。</p>
     <p class="why" id="job-hint"></p>
     <pre id="job-out"></pre>
@@ -1076,6 +1083,18 @@ async function loadReports() {
     + '（重试才过 ' + retry.retried + ' / 观测 ' + retry.observations + '，一次通过 ' + retry.first_try + '）';
   box.textContent = retry.observations ? text : '最近 ' + rows.length + ' 轮还没有可统计的观测。';
   box.className = retry.warn ? 'warnbox' : 'muted';
+  const stamp = (run) => run.slice(4, 6) + '-' + run.slice(6, 8) + ' ' + run.slice(9, 11) + ':' + run.slice(11, 13) + ' UTC';
+  const last = rows[0];
+  const cell = (num, lbl) => '<div class="cell"><div class="num">' + num + '</div><div class="lbl">' + lbl + '</div></div>';
+  $('recent').innerHTML = last ? [
+    cell(stamp(last.run), '最近一次运行'),
+    cell(last.rounds, '轮数'),
+    cell(last.first_try_passed + ' / ' + last.observations, '一次通过'),
+    cell(last.infra_retry_count + (last.observations ? '（' + pct(last.infra_retry_rate) + '）' : ''), '重试才过'),
+    cell(last.failed.length ? last.failed.length + ' 条' : '无失败', '失败用例')
+      + '<div class="cell"><div class="num"><a href="/reports/' + last.run + '/' + last.report
+      + '" target="_blank">打开报告</a></div><div class="lbl">多轮汇总页</div></div>',
+  ].join('') : '<p class="muted">还没有运行记录。到「用例清单」勾选执行。</p>';
   $('rep-root').textContent = '项目 reports/（目录名是 UTC 时间）';
   $('rep-body').innerHTML = rows.map((r) =>
     '<tr><td>' + r.run + '</td>'
