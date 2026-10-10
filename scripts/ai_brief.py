@@ -118,7 +118,7 @@ def build():
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     scale = d["scale"]
     lines = [
-        "# AI 简报：Airtest + Stendhal/Shardy 真机自动化测试框架",
+        "# AI 简报：Airtest + Stendhal/Shardy 游戏自动化测试框架",
         "",
         f"（生成于 {now}；本文所有数字由 `scripts/ai_brief.py` 当场从仓库算出，"
         "**引用时请连时间一起引用** —— 写死的数字会过期。）",
@@ -131,7 +131,7 @@ def build():
         "",
         "## 技术栈",
         "",
-        "- Python 3.12 + pytest（用例与框架自检）+ Airtest（Android 真机/模拟器界面操作）",
+        "- Python 3.12 + pytest（用例与框架自检）+ Airtest（Android 模拟器 AVD 上的真实客户端界面操作；代码不绑定机型）",
         "- Java 21（游戏服务端）+ 自写 Java 探针（只读观察与夹具，硬校验只接受专用管理员账号）",
         "- Node.js（第二款游戏的桥接后端与展示客户端）+ 纯 HTTP/JSON 桥协议（含保活与停顿看门狗）",
         "- 本地 Web 面板（Python 标准库 HTTP 服务，零前端依赖）：一键起停三组服务、勾选用例执行、KPI 与结果页",
@@ -174,12 +174,12 @@ def build():
         "tests/      框架自检",
         "docs/       设计目录、验收清单、协议、能力清单、证据包、实施记录",
         "adapters/   桥接适配器（Java 探针 / Node 后端）",
-        "assets/     界面断言用的模板图（从真机截图裁剪，含哈希）",
+        "assets/     界面断言用的模板图（从设备截图裁剪，含哈希）",
         "```",
         "",
         "## 可以写进简历的要点（数字已现算）",
         "",
-        f"- 独立设计并实现真机 UI 自动化测试框架：**{fmt(d['collected'])}** 条自动化用例、"
+        f"- 独立设计并实现游戏 UI 自动化测试框架（设备为 Android 模拟器 AVD，代码不绑定机型）：**{fmt(d['collected'])}** 条自动化用例、"
         f"**{fmt(d['selfchecks'])}** 项框架自检全通过、门禁 **0 豁免**。",
         f"- 稳定检出小游戏 **{d['defects_shardy']}** 处原版逻辑缺陷"
         f"{'、主游戏 **' + str(d['defects_stendhal']) + '** 处' if d['defects_stendhal'] else ''}。",
