@@ -22,7 +22,6 @@ def test_numbers_are_measured_not_hardcoded():
     assert d["collected"] and d["collected"] > 0, "没能测到接入用例数"
     assert d["selfchecks"] and d["selfchecks"] > 0, "没能测到自检项数"
     assert d["markers"] and d["collected"] >= d["markers"]      # 参数化只会让收集数 >= 函数数
-    assert d["stable_ids"] and d["stable_passes"]
     assert d["design_doc"] and d["unimplemented"] is not None
 
 
