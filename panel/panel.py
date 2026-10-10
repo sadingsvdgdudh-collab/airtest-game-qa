@@ -742,29 +742,35 @@ header h1{margin:0;font-size:16px;letter-spacing:.02em}
 header span{font-size:13px;opacity:.85}
 header #proj{font-family:var(--mono);opacity:.7}
 
-.pills{display:flex;gap:var(--s2);flex-wrap:wrap;padding:var(--s3) var(--s5) 0}
-.pill{display:flex;align-items:center;gap:var(--s2);border:1px solid var(--line);background:var(--card);
-  border-radius:999px;padding:3px 12px 3px 8px;font-size:13px;box-shadow:var(--shadow)}
-.pill b{font-weight:600}
-.pill.on{border-color:#b7e0c4;background:var(--ok-bg)}
-.pill.warn{border-color:#f0d58c;background:var(--warn-bg)}
-.pill.off{color:var(--muted)}
+.pills{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s2);padding:var(--s3) var(--s5) 0}
+.kpi{display:flex;align-items:center;gap:var(--s3);border:1px solid var(--line);background:var(--card);
+  border-radius:var(--r2);padding:10px var(--s3);box-shadow:var(--shadow)}
+.kpi .num{font:600 20px/1.15 var(--mono);letter-spacing:-.01em}
+.kpi .label{font-size:12px;color:var(--muted)}
+.kpi .words{font-size:12px;color:var(--muted);margin-top:1px}
+.kpi.on{border-color:#b7e0c4;background:var(--ok-bg)}
+.kpi.warn{border-color:#f0d58c;background:var(--warn-bg)}
+.kpi.off .num,.kpi.off .words{color:var(--muted)}
 
-main{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);padding:var(--s4) var(--s5)}
-section{border:1px solid var(--line);border-radius:var(--r3);background:var(--card);padding:var(--s4) var(--s5);
+main{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--s2);padding:var(--s3) var(--s5) var(--s4);align-items:start}
+#sec-cases,#sec-self,#sec-char{grid-column:span 4;grid-row:1}
+#sec-main,#sec-emu,#sec-shardy{grid-column:span 4;grid-row:2}
+section{border:1px solid var(--line);border-radius:var(--r2);background:var(--card);padding:var(--s3) var(--s4);
   box-shadow:var(--shadow)}
 section h2{margin:0 0 var(--s3);font-size:14px;letter-spacing:.01em;display:flex;gap:var(--s2);align-items:center;
   padding-bottom:var(--s2);border-bottom:1px solid var(--line)}
 .dot{width:10px;height:10px;border-radius:50%;background:#bbb;display:inline-block;flex:none}
-.on{background:var(--ok)} .off{background:#bbb} .warn{background:var(--warn)} .bad{background:var(--bad)}
+.dot.on{background:var(--ok)} .dot.off{background:#bbb} .dot.warn{background:var(--warn)} .dot.bad{background:var(--bad)}
 
 button{font:inherit;padding:6px 13px;margin:0 var(--s2) var(--s2) 0;border:1px solid var(--line-2);border-radius:var(--r1);
   background:var(--card);color:var(--ink);cursor:pointer;transition:background .12s,border-color .12s,transform .04s}
 button:hover:enabled{background:#eef2f7;border-color:var(--line-2)}
 button:active:enabled{transform:translateY(1px)}
 button:disabled{opacity:.5;cursor:not-allowed;background:#f2f4f7;color:var(--muted);border-color:var(--line)}
-#b-run,#b-shardy-start,#b-main-start,#b-emu-start{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-#b-run:hover:enabled,#b-shardy-start:hover:enabled,#b-main-start:hover:enabled,#b-emu-start:hover:enabled{background:#1a5391}
+#b-run{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+#b-run:hover:enabled{background:#1a5391;border-color:#1a5391}
+#b-main-start,#b-emu-start,#b-shardy-start{color:var(--accent);border-color:#b9cde6;background:#f7fafd}
+#b-main-start:hover:enabled,#b-emu-start:hover:enabled,#b-shardy-start:hover:enabled{background:#eaf2fb}
 
 .why{color:var(--bad);font-size:13px;margin:var(--s2) 0 0}
 .hint{margin:var(--s3) var(--s5) 0;padding:10px 14px;border-radius:var(--r2);background:#fff8e6;
@@ -773,8 +779,9 @@ button:disabled{opacity:.5;cursor:not-allowed;background:#f2f4f7;color:var(--mut
 .tabs{display:flex;gap:var(--s2);margin:0 0 var(--s3)}
 .tabs button{margin:0}
 .tabs button.active{background:var(--ink-2);border-color:var(--ink-2);color:#fff}
-pre{margin:0;background:var(--ink-2);color:#d7e3f2;padding:14px;border-radius:var(--r2);height:320px;overflow:auto;
+pre{margin:0;background:var(--ink-2);color:#d7e3f2;padding:14px;border-radius:var(--r2);max-height:320px;overflow:auto;
   font:12.5px/1.5 var(--mono);white-space:pre-wrap}
+pre:empty{display:none}
 table{width:100%;border-collapse:collapse;font-size:14px}
 td,th{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 thead th{position:sticky;top:0;background:var(--card);z-index:1;font-size:13px;color:var(--muted);
@@ -798,6 +805,8 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
 
 @media (max-width:1000px){
   main{grid-template-columns:1fr;padding:var(--s3)}
+  main > section{grid-column:1 / -1 !important;grid-row:auto !important}
+  .pills{grid-template-columns:1fr 1fr;padding-left:var(--s3);padding-right:var(--s3)}
   #lower{padding:0}
   .hint,.pills{padding-left:var(--s3);padding-right:var(--s3);margin-left:0;margin-right:0}
   table{display:block;overflow-x:auto}
@@ -808,37 +817,37 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
 <p class="hint" id="hint" role="status" aria-live="polite">读取状态…</p>
 
 <main>
-  <section><h2><i class="dot" id="d-self" aria-hidden="true"></i>环境自检</h2>
-    <button id="b-selfcheck">跑框架自检（tests/）</button>
-    <p class="muted" id="self-note">不碰游戏和模拟器，约 4 秒。</p></section>
-  <section><h2><i class="dot" id="d-char" aria-hidden="true"></i>测试角色</h2>
-    <button id="b-healthcheck">重新检查角色状态</button>
-    <button id="b-cleanup" title="清测试角色的攻击目标/寻路/持续状态，并清空背包里的持久残留（prepare 清空 + forget 撤快照，不需要重启主服）。会话层的残留仍用主服的停止+启动。">清理角色状态</button>
-    <p class="muted" id="char-note">检查中…（会短暂登录两个角色，约 10 秒）</p></section>
-
-  <section><h2><i class="dot" id="d-main" aria-hidden="true"></i>主服 Stendhal</h2>
-    <button id="b-main-start">启动主服</button><button id="b-main-stop">停止主服</button>
-    <p class="muted" id="main-note"></p>
-    <p class="muted">停服前先确认没有任务在跑；停服脚本会等数据库写队列落库（未落库时强停会丢写，症状是角色再也登不进去）。</p>
-    <p class="why" id="main-why"></p></section>
-
-  <section><h2><i class="dot" id="d-emu" aria-hidden="true"></i>模拟器 Android</h2>
-    <button id="b-emu-start">启动模拟器</button><button id="b-emu-stop">停止模拟器</button>
-    <label class="muted"><input id="emu-window" type="checkbox" checked> 显示窗口（勾上才有模拟器画面；不勾=无窗口，适合无人值守）</label>
-    <button id="b-connect">重新连接（端口映射）</button>
-    <p class="muted" id="emu-note"></p>
-    <p class="why" id="emu-why"></p></section>
-
-  <section><h2><i class="dot" id="d-shardy" aria-hidden="true"></i>Shardy 井字棋</h2>
-    <button id="b-shardy-start">启动 Shardy</button><button id="b-shardy-stop">停止 Shardy</button>
-    <p class="muted" id="shardy-note"></p>
-  </section>
-  <section><h2><i class="dot" id="d-case" aria-hidden="true"></i>用例</h2>
+  <section id="sec-cases"><h2><i class="dot" id="d-case" aria-hidden="true"></i>用例</h2>
     <p class="muted">运行时到「用例清单」里勾：可以按项目/类型筛选、点「全选筛选结果」、改轮次，再点「执行所选」。
       空手跑一条时勾一条即可。</p>
     <p class="muted">UI 用例需要模拟器就绪；API 用例只需要主服。两组不要同时跑。</p>
     <p class="muted" id="case-last"></p>
     <p class="why" id="case-why"></p></section>
+  <section id="sec-self"><h2><i class="dot" id="d-self" aria-hidden="true"></i>环境自检</h2>
+    <button id="b-selfcheck">跑框架自检（tests/）</button>
+    <p class="muted" id="self-note">不碰游戏和模拟器，约 4 秒。</p></section>
+  <section id="sec-char"><h2><i class="dot" id="d-char" aria-hidden="true"></i>测试角色</h2>
+    <button id="b-healthcheck">重新检查角色状态</button>
+    <button id="b-cleanup" title="清测试角色的攻击目标/寻路/持续状态，并清空背包里的持久残留（prepare 清空 + forget 撤快照，不需要重启主服）。会话层的残留仍用主服的停止+启动。">清理角色状态</button>
+    <p class="muted" id="char-note">检查中…（会短暂登录两个角色，约 10 秒）</p></section>
+
+  <section id="sec-main"><h2><i class="dot" id="d-main" aria-hidden="true"></i>主服 Stendhal</h2>
+    <button id="b-main-start">启动主服</button><button id="b-main-stop">停止主服</button>
+    <p class="muted" id="main-note"></p>
+    <p class="muted">停服前先确认没有任务在跑；停服脚本会等数据库写队列落库（未落库时强停会丢写，症状是角色再也登不进去）。</p>
+    <p class="why" id="main-why"></p></section>
+
+  <section id="sec-emu"><h2><i class="dot" id="d-emu" aria-hidden="true"></i>模拟器 Android</h2>
+    <button id="b-emu-start">启动模拟器</button><button id="b-emu-stop">停止模拟器</button>
+    <label class="muted" title="勾上=带窗口启动（用软件渲染，首帧慢 30-60 秒）；不勾=无窗口，适合无人值守"><input id="emu-window" type="checkbox" checked> 显示窗口</label>
+    <button id="b-connect">重新连接（端口映射）</button>
+    <p class="muted" id="emu-note"></p>
+    <p class="why" id="emu-why"></p></section>
+
+  <section id="sec-shardy"><h2><i class="dot" id="d-shardy" aria-hidden="true"></i>Shardy 井字棋</h2>
+    <button id="b-shardy-start">启动 Shardy</button><button id="b-shardy-stop">停止 Shardy</button>
+    <p class="muted" id="shardy-note"></p>
+  </section>
 </main>
 
 <div id="lower">
@@ -999,19 +1008,23 @@ function render() {
     ? ('上次自检 ' + self.state + '（退出码 ' + self.code + '）：' + self.line)
     : '不碰游戏和模拟器，约 4 秒。';
   renderCharacterHealth(state.health);
-  const pill = (name, word, level) => '<span class="pill ' + level + '"><i class="dot ' + level
-    + '" aria-hidden="true"></i><b>' + name + '</b> ' + word + '</span>';
+  const kpi = (label, num, words, level) => '<div class="kpi ' + level + '">'
+    + '<i class="dot ' + level + '" aria-hidden="true"></i><div><div class="num">' + num + '</div>'
+    + '<div class="label">' + label + '</div><div class="words">' + words + '</div></div></div>';
   const revOk = rev['8080'] && rev['3000'] && rev['3001'];
   const shardyOk = shardy.backend && shardy.client, shardyHalf = shardy.backend || shardy.client;
+  const mainOk = main.listening && main.http === 200;
+  const emuOk = emu.device && emu.boot_completed;
+  const job = state.job;
   $('pills').innerHTML = [
-    pill('主服', main.listening ? (main.http === 200 ? '在跑' : '在跑，Web ' + main.http) : '没跑',
-         main.listening && main.http === 200 ? 'on' : (main.listening ? 'warn' : 'off')),
-    pill('模拟器', emu.device ? (emu.boot_completed ? '就绪' : '已连，未启动完') : '没连',
-         emu.device && emu.boot_completed ? 'on' : (emu.device ? 'warn' : 'off')),
-    pill('Shardy', shardyOk ? '在跑' : (shardyHalf ? '只起了一半' : '没跑'),
-         shardyOk ? 'on' : (shardyHalf ? 'warn' : 'off')),
-    pill('端口映射', revOk ? '就绪' : '不全', revOk ? 'on' : 'warn'),
-    pill('任务', state.job ? (state.job.name + ' 进行中') : '空闲', state.job ? 'warn' : 'off'),
+    kpi('主服 Stendhal', '32160', mainOk ? '在跑 · Web 200' : (main.listening ? '在跑 · Web ' + main.http : '没跑'),
+        mainOk ? 'on' : (main.listening ? 'warn' : 'off')),
+    kpi('模拟器 Android', '5554', (emuOk ? '就绪' : (emu.device ? '已连，未启动完' : '没连'))
+        + ' · 端口映射' + (revOk ? '全' : '不全'), emuOk && revOk ? 'on' : (emu.device ? 'warn' : 'off')),
+    kpi('Shardy 井字棋', '3000/3001', shardyOk ? '在跑' : (shardyHalf ? '只起了一半' : '没跑'),
+        shardyOk ? 'on' : (shardyHalf ? 'warn' : 'off')),
+    kpi('当前任务', job ? (Math.round((job.progress || {}).elapsed || 0) + 's') : '空闲',
+        job ? job.name + ' 进行中' : '没有任务在跑', job ? 'warn' : 'off'),
   ].join('');
   $('state-summary').textContent = '主服 ' + (main.listening ? '✓' : '✗')
     + ' · 模拟器 ' + (emu.device ? (emu.boot_completed ? '✓' : '开机中') : '✗')
