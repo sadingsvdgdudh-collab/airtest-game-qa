@@ -70,6 +70,29 @@ def test_retry_rate_matches_the_summary_semantics():
     assert over["first_try"] == 2
 
 
+def test_valid_experiment_only_accepts_short_ascii_names():
+    """实验名会进报告、目录名和命令行，必须是安全短串（中文/空格都不行）。"""
+    assert panel.valid_experiment("stendhal-items-ui-batch3") == "stendhal-items-ui-batch3"
+    assert panel.valid_experiment("  grp.1_2-3  ") == "grp.1_2-3"
+    for bad in ("", "   ", "坏 名字", "中文名", "a" * 41, "has space", "semi;colon", "slash/name"):
+        assert panel.valid_experiment(bad) is None
+
+
+def test_acceptance_groups_reads_archived_packages(tmp_path, monkeypatch):
+    """验收组名单来自已归档证据包里的 experiment 字段与目录名；其余运行都是非验收组。"""
+    evidence = tmp_path / "docs/evidence"
+    (evidence / "grp-one").mkdir(parents=True)
+    (evidence / "grp-one" / "verification.json").write_text(
+        json.dumps({"experiment": "items-ui-final-five"}), encoding="utf-8")
+    (evidence / "grp-one" / "index.html").write_text("r", encoding="utf-8")
+    (evidence / "grp-two").mkdir()
+    (evidence / "grp-two" / "index.html").write_text("r", encoding="utf-8")     # 只有入口页也算
+    monkeypatch.setattr(panel, "PROJECT", tmp_path)
+    groups = panel.acceptance_groups()
+    assert {"items-ui-final-five", "grp-one", "grp-two"} <= groups
+    assert "custom" not in groups and "ui-walkthrough-4" not in groups
+
+
 def test_count_cases_parses_collect_output(monkeypatch):
     monkeypatch.setattr(panel, "JOB_FILTERS", {"api1": ["--qa-kind", "api"]})
     monkeypatch.setattr(panel, "run", lambda argv, timeout=0: "cases/a.py::x\ncases/b.py::y\nnoise\n")
