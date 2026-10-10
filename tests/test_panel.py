@@ -33,20 +33,18 @@ def test_job_hint_matches_symptom_not_generic():
     assert "清理角色状态" in panel.job_hint(job("failed", ["AssertionError: nope"]))
 
 
-def test_game_run_active_ignores_its_own_process_tree(monkeypatch):
-    monkeypatch.setattr(panel, "_ancestors", lambda: {10, 11})
+def test_game_run_active_follows_the_shared_lock(tmp_path, monkeypatch):
+    """运行中的判定走共用文件锁：拿到锁就算在跑，放开就不算（不再依赖 pgrep 猜进程）。"""
+    from gameqa.run_lock import RunLock
 
-    class Result:
-        def __init__(self, out):
-            self.stdout = out
-
-    monkeypatch.setattr(panel.subprocess, "run",
-                        lambda argv, **kw: Result("10\n11\n" if "pgrep" in argv else ""))
+    monkeypatch.setattr(panel, "PROJECT", tmp_path)
     assert panel.game_run_active() is False
-
-    monkeypatch.setattr(panel.subprocess, "run",
-                        lambda argv, **kw: Result("10\n4242\n" if "pgrep" in argv else ""))
-    assert panel.game_run_active() is True
+    lock = RunLock.acquire(tmp_path)
+    try:
+        assert panel.game_run_active() is True
+    finally:
+        lock.close()
+    assert panel.game_run_active() is False
 
 
 def test_count_cases_parses_collect_output(monkeypatch):

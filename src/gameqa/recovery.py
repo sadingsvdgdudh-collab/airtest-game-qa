@@ -88,14 +88,18 @@ def clear_pet(player, observer, species="sheep"):
     """
     state = observer.inspect()
     pet = state.get("pet") or {}
-    if not pet.get("has_pet"):
+    if not (pet.get("has_sheep") or pet.get("has_pet")):
         return {"pet": "none"}
     animal = pet.get("animal") or {}
     kind = (animal.get("type") or species).lower()
     player.action({"type": "forsake", "zone": state["attributes"]["zoneid"], "species": kind},
                   f"回收：玩家放走 {kind}")
-    time.sleep(1.0)
-    return {"pet": f"forsook {kind}", "still": (observer.inspect().get("pet") or {}).get("has_pet")}
+    after = observer.await_state(
+        lambda state: not any((state.get("pet") or {}).get(flag) for flag in ("has_sheep", "has_pet")),
+        f"等待 {kind} 放走后角色不再持有家畜")
+    if any((after.get("pet") or {}).get(flag) for flag in ("has_sheep", "has_pet")):
+        raise RuntimeError(f"角色仍持有家畜，放走 {kind} 未确认")
+    return {"pet": f"forsook {kind}", "still": False}
 
 
 def reset_character(player, observer, weapon=FACTORY_WEAPON):

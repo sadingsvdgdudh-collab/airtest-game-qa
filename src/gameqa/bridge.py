@@ -119,8 +119,6 @@ class Bridge:
         self.keepalive_args = keepalive_args or {}
         self.keepalive_interval = keepalive_interval
         self._lock = threading.RLock()
-        self._keepalive_stop = threading.Event()
-        self._keepalive_thread = None
         self.keepalive_sent = 0
         self.keepalive_errors = []
         self.messages = []
@@ -134,6 +132,8 @@ class Bridge:
                                         text=True, encoding="utf-8", bufsize=1)
         self.incoming = queue.Queue()
         self.closed = False
+        self._keepalive_stop = threading.Event()
+        self._keepalive_thread = None
         threading.Thread(target=self._read_stdout, args=(self.process.stdout, self.incoming), daemon=True).start()
         threading.Thread(target=self._read_stderr, args=(self.process.stderr,), daemon=True).start()
 
@@ -150,16 +150,17 @@ class Bridge:
                 del self.stderr[:100]
 
     def reopen(self):
-        if not self.closed:
-            raise BridgeError("close the old session before opening a new one")
-        self.messages.append({"direction": "lifecycle", "event": "reopen", "time": time.time()})
-        self._start()
+        with self._lock:
+            if not self.closed:
+                raise BridgeError("close the old session before opening a new one")
+            self.messages.append({"direction": "lifecycle", "event": "reopen", "time": time.time()})
+            self._start()
 
     def call(self, op, args=None, *, read_only=False, timeout=None):
         with self._lock:
             result = self._call(op, args, read_only=read_only, timeout=timeout)
-        if op == "login":
-            self._start_keepalive()
+            if op == "login":
+                self._start_keepalive()
         return result
 
     def _call(self, op, args=None, *, read_only=False, timeout=None):
@@ -206,20 +207,20 @@ class Bridge:
 
     def _start_keepalive(self):
         """登录成功后启动保活线程（幂等）。"""
-        if not self.keepalive_op or self._keepalive_thread is not None:
+        if self.closed or not self.keepalive_op or self._keepalive_thread is not None:
             return
+        stop = self._keepalive_stop
         def beat():
-            # 失败不退出：连接断了也继续按节奏重试，等上层（_guarded/inspect）把连接重开之后
-            # 保活就能接着起作用。首版在首次失败就 return，导致"保活悄悄失效"（实测 40 秒还是被关）。
-            while not self._keepalive_stop.wait(1.0):
-                if self.closed:
-                    return
-                if time.monotonic() - self.last_request < self.keepalive_interval:
-                    continue
+            while not stop.wait(1.0):
                 try:
                     with self._lock:
+                        # 旧线程可能正在等锁；重开后也不能操作新会话。
+                        if stop.is_set() or self.closed:
+                            return
+                        if time.monotonic() - self.last_request < self.keepalive_interval:
+                            continue
                         self._call(self.keepalive_op, dict(self.keepalive_args), read_only=True)
-                    self.keepalive_sent += 1
+                        self.keepalive_sent += 1
                 except Exception as error:
                     self.keepalive_errors.append(f"{type(error).__name__}: {str(error)[:80]}")
         self._keepalive_thread = threading.Thread(target=beat, name="qa-keepalive", daemon=True)
@@ -268,31 +269,31 @@ class Bridge:
         self.last_request = time.monotonic()
 
     def close(self):
-        self._keepalive_stop.set()
-        if self._keepalive_thread is not None and self._keepalive_thread.is_alive():
-            self._keepalive_thread.join(timeout=2)
+        with self._lock:
+            self._keepalive_stop.set()
+            # _call 也会持锁关闭；join 会等待自己或等待同一把锁。
             self._keepalive_thread = None
-        # 关进程绝不能抛：进程被杀（瞬断或人工注入）时管道已经断了，收尾里的异常会把
-        # 一条本来已经通过的用例标成失败（实测踩到过 BrokenPipeError）。看门狗只关心状态。
-        if self.closed:
-            return
-        self.closed = True
-        try:
-            if self.process.poll() is None:
-                self.process.terminate()
-                try:
-                    self.process.wait(timeout=3)
-                except subprocess.TimeoutExpired:
-                    self.process.kill()
-                    self.process.wait(timeout=3)
-        except Exception:
-            pass
-        for stream in (self.process.stdin, self.process.stdout, self.process.stderr):
+            # 关进程绝不能抛：进程被杀（瞬断或人工注入）时管道已经断了，收尾里的异常会把
+            # 一条本来已经通过的用例标成失败（实测踩到过 BrokenPipeError）。看门狗只关心状态。
+            if self.closed:
+                return
+            self.closed = True
             try:
-                if stream:
-                    stream.close()
+                if self.process.poll() is None:
+                    self.process.terminate()
+                    try:
+                        self.process.wait(timeout=3)
+                    except subprocess.TimeoutExpired:
+                        self.process.kill()
+                        self.process.wait(timeout=3)
             except Exception:
                 pass
+            for stream in (self.process.stdin, self.process.stdout, self.process.stderr):
+                try:
+                    if stream:
+                        stream.close()
+                except Exception:
+                    pass
 
     def __enter__(self):
         return self

@@ -2,7 +2,7 @@
 import os
 import time
 
-from .bridge import IndeterminateAction, TransientError, is_infrastructure_error
+from .bridge import IndeterminateAction, TransientError
 
 
 class Stendhal:
@@ -13,10 +13,6 @@ class Stendhal:
         self.password_env = config["observer_password_env"] if observer else config["player_password_env"]
         self._login()
 
-
-    # 只读与夹具操作可以重连后重试一次；业务动作（action/chat）一次都不重试——
-    # 它们可能已经生效，重放会变成两次业务操作（见 docs/实施记录.md 里那条裁定）。
-    RETRYABLE = {"prepare", "restore", "forget", "snapshots"}
 
     def _reconnect(self, reason):
         """瞬时断连之后：重开连接并重登，把原因记进证据（便于统计中断频率）。"""
@@ -31,17 +27,14 @@ class Stendhal:
         self._login()
 
     def _guarded(self, op, fields=None, *, read_only=False, with_target=True):
-        """夹具/只读操作的统一入口：瞬时断连 → 重连+重登 → **重试一次**。
-
-        prepare 是幂等的（字段是"设置"不是"累加"），且重试前会先丢弃可能已建立的快照，
-        所以重试安全；报错时仍然把失败原因记进 evidence，便于区分"真的坏了"和"抖了一下"。
-        """
+        """只读/恢复操作断连后重试一次；prepare 结果不明时保留原快照并报错。"""
         payload = {"target": self.config["target"], **(fields or {})} if with_target else dict(fields or {})
         for attempt in (1, 2):
             try:
                 return self.bridge.call(op, payload, read_only=read_only)
             except (TransientError, IndeterminateAction) as error:
-                if attempt == 2:
+                # prepare 可能已改写角色；重放或丢弃快照都会失去原始状态。
+                if op == "prepare" or attempt == 2:
                     self.evidence.data["diagnostics"].setdefault("transient_failures", []).append(f"{op}: {error}")
                     raise
                 self.evidence.data["diagnostics"].setdefault("transient_retries", []).append(f"{op}: {error}")
@@ -52,11 +45,6 @@ class Stendhal:
                     self.evidence.data["diagnostics"].setdefault("transient_failures", []).append(
                         f"{op}: {error}; reconnect failed: {reconnect_error}")
                     raise error
-                if op == "prepare":
-                    try:
-                        self.bridge.call("forget", {"target": self.config["target"], "older_than_seconds": 0})
-                    except Exception:
-                        pass
         raise AssertionError("unreachable")
 
     def _login(self):
@@ -101,9 +89,7 @@ class Stendhal:
     def forget(self, older_than_seconds=0, target=None, token=None):
         """丢弃某个角色名下的快照（不必知道 token）。
 
-        用于自愈：一次被杀死的运行不会走到 restore，快照就留在**主服内存**里，
-        之后该角色的每次 prepare 都会被拒（"An active snapshot already exists for this target"），
-        以前只能重启主服。older_than_seconds 只丢陈旧快照，避免误删并发会话刚建的那个。
+        显式清理工具使用；prepare/restore 失败不能自动丢弃快照，否则会失去原始状态。
         """
         fields = {"older_than_seconds": older_than_seconds}
         if token:
@@ -117,47 +103,16 @@ class Stendhal:
     def prepare(self, **fields):
         try:
             result = self._guarded("prepare", fields)
-        except Exception as error:
-            if "An active snapshot already exists" not in str(error):
-                # 抖动（掉线/超时）不算"准备错误"：上面的自愈与夹具的在线恢复还会重试，
-                # 一旦在这里落上 preparation_error，重试成功后会留下假失败（实测整条用例全过却判 error）。
-                if not is_infrastructure_error(error):
-                    self.evidence.data["failure_kind"] = "preparation_error"
-                raise
-            # 陈旧快照（例如上次运行被杀）挡住准备：先丢弃 60 秒以上的，再重试一次。
-            # 只丢陈旧的，所以并发跑的另一场会话刚建的快照不会被误删。
-            try:
-                healed = self.forget(older_than_seconds=60)
-                if not healed.get("forgotten"):
-                    # 丢不到陈旧的，说明挡住我们的那个"很新"：一次运行里只有我们自己会建快照，
-                    # 而当前这条的准备刚失败（没建成功），所以最老的那个必是上一次泄漏的 → 精确丢掉。
-                    active = self.snapshots()
-                    if active:
-                        oldest = min(active, key=lambda row: row["age_seconds"])
-                        healed = {"fallback": self.forget(token=oldest["snapshot_id"]), "active_before": active}
-            except Exception as heal_error:        # 自愈失败不要盖掉原始错误，原始错误更有信息量
-                healed = {"error": f"{type(heal_error).__name__}: {heal_error}"}
-            self.evidence.data["diagnostics"].setdefault("snapshot_self_heal", []).append(healed)
-            try:
-                result = self._guarded("prepare", fields)
-            except Exception as error:
-                if not is_infrastructure_error(error):
-                    self.evidence.data["failure_kind"] = "preparation_error"
-                raise
+        except Exception:
+            self.evidence.data["failure_kind"] = "preparation_error"
+            raise
         self.evidence.data["diagnostics"]["preparation"] = result
         if not result.get("snapshot_id"):
             raise ValueError("preparation did not return a restorable snapshot")
         return result
 
     def restore(self, snapshot_id):
-        try:
-            result = self._guarded("restore", {"snapshot_id": snapshot_id})
-        except Exception as error:
-            # 重试时报"快照不存在"，说明第一次其实已经还原成功（响应丢在路上）——按成功处理并留痕。
-            if "Snapshot is missing" not in str(error):
-                raise
-            result = {"restored": True, "snapshot_id": snapshot_id,
-                      "note": "retry found the snapshot already gone; first restore applied"}
+        result = self._guarded("restore", {"snapshot_id": snapshot_id})
         self.evidence.data["diagnostics"]["restoration"] = result
         if result.get("restored") is not True:
             raise ValueError("server did not confirm restoration")

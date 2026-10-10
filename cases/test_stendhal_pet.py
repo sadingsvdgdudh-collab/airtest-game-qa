@@ -6,7 +6,8 @@
 """
 import pytest
 
-from gameqa.pet import NPC, buy, forsake
+from gameqa.pet import NPC, buy
+from gameqa.recovery import clear_pet
 from gameqa.sources import FORSAKE, SHEEP_PET, SHEEP_SELLER
 from gameqa.stendhal import confirm, hello, leave, said
 
@@ -25,35 +26,38 @@ def test_second_sheep_purchase_is_refused_and_not_charged(qa, api_player, observ
              "测试夹具：money=130；" + SHEEP_PET)
     assert before["pet"]["animal"] is None, "前置失败：开始就有一只羊，用例无法构造重复购买场景"
 
-    asked = hello(api_player, NPC) + buy(api_player)
-    qa.check("NPC 实际报价：一只羊 30 金币",
-             said(asked, NPC, "A sheep will cost 30. Do you want to buy it?"), True, SHEEP_SELLER)
-    bought = confirm(api_player, "yes")
-    qa.check("成交时 NPC 实际交出羊", said(bought, NPC, "Here you go"), True, SHEEP_SELLER)
-    after_buy = observer.inspect()
-    qa.check("首次购买扣 30：130→100", after_buy["money"], 100, SHEEP_SELLER)
-    qa.check("首次购买后角色有且只有一只羊",
-             [after_buy["pet"]["has_sheep"], after_buy["pet"]["has_pet"]], [True, False], SHEEP_PET)
-    animal = after_buy["pet"]["animal"]
-    qa.check("羊的归属是当前角色", [animal["type"], animal["owner"]], ["Sheep", qa.data.get("name", "qaplayera")],
-             SHEEP_PET)
+    try:
+        asked = hello(api_player, NPC) + buy(api_player)
+        qa.check("NPC 实际报价：一只羊 30 金币",
+                 said(asked, NPC, "A sheep will cost 30. Do you want to buy it?"), True, SHEEP_SELLER)
+        bought = confirm(api_player, "yes")
+        qa.check("成交时 NPC 实际交出羊", said(bought, NPC, "Here you go"), True, SHEEP_SELLER)
+        after_buy = observer.inspect()
+        qa.check("首次购买扣 30：130→100", after_buy["money"], 100, SHEEP_SELLER)
+        qa.check("首次购买后角色有且只有一只羊",
+                 [after_buy["pet"]["has_sheep"], after_buy["pet"]["has_pet"]], [True, False], SHEEP_PET)
+        animal = after_buy["pet"]["animal"]
+        qa.check("羊的归属是当前角色", [animal["type"], animal["owner"]], ["Sheep", qa.data.get("name", "qaplayera")],
+                 SHEEP_PET)
 
-    again = buy(api_player) + confirm(api_player, "yes")
-    qa.check("重复购买被明确拒绝",
-             said(again, NPC, "look after that sheep you already have first"), True, SHEEP_SELLER)
-    after_again = observer.inspect()
-    qa.check("重复购买不扣钱：仍 100", after_again["money"], 100, SHEEP_SELLER)
-    qa.check("重复购买后仍只有一只羊",
-             [after_again["pet"]["has_sheep"], after_again["pet"]["has_pet"]], [True, False], SHEEP_PET)
-    same = after_again["pet"]["animal"]
-    qa.check("羊还是同一只（类型/归属/名字未变）",
-             [same["type"], same["owner"], same["name"]], [animal["type"], animal["owner"], animal["name"]],
-             SHEEP_PET)
-
-    # 收尾：放走羊（快照恢复不含宠物，不放走会污染后续用例）
-    forsake(api_player, after_again)
-    import time
-    time.sleep(1.5)
-    cleaned = observer.inspect()
-    qa.check("用例自行放走羊：收尾后没有羊", cleaned["pet"]["has_sheep"], False, FORSAKE)
-    leave(api_player)
+        again = buy(api_player) + confirm(api_player, "yes")
+        qa.check("重复购买被明确拒绝",
+                 said(again, NPC, "look after that sheep you already have first"), True, SHEEP_SELLER)
+        after_again = observer.inspect()
+        qa.check("重复购买不扣钱：仍 100", after_again["money"], 100, SHEEP_SELLER)
+        qa.check("重复购买后仍只有一只羊",
+                 [after_again["pet"]["has_sheep"], after_again["pet"]["has_pet"]], [True, False], SHEEP_PET)
+        same = after_again["pet"]["animal"]
+        qa.check("羊还是同一只（类型/归属/名字未变）",
+                 [same["type"], same["owner"], same["name"]], [animal["type"], animal["owner"], animal["name"]],
+                 SHEEP_PET)
+    finally:
+        # 羊不在角色快照里，业务失败时也要先放走再恢复角色。
+        try:
+            qa.data["diagnostics"]["pet_cleanup"] = clear_pet(api_player, observer)
+            cleaned = observer.inspect()
+            qa.check("用例自行放走羊：收尾后没有羊", cleaned["pet"]["has_sheep"], False, FORSAKE)
+            leave(api_player)
+        except Exception:
+            qa.data["failure_kind"] = "cleanup_error"
+            raise

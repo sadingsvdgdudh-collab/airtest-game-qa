@@ -54,8 +54,8 @@ def test_shared_signature_list_is_the_only_definition():
     assert runner.INFRA_SIGNATURES is bridge.INFRA_SIGNATURES
 
 
-def test_transient_prepare_does_not_mark_case_as_preparation_error():
-    """抖动导致的 prepare 失败不能落 preparation_error：自愈重试成功后那会变成假失败。"""
+def test_unconfirmed_prepare_is_reported_as_preparation_error():
+    """prepare 不再重放；准备未确认就中止，应报告环境错误而不是业务失败。"""
     from gameqa.bridge import TransientError
     from gameqa.stendhal import Stendhal
 
@@ -89,7 +89,7 @@ def test_transient_prepare_does_not_mark_case_as_preparation_error():
         transient.prepare(money=0)
     except Exception:
         pass
-    assert "failure_kind" not in transient.evidence.data
+    assert transient.evidence.data["failure_kind"] == "preparation_error"
 
     genuine = client(RuntimeError("Could not prepare location"))
     try:

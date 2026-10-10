@@ -16,7 +16,7 @@ observer = "qaobserver"
 observer_password_env = "GAMEQA_OBSERVER_PASSWORD"
 target = "qaplayer"
 api_target = "qaplayera"
-pool_size=3
+pool_size = 1
 player_password_env = "GAMEQA_PLAYER_PASSWORD"
 timeout = 30
 

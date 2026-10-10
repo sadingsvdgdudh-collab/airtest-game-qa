@@ -1,4 +1,4 @@
-"""瞬时断连的重试策略：夹具/只读重连后重试一次；业务动作一次都不重试。"""
+"""瞬时断连的重试策略：只读重连后重试一次；准备和业务动作不重放。"""
 import os
 import sys
 
@@ -55,11 +55,11 @@ def tracked(bridge):
     return [op for op in bridge.calls if op in TRACKED]
 
 
-def test_fixture_op_retries_once_after_reconnect():
-    stendhal, bridge = client({"prepare": 1})
-    stendhal._guarded("prepare", {"money": 0})
+def test_read_only_op_retries_once_after_reconnect():
+    stendhal, bridge = client({"snapshots": 1})
+    stendhal._guarded("snapshots", read_only=True)
     assert bridge.reopens == 1
-    assert tracked(bridge) == ["prepare", "forget", "prepare"], tracked(bridge)
+    assert tracked(bridge) == ["snapshots", "snapshots"], tracked(bridge)
     assert "connect" in bridge.calls and "login" in bridge.calls        # 重连时确实重登了
     assert stendhal.evidence.data["diagnostics"]["transient_retries"]
 

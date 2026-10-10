@@ -36,7 +36,6 @@ import argparse
 import copy
 import json
 import os
-import subprocess
 import sys
 import time
 from pathlib import Path
@@ -50,6 +49,7 @@ from gameqa.evidence import Evidence                                # noqa: E402
 from gameqa.accounts import target_pool
 from gameqa.recovery import clear_bag, normalize_weapon             # noqa: E402
 from gameqa.stendhal import Stendhal                                 # noqa: E402
+from gameqa.run_lock import RunBusy, RunLock                         # noqa: E402
 
 
 def characters(game):
@@ -107,30 +107,6 @@ def project(state):
             "statuses": state.get("statuses"), "target": attrs.get("target")}
 
 
-def _ancestors():
-    """自己与所有祖先进程的 pid；pgrep -f 会把"命令行里提到这句话"的调用方自己也算进来。"""
-    pids, pid = set(), os.getpid()
-    while pid and pid not in pids:
-        pids.add(pid)
-        try:
-            out = subprocess.run(["ps", "-o", "ppid=", "-p", str(pid)], capture_output=True, text=True).stdout.strip()
-            pid = int(out) if out.isdigit() else 0
-        except Exception:
-            break
-    return pids
-
-
-def game_run_active():
-    """有测试在跑时不许清理：清理会丢弃快照、清空背包，会打乱正在跑的用例。"""
-    ignore = _ancestors()
-    for pattern in ("-m gameqa run", "pytest cases"):
-        done = subprocess.run(["pgrep", "-f", pattern], capture_output=True, text=True)
-        for pid in done.stdout.split():
-            if pid.isdigit() and int(pid) not in ignore:
-                return True
-    return False
-
-
 def clean(name, qa_config, game, dry_run, clear_items=False, normalize_gear=False, factory_weapon="club"):
     """清一个角色的状态残留（prepare + restore 往返），并报告背包里的持久道具。
 
@@ -150,7 +126,7 @@ def clean(name, qa_config, game, dry_run, clear_items=False, normalize_gear=Fals
                 return result
             # 这是**人工**工具：被它清的角色很可能刚被一次杀掉的运行留下快照，而那个快照很新，
             # 框架的自愈（只丢 60 秒以上的）不会动它。这里显式丢弃该角色的全部快照；
-            # 上面的 game_run_active() 已经挡掉了"正在跑测试"的情况。
+            # main() 全程持有运行锁，保证这里不会丢掉正在跑的用例快照。
             result["forgotten"] = observer.forget(older_than_seconds=0)["forgotten"]
             if clear_items:
                 # 清背包的效果不能靠 restore（restore 会把道具还回来），所以准备完直接丢掉快照：
@@ -186,7 +162,7 @@ def clean(name, qa_config, game, dry_run, clear_items=False, normalize_gear=Fals
         actor_bridge.close()                          # 登出，让服务端把状态存下来
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description="清理测试角色背包里的持久残留")
     parser.add_argument("--dry-run", action="store_true", help="只报告现状")
     parser.add_argument("--only", action="append", help="只清指定角色（可重复）")
@@ -196,13 +172,19 @@ def main():
                         help="把右手换成出厂武器（默认 club）：装备漂移的回收，用真实 equip 动作")
     parser.add_argument("--clear-items", action="store_true",
                         help="连背包道具一起清（prepare 清空后 forget 撤掉快照，不需要重启主服）")
-    args = parser.parse_args()
+    parser.add_argument("--qa-lock-fd", type=int, help=argparse.SUPPRESS)
+    args = parser.parse_args(argv)
+    try:
+        with RunLock.acquire(ROOT, args.qa_lock_fd):
+            return execute(args)
+    except RunBusy as error:
+        print(str(error), file=sys.stderr)
+        return 2
 
+
+def execute(args):
     qa_config = load_config(os.environ["GAMEQA_CONFIG"])
     game = qa_config["games"][args.game]
-    if game_run_active():
-        print("检测到正在运行的测试（gameqa run / pytest cases）；清理会打断它，已拒绝。", file=sys.stderr)
-        return 2
     wanted = args.only or characters(game)
     if args.json:
         results = [clean(name, qa_config, game, args.dry_run, args.clear_items, args.normalize_gear)

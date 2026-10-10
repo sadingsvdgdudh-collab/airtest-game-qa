@@ -10,6 +10,7 @@ from .bridge import Bridge, redact
 from .config import load_config, resolve_path
 from .device import AndroidDevice
 from .evidence import Evidence, write_report
+from .run_lock import RunBusy, RunLock
 
 
 def pytest_addoption(parser):
@@ -17,11 +18,37 @@ def pytest_addoption(parser):
     for name in ("config", "game", "module", "kind", "case", "report-dir"):
         group.addoption(f"--qa-{name}", default=None)
     group.addoption("--qa-experiment", default="baseline")
+    group.addoption("--qa-lock-fd", type=int, default=None, help="internal inherited run lock")
 
 
 def pytest_configure(config):
     config._qa_records = {}
     config._qa_folder = Path(config.getoption("--qa-report-dir") or "reports/latest").resolve()
+
+
+def acquire_run_lock(config):
+    if config.option.collectonly or getattr(config, "_qa_lock", None) is not None:
+        return
+    try:
+        config._qa_lock = RunLock.acquire(config.rootpath, config.getoption("--qa-lock-fd"))
+    except RunBusy as error:
+        config._qa_lock_failed = True
+        raise pytest.UsageError(str(error)) from error
+
+
+def pytest_sessionstart(session):
+    acquire_run_lock(session.config)
+
+
+def pytest_collection_finish(session):
+    # 指定 cases 单个文件时，插件可能在 sessionstart 之后才随 conftest 加载。
+    acquire_run_lock(session.config)
+
+
+def pytest_unconfigure(config):
+    lock = getattr(config, "_qa_lock", None)
+    if lock is not None:
+        lock.close()
 
 
 def pytest_collection_modifyitems(config, items):
@@ -99,6 +126,8 @@ def pytest_runtest_makereport(item, call):
 
 
 def pytest_sessionfinish(session, exitstatus):
+    if getattr(session.config, "_qa_lock_failed", False):
+        return
     records = [item.data for item in session.config._qa_records.values()]
     write_report(session.config._qa_folder, records,
                  {"exit_code": int(exitstatus), "experiment": session.config.getoption("--qa-experiment"),

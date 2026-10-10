@@ -9,6 +9,7 @@ import sys
 
 from .config import load_config
 from .bridge import INFRA_SIGNATURES as _INFRA_SIGNATURES, redact
+from .run_lock import RunBusy, RunLock
 
 
 # 基础设施抖动的签名：这些不是用例判定的业务事实，可以重跑一次。
@@ -69,12 +70,22 @@ def main(argv=None):
     run.add_argument("--report-dir", type=Path)
     run.add_argument("--experiment", default="baseline")
     run.add_argument("--stop-after-failure", action="store_true")
+    run.add_argument("--qa-lock-fd", type=int, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     if not 1 <= args.rounds <= 20:
         parser.error("rounds must be between 1 and 20")
     project = args.project.resolve()
     if not (project / "cases").is_dir():
         parser.error("run in the project root or pass --project")
+    try:
+        with RunLock.acquire(project, args.qa_lock_fd) as lock:
+            return execute(args, project, lock)
+    except RunBusy as error:
+        print(str(error), file=sys.stderr)
+        return 2
+
+
+def execute(args, project, lock):
     config = load_config(args.config)
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
     folder = (args.report_dir or project / "reports" / run_id).resolve()
@@ -84,7 +95,7 @@ def main(argv=None):
         target = folder / f"round-{number:02d}"
         command = [sys.executable, "-m", "pytest", "-p", "gameqa.pytest_plugin", "cases",
                    "--qa-config", config["_path"], "--qa-report-dir", str(target),
-                   "--qa-experiment", args.experiment]
+                   "--qa-experiment", args.experiment, "--qa-lock-fd", str(lock.fileno())]
         for field in ("game", "module", "kind", "case"):
             value = getattr(args, field)
             if value:
@@ -92,7 +103,8 @@ def main(argv=None):
         if args.stop_after_failure:
             command.append("-x")
         result = subprocess.run(command, cwd=project, text=True, encoding="utf-8",
-                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                pass_fds=(lock.fileno(),))
         target.mkdir(parents=True, exist_ok=True)
         (target / "pytest.log").write_text(redact(result.stdout), encoding="utf-8")
         print(f"Round {number}/{args.rounds}: exit={result.returncode}; {target / 'index.html'}")
@@ -105,9 +117,11 @@ def main(argv=None):
             retry_dir = folder / f"round-{number:02d}-retry"
             retry_command = [sys.executable, "-m", "pytest", "-p", "gameqa.pytest_plugin", "cases",
                              "--qa-config", config["_path"], "--qa-report-dir", str(retry_dir),
-                             "--qa-experiment", args.experiment, "--qa-case", ",".join(retried)]
+                             "--qa-experiment", args.experiment, "--qa-case", ",".join(retried),
+                             "--qa-lock-fd", str(lock.fileno())]
             retry_result = subprocess.run(retry_command, cwd=project, text=True, encoding="utf-8",
-                                          stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                                          stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                          pass_fds=(lock.fileno(),))
             retry_dir.mkdir(parents=True, exist_ok=True)
             (retry_dir / "pytest.log").write_text(redact(retry_result.stdout), encoding="utf-8")
             retry_report = (json.loads((retry_dir / "report.json").read_text(encoding="utf-8"))

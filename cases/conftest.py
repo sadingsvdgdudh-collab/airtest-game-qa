@@ -1,5 +1,6 @@
 import itertools
 import os
+import time
 from pathlib import Path
 
 import pytest
@@ -9,6 +10,8 @@ from gameqa.bridge import Bridge, redact
 from gameqa.config import resolve_path
 from gameqa.stendhal import Stendhal
 from gameqa.stendhal_ui import StendhalUI
+
+pytest_plugins = ["gameqa.pytest_plugin"]
 
 
 _CASE_INDEX = itertools.count()
@@ -117,7 +120,8 @@ def prepare(observer, qa, request):
         if not snapshots and request.node._qa_meta["kind"] == "api":
             ensure_target_online(request.getfixturevalue("api_player"))
         if snapshots:
-            observer.restore(snapshots.pop())
+            observer.restore(snapshots[-1])
+            snapshots.pop()
         try:
             result = observer.prepare(**fields)
         except Exception as error:
@@ -145,43 +149,15 @@ def prepare(observer, qa, request):
     try:
         yield start
     finally:
-        # 用例失败时也做一次自动回收：残留（尤其是宠物——它不在快照里）会污染后面的用例。
-        # 判定用已记录的步骤：qa.check 失败会留下一枚 outcome=failed 的步骤。
-        if any(step.get("outcome") == "failed" for step in observer.evidence.data.get("steps", [])):
-            try:
-                from gameqa.recovery import reset_character
-                player = request.getfixturevalue("api_player") if request.node._qa_meta["kind"] == "api" else None
-                if player is not None:
-                    observer.evidence.data.setdefault("diagnostics", {}).setdefault("auto_recovery", []).append(
-                        reset_character(player, observer))
-            except Exception as recovery_error:
-                observer.evidence.data.setdefault("diagnostics", {}).setdefault("auto_recovery", []).append(
-                    {"error": f"{type(recovery_error).__name__}: {recovery_error}"})
         if snapshots:
-            if request.node._qa_meta['kind'] == 'ui':
-                ui = request.getfixturevalue('stendhal_ui')
-                if not ui.entered:
-                    ui.ensure_login()
             try:
+                if request.node._qa_meta['kind'] == 'ui':
+                    ui = request.getfixturevalue('stendhal_ui')
+                    if not ui.entered:
+                        ui.ensure_login()
                 observer.restore(snapshots[-1])
             except Exception as error:
-                # 还原失败（用例中途出错、连接抖动、投影不一致…）：至少把自己留下的快照精确丢掉，
-                # 否则这一个残留会挡住同一次运行里后面所有用例（实测过 20+ 条连环失败）。
+                # 保留原快照供恢复；清空快照或重置角色会丢掉用例前的状态。
                 observer.evidence.data["diagnostics"].setdefault("restore_failures", []).append(str(error)[:300])
-                for token in snapshots:
-                    try:
-                        observer.forget(token=token)
-                    except Exception:
-                        pass
-                # 还原不成功 -> 用例改过的装备/背包会留在角色身上，污染后续用例。
-                # 这里按 api 用例自动回收（UI 角色的会话在模拟器里，不去抢）。
-                if request.node._qa_meta["kind"] == "api":
-                    try:
-                        from gameqa.recovery import reset_character
-                        player = request.getfixturevalue("api_player")
-                        observer.evidence.data["diagnostics"].setdefault("auto_recovery", []).append(
-                            reset_character(player, observer))
-                    except Exception as recovery_error:
-                        observer.evidence.data["diagnostics"].setdefault("auto_recovery", []).append(
-                            {"error": f"{type(recovery_error).__name__}: {recovery_error}"})
+                observer.evidence.data["diagnostics"]["pending_snapshots"] = list(snapshots)
                 raise

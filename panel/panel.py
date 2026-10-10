@@ -13,6 +13,7 @@ import re
 import shlex
 import socket
 import subprocess
+import sys
 import threading
 import time
 import urllib.parse
@@ -21,6 +22,9 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 PROJECT = Path(os.environ.get("QA_PROJECT", "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa"))
+sys.path.insert(0, str(PROJECT / "src"))
+from gameqa.run_lock import RunBusy, RunLock, run_active
+
 WORK = Path(os.environ.get("QA_WORK", "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work"))
 PY = WORK / "python-env/bin/python"
 ADB = WORK / "android/sdk/platform-tools/adb"
@@ -76,36 +80,13 @@ def http_code(url):
         return None
 
 
-HEALTH = {"at": 0.0, "data": None}
+HEALTH = {"at": 0.0, "data": None, "checking": False}
 HEALTH_TTL = 45.0
 
 
-def _ancestors():
-    """自己与所有祖先进程的 pid：pgrep -f 会把"命令行里提到这句话"的调用方也算进来。"""
-    pids, pid = set(), os.getpid()
-    while pid and pid not in pids:
-        pids.add(pid)
-        try:
-            out = subprocess.run(["ps", "-o", "ppid=", "-p", str(pid)], capture_output=True, text=True).stdout.strip()
-            pid = int(out) if out.isdigit() else 0
-        except Exception:
-            break
-    return pids
-
-
 def game_run_active():
-    """除了面板自己的任务，还要看命令行起的运行——否则健康检查会和它抢同一批角色。
-
-    实测过代价：面板后台检查每 45 秒登录两个角色一次，撞上命令行起的 30 条 API 运行，
-    第 6 条开始报 `Game connection closed` 并让该角色快照卡住，随后 23 条连环失败。
-    """
-    ignore = _ancestors()
-    for pattern in ("-m gameqa run", "pytest cases"):
-        done = subprocess.run(["pgrep", "-f", pattern], capture_output=True, text=True)
-        for pid in done.stdout.split():
-            if pid.isdigit() and int(pid) not in ignore:
-                return True
-    return False
+    """检测共用文件锁，包括命令行、清理和另一面板的角色检查。"""
+    return run_active(PROJECT)
 
 
 def character_health(force=False):
@@ -114,20 +95,34 @@ def character_health(force=False):
     会短暂把两个角色拉上线再登出，所以**有任务在跑时绝不刷新**——只在空闲时做，
     结果缓存起来给 /api/state 读，避免拖慢 1.5 秒一次的轮询。
     """
-    now = time.monotonic()
-    if not force and HEALTH["data"] and now - HEALTH["at"] < HEALTH_TTL:
-        return HEALTH["data"]
-    if running_job() or game_run_active():
-        return HEALTH["data"] or {"characters": [], "note": "有运行在进行，暂不检查"}
-    done = subprocess.run([str(PY), "scripts/cleanup_characters.py", "--dry-run", "--json"],
-                          cwd=PROJECT, env=ENV, capture_output=True, text=True, timeout=120)
+    with LOCK:
+        now = time.monotonic()
+        if not force and HEALTH["data"] and now - HEALTH["at"] < HEALTH_TTL:
+            return HEALTH["data"]
+        if running_job() or HEALTH["checking"]:
+            return HEALTH["data"] or {"characters": [], "note": "有任务或检查在进行，暂不检查"}
+        try:
+            lock = RunLock.acquire(PROJECT)
+        except RunBusy:
+            return HEALTH["data"] or {"characters": [], "note": "有运行在进行，暂不检查"}
+        HEALTH["checking"] = True
     try:
-        data = json.loads(done.stdout.strip().splitlines()[-1])
-    except (ValueError, IndexError):
-        data = {"characters": [], "error": (done.stderr or done.stdout or "检查失败")[-200:]}
-    data["at"] = time.strftime("%H:%M:%S")
-    HEALTH.update({"at": now, "data": data})
-    return data
+        done = subprocess.run([str(PY), "scripts/cleanup_characters.py", "--dry-run", "--json",
+                               "--qa-lock-fd", str(lock.fileno())],
+                              cwd=PROJECT, env=ENV, capture_output=True, text=True, timeout=120,
+                              pass_fds=(lock.fileno(),))
+        try:
+            data = json.loads(done.stdout.strip().splitlines()[-1])
+        except (ValueError, IndexError):
+            data = {"characters": [], "error": (done.stderr or done.stdout or "检查失败")[-200:]}
+        data["at"] = time.strftime("%H:%M:%S")
+        with LOCK:
+            HEALTH.update({"at": now, "data": data})
+        return data
+    finally:
+        with LOCK:
+            lock.close()
+            HEALTH["checking"] = False
 
 
 def health_loop():
@@ -166,7 +161,8 @@ def probe():
         "emulator": {"device": emulator, "boot_completed": bool(booted)},
         "reverse": {str(p): f"tcp:{p}" in reverse for p in (8080, 3000, 3001)},
         "job": running_job(),
-        "health": HEALTH["data"],
+        "health": ({**(HEALTH["data"] or {"characters": []}), "checking": HEALTH["checking"]}
+                   if HEALTH["data"] or HEALTH["checking"] else None),
         "last": LAST,
     }
 
@@ -277,6 +273,8 @@ def drain(job):
             job["lines"].append(scrub(line.rstrip("\n")))
     code = job["proc"].wait()
     with LOCK:
+        if job.get("run_lock"):
+            job["run_lock"].close()
         job["code"] = code
         job["state"] = "passed" if code == 0 else "failed"
         LAST[job["name"]] = {"state": job["state"], "code": code, "id": job["id"], "at": time.time(),
@@ -298,23 +296,39 @@ def drain(job):
 def start_job(name, argv=None, selected=None, rounds=None):
     if argv is None and name not in JOB_CMDS:
         raise KeyError(name)
-    if running_job():
-        return None
     with LOCK:
+        if running_job() or HEALTH["checking"]:
+            return None
+        try:
+            lock = RunLock.acquire(PROJECT)
+        except RunBusy:
+            return None
         job_id = NEXT_ID[0]
-        NEXT_ID[0] += 1
         job = {"id": job_id, "name": name, "state": "running", "code": None, "lines": [],
                "started": time.monotonic(),
                "reports_before": {p.name for p in (PROJECT / "reports").iterdir()},
                "selected": selected, "total": len(selected) if selected else None,
                "rounds": rounds or JOB_ROUNDS.get(name)}
-        JOBS[job_id] = job
-        command = argv or [part.format(rounds=job["rounds"]) if isinstance(part, str) else part
-                           for part in JOB_CMDS[name]]
+        command = list(argv) if argv is not None else [
+            part.format(rounds=job["rounds"]) if isinstance(part, str) else part
+            for part in JOB_CMDS[name]]
         job["display"] = " ".join(str(part) for part in command)   # 回显给页面/接口，便于核对等价性
-        job["proc"] = subprocess.Popen(command, cwd=PROJECT,
-                                       env=dict(ENV, PYTHONUNBUFFERED="1"), text=True, bufsize=1,
-                                       stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        owns_characters = selected is not None or name == "cleanup"
+        if owns_characters:
+            command += ["--qa-lock-fd", str(lock.fileno())]
+            job["run_lock"] = lock
+        try:
+            job["proc"] = subprocess.Popen(command, cwd=PROJECT,
+                                           env=dict(ENV, PYTHONUNBUFFERED="1"), text=True, bufsize=1,
+                                           stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                           pass_fds=(lock.fileno(),) if owns_characters else ())
+        except BaseException:
+            lock.close()
+            raise
+        if not owns_characters:  # 自检和端口映射不使用角色，不给其内部的假用例继承锁。
+            lock.close()
+        NEXT_ID[0] += 1
+        JOBS[job_id] = job
     threading.Thread(target=drain, args=(job,), daemon=True).start()
     if selected is None:
         threading.Thread(target=count_cases, args=(job,), daemon=True).start()
