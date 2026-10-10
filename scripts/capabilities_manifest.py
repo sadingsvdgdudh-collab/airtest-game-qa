@@ -11,7 +11,8 @@ docs/能力清单.md 转录，两个表示之间会漂移。本脚本直接从�
 
 清单契约（技能侧 modules/testcase-builder/scripts/automation_evidence.py）：
     schema_version  "1.1"（1.1 起每条能力必须带 channel）
-    framework_root  本仓库绝对路径（技能侧可用环境变量 QA_FRAMEWORK_ROOT 覆盖）
+    framework_root  本仓库路径（技能侧可用环境变量 QA_FRAMEWORK_ROOT 覆盖）；
+                    等值检查（--check / 自检）**忽略它的位置差异**，重生成时刷新为本机路径
     reviewer        生成者标识（本脚本为 auto:…）
     checked_at      ISO 时间；能力集合未变化时保留原值，因此 --check 是等值比较
     capabilities[]  {id, kind, channel, file, sha256, symbol?, notes}
@@ -138,7 +139,9 @@ def build(previous: dict | None = None) -> dict:
         checked_at = previous.get("checked_at", checked_at)
     return {
         "schema_version": SCHEMA,
-        "framework_root": str(ROOT),
+        # 保留原值：framework_root 是本机绝对路径，位置变了不该让 --check 判"过期"
+        # （重生成时会刷新成本机路径，见 main()）。
+        "framework_root": previous.get("framework_root", str(ROOT)),
         "reviewer": REVIEWER,
         "checked_at": checked_at,
         "counts": {
@@ -167,6 +170,7 @@ def main():
             sys.exit(f"{OUT.name} 已过期，跑 python scripts/capabilities_manifest.py 重写")
         print(f"{OUT.name} 是最新的")
         return
+    text = dumps({**json.loads(text), "framework_root": str(ROOT)})   # 写出时刷新为本机路径
     OUT.write_text(text, encoding="utf-8")
     data = json.loads(text)
     print(f"已写出 {OUT.relative_to(ROOT)}：能力 {len(data['capabilities'])} 条"
