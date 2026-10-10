@@ -6,7 +6,6 @@
 自检（只打印状态探测结果，不起服务）:
     python panel.py --state
 """
-from datetime import datetime, timezone
 import json
 import mimetypes
 import os
@@ -336,99 +335,6 @@ def start_job(name, argv=None, selected=None, rounds=None):
     return job_id
 
 
-REVIEW_FIELDS = ("independent_review", "restored_fields_independently_compared", "framework_self_checks",
-                 "new_project_and_python_environment", "existing_local_game_android_environment", "limitations")
-
-
-def apply_review(manifest, payload):
-    """把人工复核结论写回一份 verification.json；返回 (新内容, 错误列表)。
-
-    这是**人签字**的地方：脚本只校验填得全不全，绝不代替人下结论。
-    勾了"已独立复核"就必须给复核人、独立对比过的字段、至少一条局限、以及框架自检通过数。
-    """
-    performed = bool(payload.get("performed"))
-    by = str(payload.get("by") or "").strip()
-    note = str(payload.get("note") or "").strip()
-    fields = [x.strip() for x in str(payload.get("restored_fields") or "").replace("，", ",").split(",") if x.strip()]
-    limitations = [x.strip() for x in str(payload.get("limitations") or "").splitlines() if x.strip()]
-    checks = payload.get("framework_self_checks")
-    errors = []
-    if performed:
-        if not by:
-            errors.append("勾了已独立复核，必须填复核人")
-        if not fields:
-            errors.append("必须列出独立对比过的字段")
-        if not limitations:
-            errors.append("必须写至少一条覆盖边界或局限")
-        if not isinstance(checks, int) or isinstance(checks, bool) or checks < 1:
-            errors.append("必须填框架自检通过数（pytest tests 的数字）")
-    if errors:
-        return manifest, errors
-
-    updated = dict(manifest)
-    updated["independent_review"] = {"performed": performed, "by": by or None, "note": note or None,
-                                     "reviewed_utc": datetime.now(timezone.utc).isoformat() if performed else None}
-    updated["restored_fields_independently_compared"] = fields or None
-    updated["framework_self_checks"] = checks if performed else manifest.get("framework_self_checks")
-    updated["new_project_and_python_environment"] = bool(payload.get("new_project_and_python_environment"))
-    updated["existing_local_game_android_environment"] = bool(payload.get("existing_local_game_android_environment"))
-    updated["limitations"] = limitations or None
-    remaining = list(manifest.get("review_required") or [])
-    if performed:                      # 这两项是"回答过就算填了"，False 也是有效回答
-        for key in ("independent_review", "restored_fields_independently_compared",
-                    "framework_self_checks", "new_project_and_python_environment",
-                    "existing_local_game_android_environment", "limitations"):
-            if key in remaining:
-                remaining.remove(key)
-    updated["review_required"] = remaining
-    return updated, []
-
-
-def review_state(experiment):
-    """读一个已归档证据包的复核现状，供面板显示。"""
-    manifest = PROJECT / "docs/evidence" / experiment / "verification.json"
-    if not manifest.exists():
-        return None
-    try:
-        data = json.loads(manifest.read_text(encoding="utf-8"))
-    except (ValueError, OSError):
-        return None
-    review = data.get("independent_review") or {}
-    return {"experiment": data.get("experiment") or experiment,
-            "rounds": data.get("rounds"), "execution_ids": data.get("execution_ids"),
-            "all_passed": data.get("all_passed"), "phases_all_passed": data.get("phases_all_passed"),
-            "unstable_cases": data.get("unstable_cases"), "retried_observations": data.get("retried_observations"),
-            "all_restored": data.get("all_restored"), "source_hashes_match": data.get("source_hashes_match"),
-            "reviewed": bool(review.get("performed")), "by": review.get("by"),
-            "restored_fields": data.get("restored_fields_independently_compared") or [],
-            "framework_self_checks": data.get("framework_self_checks"),
-            "new_project_and_python_environment": data.get("new_project_and_python_environment"),
-            "existing_local_game_android_environment": data.get("existing_local_game_android_environment"),
-            "limitations": data.get("limitations") or [],
-            "review_required": data.get("review_required") or []}
-
-
-def valid_experiment(name):
-    """实验名必须是安全短串；返回规范化结果，非法返回 None。"""
-    name = (name or "").strip()
-    if not name or len(name) > 40:
-        return None
-    return name if all(ch.isascii() and (ch.isalnum() or ch in "._-") for ch in name) else None
-
-
-def acceptance_groups():
-    """已归档验收组名单：docs/evidence 各证据包 verification.json 记的 experiment，外加目录名。"""
-    groups = set()
-    for manifest in (PROJECT / "docs/evidence").glob("*/verification.json"):
-        try:
-            groups.add(json.loads(manifest.read_text(encoding="utf-8")).get("experiment"))
-        except (ValueError, OSError):
-            continue
-    for entry in (PROJECT / "docs/evidence").glob("*/index.html"):
-        groups.add(entry.parent.name)
-    return {name for name in groups if name}
-
-
 def start_selection(payload, experiment="custom"):
     """自定义选择执行：白名单、同 kind、轮次范围都在服务端校验，命令用 list 拼。"""
     cases, rounds = payload.get("cases"), payload.get("rounds", 1)
@@ -436,9 +342,6 @@ def start_selection(payload, experiment="custom"):
         return "cases 必须是非空字符串数组"
     if not isinstance(rounds, int) or isinstance(rounds, bool) or not 1 <= rounds <= 20:
         return "rounds 必须是 1..20 的整数"
-    experiment = valid_experiment(experiment)
-    if experiment is None:
-        return "实验名只能是 1..40 个字母/数字/._-（不要空格和中文）"
     kinds = implemented_kinds()
     unknown = [case_id for case_id in cases if case_id not in kinds]
     if unknown:
@@ -692,7 +595,6 @@ def reports(limit=8):
         rows = [o for case in summary.get("cases", []) for o in case.get("observations", [])]
         retried = sum(1 for o in rows if o.get("infra_retry"))
         found.append({"run": folder.parent.name, "rounds": summary.get("rounds"),
-                      "acceptance": summary.get("experiment") in acceptance_groups(),
                       "experiment": summary.get("experiment", ""),
                       "consistent": summary.get("consistent"), "all_passed": summary.get("all_passed"),
                       "exit_codes": summary.get("exit_codes", []),
@@ -739,16 +641,6 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_bytes(page.encode("utf-8"), "text/html; charset=utf-8")
         if path == "/api/state":
             return self.send_json(probe())
-        if path == "/api/review":
-            query = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
-            name = valid_experiment((query.get("experiment") or [""])[0])
-            groups = sorted(acceptance_groups())
-            if not name:
-                return self.send_json({"groups": groups})
-            state = review_state(name)
-            if state is None:
-                return self.send_json({"groups": groups, "error": f"没有已归档的证据包：{name}"}, 404)
-            return self.send_json({"groups": groups, "state": state})
         if path == "/api/reports":
             return self.send_json(reports())
         if path == "/api/cases":
@@ -782,42 +674,13 @@ class Handler(BaseHTTPRequestHandler):
         except ValueError:
             return self.send_json({"error": "请求体不是合法 JSON"}, 400)
         if urllib.parse.urlparse(self.path).path == "/api/run":
-            result = start_selection(payload, experiment=payload.get("experiment") or "custom")
+            result = start_selection(payload)
             if isinstance(result, str):
                 return self.send_json({"error": result}, 400)
             job = JOBS.get(result) or {}
             return self.send_json({"job": result, "cases": len(payload.get("cases") or []),
                                    "command": job.get("display", "")} if result
                                   else {"error": "已有任务在跑"}, 200 if result else 409)
-        if urllib.parse.urlparse(self.path).path == "/api/review":
-            name = valid_experiment(payload.get("experiment"))
-            if name is None:
-                return self.send_json({"error": "实验名只能是 1..40 个字母/数字/._-"}, 400)
-            manifest_path = PROJECT / "docs/evidence" / name / "verification.json"
-            if not manifest_path.exists():
-                return self.send_json({"error": f"没有已归档的证据包：{name}"}, 404)
-            try:
-                manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            except ValueError:
-                return self.send_json({"error": "verification.json 不是合法 JSON"}, 400)
-            updated, errors = apply_review(manifest, payload)
-            if errors:
-                return self.send_json({"error": "；".join(errors)}, 400)
-            manifest_path.write_text(json.dumps(updated, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-            return self.send_json({"experiment": name, "state": review_state(name)})
-        if urllib.parse.urlparse(self.path).path in ("/api/freeze", "/api/archive"):
-            query = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
-            name = valid_experiment((query.get("experiment") or [""])[0])
-            if name is None:
-                return self.send_json({"error": "实验名只能是 1..40 个字母/数字/._-"}, 400)
-            if name in ("custom", "baseline") or name.startswith("custom"):
-                return self.send_json({"error": "custom/baseline 是随手跑的名字，不能做验收"}, 400)
-            if urllib.parse.urlparse(self.path).path == "/api/freeze":
-                output = run([str(PY), "scripts/freeze_source.py", "--out",
-                              f"docs/evidence/{name}/source.json"], timeout=300)
-            else:
-                output = run([str(PY), "scripts/archive_evidence.py", "--experiment", name], timeout=300)
-            return self.send_json({"experiment": name, "output": (output or "(无输出)")[-4000:]})
         if parts[:2] == ["api", "job"] and len(parts) == 3:
             # 全组任务的轮数由界面「轮次」框给（?rounds=N），服务端照样校验范围
             rounds = None
@@ -901,25 +764,6 @@ td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left}
     <p class="muted" id="emu-note"></p>
     <p class="why" id="emu-why"></p></section>
 
-  <section><h2>验收</h2>
-    <p class="muted">验收 = 命名 + 多轮 + 跑前冻结来源 + 独立复核 + 归档进 docs/evidence，并被验收清单引用。实验名在执行区填。</p>
-    <button id="b-freeze" title="跑第一条用例之前点：把执行源冻结到 docs/evidence/<实验名>/source.json">冻结来源（跑之前）</button>
-    <button id="b-archive" title="跑完点：按实验名生成 verification.json 并建证据包；不覆盖已有包">归档证据包（跑完）</button>
-    <p class="muted" id="acc-note"></p>
-    <p class="muted">独立复核（这一栏是**人签字**的地方，脚本只校验填得全不全）：
-      <select id="review-group"></select> <button id="b-review">打开复核</button></p>
-    <div id="review-box" hidden>
-      <p><label><input id="rv-performed" type="checkbox"> 已独立复核</label>
-         <label>复核人 <input id="rv-by" size="10"></label>
-         <label>框架自检通过数 <input id="rv-checks" type="number" min="1" size="5"></label></p>
-      <p><label>独立对比过的字段（逗号分隔） <input id="rv-fields" size="46"></label></p>
-      <p><label>复核说明 <input id="rv-note" size="46"></label></p>
-      <p><label><input id="rv-new" type="checkbox"> 全新机器 / 新 Python 环境</label>
-         <label><input id="rv-local" type="checkbox"> 复用本机游戏与 Android</label></p>
-      <p><label>覆盖边界与局限（一行一条）<br><textarea id="rv-limits" rows="3" cols="56"></textarea></label></p>
-      <p><button id="b-review-save">保存复核</button> <span class="muted" id="review-note"></span></p>
-    </div>
-  </section>
   <section><h2><i class="dot" id="d-case"></i>用例</h2>
     <p class="muted">运行时到「用例清单」里勾：可以按项目/类型筛选、点「全选筛选结果」、改轮次，再点「执行所选」。
       空手跑一条时勾一条即可。</p>
@@ -948,7 +792,6 @@ td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left}
       <span id="pick-count">已选 0 条</span>
       <span id="pick-eta">预计 —</span>
       <label>轮次 <input id="rounds" type="number" value="1" min="1" max="20"></label>
-      <label title="验收必须用有意义的组名；custom/baseline 一律记为非验收组">实验名 <input id="experiment" size="16" value="custom"></label>
       <button id="b-run" disabled>执行所选</button>
       <span class="why" id="pick-why"></span>
     </div>
@@ -1136,9 +979,8 @@ async function loadReports() {
   $('rep-root').textContent = '项目 reports/（目录名是 UTC 时间）';
   $('rep-body').innerHTML = rows.map((r) =>
     '<tr><td>' + r.run + '</td>'
-    + '<td class="muted">' + (r.acceptance
-        ? (r.experiment || '—')
-        : '<span class="badge no">非验收组</span> ' + (r.experiment || '未命名')) + '</td>'
+    + '<td class="muted">' + (r.experiment === 'custom'
+        ? '<span class="badge no">非验收组</span> custom' : (r.experiment || '—')) + '</td>'
     + '<td>' + r.rounds + '</td>'
     + '<td>' + r.first_try_passed + ' / ' + r.observations + '</td>'
     + '<td' + (r.infra_retry_rate > 0.35 ? ' class="warnbox"' : '') + '>' + r.infra_retry_count
@@ -1290,61 +1132,6 @@ $('b-main-start').onclick = async () => { await post('/api/service/main/start');
 $('b-main-stop').onclick = async () => { await post('/api/service/main/stop'); setTimeout(refreshState, 1200); };
 $('b-emu-start').onclick = async () => { await post('/api/service/emulator/start'); setTimeout(refreshState, 4000); };
 $('b-emu-stop').onclick = async () => { await post('/api/service/emulator/stop'); setTimeout(refreshState, 2000); };
-async function acceptance(path){
-  const name = $('experiment').value.trim();
-  if (!name || name === 'custom' || name === 'baseline') { $('acc-note').textContent = '先在执行区填一个有意义的实验名'; return; }
-  $('acc-note').textContent = '执行中…';
-  const r = await fetch(path + '?experiment=' + encodeURIComponent(name), {method: 'POST'}).then((x) => x.json());
-  $('acc-note').textContent = r.error || ('[' + name + '] ' + (r.output || '').split('\n').filter(Boolean).slice(-3).join(' ／ '));
-  loadReports();
-}
-$('b-freeze').onclick = () => acceptance('/api/freeze');
-async function loadReviewGroups(keep){
-  const r = await api('/api/review');
-  const box = $('review-group'), want = keep || box.value;
-  box.innerHTML = (r.groups || []).map((g) => '<option>' + g + '</option>').join('')
-    || '<option value="">（还没有已归档的证据包）</option>';
-  if (want) box.value = want;
-}
-async function openReview(){
-  await loadReviewGroups();
-  $('review-box').hidden = false;
-  loadReview();
-}
-async function loadReview(){
-  const name = $('review-group').value;
-  if (!name) { $('review-note').textContent = '还没有已归档的证据包：先跑一次并点「归档证据包」'; return; }
-  const r = await api('/api/review?experiment=' + encodeURIComponent(name));
-  if (r.error) { $('review-note').textContent = r.error; return; }
-  const s = r.state;
-  $('rv-performed').checked = !!s.reviewed;
-  $('rv-by').value = s.by || '';
-  $('rv-checks').value = s.framework_self_checks || '';
-  $('rv-fields').value = (s.restored_fields || []).join(', ');
-  $('rv-limits').value = (s.limitations || []).join('\n');
-  $('rv-new').checked = !!s.new_project_and_python_environment;
-  $('rv-local').checked = !!s.existing_local_game_android_environment;
-  $('review-note').textContent = (s.reviewed ? '已复核（' + (s.by || '未署名') + '）' : '未复核')
-    + '｜全通过 ' + s.all_passed + '｜阶段全通过 ' + s.phases_all_passed
-    + '｜重试观察 ' + s.retried_observations + '｜不稳定 ' + JSON.stringify(s.unstable_cases || [])
-    + '｜还缺：' + (((s.review_required || []).join('、')) || '无');
-}
-async function saveReview(){
-  const payload = {experiment: $('review-group').value, performed: $('rv-performed').checked,
-    by: $('rv-by').value, note: $('rv-note').value,
-    framework_self_checks: parseInt($('rv-checks').value, 10),
-    restored_fields: $('rv-fields').value, limitations: $('rv-limits').value,
-    new_project_and_python_environment: $('rv-new').checked,
-    existing_local_game_android_environment: $('rv-local').checked};
-  const r = await fetch('/api/review', {method: 'POST', headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(payload)}).then((x) => x.json());
-  $('review-note').textContent = r.error || ('已保存：' + ((r.state && r.state.reviewed) ? '复核完成 ✓' : '仍标记为未复核')
-    + '｜还缺：' + (((r.state && r.state.review_required) || []).join('、') || '无'));
-  loadReports();
-}
-$('b-review').onclick = openReview;
-$('b-review-save').onclick = saveReview;
-$('b-archive').onclick = () => acceptance('/api/archive');
 $('t-job').onclick = () => showTab('job');
 $('t-cases').onclick = () => { showTab('cases'); loadCases(); };
 $('t-rep').onclick = () => { showTab('rep'); loadReports(); };
@@ -1363,11 +1150,10 @@ $('b-run').onclick = async () => {
   const seconds = estimateSeconds();
   if (seconds > 1200 && !confirm('预计要跑 ' + fmtDuration(seconds) + '，确定开始？')) return;
   const r = await fetch('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({cases: cases, rounds: rounds,
-        experiment: $('experiment').value.trim() || 'custom'})}).then((response) => response.json());
+    body: JSON.stringify({cases: cases, rounds: rounds})}).then((response) => response.json());
   if (r.error) { $('pick-why').textContent = r.error; return; }
   beginJob(r.job, 'python -m gameqa run --case "' + cases.join(',') + '" --rounds ' + rounds
-    + ' --experiment ' + ($('experiment').value.trim() || 'custom') + ' --stop-after-failure');
+    + ' --experiment custom --stop-after-failure');
 };
 
 $('proj').textContent = PROJECT;refreshState(); loadReports();

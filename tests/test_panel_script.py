@@ -20,9 +20,8 @@ sys.modules["qa_panel_script"] = panel
 SPEC.loader.exec_module(panel)
 
 SCRIPT = re.compile(r"<script>(.*?)</script>", re.S)
-# 只钉"页面必须存在"的关键函数：状态轮询、结果页、验收与复核（名字取自实际脚本，别猜）
-CORE = ("refreshState", "render", "loadReports", "loadCases", "acceptance",
-        "loadReviewGroups", "openReview", "loadReview", "saveReview", "pollJob")
+# 只钉"页面必须存在"的关键函数：状态轮询、渲染、用例清单、结果页（名字取自实际脚本，别猜）
+CORE = ("refreshState", "render", "loadReports", "loadCases", "pollJob", "beginJob")
 
 
 def page_script():
@@ -43,7 +42,6 @@ def test_page_script_defines_the_core_functions():
     script = page_script()
     for name in CORE:
         assert f"function {name}" in script or f"async function {name}" in script, f"页面脚本里没有 {name}"
-    assert "$('experiment')" in script, "执行区缺少实验名输入框的引用"
 
 
 def test_page_script_parses_as_javascript(tmp_path):
