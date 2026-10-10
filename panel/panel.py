@@ -606,6 +606,8 @@ def reports(limit=8):
         rows = [o for case in summary.get("cases", []) for o in case.get("observations", [])]
         retried = sum(1 for o in rows if o.get("infra_retry"))
         found.append({"run": folder.parent.name, "rounds": summary.get("rounds"),
+                      "report": ("index.html" if (folder.parent / "index.html").exists()
+                                 else "round-01/index.html"),
                       "experiment": summary.get("experiment", ""),
                       "consistent": summary.get("consistent"), "all_passed": summary.get("all_passed"),
                       "exit_codes": summary.get("exit_codes", []),
@@ -1071,7 +1073,7 @@ async function loadReports() {
     + '<td><span class="badge' + (r.consistent ? '' : ' no') + '">' + r.consistent + '</span></td>'
     + '<td><span class="badge' + (r.all_passed ? '' : ' no') + '">' + r.all_passed + '</span></td>'
     + '<td class="muted">' + (r.failed.join(', ') || '—') + '</td>'
-    + '<td><a href="/reports/' + r.run + '/round-01/index.html" target="_blank">打开报告</a>'
+    + '<td><a href="/reports/' + r.run + '/' + r.report + '" target="_blank">打开报告</a>'
     + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a></td></tr>').join('')
     || '<tr><td colspan="8" class="muted">还没有运行记录。</td></tr>';
 }
