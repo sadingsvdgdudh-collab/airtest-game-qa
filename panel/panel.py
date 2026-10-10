@@ -1363,7 +1363,7 @@ $('b-run').onclick = async () => {
   const seconds = estimateSeconds();
   if (seconds > 1200 && !confirm('预计要跑 ' + fmtDuration(seconds) + '，确定开始？')) return;
   const r = await fetch('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({cases: cases, rounds: rounds,}).then((response) => response.json());
+    body: JSON.stringify({cases: cases, rounds: rounds,
         experiment: $('experiment').value.trim() || 'custom'})}).then((response) => response.json());
   if (r.error) { $('pick-why').textContent = r.error; return; }
   beginJob(r.job, 'python -m gameqa run --case "' + cases.join(',') + '" --rounds ' + rounds
