@@ -1,0 +1,1474 @@
+{
+  "schema_version": "1.1",
+  "framework_root": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa",
+  "reviewer": "auto:scripts/capabilities_manifest.py",
+  "checked_at": "2026-10-10T14:08:27+00:00",
+  "counts": {
+    "function": 102,
+    "asset": 68
+  },
+  "capabilities": [
+    {
+      "id": "asset:assets/shardy/connect.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/shardy/connect.png",
+      "sha256": "06852906cf6d1f6cf6c0eeea8328709377c724651ba5c3eebb8e8bd0d3bcdfdf",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/shardy/o.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/shardy/o.png",
+      "sha256": "e185e6c52c78ae539586438a45df4d7345d3e5ee6ed9b2cd6ac8a911fae140fb",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/shardy/start.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/shardy/start.png",
+      "sha256": "1d9697193cbc00098ed609f89617d7fccfb662c89fdc5f62b164b62d1ec2bed1",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/shardy/x.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/shardy/x.png",
+      "sha256": "f33ce677d3ac17d759ae7fbdb3da1a85816608cc9a024b7f806c94da3777e348",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/atk-empty.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/atk-empty.png",
+      "sha256": "50c4b8b20c38051cfcd53bc00d39cedc55695e00ea303870ac0f03a9b9c82d12",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/atk-sword.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/atk-sword.png",
+      "sha256": "08a9491658b0242f168237eb740babdb2a334664b16601e49426a2145209c68f",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/attack-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/attack-menu.png",
+      "sha256": "fff8c6244be4ebdef9902c650326ff7df9e7416c18b488aa459d0ea883630f41",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/bag-empty.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/bag-empty.png",
+      "sha256": "f42f617c54942df34a0644b17d45945bb2cb7d26fe23462f2ac6e22b7d535696",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/chain-material.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/chain-material.png",
+      "sha256": "bf0ab738913fd70b29122bcb845862b7f6069944d2a574d34d5dd15a3941c64e",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/chain-no-material.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/chain-no-material.png",
+      "sha256": "df5990a6ba5998ce82d4476649c626b74c50998d143ec88979d6dc516b218598",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/combat-killed.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/combat-killed.png",
+      "sha256": "6da60f9c2950754e43d616d6375cc12b04442495b3611e9a42bc3be9cfc85fab",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/combat-menu-position-2.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/combat-menu-position-2.png",
+      "sha256": "a9870b8e06f300fc43d94a6561c2655579cb3716532fc7c9037e00b59ef790c8",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/combat-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/combat-menu.png",
+      "sha256": "e1dae0dd5944d4b57f569651512d537fd33dc4e9ef253838e8279592c164bd1d",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/combat-rat-moving.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/combat-rat-moving.png",
+      "sha256": "875110a714da37a40ebc6a7bcf50eff8b508cac348b6d298ab25163c90f8e340",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/combat-rat.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/combat-rat.png",
+      "sha256": "1b5d03c167e3b3a13d5ef4966945ed103f9d40722483eb50ef3fb3e6e41ad90c",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/items-armed.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/items-armed.png",
+      "sha256": "9a7d541aabc2f2c4dfe4449b1ce689873187897f9be7a7a4b4da04dc84c5bef4",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/items-empty-hand.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/items-empty-hand.png",
+      "sha256": "127267552a218718c578628ab0fc029d2bfa0752c9e18bf81744234268ba07e4",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/items-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/items-menu.png",
+      "sha256": "d01e6d2b36673ef763bf3d50282c16554e9eaf35acd7022c461cfe2c91a3d97c",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/items-prepared.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/items-prepared.png",
+      "sha256": "c9224bfec04e092caac80a63c138a3275eca54626baa28e538c135ba8c28e6c4",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/items-rejected.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/items-rejected.png",
+      "sha256": "13a4328af68f079e8518f4fc791c8be32c548cbbed950d831805fb5e62b9a7ff",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/items-rhand-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/items-rhand-menu.png",
+      "sha256": "a2320e347786f3e83ca2dde82725980f425b045cd0afd692495472d2266534b5",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/items-sword-first.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/items-sword-first.png",
+      "sha256": "d9f55ea110814d71115aa52d47a5d048b25232f46381727a62c64f6c10c2f94f",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/login-focused.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/login-focused.png",
+      "sha256": "93c717164e607e35905bef0e34b4d6a405b974ad442d7380ac104f58b5abffbe",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/login-unfocused.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/login-unfocused.png",
+      "sha256": "3406049b5e5eada70d11ae155180d7c13ba6172cae6c905915ec263754f4cd00",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/login-username.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/login-username.png",
+      "sha256": "996c641a0e69ee41b883c643245a799eab323dfd415908bc5817fea424045776",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/potion-empty.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/potion-empty.png",
+      "sha256": "8aa431317ecc5e66f1e335a6b1131cc5d800b7532309eae9639ab4af13b99d7e",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/potion-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/potion-menu.png",
+      "sha256": "2e8bf49655ff5479996252ecbf5f1e106f166ef5bae364d9780598c2f4ad40ee",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/potion-one.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/potion-one.png",
+      "sha256": "62c070e9a360ca99e8a98d2805f3968ab38f07ddf20a40c1a5dd2f4d7f2f32cc",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/potion-two.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/potion-two.png",
+      "sha256": "6f4c82797fa39a62055fdbe1b43716bdb0b91e5bc916051701330d593ddb2add",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/quest-completed.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/quest-completed.png",
+      "sha256": "35df3892f5dfb395e10dd5fb49c5bcb670a34e0c91efc5f83eb444344e28f5c1",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/quest-repeat.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/quest-repeat.png",
+      "sha256": "f629507bcd5f4ba2c0eec32658637d67362cc8496395f4093a34372592134add",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/quest-start.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/quest-start.png",
+      "sha256": "e4761596d247da34e2cd3e1fb9dc3bb7f4efcbdb8599b388edbea57ab7a9ebed",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/character-qaplayer.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/character-qaplayer.png",
+      "sha256": "523abf4bb998ca4c126e8aa092af5c42324bc80fb7755175fe25926fd2454008",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/club-icon.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/club-icon.png",
+      "sha256": "dd9f7fa04307e7826c5d572ea3e3092aad16aa2c6f833b77a6836610eb48c3a1",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/drink-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/drink-menu.png",
+      "sha256": "78ef1c61e2422ea8fbfa889c626d42c3728be81274a5119df3193c2e42775089",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/feet-empty.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/feet-empty.png",
+      "sha256": "05833ddb3d9e8fc6f9491a89b278ac64bca27514a338c6382cd69d1a4d87a768",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/feet-refusal.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/feet-refusal.png",
+      "sha256": "39adaac5b34b8bb8678f8b2a435d05180a5125732adc4da1572830deab58c2d3",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/hold-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/hold-menu.png",
+      "sha256": "98f66bffb91c96f0afb0cce12f0871f52ca925afafcdd8a92fb3caf8468aa3e1",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/hold-rhand-menu.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/hold-rhand-menu.png",
+      "sha256": "54e892f09617044d3d6feaf6739b5257acde1aa8c4481b593ec3bdd71e3795c8",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/hp-100.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/hp-100.png",
+      "sha256": "3d41068aab0ab1b9fd0a23bda053e86021db31812e929b7ef073efc35b7c5133",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/hp-110.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/hp-110.png",
+      "sha256": "2cdeba4b8039bb2931ee114e1e93f318baf85d6d738050372019ae691f48448e",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/hp-40.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/hp-40.png",
+      "sha256": "cab858c0de6112bfb9476912e2c1f7a54777b8b2bf78fae94c701f7c5c5d374e",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/hp-90.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/hp-90.png",
+      "sha256": "d19ff45cc6a876ef4e07920c3e8ce6d2754e6b22a59fe8463cb42384e84709f4",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/level-1.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/level-1.png",
+      "sha256": "af22110fdd52d959aa1359d3d3c055ff396ae9c5514c13c54e715d85b1918196",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/login.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/login.png",
+      "sha256": "a33410d1ff604fafa023befe396766853e0f0ef35cce36bf7f8ca5dca65c16b1",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/minor-potion-icon.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/minor-potion-icon.png",
+      "sha256": "5961ba45788d3126562f678578aecc015e702368a35c135559012e8bf42c2b01",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/potion-one.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/potion-one.png",
+      "sha256": "2e02f96890f8c84594b45f2bc96594ee3290600bce98e3c01eec9940ebbb7dca",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/potion-two.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/potion-two.png",
+      "sha256": "37b67a3059aaff15b6238b4fd6873819633315019fd3da009bce03d661676456",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/quest-completed.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/quest-completed.png",
+      "sha256": "17a624e3fc9d702fdfd037e9d9129310fa86357c11201f8bf2b0e241d77b7a2d",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/quest-material-ready.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/quest-material-ready.png",
+      "sha256": "05f76c327de8ab17e36fb55fb0903e412e4bcf00c64bd6ae9af2b1ee057641f8",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/quest-promised.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/quest-promised.png",
+      "sha256": "07c2d8d350bd003af6e70403873221cef1867b8eb81fdce69f90559624b4d917",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/quest-title.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/quest-title.png",
+      "sha256": "c70dde77d08cfb95eba1cc9056feaae54a0fc5cd930d5d2fd2756efde75af213",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/quest-unrepeatable.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/quest-unrepeatable.png",
+      "sha256": "e72d573bc7c899d09a8d8ca7460eef421b942e4fcd54b2b3ce945031906eebd6",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/rat-corpse.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/rat-corpse.png",
+      "sha256": "7722c5cf1673c372cf91a8ad1eb3026eb194dee6ae369615fff12026caceb823",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/rat-title.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/rat-title.png",
+      "sha256": "ff1e3101841ce045c1cb92cf7e1b8f94c4ea695dc1ecad5a4245a0a7e8a25f37",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/rhand-empty.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/rhand-empty.png",
+      "sha256": "5e80f4ec6740740ab706b6ba9824d8f72e7481e5c1482e79d0213158959d3d9d",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/send.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/send.png",
+      "sha256": "f016d0a3af75703727fcf294f4436108d61156af79e30ae96317b64d6c030ef0",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/short-sword-first.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/short-sword-first.png",
+      "sha256": "60b1e502e19995134962c7b8be22dac9aca480775cf124c7a773f21634ad4b60",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/short-sword-icon.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/short-sword-icon.png",
+      "sha256": "6558c6542290f866d0f5c5047472d5de689dc0f17154d93c78b6f6315744e773",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/travel-log-close.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/travel-log-close.png",
+      "sha256": "8748079b7c51db198c1e6adac57fc576ee4efc89fcb7e1f9eb7c73d1780b3bb3",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/travel-log-completed-tab.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/travel-log-completed-tab.png",
+      "sha256": "e18f25c2ae13acf77576616470b7cb431713672ec1c317cd10c608c373d086a7",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/travel-log-title.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/travel-log-title.png",
+      "sha256": "65f4defdb9c3413952e7c8ac01b24c03a7ad6e418eb700ebe17bcc6c13b47cfb",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/username-focused.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/username-focused.png",
+      "sha256": "9d16565d94cbf15039adc2e74703391e714f822a71b3f0c59573b442fc688e75",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/username-qaplayer.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/username-qaplayer.png",
+      "sha256": "5f8064ff41a7799c6f3bc6d82236be7511df5618768a815ad58511846569d38f",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/xp-50.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/xp-50.png",
+      "sha256": "de32177920183556bf9fe3612fa637f00697c490110faa753a748c594d30a933",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/xp-800.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/xp-800.png",
+      "sha256": "bc7197fd6e3cb3db07de01ef9ae8b935d6e34e0d16ce24abe4ce1a1c75fe5fa3",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/xp-805.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/xp-805.png",
+      "sha256": "7cf685bbd3438dc45eaad65d4f89acc0bcdccbad938ba78ac4fa8513597b49bb",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/xp-next-50.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/xp-next-50.png",
+      "sha256": "e51108ffcd780d3237ecfe00c47bd0986e4e83ecf1bfef0240f012ad34b93e4b",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "accounts.observer_pool",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/accounts.py",
+      "sha256": "4c6f74338986fa508e5c20e6240fbd55eeb4da1ed0930c6fc05dbaeb6a2cffbd",
+      "symbol": "observer_pool",
+      "notes": "自动生成；签名 (game)"
+    },
+    {
+      "id": "accounts.pair_for",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/accounts.py",
+      "sha256": "4c6f74338986fa508e5c20e6240fbd55eeb4da1ed0930c6fc05dbaeb6a2cffbd",
+      "symbol": "pair_for",
+      "notes": "自动生成；签名 (index, game)"
+    },
+    {
+      "id": "accounts.pool_size",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/accounts.py",
+      "sha256": "4c6f74338986fa508e5c20e6240fbd55eeb4da1ed0930c6fc05dbaeb6a2cffbd",
+      "symbol": "pool_size",
+      "notes": "自动生成；签名 (game)"
+    },
+    {
+      "id": "accounts.target_pool",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/accounts.py",
+      "sha256": "4c6f74338986fa508e5c20e6240fbd55eeb4da1ed0930c6fc05dbaeb6a2cffbd",
+      "symbol": "target_pool",
+      "notes": "自动生成；签名 (game)"
+    },
+    {
+      "id": "bridge.Bridge.call",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/bridge.py",
+      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "symbol": "Bridge.call",
+      "notes": "自动生成；签名 (op, args, read_only, timeout)"
+    },
+    {
+      "id": "bridge.Bridge.close",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/bridge.py",
+      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "symbol": "Bridge.close",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "bridge.Bridge.reopen",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/bridge.py",
+      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "symbol": "Bridge.reopen",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "bridge.is_infrastructure_error",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/bridge.py",
+      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "symbol": "is_infrastructure_error",
+      "notes": "自动生成；签名 (error)"
+    },
+    {
+      "id": "bridge.jstack_binary",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/bridge.py",
+      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "symbol": "jstack_binary",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "bridge.redact",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/bridge.py",
+      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "symbol": "redact",
+      "notes": "自动生成；签名 (value)"
+    },
+    {
+      "id": "bridge.server_pid",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/bridge.py",
+      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "symbol": "server_pid",
+      "notes": "自动生成；签名 (server_log)"
+    },
+    {
+      "id": "config.load_config",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/config.py",
+      "sha256": "f53e66a097f12c51be856681f5d3626682fb9a245257632a65be69ee4f03255b",
+      "symbol": "load_config",
+      "notes": "自动生成；签名 (path)"
+    },
+    {
+      "id": "config.resolve_path",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/config.py",
+      "sha256": "f53e66a097f12c51be856681f5d3626682fb9a245257632a65be69ee4f03255b",
+      "symbol": "resolve_path",
+      "notes": "自动生成；签名 (config, value)"
+    },
+    {
+      "id": "craft.mill",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/craft.py",
+      "sha256": "b51afd1ede1c4aaea74812749f9fa73f48079164610238117570007f5f7d9167",
+      "symbol": "mill",
+      "notes": "自动生成；签名 (player, item, qty)"
+    },
+    {
+      "id": "device.AndroidDevice.hide_keyboard",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.hide_keyboard",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "device.AndroidDevice.key",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.key",
+      "notes": "自动生成；签名 (key, title)"
+    },
+    {
+      "id": "device.AndroidDevice.locate_image",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.locate_image",
+      "notes": "自动生成；签名 (path, title, region, threshold)"
+    },
+    {
+      "id": "device.AndroidDevice.screenshot",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.screenshot",
+      "notes": "自动生成；签名 (label)"
+    },
+    {
+      "id": "device.AndroidDevice.text",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.text",
+      "notes": "自动生成；签名 (content, title, enter)"
+    },
+    {
+      "id": "device.AndroidDevice.timed",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.timed",
+      "notes": "自动生成；签名 (name, function, *args, **kwargs)"
+    },
+    {
+      "id": "device.AndroidDevice.timing_summary",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.timing_summary",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "device.AndroidDevice.touch",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.touch",
+      "notes": "自动生成；签名 (position, title, duration)"
+    },
+    {
+      "id": "device.AndroidDevice.touch_image",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/device.py",
+      "sha256": "794568b160af946287f32567ab8d3725573721e044332409b50d2e43008919f8",
+      "symbol": "AndroidDevice.touch_image",
+      "notes": "自动生成；签名 (path, title)"
+    },
+    {
+      "id": "evidence.Evidence.action",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/evidence.py",
+      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "symbol": "Evidence.action",
+      "notes": "自动生成；签名 (title, operation)"
+    },
+    {
+      "id": "evidence.Evidence.attach",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/evidence.py",
+      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "symbol": "Evidence.attach",
+      "notes": "自动生成；签名 (path, label)"
+    },
+    {
+      "id": "evidence.Evidence.check",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/evidence.py",
+      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "symbol": "Evidence.check",
+      "notes": "自动生成；签名 (title, actual, expected, source)"
+    },
+    {
+      "id": "evidence.Evidence.observe",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/evidence.py",
+      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "symbol": "Evidence.observe",
+      "notes": "自动生成；签名 (title, operation, retries)"
+    },
+    {
+      "id": "evidence.Evidence.write",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/evidence.py",
+      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "symbol": "Evidence.write",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "evidence.write_report",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/evidence.py",
+      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "symbol": "write_report",
+      "notes": "自动生成；签名 (folder, records, metadata)"
+    },
+    {
+      "id": "minigame.play",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/minigame.py",
+      "sha256": "6c6bf675895aa80794958adb851e3e6937ab2a64941e2790033fea1147f0e9d1",
+      "symbol": "play",
+      "notes": "自动生成；签名 (player)"
+    },
+    {
+      "id": "pet.buy",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/pet.py",
+      "sha256": "7fcc83cc5ae85fcfe2dac5aae12ca8589f9e7b0fdc6d9b9346035bf15b3e155e",
+      "symbol": "buy",
+      "notes": "自动生成；签名 (player, item)"
+    },
+    {
+      "id": "pet.forsake",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/pet.py",
+      "sha256": "7fcc83cc5ae85fcfe2dac5aae12ca8589f9e7b0fdc6d9b9346035bf15b3e155e",
+      "symbol": "forsake",
+      "notes": "自动生成；签名 (player, state, species)"
+    },
+    {
+      "id": "quest.accept_quest",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/quest.py",
+      "sha256": "27ff234b234405eedeb477889a78007817a8a5b7e224622555446478f96f255e",
+      "symbol": "accept_quest",
+      "notes": "自动生成；签名 (player)"
+    },
+    {
+      "id": "quest.decline_quest",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/quest.py",
+      "sha256": "27ff234b234405eedeb477889a78007817a8a5b7e224622555446478f96f255e",
+      "symbol": "decline_quest",
+      "notes": "自动生成；签名 (player)"
+    },
+    {
+      "id": "quest.hand_over",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/quest.py",
+      "sha256": "27ff234b234405eedeb477889a78007817a8a5b7e224622555446478f96f255e",
+      "symbol": "hand_over",
+      "notes": "自动生成；签名 (player)"
+    },
+    {
+      "id": "quest.refuse_hand_over",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/quest.py",
+      "sha256": "27ff234b234405eedeb477889a78007817a8a5b7e224622555446478f96f255e",
+      "symbol": "refuse_hand_over",
+      "notes": "自动生成；签名 (player)"
+    },
+    {
+      "id": "recovery.clear_bag",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/recovery.py",
+      "sha256": "116360a7435bdf847193969740b8daed0650b8474b1cb58bacec33e44868b318",
+      "symbol": "clear_bag",
+      "notes": "自动生成；签名 (observer)"
+    },
+    {
+      "id": "recovery.clear_feature",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/recovery.py",
+      "sha256": "116360a7435bdf847193969740b8daed0650b8474b1cb58bacec33e44868b318",
+      "symbol": "clear_feature",
+      "notes": "自动生成；签名 (observer, name)"
+    },
+    {
+      "id": "recovery.clear_pet",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/recovery.py",
+      "sha256": "116360a7435bdf847193969740b8daed0650b8474b1cb58bacec33e44868b318",
+      "symbol": "clear_pet",
+      "notes": "自动生成；签名 (player, observer, species)"
+    },
+    {
+      "id": "recovery.normalize_weapon",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/recovery.py",
+      "sha256": "116360a7435bdf847193969740b8daed0650b8474b1cb58bacec33e44868b318",
+      "symbol": "normalize_weapon",
+      "notes": "自动生成；签名 (player, observer, weapon)"
+    },
+    {
+      "id": "recovery.reset_character",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/recovery.py",
+      "sha256": "116360a7435bdf847193969740b8daed0650b8474b1cb58bacec33e44868b318",
+      "symbol": "reset_character",
+      "notes": "自动生成；签名 (player, observer, weapon)"
+    },
+    {
+      "id": "run_lock.RunLock.acquire",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/run_lock.py",
+      "sha256": "a1fb1b1e122522ba0349891b217124c7ee2c1d25a5fc8066344628f16611654e",
+      "symbol": "RunLock.acquire",
+      "notes": "自动生成；签名 (project, inherited_fd)"
+    },
+    {
+      "id": "run_lock.RunLock.close",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/run_lock.py",
+      "sha256": "a1fb1b1e122522ba0349891b217124c7ee2c1d25a5fc8066344628f16611654e",
+      "symbol": "RunLock.close",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "run_lock.RunLock.fileno",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/run_lock.py",
+      "sha256": "a1fb1b1e122522ba0349891b217124c7ee2c1d25a5fc8066344628f16611654e",
+      "symbol": "RunLock.fileno",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "run_lock.run_active",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/run_lock.py",
+      "sha256": "a1fb1b1e122522ba0349891b217124c7ee2c1d25a5fc8066344628f16611654e",
+      "symbol": "run_active",
+      "notes": "自动生成；签名 (project)"
+    },
+    {
+      "id": "shardy.Shardy.close",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shardy.py",
+      "sha256": "af5a5773f51229ea806ea97cb55434160b455433d20b8da9faa6f83aefe7c206",
+      "symbol": "Shardy.close",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "shardy.Shardy.receive",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shardy.py",
+      "sha256": "af5a5773f51229ea806ea97cb55434160b455433d20b8da9faa6f83aefe7c206",
+      "symbol": "Shardy.receive",
+      "notes": "自动生成；签名 (name, wait_ms)"
+    },
+    {
+      "id": "shardy.Shardy.start",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shardy.py",
+      "sha256": "af5a5773f51229ea806ea97cb55434160b455433d20b8da9faa6f83aefe7c206",
+      "symbol": "Shardy.start",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "shardy.Shardy.turn",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shardy.py",
+      "sha256": "af5a5773f51229ea806ea97cb55434160b455433d20b8da9faa6f83aefe7c206",
+      "symbol": "Shardy.turn",
+      "notes": "自动生成；签名 (x, y)"
+    },
+    {
+      "id": "shardy_ui.ShardyUI.check_piece",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/shardy_ui.py",
+      "sha256": "5e9263e3010d3a7d494d97d66d34baa6d6801f4ea5a0132a5dae7ddcfebc2829",
+      "symbol": "ShardyUI.check_piece",
+      "notes": "自动生成；签名 (x, y, player)"
+    },
+    {
+      "id": "shardy_ui.ShardyUI.position",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/shardy_ui.py",
+      "sha256": "5e9263e3010d3a7d494d97d66d34baa6d6801f4ea5a0132a5dae7ddcfebc2829",
+      "symbol": "ShardyUI.position",
+      "notes": "自动生成；签名 (x, y)"
+    },
+    {
+      "id": "shardy_ui.ShardyUI.start",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/shardy_ui.py",
+      "sha256": "5e9263e3010d3a7d494d97d66d34baa6d6801f4ea5a0132a5dae7ddcfebc2829",
+      "symbol": "ShardyUI.start",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "shardy_ui.ShardyUI.turn",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/shardy_ui.py",
+      "sha256": "5e9263e3010d3a7d494d97d66d34baa6d6801f4ea5a0132a5dae7ddcfebc2829",
+      "symbol": "ShardyUI.turn",
+      "notes": "自动生成；签名 (x, y)"
+    },
+    {
+      "id": "shop.buy_and_confirm",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shop.py",
+      "sha256": "0a2108dd3f0385e544e4b4a856913d076d23bcc846d23c98440a2b7b55b57012",
+      "symbol": "buy_and_confirm",
+      "notes": "自动生成；签名 (player, item, qty)"
+    },
+    {
+      "id": "shop.confirm",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shop.py",
+      "sha256": "0a2108dd3f0385e544e4b4a856913d076d23bcc846d23c98440a2b7b55b57012",
+      "symbol": "confirm",
+      "notes": "自动生成；签名 (player, answer)"
+    },
+    {
+      "id": "shop.offer",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shop.py",
+      "sha256": "0a2108dd3f0385e544e4b4a856913d076d23bcc846d23c98440a2b7b55b57012",
+      "symbol": "offer",
+      "notes": "自动生成；签名 (player, item, qty)"
+    },
+    {
+      "id": "shop.sell",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shop.py",
+      "sha256": "0a2108dd3f0385e544e4b4a856913d076d23bcc846d23c98440a2b7b55b57012",
+      "symbol": "sell",
+      "notes": "自动生成；签名 (player, item, qty)"
+    },
+    {
+      "id": "shop.stock",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/shop.py",
+      "sha256": "0a2108dd3f0385e544e4b4a856913d076d23bcc846d23c98440a2b7b55b57012",
+      "symbol": "stock",
+      "notes": "自动生成；签名 (player)"
+    },
+    {
+      "id": "stendhal.Stendhal.action",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.action",
+      "notes": "自动生成；签名 (fields, title)"
+    },
+    {
+      "id": "stendhal.Stendhal.await_presence",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.await_presence",
+      "notes": "自动生成；签名 (online, timeout)"
+    },
+    {
+      "id": "stendhal.Stendhal.await_state",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.await_state",
+      "notes": "自动生成；签名 (condition, title, timeout)"
+    },
+    {
+      "id": "stendhal.Stendhal.chat",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.chat",
+      "notes": "自动生成；签名 (text)"
+    },
+    {
+      "id": "stendhal.Stendhal.forget",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.forget",
+      "notes": "自动生成；签名 (older_than_seconds, target, token)"
+    },
+    {
+      "id": "stendhal.Stendhal.inspect",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.inspect",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "stendhal.Stendhal.prepare",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.prepare",
+      "notes": "自动生成；签名 (**fields)"
+    },
+    {
+      "id": "stendhal.Stendhal.restore",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.restore",
+      "notes": "自动生成；签名 (snapshot_id)"
+    },
+    {
+      "id": "stendhal.Stendhal.snapshots",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "Stendhal.snapshots",
+      "notes": "自动生成；签名 (target)"
+    },
+    {
+      "id": "stendhal.await_exact_quantity",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "await_exact_quantity",
+      "notes": "自动生成；签名 (observer, item, qty, slot, timeout)"
+    },
+    {
+      "id": "stendhal.await_field",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "await_field",
+      "notes": "自动生成；签名 (observer, field, value, timeout)"
+    },
+    {
+      "id": "stendhal.await_phase",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "await_phase",
+      "notes": "自动生成；签名 (observer, quest, phase, timeout)"
+    },
+    {
+      "id": "stendhal.await_position",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "await_position",
+      "notes": "自动生成；签名 (observer, x, y, timeout)"
+    },
+    {
+      "id": "stendhal.await_quantity",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "await_quantity",
+      "notes": "自动生成；签名 (observer, item, qty, slot, timeout)"
+    },
+    {
+      "id": "stendhal.await_slot_empty",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "await_slot_empty",
+      "notes": "自动生成；签名 (observer, slot, timeout)"
+    },
+    {
+      "id": "stendhal.confirm",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "confirm",
+      "notes": "自动生成；签名 (player, answer)"
+    },
+    {
+      "id": "stendhal.dialogue",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "dialogue",
+      "notes": "自动生成；签名 (player, *words)"
+    },
+    {
+      "id": "stendhal.equip",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "equip",
+      "notes": "自动生成；签名 (player, state, item, source, destination)"
+    },
+    {
+      "id": "stendhal.hello",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "hello",
+      "notes": "自动生成；签名 (player, npc)"
+    },
+    {
+      "id": "stendhal.leave",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "leave",
+      "notes": "自动生成；签名 (player)"
+    },
+    {
+      "id": "stendhal.position",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "position",
+      "notes": "自动生成；签名 (state)"
+    },
+    {
+      "id": "stendhal.quantity",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "quantity",
+      "notes": "自动生成；签名 (state, item_name, slot)"
+    },
+    {
+      "id": "stendhal.quest_phase",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "quest_phase",
+      "notes": "自动生成；签名 (state, name)"
+    },
+    {
+      "id": "stendhal.said",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "said",
+      "notes": "自动生成；签名 (messages, name, snippet)"
+    },
+    {
+      "id": "stendhal.sold_count",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "sold_count",
+      "notes": "自动生成；签名 (state, item_name)"
+    },
+    {
+      "id": "stendhal.use",
+      "kind": "function",
+      "channel": "api",
+      "file": "src/gameqa/stendhal.py",
+      "sha256": "da493674d2c35c9abb6fc709945a7eb55ba1ebcd47b54ec8e8e73864103272ff",
+      "symbol": "use",
+      "notes": "自动生成；签名 (player, state, item_name, slot)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.check_image",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.check_image",
+      "notes": "自动生成；签名 (name, title, region, source, threshold)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.check_image_absent",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.check_image_absent",
+      "notes": "自动生成；签名 (name, title, region, source)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.choose_creature_menu",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.choose_creature_menu",
+      "notes": "自动生成；签名 (entry, region, threshold)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.choose_item_menu",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.choose_item_menu",
+      "notes": "自动生成；签名 (icon, region, menu)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.close",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.close",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.close_travel_log",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.close_travel_log",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.dialogue",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.dialogue",
+      "notes": "自动生成；签名 (*words)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.ensure_login",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.ensure_login",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.move_item",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.move_item",
+      "notes": "自动生成；签名 (icon, origin, destination, region, menu)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.open_creature_menu",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.open_creature_menu",
+      "notes": "自动生成；签名 (label, region, offset, threshold)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.open_travel_log",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.open_travel_log",
+      "notes": "自动生成；签名 (completed)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.record_timing",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.record_timing",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.relogin",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.relogin",
+      "notes": "自动生成；签名 (observer)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.say",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.say",
+      "notes": "自动生成；签名 (words)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.wait_for_image",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.wait_for_image",
+      "notes": "自动生成；签名 (path, title, seconds, threshold)"
+    },
+    {
+      "id": "stendhal_ui.StendhalUI.walk",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "StendhalUI.walk",
+      "notes": "自动生成；签名 (observer, zone, size, destination, next_zone)"
+    },
+    {
+      "id": "stendhal_ui.map_touch",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "map_touch",
+      "notes": "自动生成；签名 (position, size, destination)"
+    },
+    {
+      "id": "stendhal_ui.minimap_touch",
+      "kind": "function",
+      "channel": "ui",
+      "file": "src/gameqa/stendhal_ui.py",
+      "sha256": "42f1cc41ca5c9eecb9b0c469f4945ea82230bef07317ba40aa0911f8898c951f",
+      "symbol": "minimap_touch",
+      "notes": "自动生成；签名 (size, destination)"
+    }
+  ]
+}
