@@ -60,3 +60,47 @@ def test_page_script_parses_as_javascript(tmp_path):
     target.write_text(page_script(), encoding="utf-8")
     done = subprocess.run([node, "--check", str(target)], capture_output=True, text=True, timeout=60)
     assert done.returncode == 0, f"面板页面 JS 语法错误：\n{done.stderr[:800]}"
+
+
+def test_every_id_the_script_touches_exists_in_the_page():
+    """页面脚本里 $('x') 引用的每个 id，都必须在 HTML 里存在。
+
+    这条是给"改样式/改布局"兜底的：样式大改时最容易把某个 id 连带删掉，
+    页面就会静默失去那一块功能（而 py_compile 与 grep 都看不出来）。
+    """
+    script, html = page_script(), panel.HTML
+    ids = sorted(set(re.findall(r"\$\('([A-Za-z0-9_-]+)'\)", script)))
+    assert ids, "页面脚本里没解析到 $('id') 引用"
+    missing = [name for name in ids if f'id="{name}"' not in html]
+    assert not missing, f"页面缺少这些被脚本引用的 id：{missing}"
+
+
+def test_page_markup_is_balanced_and_declares_a_live_status_region():
+    """粗查标签闭合，并确认状态区是 live region（读屏能念出来）。"""
+    from html.parser import HTMLParser
+
+    class Check(HTMLParser):
+        VOID = {"meta", "br", "img", "input", "link", "hr", "source"}
+
+        def __init__(self):
+            super().__init__()
+            self.stack, self.errors = [], []
+
+        def handle_starttag(self, tag, attrs):
+            if tag not in self.VOID:
+                self.stack.append(tag)
+
+        def handle_endtag(self, tag):
+            if tag in self.VOID:
+                return
+            if not self.stack or self.stack[-1] != tag:
+                self.errors.append(f"{tag} 闭合不匹配（栈顶 {self.stack[-1] if self.stack else '空'}）")
+                return
+            self.stack.pop()
+
+    checker = Check()
+    checker.feed(panel.HTML)
+    assert not checker.errors, checker.errors
+    assert not checker.stack, f"这些标签没闭合：{checker.stack}"
+    assert 'id="hint" role="status" aria-live="polite"' in panel.HTML
+    assert panel.HTML.count('aria-hidden="true"') >= 5        # 装饰性状态圆点
