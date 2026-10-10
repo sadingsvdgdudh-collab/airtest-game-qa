@@ -1,0 +1,47 @@
+{
+  "rounds": 5,
+  "cases": [
+    {
+      "id": "ST-COMBAT-UI-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "failed",
+          "unstable": true
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "failed",
+          "unstable": true
+        }
+      ],
+      "consistent": false,
+      "repeatable": false
+    }
+  ],
+  "consistent": false,
+  "all_passed": false,
+  "experiment": "combat-ui-final",
+  "exit_codes": [
+    1,
+    0,
+    0,
+    0,
+    1
+  ]
+}

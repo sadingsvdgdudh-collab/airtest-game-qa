@@ -16,9 +16,7 @@
 
 证据：
 
-- [第1轮正确预期、实际棋盘及双方真实广播](../evidence/shardy-known-defects/round-01/SH-DEFECT-API-002/case.json)
-- [第八步及紧随的新回合服务端日志](../evidence/shardy-known-defects/round-01/SH-DEFECT-API-002/server.log)
-- [多轮结果及每轮报告](../evidence/shardy-known-defects/index.html)：此用例连续多轮均为 `failed`，无重试恢复、跳过或运行错误。
+- [证据入口（各轮步骤/预期/实际、两端接口消息与服务端日志）](../evidence/shardy-known-defects/index.html)
 - [被测 Game.ts 源码快照](../evidence/shardy-source/src-Game.ts.txt)
 
 统一入口复现：

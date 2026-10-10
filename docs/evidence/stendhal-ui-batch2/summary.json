@@ -1,0 +1,79 @@
+{
+  "rounds": 5,
+  "cases": [
+    {
+      "id": "ST-QUEST-UI-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "failed",
+          "unstable": true
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": false,
+      "repeatable": false
+    },
+    {
+      "id": "ST-SHOP-UI-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": false,
+  "all_passed": false,
+  "experiment": "batch2-ui-baseline",
+  "exit_codes": [
+    0,
+    0,
+    0,
+    1,
+    0
+  ]
+}

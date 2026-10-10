@@ -1,0 +1,23 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-COMBAT-UI-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": true,
+  "experiment": "combat-ui-calibration-02",
+  "exit_codes": [
+    0
+  ]
+}

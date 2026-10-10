@@ -1,0 +1,11 @@
+{
+  "controlled_first_attempt": "failed",
+  "controlled_second_attempt": "passed",
+  "controlled_unstable": true,
+  "business_confirmation_count": 1,
+  "money": 60,
+  "cheese": 2,
+  "normal_case_count_added": 0,
+  "restored": true,
+  "independent_rerun_passed": true
+}

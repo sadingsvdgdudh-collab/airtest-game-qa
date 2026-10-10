@@ -1,0 +1,63 @@
+{
+  "verified_utc": "2026-10-02T22:37:58.243365+00:00",
+  "experiment": "batch1-expanded-baseline",
+  "rounds": 5,
+  "ids_per_round": 23,
+  "new_design_families": 8,
+  "new_execution_ids": [
+    "ST-BAG-API-007-cap",
+    "ST-BAG-API-007-heal",
+    "ST-GROWTH-API-003",
+    "ST-QUEST-API-002",
+    "ST-QUEST-API-003",
+    "ST-QUEST-API-004-handoff",
+    "ST-QUEST-API-004-initial",
+    "ST-QUEST-API-005",
+    "ST-SHOP-API-004",
+    "ST-SHOP-API-005-fraction",
+    "ST-SHOP-API-005-maximum",
+    "ST-SHOP-API-005-negative",
+    "ST-SHOP-API-005-over-maximum",
+    "ST-SHOP-API-005-zero"
+  ],
+  "counts": {
+    "cases": 115,
+    "new_case_runs": 70,
+    "business_actions": 485,
+    "observations": 225,
+    "combat_cleanups": 5
+  },
+  "all_passed": true,
+  "phases_all_passed": true,
+  "unstable_cases": 0,
+  "retried_observations": 0,
+  "all_restored": true,
+  "restored_business_fields_independently_compared": [
+    "money",
+    "xp",
+    "hp",
+    "level",
+    "base_hp",
+    "karma",
+    "atk_xp",
+    "def_xp",
+    "atk",
+    "def",
+    "quests",
+    "commerce",
+    "item_counter_cache",
+    "keyed",
+    "inventory"
+  ],
+  "permitted_location_adjustments": 0,
+  "source_hashes_match": true,
+  "source_files": 65,
+  "credential_scan": "no configured credential value found",
+  "framework_self_checks": 16,
+  "limitations": [
+    "本批为API，未新增UI流程",
+    "QUEST002 TravelLog界面待验证",
+    "QUEST003仅接取后同一NPC会话；返回无beer问候路径未验收",
+    "R1不恢复成就DB/银行/持续状态/整个世界"
+  ]
+}

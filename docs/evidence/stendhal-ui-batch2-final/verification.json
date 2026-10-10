@@ -1,0 +1,112 @@
+{
+  "verified_utc": "2026-10-03T06:45:09.025693+00:00",
+  "experiment": "batch2-ui-final-clean-directory",
+  "rounds": 5,
+  "ids_per_round": 2,
+  "execution_ids": [
+    "ST-QUEST-UI-001",
+    "ST-SHOP-UI-001"
+  ],
+  "counts": {
+    "cases": 10,
+    "observations": 336,
+    "assertions": 205,
+    "recorded_actions": 355,
+    "screenshots": 425,
+    "restores": 10,
+    "real_disconnect_reconnect": 5,
+    "positive_npc_refusals": 5
+  },
+  "all_passed": true,
+  "phases_all_passed": true,
+  "unstable_cases": 0,
+  "retried_observations": 0,
+  "all_restored": true,
+  "restored_fields_independently_compared": [
+    "money",
+    "xp",
+    "hp",
+    "level",
+    "base_hp",
+    "karma",
+    "atk_xp",
+    "def_xp",
+    "atk",
+    "def",
+    "quests",
+    "commerce",
+    "item_counter_cache",
+    "keyed",
+    "inventory",
+    "bag",
+    "head",
+    "armor",
+    "cloak",
+    "legs",
+    "feet",
+    "lhand",
+    "rhand",
+    "finger"
+  ],
+  "permitted_location_adjustments": 0,
+  "source_hashes_match": true,
+  "source_files": 91,
+  "source_captured_before_first_case": true,
+  "framework_self_checks": 28,
+  "new_project_and_python_environment": true,
+  "shared_existing_java_server_android": true,
+  "credential_scan": "configured credential values absent from text attachments",
+  "per_round": [
+    {
+      "round": 1,
+      "ids": [
+        "ST-QUEST-UI-001",
+        "ST-SHOP-UI-001"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 2,
+      "ids": [
+        "ST-QUEST-UI-001",
+        "ST-SHOP-UI-001"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 3,
+      "ids": [
+        "ST-QUEST-UI-001",
+        "ST-SHOP-UI-001"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 4,
+      "ids": [
+        "ST-QUEST-UI-001",
+        "ST-SHOP-UI-001"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 5,
+      "ids": [
+        "ST-QUEST-UI-001",
+        "ST-SHOP-UI-001"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    }
+  ],
+  "limitations": [
+    "beer及NPC位置由管理员准备，不覆盖跨地图买beer",
+    "真实游戏断开重登，不含HTTP账号退出或服务器重启",
+    "R1不回滚银行、成就DB、持续状态或整个世界",
+    "登录失败具体根因未确认，不宣称Chrome标签复用"
+  ]
+}

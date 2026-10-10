@@ -1,0 +1,11 @@
+{
+  "verified_utc": "2026-10-03T06:15:59.963797+00:00",
+  "accepted": false,
+  "rounds": 5,
+  "passed": 9,
+  "failed": 1,
+  "unstable_cases": 1,
+  "all_restored": true,
+  "source_hashes_match": true,
+  "failure": "round04 quest relogin focus guard failed; restored true; no five-round acceptance"
+}

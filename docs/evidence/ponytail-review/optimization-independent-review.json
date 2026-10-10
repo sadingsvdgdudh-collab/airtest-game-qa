@@ -1,0 +1,2523 @@
+{
+  "review_scope": "Read-only independent review of source diffs, every changed function caller and existing recorded verification; no live game or performance execution.",
+  "review_result": "passed with measurement scope limitations",
+  "blocking_findings": [],
+  "source_checks": [
+    {
+      "phase": "before",
+      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/ponytail-review/before/src/gameqa/bridge.py",
+      "sha256": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+      "recorded_matches_actual": true
+    },
+    {
+      "phase": "before",
+      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/ponytail-review/before/src/gameqa/evidence.py",
+      "sha256": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811",
+      "recorded_matches_actual": true
+    },
+    {
+      "phase": "after",
+      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/src/gameqa/bridge.py",
+      "sha256": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+      "recorded_matches_actual": true
+    },
+    {
+      "phase": "after",
+      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/src/gameqa/evidence.py",
+      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "recorded_matches_actual": true
+    }
+  ],
+  "frozen_input_checks": [
+    {
+      "path": "docs/evidence/stendhal-api-batch1/round-01/report.json",
+      "sha256": "a2cf5015bdd80c3552a73d1b58c56839129b06204cc20124cb03262f7a2497cb",
+      "unchanged_from_before_manifest": true
+    },
+    {
+      "path": "docs/evidence/stendhal-quest-chain-final/round-01/report.json",
+      "sha256": "05a4f6ecf8bd9b5c762fcb5d2a274aa63dce339a19a9e1779abf4531a6e54503",
+      "unchanged_from_before_manifest": true
+    }
+  ],
+  "changed_files": [
+    {
+      "path": "src/gameqa/bridge.py",
+      "before_sha256": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+      "before_matches_manifest": true,
+      "after_sha256": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+      "changed": true,
+      "syntax_parse_passed": true
+    },
+    {
+      "path": "src/gameqa/evidence.py",
+      "before_sha256": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811",
+      "before_matches_manifest": true,
+      "after_sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "changed": true,
+      "syntax_parse_passed": true
+    },
+    {
+      "path": "src/gameqa/pytest_plugin.py",
+      "before_sha256": "d96c77e63927c881fb3779154574e6f43bab038c3e35b01a8855ff524c87bf27",
+      "before_matches_manifest": true,
+      "after_sha256": "4913512e17044a3094d3d8b1d4635fad737ef6f363665eadc25056220e9bc0ff",
+      "changed": true,
+      "syntax_parse_passed": true
+    },
+    {
+      "path": "cases/test_stendhal_combat_ui.py",
+      "before_sha256": "2efdb9eced52ad40e44d2516fb12523497974d0373da117bbdc3a5195f130370",
+      "before_matches_manifest": true,
+      "after_sha256": "512654a44e75b1d76402fe2bcfb48406ee562ae50b82c5a7e26981696e74a936",
+      "changed": true,
+      "syntax_parse_passed": true
+    },
+    {
+      "path": "cases/test_stendhal_items_ui.py",
+      "before_sha256": "151bc8cde77025d78710676c08247eb1741d5080d8d54e634d7709e0c3aeeaff",
+      "before_matches_manifest": true,
+      "after_sha256": "1c7631b2a7fafed7ce3b7de54e6f616c75b74fa42eb26e27839af6edf4c73ed0",
+      "changed": true,
+      "syntax_parse_passed": true
+    },
+    {
+      "path": "cases/test_stendhal_quest_ui.py",
+      "before_sha256": "920e6f58b869d45d09d4d457d39e621e763c692116059e1f1d318c47b33be855",
+      "before_matches_manifest": true,
+      "after_sha256": "fe40a46b6d106166fb1f2e24cee48bd961f57ca63f1bcc40fd25c66387f9ffc6",
+      "changed": true,
+      "syntax_parse_passed": true
+    },
+    {
+      "path": "tests/test_bridge.py",
+      "before_sha256": "bd01b53509b686d2bea64b64c1a50ca61be0f81ea86e38f3e8f0d3acc87e0d18",
+      "before_matches_manifest": true,
+      "after_sha256": "b64b46dafc8e478e5f8496491967aa0e7f68a171572e7716fe80130e27d86b07",
+      "changed": true,
+      "syntax_parse_passed": true
+    }
+  ],
+  "semantic_review": [
+    {
+      "path": "src/gameqa/bridge.py",
+      "status": "passed",
+      "reason": "环境凭据每个顶层redact调用快照一次，递归使用同一快照，无全局跨调用缓存。敏感键仍覆盖，嵌套dict/list/tuple（tuple转list）与str替换顺序保持；非容器标量提前返回。输入不修改。运行中并发更改环境会在下次调用反映，本项目串行边界可接受。"
+    },
+    {
+      "path": "src/gameqa/evidence.py",
+      "status": "passed",
+      "reason": "write_report一次清理整个payload，同时供JSON与HTML使用，避免再次递归和再次遍历环境。HTML标题/附件标签也改用清理后的值，若含凭据会更安全；已冻结历史数据两产物指纹一致。Evidence.folder在构造已resolve，所有调用无后续赋值，attach省去重复resolve不改变正常附件约束。"
+    },
+    {
+      "path": "src/gameqa/pytest_plugin.py",
+      "status": "passed",
+      "reason": "删除未使用json导入，插件选例、首败、相位和恢复逻辑不变。"
+    },
+    {
+      "path": "cases/test_stendhal_combat_ui.py + cases/test_stendhal_items_ui.py + cases/test_stendhal_quest_ui.py",
+      "status": "passed",
+      "reason": "仅统一三条内部导入为现有cases namespace及删除未用NPC常量；稳定case marker、业务调用、assertions及恢复不变；39稳定ID仍唯一收集。"
+    },
+    {
+      "path": "tests/test_bridge.py",
+      "status": "passed",
+      "reason": "新增一项针对非平凡脱敏变更的自检覆盖一次环境读取、嵌套/tuple、敏感大写键、输入不变和跨调用凭据更新；既有41检查加此项42通过日志可核验。"
+    },
+    {
+      "path": "scripts/benchmark_reports.py",
+      "status": "passed",
+      "reason": "stdlib独立脚本只读取冻结报告和指定source-dir，无游戏/设备操作；两个实现同输入同环境、预热1次后各7次，计时范围分别是redact和write_report；断言输入不变、JSON语义相同，记录实际输出SHA256。临时输出不覆盖历史证据。"
+    }
+  ],
+  "benchmark_record_review": {
+    "inputs_identical": true,
+    "platform_identical": true,
+    "python_identical": true,
+    "cases": 24,
+    "input_bytes": 2798909,
+    "repeats_each": 7,
+    "warmups_each": 1,
+    "recorded_output_bytes_equal_by_sha256": true,
+    "output_sha256": {
+      "report.json": "7b52deb35a959c13b71e012e97e903304f2588ea7b422b3f94c278198c1d1a90",
+      "index.html": "d81393049486dca0f9aa754ec8e813963e6f8d5bac639cd50b3cec1988b673ea"
+    },
+    "output_limit": "独立复核记录指纹，未重新执行benchmark；脚本临时产物已删除，未对文件再次逐字节比较。",
+    "metrics": [
+      {
+        "operation": "redact",
+        "before_median_seconds": 2.4319271670028684,
+        "after_median_seconds": 0.048222457997326273,
+        "recorded_medians_recomputed": true,
+        "time_reduction_percent": 98.0171092847013,
+        "before_range_seconds": [
+          2.4061066249996657,
+          2.64092462500048
+        ],
+        "after_range_seconds": [
+          0.040386874999967404,
+          0.05168266699911328
+        ]
+      },
+      {
+        "operation": "write_report",
+        "before_median_seconds": 5.200342708998505,
+        "after_median_seconds": 0.35030524999820045,
+        "recorded_medians_recomputed": true,
+        "time_reduction_percent": 93.26380452980447,
+        "before_range_seconds": [
+          5.116606042000058,
+          5.281719124999654
+        ],
+        "after_range_seconds": [
+          0.34086091599965584,
+          0.35479812500125263
+        ]
+      }
+    ],
+    "scope": "仅冻结历史24条记录约2.8MB的脱敏/JSON+HTML报告重建局部性能；不代表游戏业务、Android界面、服务器或整个项目同百分比变快。",
+    "limitations": [
+      "首组固定before→after局限已通过后续反序第二组补充为ABBA；所有统计仍仅适用此输入/此环境。",
+      "测量write_report是写入与序列化调用完成耗时，无fsync，不代表持久化落盘完成时间。",
+      "相同源/平台/输入指纹已核验，但记录未列出环境变量总数及凭据数量；不得发布凭据值，复跑需同环境。",
+      "41→42不同自检数量和3.54→3.26秒不能单独用于性能提升百分比。"
+    ],
+    "first_block_only": true
+  },
+  "existing_verification": {
+    "baseline_framework_log": "41 passed in 3.54s",
+    "after_framework_log": "42 passed in 3.26s",
+    "collected_ids": 39,
+    "unique_collected_ids": 39,
+    "collected_only_no_game_execution": true,
+    "live_before_log": "5/5 rounds exit0; repeatable=True and all_passed=True; read existing summary, independent reviewer did not run game."
+  },
+  "followup_measurement_review": {
+    "checks": [
+      {
+        "title": "before block1 source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "before block1 identical frozen inputs",
+        "passed": true
+      },
+      {
+        "title": "before block1 output fingerprints identical",
+        "passed": true
+      },
+      {
+        "title": "before block1 repeats/warmups",
+        "passed": true
+      },
+      {
+        "title": "before block2 source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "before block2 identical frozen inputs",
+        "passed": true
+      },
+      {
+        "title": "before block2 output fingerprints identical",
+        "passed": true
+      },
+      {
+        "title": "before block2 repeats/warmups",
+        "passed": true
+      },
+      {
+        "title": "after block1 source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "after block1 identical frozen inputs",
+        "passed": true
+      },
+      {
+        "title": "after block1 output fingerprints identical",
+        "passed": true
+      },
+      {
+        "title": "after block1 repeats/warmups",
+        "passed": true
+      },
+      {
+        "title": "after block2 source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "after block2 identical frozen inputs",
+        "passed": true
+      },
+      {
+        "title": "after block2 output fingerprints identical",
+        "passed": true
+      },
+      {
+        "title": "after block2 repeats/warmups",
+        "passed": true
+      },
+      {
+        "title": "redact aggregate raw arrays",
+        "passed": true
+      },
+      {
+        "title": "redact count",
+        "passed": true
+      },
+      {
+        "title": "redact medians",
+        "passed": true
+      },
+      {
+        "title": "redact ranges",
+        "passed": true
+      },
+      {
+        "title": "redact percent",
+        "passed": true
+      },
+      {
+        "title": "redact factor",
+        "passed": true
+      },
+      {
+        "title": "write_report aggregate raw arrays",
+        "passed": true
+      },
+      {
+        "title": "write_report count",
+        "passed": true
+      },
+      {
+        "title": "write_report medians",
+        "passed": true
+      },
+      {
+        "title": "write_report ranges",
+        "passed": true
+      },
+      {
+        "title": "write_report percent",
+        "passed": true
+      },
+      {
+        "title": "write_report factor",
+        "passed": true
+      },
+      {
+        "title": "ABBA record file write order",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair0 before launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair0 after launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair1 before launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair1 after launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair2 after launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair2 before launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair3 before launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair3 after launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair4 after launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair4 before launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair5 before launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after one selected stable ID",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after independent case file equals session record",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after exit0",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after summary passed/repeatable",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after source fingerprint",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after all phases passed",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after passed stable",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after no failed observation attempt or hidden first failure",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after each business action exactly once",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after three business assertions identical",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restore true exact original location",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field name",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field money",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field quests",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field xp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field hp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field level",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field base_hp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field karma",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field atk_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field def_xp",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field atk",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field def",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field commerce",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored field item_counter_cache",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored keyed skills",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored keyed !kills",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored keyed !tutorial",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored keyed !visited",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes bag",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes head",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes armor",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes cloak",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes legs",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes feet",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes lhand",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes rhand",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after restored item attributes finger",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after position fields",
+        "passed": true
+      },
+      {
+        "title": "live pair5 after launcher log exit0",
+        "passed": true
+      },
+      {
+        "title": "live AB BA alternating order",
+        "passed": true
+      },
+      {
+        "title": "one warmup each",
+        "passed": true
+      },
+      {
+        "title": "five measured samples each",
+        "passed": true
+      },
+      {
+        "title": "live median percent recomputed",
+        "passed": true
+      }
+    ],
+    "all_checks_passed": true,
+    "checks_count": 513,
+    "report_microbenchmark": {
+      "method": "same frozen 24-case input, ABBA blocks, two blocks per version; each block one warmup plus seven measured rebuilds; ordinary buffered writes, no fsync",
+      "samples_per_version": 14,
+      "warmups_per_version": 2,
+      "metrics": [
+        {
+          "operation": "redact",
+          "median_seconds": {
+            "before": 2.4232789164998394,
+            "after": 0.048126020998097374
+          },
+          "range_seconds": {
+            "before": [
+              2.4061066249996657,
+              2.64092462500048
+            ],
+            "after": [
+              0.039844416998676024,
+              0.05168266699911328
+            ]
+          },
+          "elapsed_reduction_percent": 98.01401230909028,
+          "speedup_factor": 50.352779353930835
+        },
+        {
+          "operation": "write_report",
+          "median_seconds": {
+            "before": 5.169334999500279,
+            "after": 0.34181029200044577
+          },
+          "range_seconds": {
+            "before": [
+              5.116606042000058,
+              5.281719124999654
+            ],
+            "after": [
+              0.33170558299752884,
+              0.35479812500125263
+            ]
+          },
+          "elapsed_reduction_percent": 93.38773184493772,
+          "speedup_factor": 15.123403596909649
+        }
+      ],
+      "four_blocks_outputs_byte_identical_by_recorded_sha256": true,
+      "actual_inputs_and_source_hashes_verified": true,
+      "scope": "仅24条冻结历史记录约2.8MB的脱敏与报告生成；buffered writes未fsync，不代指游戏业务/全项目同百分比提速。"
+    },
+    "live_single_case": {
+      "method": "serial alternating AB/BA, one warmup per version, five measurements per version",
+      "case": "ST-SHOP-API-001",
+      "samples": [
+        {
+          "pair": 0,
+          "variant": "before",
+          "warmup": true,
+          "report": "reports/ponytail-live-ab/00-before",
+          "report_sha256": "560f5c8b78c98cbecb35a1babbdb05e8daec985870111fbf2ab64abe17337730",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 0,
+          "variant": "after",
+          "warmup": true,
+          "report": "reports/ponytail-live-ab/00-after",
+          "report_sha256": "138fd685b8c24c14c73da000685d453cf199bfa6f8e4d72420bd8656370a4358",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 1,
+          "variant": "before",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/01-before",
+          "report_sha256": "520b4045e8dadd76e3f7175788de37254e31dcb5185c6a3299aa92e67e1cc71e",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 1,
+          "variant": "after",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/01-after",
+          "report_sha256": "4ab1888edb65cbe21b3ff6832acecfc9b17953e51dfcd9073d517e5efc3979c2",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 2,
+          "variant": "after",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/02-after",
+          "report_sha256": "f37b1edfc07922b845d074e6fe0b9965ea2ccdb42b31df21e93b21322a2137e7",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 2,
+          "variant": "before",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/02-before",
+          "report_sha256": "fecaff01daa3c822bf9a36845ab553101d61d09f84e0df23af62593eb3557a59",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 3,
+          "variant": "before",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/03-before",
+          "report_sha256": "e536976df1f3e03f28f2b1e3df3aedfbf2c58e548625a82162f995a0a1d81606",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 3,
+          "variant": "after",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/03-after",
+          "report_sha256": "8b83c92e6553311151e76447bb2ade8a37955d14d2165f09cc7351fb48e7da4a",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 4,
+          "variant": "after",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/04-after",
+          "report_sha256": "4f8f58c276beb6af722d096f8df8663ac783a94986d99aee64d0fa9bad81f978",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 4,
+          "variant": "before",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/04-before",
+          "report_sha256": "b6872d82ddd2b63bdc38360518523fd46aa11842da047320fd86c1abb4d44a54",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 5,
+          "variant": "before",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/05-before",
+          "report_sha256": "28587c767f456b224b9e51b18db6365f380a9929f4911cdb438ffa1442f96e47",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        },
+        {
+          "pair": 5,
+          "variant": "after",
+          "warmup": false,
+          "report": "reports/ponytail-live-ab/05-after",
+          "report_sha256": "60f039dbe470b859bc1eb41892e0932224c819e2041baeac268af24b39c51bf4",
+          "exit_codes": [
+            0
+          ],
+          "business_actions": 4,
+          "assertions": 3,
+          "observation_attempts": 1,
+          "first_failed_attempts": 0,
+          "restored_fields_verified": true,
+          "exact_location": true
+        }
+      ],
+      "measurements_per_version": 5,
+      "warmups_per_version": 1,
+      "median_seconds": {
+        "before": 5.8364466249986435,
+        "after": 5.638356875002501
+      },
+      "range_seconds": {
+        "before": [
+          5.741686583001865,
+          5.991000041001826
+        ],
+        "after": [
+          5.5681113339996955,
+          5.905451375001576
+        ]
+      },
+      "ranges_overlap": true,
+      "elapsed_reduction_percent": 3.394012876733692,
+      "scope": "CLI wall time including process startup, preparation, real purchase, restore and reports; same local server",
+      "qualification": "本机同服务器这条购买单例观察到约3.39%中位CLI耗时降低；各5个样本且范围重叠，不证明所有用例、所有机器或所有负载都同幅变快。"
+    },
+    "coverage_counting": "12次真实购买执行包含2次预热+10次测量，仍只有已有ST-SHOP-API-001一条用例；新功能覆盖增量0。重复微基准同历史24条记录处理不算功能执行或新用例。",
+    "failure_qualification": "12条记录均无失败、unstable或观察重试；首败保留机制由既有框架自检确认，本轮无主动注入故障且不应冒充新增故障演练。",
+    "reviewer_activity": "仅读取既有记录及复算数组/指纹/原始恢复投影；未启动任何游戏、性能测试或修改公开文件。"
+  }
+}

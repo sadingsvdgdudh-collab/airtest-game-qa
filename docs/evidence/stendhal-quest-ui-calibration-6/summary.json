@@ -1,0 +1,23 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-QUEST-UI-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "failed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": false,
+  "experiment": "quest-ui-native-focus-calibration",
+  "exit_codes": [
+    1
+  ]
+}

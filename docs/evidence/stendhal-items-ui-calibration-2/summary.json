@@ -1,0 +1,35 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-BAG-UI-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "failed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-BAG-UI-007",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": false,
+  "experiment": "items-ui-calibration-2",
+  "exit_codes": [
+    1
+  ]
+}

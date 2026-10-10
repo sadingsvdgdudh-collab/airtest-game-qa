@@ -1,0 +1,32 @@
+{
+  "verified_utc": "2026-10-02T22:42:56.719335+00:00",
+  "reviewer": "独立子代理与主代理交叉核对",
+  "total_case_runs": 115,
+  "new_case_runs": 70,
+  "business_actions": 485,
+  "new_case_business_actions": 310,
+  "assertions_with_sources": 770,
+  "observation_first_attempts": 225,
+  "restorations": 115,
+  "combat_cleanups": 5,
+  "log_attachments": 115,
+  "new_case_action_sequences_match": true,
+  "source_hashes_match_frozen_manifest": true,
+  "source_files": 65,
+  "source_manifest_captured_utc": "2026-10-02T22:24:26.240213+00:00",
+  "first_case_started_utc": "2026-10-02T22:23:50.427198+00:00",
+  "manifest_capture_after_first_case_seconds": 35.813,
+  "all_source_mtimes_precede_first_case": true,
+  "archive_files_match_original": 249,
+  "original_failures_preserved": {
+    "first": {
+      "passed": 11,
+      "failed": 3
+    },
+    "diagnosis": {
+      "passed": 2,
+      "failed": 1
+    }
+  },
+  "note": "清单在首轮执行中采集；没有声称运行前生成。哈希核对项目文件与冻结清单，不把自编框架文件称为上游游戏提交文件。"
+}

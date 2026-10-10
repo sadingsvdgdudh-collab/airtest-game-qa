@@ -1,0 +1,47 @@
+{
+  "rounds": 5,
+  "cases": [
+    {
+      "id": "ST-QUEST-UI-007",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "failed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "failed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "failed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": false,
+      "repeatable": false
+    }
+  ],
+  "consistent": false,
+  "all_passed": false,
+  "experiment": "stendhal-quest-chain-final",
+  "exit_codes": [
+    0,
+    1,
+    1,
+    1,
+    0
+  ]
+}

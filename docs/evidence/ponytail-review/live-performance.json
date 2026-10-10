@@ -1,0 +1,240 @@
+{
+  "case": "ST-SHOP-API-001",
+  "method": "serial alternating AB/BA, one warmup per version, five measurements per version",
+  "scope": "CLI wall time including process startup, preparation, real purchase, restore and reports; same local server",
+  "samples": [
+    {
+      "pair": 0,
+      "variant": "before",
+      "warmup": true,
+      "elapsed_seconds": 6.270507708002697,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/00-before",
+      "source_sha256": {
+        "bridge.py": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+        "evidence.py": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811"
+      }
+    },
+    {
+      "pair": 0,
+      "variant": "after",
+      "warmup": true,
+      "elapsed_seconds": 5.601677542003017,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/00-after",
+      "source_sha256": {
+        "bridge.py": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+        "evidence.py": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6"
+      }
+    },
+    {
+      "pair": 1,
+      "variant": "before",
+      "warmup": false,
+      "elapsed_seconds": 5.741686583001865,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/01-before",
+      "source_sha256": {
+        "bridge.py": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+        "evidence.py": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811"
+      }
+    },
+    {
+      "pair": 1,
+      "variant": "after",
+      "warmup": false,
+      "elapsed_seconds": 5.638356875002501,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/01-after",
+      "source_sha256": {
+        "bridge.py": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+        "evidence.py": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6"
+      }
+    },
+    {
+      "pair": 2,
+      "variant": "after",
+      "warmup": false,
+      "elapsed_seconds": 5.827225458000612,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/02-after",
+      "source_sha256": {
+        "bridge.py": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+        "evidence.py": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6"
+      }
+    },
+    {
+      "pair": 2,
+      "variant": "before",
+      "warmup": false,
+      "elapsed_seconds": 5.991000041001826,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/02-before",
+      "source_sha256": {
+        "bridge.py": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+        "evidence.py": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811"
+      }
+    },
+    {
+      "pair": 3,
+      "variant": "before",
+      "warmup": false,
+      "elapsed_seconds": 5.8364466249986435,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/03-before",
+      "source_sha256": {
+        "bridge.py": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+        "evidence.py": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811"
+      }
+    },
+    {
+      "pair": 3,
+      "variant": "after",
+      "warmup": false,
+      "elapsed_seconds": 5.5681113339996955,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/03-after",
+      "source_sha256": {
+        "bridge.py": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+        "evidence.py": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6"
+      }
+    },
+    {
+      "pair": 4,
+      "variant": "after",
+      "warmup": false,
+      "elapsed_seconds": 5.905451375001576,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/04-after",
+      "source_sha256": {
+        "bridge.py": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+        "evidence.py": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6"
+      }
+    },
+    {
+      "pair": 4,
+      "variant": "before",
+      "warmup": false,
+      "elapsed_seconds": 5.964854875001038,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/04-before",
+      "source_sha256": {
+        "bridge.py": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+        "evidence.py": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811"
+      }
+    },
+    {
+      "pair": 5,
+      "variant": "before",
+      "warmup": false,
+      "elapsed_seconds": 5.813359332998516,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/05-before",
+      "source_sha256": {
+        "bridge.py": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
+        "evidence.py": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811"
+      }
+    },
+    {
+      "pair": 5,
+      "variant": "after",
+      "warmup": false,
+      "elapsed_seconds": 5.631728958000167,
+      "outcome": "passed",
+      "restored": true,
+      "unstable": false,
+      "phases": {
+        "setup": "passed",
+        "call": "passed",
+        "teardown": "passed"
+      },
+      "report": "reports/ponytail-live-ab/05-after",
+      "source_sha256": {
+        "bridge.py": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
+        "evidence.py": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6"
+      }
+    }
+  ],
+  "median_seconds": {
+    "before": 5.8364466249986435,
+    "after": 5.638356875002501
+  },
+  "elapsed_reduction_percent": 3.394012876733692
+}

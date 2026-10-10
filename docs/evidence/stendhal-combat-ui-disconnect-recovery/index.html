@@ -1,0 +1,2886 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>Game QA report</title><style>body{max-width:1100px;margin:32px auto;padding:0 20px;font:16px system-ui;color:#1b2838}article{border:1px solid #ccd3dc;border-radius:8px;padding:18px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f6f9;padding:16px}a{margin-right:16px}</style><h1>游戏测试执行报告</h1><p>失败、跳过和不稳定均保留；受控实验单独标识。</p><pre>{
+  &quot;experiment&quot;: &quot;controlled-disconnect-cleanup&quot;,
+  &quot;normal_case_count&quot;: 0
+}</pre><article id="COMBAT-UI-DISCONNECT-RECOVERY"><h2>COMBAT-UI-DISCONNECT-RECOVERY · passed</h2><a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-01.png">激活登录表单</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-02.png">聚焦用户名输入框</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-03.png">密码输入框</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-04.png">提交登录</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-05.png">选择测试角色</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-06.png">角色进入实际游戏地图</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-07.png">聚焦游戏聊天框</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-08.png">提交后的游戏画面：bye</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-09.png">激活登录表单</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-10.png">聚焦用户名输入框</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-11.png">密码输入框</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-12.png">提交登录</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-13.png">选择测试角色</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-14.png">角色进入实际游戏地图</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-15.png">聚焦游戏聊天框</a> <a href="COMBAT-UI-DISCONNECT-RECOVERY/screen-16.png">提交后的游戏画面：bye</a><details open><summary>步骤、预期、实际与证据</summary><pre>{
+  &quot;id&quot;: &quot;COMBAT-UI-DISCONNECT-RECOVERY&quot;,
+  &quot;metadata&quot;: {},
+  &quot;outcome&quot;: &quot;passed&quot;,
+  &quot;unstable&quot;: false,
+  &quot;steps&quot;: [
+    {
+      &quot;title&quot;: &quot;定位：登录按钮&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.6601013750000675
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;激活登录表单&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;聚焦用户名输入框&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：输入前确认用户名框实际聚焦&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.2989891249999346
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;输入测试用户名&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：登录前确认用户名已实际输入&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.2757226250000713
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;密码输入框&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;输入本地测试密码&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;收起已显示的键盘&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：提交登录&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.4411187919999975
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;提交登录&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：选择测试角色&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.45633795899993856
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;选择测试角色&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：进入游戏后聊天按钮&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.32963183299989396
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;断线前存在实际rat&quot;,
+      &quot;expected&quot;: true,
+      &quot;actual&quot;: true,
+      &quot;source&quot;: &quot;原版rat专用夹具，只布置不攻击&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：聊天发送按钮&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.6575792919998094
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;聚焦游戏聊天框&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;在游戏界面提交对话：bye&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;独立管理员读取UI角色在线状态&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.06599270800006707
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;原服确认UI角色实际离线&quot;,
+      &quot;expected&quot;: false,
+      &quot;actual&quot;: false,
+      &quot;source&quot;: &quot;QaProbe只读查询原服RuleProcessor.getPlayer&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;清理前独立读取UI角色在线状态&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.3306197090000751
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：登录按钮&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.48112012499996126
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;激活登录表单&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;聚焦用户名输入框&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：输入前确认用户名框实际聚焦&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.2967585829997006
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;输入测试用户名&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：登录前确认用户名已实际输入&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.2852001249998466
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;密码输入框&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;输入本地测试密码&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;收起已显示的键盘&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：提交登录&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.441760499999873
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;提交登录&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：选择测试角色&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.4636465839998891
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;选择测试角色&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：进入游戏后聊天按钮&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.4619160840002223
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;独立管理员读取UI角色在线状态&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.3014438750001318
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;原服确认UI角色在线&quot;,
+      &quot;expected&quot;: true,
+      &quot;actual&quot;: true,
+      &quot;source&quot;: &quot;QaProbe只读查询原服RuleProcessor.getPlayer&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;共享teardown已完成&quot;,
+      &quot;expected&quot;: true,
+      &quot;actual&quot;: true,
+      &quot;source&quot;: &quot;rat_fixture在清理前恢复UI在线状态&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;确实进入离线恢复分支&quot;,
+      &quot;expected&quot;: false,
+      &quot;actual&quot;: false,
+      &quot;source&quot;: &quot;独立GM读到实际离线；随后真实UI重登&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;恢复后UI实际进入游戏&quot;,
+      &quot;expected&quot;: true,
+      &quot;actual&quot;: true,
+      &quot;source&quot;: &quot;原版登录/选角/聊天按钮检查&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;定位：聊天发送按钮&quot;,
+      &quot;kind&quot;: &quot;observation&quot;,
+      &quot;attempts&quot;: [
+        {
+          &quot;number&quot;: 1,
+          &quot;outcome&quot;: &quot;passed&quot;,
+          &quot;elapsed&quot;: 0.26384008300010464
+        }
+      ],
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;聚焦游戏聊天框&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    },
+    {
+      &quot;title&quot;: &quot;在游戏界面提交对话：bye&quot;,
+      &quot;kind&quot;: &quot;business_action&quot;,
+      &quot;outcome&quot;: &quot;passed&quot;
+    }
+  ],
+  &quot;attachments&quot;: [
+    {
+      &quot;label&quot;: &quot;激活登录表单&quot;,
+      &quot;path&quot;: &quot;screen-01.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;聚焦用户名输入框&quot;,
+      &quot;path&quot;: &quot;screen-02.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;密码输入框&quot;,
+      &quot;path&quot;: &quot;screen-03.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;提交登录&quot;,
+      &quot;path&quot;: &quot;screen-04.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;选择测试角色&quot;,
+      &quot;path&quot;: &quot;screen-05.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;角色进入实际游戏地图&quot;,
+      &quot;path&quot;: &quot;screen-06.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;聚焦游戏聊天框&quot;,
+      &quot;path&quot;: &quot;screen-07.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;提交后的游戏画面：bye&quot;,
+      &quot;path&quot;: &quot;screen-08.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;激活登录表单&quot;,
+      &quot;path&quot;: &quot;screen-09.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;聚焦用户名输入框&quot;,
+      &quot;path&quot;: &quot;screen-10.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;密码输入框&quot;,
+      &quot;path&quot;: &quot;screen-11.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;提交登录&quot;,
+      &quot;path&quot;: &quot;screen-12.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;选择测试角色&quot;,
+      &quot;path&quot;: &quot;screen-13.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;角色进入实际游戏地图&quot;,
+      &quot;path&quot;: &quot;screen-14.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;聚焦游戏聊天框&quot;,
+      &quot;path&quot;: &quot;screen-15.png&quot;
+    },
+    {
+      &quot;label&quot;: &quot;提交后的游戏画面：bye&quot;,
+      &quot;path&quot;: &quot;screen-16.png&quot;
+    }
+  ],
+  &quot;diagnostics&quot;: {
+    &quot;visual_observations&quot;: [
+      {
+        &quot;title&quot;: &quot;登录按钮&quot;,
+        &quot;template&quot;: &quot;login.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          100,
+          307
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;输入前确认用户名框实际聚焦&quot;,
+        &quot;template&quot;: &quot;username-focused.png&quot;,
+        &quot;region&quot;: [
+          170,
+          255,
+          352,
+          285
+        ],
+        &quot;threshold&quot;: 0.9,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          261,
+          271
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;登录前确认用户名已实际输入&quot;,
+        &quot;template&quot;: &quot;username-qaplayer.png&quot;,
+        &quot;region&quot;: [
+          175,
+          255,
+          347,
+          283
+        ],
+        &quot;threshold&quot;: 0.9,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          202,
+          271
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;提交登录&quot;,
+        &quot;template&quot;: &quot;login.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          100,
+          307
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;选择测试角色&quot;,
+        &quot;template&quot;: &quot;character-qaplayer.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          118,
+          272
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;进入游戏后聊天按钮&quot;,
+        &quot;template&quot;: &quot;send.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          493,
+          565
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;聊天发送按钮&quot;,
+        &quot;template&quot;: &quot;send.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          493,
+          565
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;登录按钮&quot;,
+        &quot;template&quot;: &quot;login.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          100,
+          307
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;输入前确认用户名框实际聚焦&quot;,
+        &quot;template&quot;: &quot;username-focused.png&quot;,
+        &quot;region&quot;: [
+          170,
+          255,
+          352,
+          285
+        ],
+        &quot;threshold&quot;: 0.9,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          261,
+          271
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;登录前确认用户名已实际输入&quot;,
+        &quot;template&quot;: &quot;username-qaplayer.png&quot;,
+        &quot;region&quot;: [
+          175,
+          255,
+          347,
+          283
+        ],
+        &quot;threshold&quot;: 0.9,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          202,
+          271
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;提交登录&quot;,
+        &quot;template&quot;: &quot;login.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          100,
+          307
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;选择测试角色&quot;,
+        &quot;template&quot;: &quot;character-qaplayer.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          118,
+          272
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;进入游戏后聊天按钮&quot;,
+        &quot;template&quot;: &quot;send.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          493,
+          565
+        ]
+      },
+      {
+        &quot;title&quot;: &quot;聊天发送按钮&quot;,
+        &quot;template&quot;: &quot;send.png&quot;,
+        &quot;region&quot;: null,
+        &quot;threshold&quot;: 0.7,
+        &quot;matched&quot;: true,
+        &quot;position&quot;: [
+          493,
+          565
+        ]
+      }
+    ],
+    &quot;preparation&quot;: {
+      &quot;snapshot_id&quot;: &quot;eee1a29a-0f90-48f3-9839-15e0b8bba1e8&quot;,
+      &quot;before&quot;: {
+        &quot;karma&quot;: 10.0,
+        &quot;item_counter_cache&quot;: {
+          &quot;mined&quot;: {},
+          &quot;sold&quot;: {},
+          &quot;sown&quot;: {},
+          &quot;bought&quot;: {
+            &quot;cheese&quot;: 2
+          },
+          &quot;obtained&quot;: {},
+          &quot;looted&quot;: {},
+          &quot;harvested&quot;: {},
+          &quot;produced&quot;: {}
+        },
+        &quot;def&quot;: 10,
+        &quot;quests&quot;: {},
+        &quot;level&quot;: 0,
+        &quot;atk_xp&quot;: 0,
+        &quot;hp&quot;: 100,
+        &quot;inventory&quot;: [
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;club&quot;,
+            &quot;slot&quot;: &quot;rhand&quot;
+          },
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;leather armor&quot;,
+            &quot;slot&quot;: &quot;armor&quot;
+          }
+        ],
+        &quot;commerce&quot;: {
+          &quot;npc_purchases&quot;: {},
+          &quot;npc_sales&quot;: {},
+          &quot;looted_items&quot;: {
+            &quot;bought.cheese&quot;: &quot;2&quot;
+          }
+        },
+        &quot;keyed&quot;: {
+          &quot;skills&quot;: {},
+          &quot;!kills&quot;: {},
+          &quot;!visited&quot;: {
+            &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+            &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+          },
+          &quot;!tutorial&quot;: {
+            &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+            &quot;first_move&quot;: &quot;1&quot;,
+            &quot;timed_help&quot;: &quot;1&quot;,
+            &quot;timed_password&quot;: &quot;1&quot;,
+            &quot;timed_outfit&quot;: &quot;1&quot;,
+            &quot;timed_rules&quot;: &quot;1&quot;,
+            &quot;first_login&quot;: &quot;1&quot;
+          }
+        },
+        &quot;def_xp&quot;: 0,
+        &quot;slots&quot;: {
+          &quot;bank_kirdneh&quot;: [],
+          &quot;feet&quot;: [],
+          &quot;bag&quot;: [],
+          &quot;bank_deniran&quot;: [],
+          &quot;!ignore&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;5&quot;
+              }
+            }
+          ],
+          &quot;skills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;7&quot;
+              }
+            }
+          ],
+          &quot;head&quot;: [],
+          &quot;bank_nalwor&quot;: [],
+          &quot;bank&quot;: [],
+          &quot;!quests&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;2&quot;
+              }
+            }
+          ],
+          &quot;rhand&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;club&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;rate&quot;: &quot;4&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;club&quot;,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;atk&quot;: &quot;6&quot;,
+                &quot;id&quot;: &quot;742&quot;,
+                &quot;class&quot;: &quot;club&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;legs&quot;: [],
+          &quot;bank_ados&quot;: [],
+          &quot;bank_fado&quot;: [],
+          &quot;spells&quot;: [],
+          &quot;finger&quot;: [],
+          &quot;pouch&quot;: [],
+          &quot;!tutorial&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;id&quot;: &quot;8&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;zaras_chest_ados&quot;: [],
+          &quot;!kills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;740&quot;
+              }
+            }
+          ],
+          &quot;!visited&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;id&quot;: &quot;741&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+              }
+            }
+          ],
+          &quot;armor&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;leather armor&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;def&quot;: &quot;6&quot;,
+                &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;leather_armor&quot;,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;id&quot;: &quot;743&quot;,
+                &quot;class&quot;: &quot;armor&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;trade&quot;: [],
+          &quot;cloak&quot;: [],
+          &quot;lhand&quot;: [],
+          &quot;bank_magic&quot;: [],
+          &quot;keyring&quot;: []
+        },
+        &quot;money&quot;: 0,
+        &quot;name&quot;: &quot;qaplayer&quot;,
+        &quot;xp&quot;: 0,
+        &quot;statuses&quot;: [],
+        &quot;atk&quot;: 10,
+        &quot;attributes&quot;: {
+          &quot;def&quot;: &quot;10&quot;,
+          &quot;release&quot;: &quot;1.49&quot;,
+          &quot;hp&quot;: &quot;100&quot;,
+          &quot;def_item&quot;: &quot;6&quot;,
+          &quot;#clientid&quot;: &quot;-628319399&quot;,
+          &quot;type&quot;: &quot;player&quot;,
+          &quot;base_mana&quot;: &quot;0&quot;,
+          &quot;def_xp&quot;: &quot;0&quot;,
+          &quot;#db_id&quot;: &quot;2&quot;,
+          &quot;outfit&quot;: &quot;0&quot;,
+          &quot;atk&quot;: &quot;10&quot;,
+          &quot;base_hp&quot;: &quot;100&quot;,
+          &quot;id&quot;: &quot;30&quot;,
+          &quot;height&quot;: &quot;1&quot;,
+          &quot;karma&quot;: &quot;10.0&quot;,
+          &quot;visibility&quot;: &quot;100&quot;,
+          &quot;atk_xp&quot;: &quot;0&quot;,
+          &quot;level&quot;: &quot;0&quot;,
+          &quot;resistance&quot;: &quot;100&quot;,
+          &quot;mana&quot;: &quot;0&quot;,
+          &quot;x&quot;: &quot;13&quot;,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;xp&quot;: &quot;0&quot;,
+          &quot;width&quot;: &quot;1&quot;,
+          &quot;y&quot;: &quot;11&quot;,
+          &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+          &quot;atk_item&quot;: &quot;6&quot;,
+          &quot;age&quot;: &quot;70&quot;
+        },
+        &quot;base_hp&quot;: 100
+      },
+      &quot;name&quot;: &quot;qaplayer&quot;,
+      &quot;restorable_fields&quot;: [
+        &quot;bag&quot;,
+        &quot;equipment&quot;,
+        &quot;quests&quot;,
+        &quot;xp&quot;,
+        &quot;hp&quot;,
+        &quot;level&quot;,
+        &quot;base_hp&quot;,
+        &quot;karma&quot;,
+        &quot;location&quot;,
+        &quot;npc_purchases&quot;,
+        &quot;npc_sales&quot;,
+        &quot;looted_items&quot;,
+        &quot;item_counter_cache&quot;,
+        &quot;atk_xp&quot;,
+        &quot;def_xp&quot;,
+        &quot;atk&quot;,
+        &quot;def&quot;,
+        &quot;!kills&quot;,
+        &quot;!tutorial&quot;,
+        &quot;!visited&quot;,
+        &quot;skills&quot;
+      ],
+      &quot;after&quot;: {
+        &quot;karma&quot;: 10.0,
+        &quot;item_counter_cache&quot;: {
+          &quot;mined&quot;: {},
+          &quot;sold&quot;: {},
+          &quot;sown&quot;: {},
+          &quot;bought&quot;: {
+            &quot;cheese&quot;: 2
+          },
+          &quot;obtained&quot;: {},
+          &quot;looted&quot;: {},
+          &quot;harvested&quot;: {},
+          &quot;produced&quot;: {}
+        },
+        &quot;def&quot;: 10,
+        &quot;quests&quot;: {},
+        &quot;level&quot;: 5,
+        &quot;atk_xp&quot;: 0,
+        &quot;hp&quot;: 100,
+        &quot;inventory&quot;: [
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;club&quot;,
+            &quot;slot&quot;: &quot;rhand&quot;
+          },
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;leather armor&quot;,
+            &quot;slot&quot;: &quot;armor&quot;
+          }
+        ],
+        &quot;commerce&quot;: {
+          &quot;npc_purchases&quot;: {},
+          &quot;npc_sales&quot;: {},
+          &quot;looted_items&quot;: {
+            &quot;bought.cheese&quot;: &quot;2&quot;
+          }
+        },
+        &quot;keyed&quot;: {
+          &quot;skills&quot;: {},
+          &quot;!kills&quot;: {},
+          &quot;!visited&quot;: {
+            &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+            &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+          },
+          &quot;!tutorial&quot;: {
+            &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+            &quot;first_move&quot;: &quot;1&quot;,
+            &quot;timed_help&quot;: &quot;1&quot;,
+            &quot;timed_password&quot;: &quot;1&quot;,
+            &quot;timed_outfit&quot;: &quot;1&quot;,
+            &quot;timed_rules&quot;: &quot;1&quot;,
+            &quot;first_login&quot;: &quot;1&quot;
+          }
+        },
+        &quot;def_xp&quot;: 0,
+        &quot;slots&quot;: {
+          &quot;bank_kirdneh&quot;: [],
+          &quot;feet&quot;: [],
+          &quot;bag&quot;: [],
+          &quot;bank_deniran&quot;: [],
+          &quot;!ignore&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;5&quot;
+              }
+            }
+          ],
+          &quot;skills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;7&quot;
+              }
+            }
+          ],
+          &quot;head&quot;: [],
+          &quot;bank_nalwor&quot;: [],
+          &quot;bank&quot;: [],
+          &quot;!quests&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;2&quot;
+              }
+            }
+          ],
+          &quot;rhand&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;club&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;rate&quot;: &quot;4&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;club&quot;,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;atk&quot;: &quot;6&quot;,
+                &quot;id&quot;: &quot;742&quot;,
+                &quot;class&quot;: &quot;club&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;legs&quot;: [],
+          &quot;bank_ados&quot;: [],
+          &quot;bank_fado&quot;: [],
+          &quot;spells&quot;: [],
+          &quot;finger&quot;: [],
+          &quot;pouch&quot;: [],
+          &quot;!tutorial&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;id&quot;: &quot;8&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;zaras_chest_ados&quot;: [],
+          &quot;!kills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;740&quot;
+              }
+            }
+          ],
+          &quot;!visited&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;id&quot;: &quot;741&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+              }
+            }
+          ],
+          &quot;armor&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;leather armor&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;def&quot;: &quot;6&quot;,
+                &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;leather_armor&quot;,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;id&quot;: &quot;743&quot;,
+                &quot;class&quot;: &quot;armor&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;trade&quot;: [],
+          &quot;cloak&quot;: [],
+          &quot;lhand&quot;: [],
+          &quot;bank_magic&quot;: [],
+          &quot;keyring&quot;: []
+        },
+        &quot;money&quot;: 0,
+        &quot;name&quot;: &quot;qaplayer&quot;,
+        &quot;xp&quot;: 800,
+        &quot;statuses&quot;: [],
+        &quot;atk&quot;: 10,
+        &quot;attributes&quot;: {
+          &quot;def&quot;: &quot;10&quot;,
+          &quot;release&quot;: &quot;1.49&quot;,
+          &quot;hp&quot;: &quot;100&quot;,
+          &quot;def_item&quot;: &quot;6&quot;,
+          &quot;#clientid&quot;: &quot;-628319399&quot;,
+          &quot;type&quot;: &quot;player&quot;,
+          &quot;dir&quot;: &quot;3&quot;,
+          &quot;base_mana&quot;: &quot;0&quot;,
+          &quot;def_xp&quot;: &quot;0&quot;,
+          &quot;#db_id&quot;: &quot;2&quot;,
+          &quot;outfit&quot;: &quot;0&quot;,
+          &quot;atk&quot;: &quot;10&quot;,
+          &quot;base_hp&quot;: &quot;150&quot;,
+          &quot;id&quot;: &quot;30&quot;,
+          &quot;height&quot;: &quot;1&quot;,
+          &quot;karma&quot;: &quot;10.0&quot;,
+          &quot;visibility&quot;: &quot;100&quot;,
+          &quot;atk_xp&quot;: &quot;0&quot;,
+          &quot;level&quot;: &quot;5&quot;,
+          &quot;resistance&quot;: &quot;100&quot;,
+          &quot;mana&quot;: &quot;0&quot;,
+          &quot;x&quot;: &quot;12&quot;,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;xp&quot;: &quot;800&quot;,
+          &quot;width&quot;: &quot;1&quot;,
+          &quot;y&quot;: &quot;5&quot;,
+          &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+          &quot;atk_item&quot;: &quot;6&quot;,
+          &quot;age&quot;: &quot;70&quot;
+        },
+        &quot;base_hp&quot;: 150
+      }
+    },
+    &quot;combat_fixture&quot;: [
+      {
+        &quot;operation&quot;: &quot;prepare&quot;,
+        &quot;result&quot;: {
+          &quot;fixture_id&quot;: &quot;49dbe8b9-7533-45e0-9885-3d9997844042&quot;,
+          &quot;rat&quot;: {
+            &quot;visibility&quot;: &quot;100&quot;,
+            &quot;def&quot;: &quot;3&quot;,
+            &quot;level&quot;: &quot;0&quot;,
+            &quot;hp&quot;: &quot;20&quot;,
+            &quot;def_item&quot;: &quot;0&quot;,
+            &quot;description&quot;: &quot;You see a small rat that seems to be extremely hungry.&quot;,
+            &quot;type&quot;: &quot;creature&quot;,
+            &quot;title_type&quot;: &quot;enemy&quot;,
+            &quot;resistance&quot;: &quot;100&quot;,
+            &quot;ratk&quot;: &quot;0&quot;,
+            &quot;x&quot;: &quot;15&quot;,
+            &quot;width&quot;: &quot;1&quot;,
+            &quot;subclass&quot;: &quot;rat&quot;,
+            &quot;xp&quot;: &quot;100&quot;,
+            &quot;name&quot;: &quot;rat&quot;,
+            &quot;y&quot;: &quot;5&quot;,
+            &quot;atk&quot;: &quot;8&quot;,
+            &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+            &quot;base_hp&quot;: &quot;20&quot;,
+            &quot;id&quot;: &quot;32&quot;,
+            &quot;class&quot;: &quot;rodent&quot;,
+            &quot;atk_item&quot;: &quot;5&quot;,
+            &quot;height&quot;: &quot;1&quot;
+          },
+          &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;rat_present&quot;: true,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;corpse_present&quot;: false,
+          &quot;corpse&quot;: null
+        }
+      },
+      {
+        &quot;operation&quot;: &quot;cleanup&quot;,
+        &quot;result&quot;: {
+          &quot;fixture_id&quot;: &quot;49dbe8b9-7533-45e0-9885-3d9997844042&quot;,
+          &quot;rat&quot;: {
+            &quot;def&quot;: &quot;3&quot;,
+            &quot;hp&quot;: &quot;20&quot;,
+            &quot;def_item&quot;: &quot;0&quot;,
+            &quot;description&quot;: &quot;You see a small rat that seems to be extremely hungry.&quot;,
+            &quot;type&quot;: &quot;creature&quot;,
+            &quot;dir&quot;: &quot;4&quot;,
+            &quot;title_type&quot;: &quot;enemy&quot;,
+            &quot;speed&quot;: &quot;0.0&quot;,
+            &quot;ratk&quot;: &quot;0&quot;,
+            &quot;atk&quot;: &quot;8&quot;,
+            &quot;base_hp&quot;: &quot;20&quot;,
+            &quot;id&quot;: &quot;32&quot;,
+            &quot;class&quot;: &quot;rodent&quot;,
+            &quot;height&quot;: &quot;1&quot;,
+            &quot;visibility&quot;: &quot;100&quot;,
+            &quot;level&quot;: &quot;0&quot;,
+            &quot;resistance&quot;: &quot;100&quot;,
+            &quot;x&quot;: &quot;9&quot;,
+            &quot;width&quot;: &quot;1&quot;,
+            &quot;subclass&quot;: &quot;rat&quot;,
+            &quot;xp&quot;: &quot;100&quot;,
+            &quot;name&quot;: &quot;rat&quot;,
+            &quot;y&quot;: &quot;12&quot;,
+            &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+            &quot;atk_item&quot;: &quot;5&quot;
+          },
+          &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;rat_present&quot;: false,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;corpse_present&quot;: false,
+          &quot;corpse&quot;: null
+        }
+      }
+    ],
+    &quot;presence_observations&quot;: [
+      [
+        {
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;online&quot;: false
+        }
+      ],
+      [
+        {
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;online&quot;: true
+        }
+      ]
+    ],
+    &quot;combat_cleanup_presence&quot;: {
+      &quot;name&quot;: &quot;qaplayer&quot;,
+      &quot;online&quot;: false
+    },
+    &quot;restoration&quot;: {
+      &quot;snapshot_id&quot;: &quot;eee1a29a-0f90-48f3-9839-15e0b8bba1e8&quot;,
+      &quot;before&quot;: {
+        &quot;karma&quot;: 10.0,
+        &quot;item_counter_cache&quot;: {
+          &quot;mined&quot;: {},
+          &quot;sold&quot;: {},
+          &quot;sown&quot;: {},
+          &quot;bought&quot;: {
+            &quot;cheese&quot;: 2
+          },
+          &quot;obtained&quot;: {},
+          &quot;looted&quot;: {},
+          &quot;harvested&quot;: {},
+          &quot;produced&quot;: {}
+        },
+        &quot;def&quot;: 10,
+        &quot;quests&quot;: {},
+        &quot;level&quot;: 5,
+        &quot;atk_xp&quot;: 0,
+        &quot;hp&quot;: 100,
+        &quot;inventory&quot;: [
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;club&quot;,
+            &quot;slot&quot;: &quot;rhand&quot;
+          },
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;leather armor&quot;,
+            &quot;slot&quot;: &quot;armor&quot;
+          }
+        ],
+        &quot;commerce&quot;: {
+          &quot;npc_purchases&quot;: {},
+          &quot;npc_sales&quot;: {},
+          &quot;looted_items&quot;: {
+            &quot;bought.cheese&quot;: &quot;2&quot;
+          }
+        },
+        &quot;keyed&quot;: {
+          &quot;skills&quot;: {},
+          &quot;!kills&quot;: {},
+          &quot;!visited&quot;: {
+            &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+            &quot;int_semos_guard_house&quot;: &quot;1791034032878&quot;
+          },
+          &quot;!tutorial&quot;: {
+            &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+            &quot;first_move&quot;: &quot;1&quot;,
+            &quot;timed_help&quot;: &quot;1&quot;,
+            &quot;timed_password&quot;: &quot;1&quot;,
+            &quot;first_attacked&quot;: &quot;1&quot;,
+            &quot;timed_outfit&quot;: &quot;1&quot;,
+            &quot;timed_rules&quot;: &quot;1&quot;,
+            &quot;first_login&quot;: &quot;1&quot;
+          }
+        },
+        &quot;def_xp&quot;: 0,
+        &quot;slots&quot;: {
+          &quot;bank_kirdneh&quot;: [],
+          &quot;feet&quot;: [],
+          &quot;bag&quot;: [],
+          &quot;bank_deniran&quot;: [],
+          &quot;!ignore&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;5&quot;
+              }
+            }
+          ],
+          &quot;skills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;7&quot;
+              }
+            }
+          ],
+          &quot;head&quot;: [],
+          &quot;bank_nalwor&quot;: [],
+          &quot;bank&quot;: [],
+          &quot;!quests&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;2&quot;
+              }
+            }
+          ],
+          &quot;rhand&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;club&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;rate&quot;: &quot;4&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;club&quot;,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;atk&quot;: &quot;6&quot;,
+                &quot;id&quot;: &quot;747&quot;,
+                &quot;class&quot;: &quot;club&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;legs&quot;: [],
+          &quot;bank_ados&quot;: [],
+          &quot;bank_fado&quot;: [],
+          &quot;spells&quot;: [],
+          &quot;finger&quot;: [],
+          &quot;pouch&quot;: [],
+          &quot;!tutorial&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;first_attacked&quot;: &quot;1&quot;,
+                &quot;id&quot;: &quot;8&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;zaras_chest_ados&quot;: [],
+          &quot;!kills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;745&quot;
+              }
+            }
+          ],
+          &quot;!visited&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;id&quot;: &quot;746&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034032878&quot;
+              }
+            }
+          ],
+          &quot;armor&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;leather armor&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;def&quot;: &quot;6&quot;,
+                &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;leather_armor&quot;,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;id&quot;: &quot;748&quot;,
+                &quot;class&quot;: &quot;armor&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;trade&quot;: [],
+          &quot;cloak&quot;: [],
+          &quot;lhand&quot;: [],
+          &quot;bank_magic&quot;: [],
+          &quot;keyring&quot;: []
+        },
+        &quot;money&quot;: 0,
+        &quot;name&quot;: &quot;qaplayer&quot;,
+        &quot;xp&quot;: 800,
+        &quot;statuses&quot;: [],
+        &quot;atk&quot;: 10,
+        &quot;attributes&quot;: {
+          &quot;def&quot;: &quot;10&quot;,
+          &quot;release&quot;: &quot;1.49&quot;,
+          &quot;hp&quot;: &quot;100&quot;,
+          &quot;def_item&quot;: &quot;6&quot;,
+          &quot;#clientid&quot;: &quot;-1401700099&quot;,
+          &quot;type&quot;: &quot;player&quot;,
+          &quot;base_mana&quot;: &quot;0&quot;,
+          &quot;def_xp&quot;: &quot;0&quot;,
+          &quot;#db_id&quot;: &quot;2&quot;,
+          &quot;outfit&quot;: &quot;0&quot;,
+          &quot;atk&quot;: &quot;10&quot;,
+          &quot;base_hp&quot;: &quot;150&quot;,
+          &quot;id&quot;: &quot;34&quot;,
+          &quot;height&quot;: &quot;1&quot;,
+          &quot;karma&quot;: &quot;10.0&quot;,
+          &quot;visibility&quot;: &quot;100&quot;,
+          &quot;atk_xp&quot;: &quot;0&quot;,
+          &quot;level&quot;: &quot;5&quot;,
+          &quot;resistance&quot;: &quot;100&quot;,
+          &quot;mana&quot;: &quot;0&quot;,
+          &quot;x&quot;: &quot;12&quot;,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;xp&quot;: &quot;800&quot;,
+          &quot;width&quot;: &quot;1&quot;,
+          &quot;y&quot;: &quot;5&quot;,
+          &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+          &quot;atk_item&quot;: &quot;6&quot;,
+          &quot;age&quot;: &quot;71&quot;
+        },
+        &quot;base_hp&quot;: 150
+      },
+      &quot;location_adjusted&quot;: false,
+      &quot;name&quot;: &quot;qaplayer&quot;,
+      &quot;restored&quot;: true,
+      &quot;location&quot;: {
+        &quot;actual&quot;: {
+          &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 11
+        },
+        &quot;reason&quot;: &quot;Exact original position restored&quot;,
+        &quot;requested&quot;: {
+          &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;x&quot;: 13,
+          &quot;y&quot;: 11
+        },
+        &quot;max_manhattan_distance&quot;: 1,
+        &quot;location_adjusted&quot;: false
+      },
+      &quot;after&quot;: {
+        &quot;karma&quot;: 10.0,
+        &quot;item_counter_cache&quot;: {
+          &quot;mined&quot;: {},
+          &quot;sold&quot;: {},
+          &quot;sown&quot;: {},
+          &quot;bought&quot;: {
+            &quot;cheese&quot;: 2
+          },
+          &quot;obtained&quot;: {},
+          &quot;looted&quot;: {},
+          &quot;harvested&quot;: {},
+          &quot;produced&quot;: {}
+        },
+        &quot;def&quot;: 10,
+        &quot;quests&quot;: {},
+        &quot;level&quot;: 0,
+        &quot;atk_xp&quot;: 0,
+        &quot;hp&quot;: 100,
+        &quot;inventory&quot;: [
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;club&quot;,
+            &quot;slot&quot;: &quot;rhand&quot;
+          },
+          {
+            &quot;quantity&quot;: 1,
+            &quot;name&quot;: &quot;leather armor&quot;,
+            &quot;slot&quot;: &quot;armor&quot;
+          }
+        ],
+        &quot;commerce&quot;: {
+          &quot;npc_purchases&quot;: {},
+          &quot;npc_sales&quot;: {},
+          &quot;looted_items&quot;: {
+            &quot;bought.cheese&quot;: &quot;2&quot;
+          }
+        },
+        &quot;keyed&quot;: {
+          &quot;skills&quot;: {},
+          &quot;!kills&quot;: {},
+          &quot;!visited&quot;: {
+            &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+            &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+          },
+          &quot;!tutorial&quot;: {
+            &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+            &quot;first_move&quot;: &quot;1&quot;,
+            &quot;timed_help&quot;: &quot;1&quot;,
+            &quot;timed_password&quot;: &quot;1&quot;,
+            &quot;timed_outfit&quot;: &quot;1&quot;,
+            &quot;timed_rules&quot;: &quot;1&quot;,
+            &quot;first_login&quot;: &quot;1&quot;
+          }
+        },
+        &quot;def_xp&quot;: 0,
+        &quot;slots&quot;: {
+          &quot;bank_kirdneh&quot;: [],
+          &quot;feet&quot;: [],
+          &quot;bag&quot;: [],
+          &quot;bank_deniran&quot;: [],
+          &quot;!ignore&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;5&quot;
+              }
+            }
+          ],
+          &quot;skills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;7&quot;
+              }
+            }
+          ],
+          &quot;head&quot;: [],
+          &quot;bank_nalwor&quot;: [],
+          &quot;bank&quot;: [],
+          &quot;!quests&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;2&quot;
+              }
+            }
+          ],
+          &quot;rhand&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;club&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;rate&quot;: &quot;4&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;club&quot;,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;atk&quot;: &quot;6&quot;,
+                &quot;id&quot;: &quot;749&quot;,
+                &quot;class&quot;: &quot;club&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;legs&quot;: [],
+          &quot;bank_ados&quot;: [],
+          &quot;bank_fado&quot;: [],
+          &quot;spells&quot;: [],
+          &quot;finger&quot;: [],
+          &quot;pouch&quot;: [],
+          &quot;!tutorial&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;id&quot;: &quot;8&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;zaras_chest_ados&quot;: [],
+          &quot;!kills&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;id&quot;: &quot;745&quot;
+              }
+            }
+          ],
+          &quot;!visited&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: null,
+              &quot;attributes&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;id&quot;: &quot;746&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+              }
+            }
+          ],
+          &quot;armor&quot;: [
+            {
+              &quot;slots&quot;: {},
+              &quot;name&quot;: &quot;leather armor&quot;,
+              &quot;attributes&quot;: {
+                &quot;visibility&quot;: &quot;100&quot;,
+                &quot;def&quot;: &quot;6&quot;,
+                &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                &quot;type&quot;: &quot;item&quot;,
+                &quot;resistance&quot;: &quot;0&quot;,
+                &quot;undroppableondeath&quot;: &quot;1&quot;,
+                &quot;x&quot;: &quot;0&quot;,
+                &quot;width&quot;: &quot;1&quot;,
+                &quot;subclass&quot;: &quot;leather_armor&quot;,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;y&quot;: &quot;0&quot;,
+                &quot;id&quot;: &quot;750&quot;,
+                &quot;class&quot;: &quot;armor&quot;,
+                &quot;min_level&quot;: &quot;0&quot;,
+                &quot;height&quot;: &quot;1&quot;
+              }
+            }
+          ],
+          &quot;trade&quot;: [],
+          &quot;cloak&quot;: [],
+          &quot;lhand&quot;: [],
+          &quot;bank_magic&quot;: [],
+          &quot;keyring&quot;: []
+        },
+        &quot;money&quot;: 0,
+        &quot;name&quot;: &quot;qaplayer&quot;,
+        &quot;xp&quot;: 0,
+        &quot;statuses&quot;: [],
+        &quot;atk&quot;: 10,
+        &quot;attributes&quot;: {
+          &quot;def&quot;: &quot;10&quot;,
+          &quot;release&quot;: &quot;1.49&quot;,
+          &quot;hp&quot;: &quot;100&quot;,
+          &quot;def_item&quot;: &quot;6&quot;,
+          &quot;#clientid&quot;: &quot;-1401700099&quot;,
+          &quot;type&quot;: &quot;player&quot;,
+          &quot;dir&quot;: &quot;3&quot;,
+          &quot;base_mana&quot;: &quot;0&quot;,
+          &quot;def_xp&quot;: &quot;0&quot;,
+          &quot;#db_id&quot;: &quot;2&quot;,
+          &quot;outfit&quot;: &quot;0&quot;,
+          &quot;atk&quot;: &quot;10&quot;,
+          &quot;base_hp&quot;: &quot;100&quot;,
+          &quot;id&quot;: &quot;34&quot;,
+          &quot;height&quot;: &quot;1&quot;,
+          &quot;karma&quot;: &quot;10.0&quot;,
+          &quot;visibility&quot;: &quot;100&quot;,
+          &quot;atk_xp&quot;: &quot;0&quot;,
+          &quot;level&quot;: &quot;0&quot;,
+          &quot;resistance&quot;: &quot;100&quot;,
+          &quot;mana&quot;: &quot;0&quot;,
+          &quot;x&quot;: &quot;13&quot;,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;xp&quot;: &quot;0&quot;,
+          &quot;width&quot;: &quot;1&quot;,
+          &quot;y&quot;: &quot;11&quot;,
+          &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+          &quot;atk_item&quot;: &quot;6&quot;,
+          &quot;age&quot;: &quot;71&quot;
+        },
+        &quot;base_hp&quot;: 100
+      },
+      &quot;restored_fields&quot;: [
+        &quot;bag&quot;,
+        &quot;equipment&quot;,
+        &quot;quests&quot;,
+        &quot;xp&quot;,
+        &quot;hp&quot;,
+        &quot;level&quot;,
+        &quot;base_hp&quot;,
+        &quot;karma&quot;,
+        &quot;location&quot;,
+        &quot;npc_purchases&quot;,
+        &quot;npc_sales&quot;,
+        &quot;looted_items&quot;,
+        &quot;item_counter_cache&quot;,
+        &quot;atk_xp&quot;,
+        &quot;def_xp&quot;,
+        &quot;atk&quot;,
+        &quot;def&quot;,
+        &quot;!kills&quot;,
+        &quot;!tutorial&quot;,
+        &quot;!visited&quot;,
+        &quot;skills&quot;
+      ]
+    },
+    &quot;bridge_messages&quot;: [
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034014.053782,
+        &quot;id&quot;: 1,
+        &quot;op&quot;: &quot;connect&quot;,
+        &quot;args&quot;: {
+          &quot;host&quot;: &quot;127.0.0.1&quot;,
+          &quot;port&quot;: 32160
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034014.081592,
+        &quot;id&quot;: 1,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;connected&quot;: true,
+          &quot;host&quot;: &quot;127.0.0.1&quot;,
+          &quot;port&quot;: 32160
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034014.081666,
+        &quot;id&quot;: 2,
+        &quot;op&quot;: &quot;login&quot;,
+        &quot;args&quot;: {
+          &quot;username&quot;: &quot;qaobserver&quot;,
+          &quot;password&quot;: &quot;[redacted]&quot;,
+          &quot;character&quot;: &quot;qaobserver&quot;
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034014.512761,
+        &quot;id&quot;: 2,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;characters&quot;: [
+            &quot;qaobserver&quot;
+          ],
+          &quot;character&quot;: &quot;qaobserver&quot;,
+          &quot;selected&quot;: true
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034014.5128908,
+        &quot;id&quot;: 3,
+        &quot;op&quot;: &quot;prepare&quot;,
+        &quot;args&quot;: {
+          &quot;target&quot;: &quot;qaplayer&quot;,
+          &quot;xp&quot;: 800,
+          &quot;hp&quot;: 100,
+          &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;x&quot;: 12,
+          &quot;y&quot;: 5
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034014.813246,
+        &quot;id&quot;: 3,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;snapshot_id&quot;: &quot;eee1a29a-0f90-48f3-9839-15e0b8bba1e8&quot;,
+          &quot;before&quot;: {
+            &quot;karma&quot;: 10.0,
+            &quot;item_counter_cache&quot;: {
+              &quot;mined&quot;: {},
+              &quot;sold&quot;: {},
+              &quot;sown&quot;: {},
+              &quot;bought&quot;: {
+                &quot;cheese&quot;: 2
+              },
+              &quot;obtained&quot;: {},
+              &quot;looted&quot;: {},
+              &quot;harvested&quot;: {},
+              &quot;produced&quot;: {}
+            },
+            &quot;def&quot;: 10,
+            &quot;quests&quot;: {},
+            &quot;level&quot;: 0,
+            &quot;atk_xp&quot;: 0,
+            &quot;hp&quot;: 100,
+            &quot;inventory&quot;: [
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;slot&quot;: &quot;rhand&quot;
+              },
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;slot&quot;: &quot;armor&quot;
+              }
+            ],
+            &quot;commerce&quot;: {
+              &quot;npc_purchases&quot;: {},
+              &quot;npc_sales&quot;: {},
+              &quot;looted_items&quot;: {
+                &quot;bought.cheese&quot;: &quot;2&quot;
+              }
+            },
+            &quot;keyed&quot;: {
+              &quot;skills&quot;: {},
+              &quot;!kills&quot;: {},
+              &quot;!visited&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+              },
+              &quot;!tutorial&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            },
+            &quot;def_xp&quot;: 0,
+            &quot;slots&quot;: {
+              &quot;bank_kirdneh&quot;: [],
+              &quot;feet&quot;: [],
+              &quot;bag&quot;: [],
+              &quot;bank_deniran&quot;: [],
+              &quot;!ignore&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;5&quot;
+                  }
+                }
+              ],
+              &quot;skills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;7&quot;
+                  }
+                }
+              ],
+              &quot;head&quot;: [],
+              &quot;bank_nalwor&quot;: [],
+              &quot;bank&quot;: [],
+              &quot;!quests&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;2&quot;
+                  }
+                }
+              ],
+              &quot;rhand&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;club&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;rate&quot;: &quot;4&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;club&quot;,
+                    &quot;name&quot;: &quot;club&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;atk&quot;: &quot;6&quot;,
+                    &quot;id&quot;: &quot;742&quot;,
+                    &quot;class&quot;: &quot;club&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;legs&quot;: [],
+              &quot;bank_ados&quot;: [],
+              &quot;bank_fado&quot;: [],
+              &quot;spells&quot;: [],
+              &quot;finger&quot;: [],
+              &quot;pouch&quot;: [],
+              &quot;!tutorial&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                    &quot;first_move&quot;: &quot;1&quot;,
+                    &quot;timed_help&quot;: &quot;1&quot;,
+                    &quot;timed_password&quot;: &quot;1&quot;,
+                    &quot;id&quot;: &quot;8&quot;,
+                    &quot;timed_outfit&quot;: &quot;1&quot;,
+                    &quot;timed_rules&quot;: &quot;1&quot;,
+                    &quot;first_login&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;zaras_chest_ados&quot;: [],
+              &quot;!kills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;740&quot;
+                  }
+                }
+              ],
+              &quot;!visited&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                    &quot;id&quot;: &quot;741&quot;,
+                    &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+                  }
+                }
+              ],
+              &quot;armor&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;leather armor&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;def&quot;: &quot;6&quot;,
+                    &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;leather_armor&quot;,
+                    &quot;name&quot;: &quot;leather armor&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;id&quot;: &quot;743&quot;,
+                    &quot;class&quot;: &quot;armor&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;trade&quot;: [],
+              &quot;cloak&quot;: [],
+              &quot;lhand&quot;: [],
+              &quot;bank_magic&quot;: [],
+              &quot;keyring&quot;: []
+            },
+            &quot;money&quot;: 0,
+            &quot;name&quot;: &quot;qaplayer&quot;,
+            &quot;xp&quot;: 0,
+            &quot;statuses&quot;: [],
+            &quot;atk&quot;: 10,
+            &quot;attributes&quot;: {
+              &quot;def&quot;: &quot;10&quot;,
+              &quot;release&quot;: &quot;1.49&quot;,
+              &quot;hp&quot;: &quot;100&quot;,
+              &quot;def_item&quot;: &quot;6&quot;,
+              &quot;#clientid&quot;: &quot;-628319399&quot;,
+              &quot;type&quot;: &quot;player&quot;,
+              &quot;base_mana&quot;: &quot;0&quot;,
+              &quot;def_xp&quot;: &quot;0&quot;,
+              &quot;#db_id&quot;: &quot;2&quot;,
+              &quot;outfit&quot;: &quot;0&quot;,
+              &quot;atk&quot;: &quot;10&quot;,
+              &quot;base_hp&quot;: &quot;100&quot;,
+              &quot;id&quot;: &quot;30&quot;,
+              &quot;height&quot;: &quot;1&quot;,
+              &quot;karma&quot;: &quot;10.0&quot;,
+              &quot;visibility&quot;: &quot;100&quot;,
+              &quot;atk_xp&quot;: &quot;0&quot;,
+              &quot;level&quot;: &quot;0&quot;,
+              &quot;resistance&quot;: &quot;100&quot;,
+              &quot;mana&quot;: &quot;0&quot;,
+              &quot;x&quot;: &quot;13&quot;,
+              &quot;name&quot;: &quot;qaplayer&quot;,
+              &quot;xp&quot;: &quot;0&quot;,
+              &quot;width&quot;: &quot;1&quot;,
+              &quot;y&quot;: &quot;11&quot;,
+              &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+              &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+              &quot;atk_item&quot;: &quot;6&quot;,
+              &quot;age&quot;: &quot;70&quot;
+            },
+            &quot;base_hp&quot;: 100
+          },
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;restorable_fields&quot;: [
+            &quot;bag&quot;,
+            &quot;equipment&quot;,
+            &quot;quests&quot;,
+            &quot;xp&quot;,
+            &quot;hp&quot;,
+            &quot;level&quot;,
+            &quot;base_hp&quot;,
+            &quot;karma&quot;,
+            &quot;location&quot;,
+            &quot;npc_purchases&quot;,
+            &quot;npc_sales&quot;,
+            &quot;looted_items&quot;,
+            &quot;item_counter_cache&quot;,
+            &quot;atk_xp&quot;,
+            &quot;def_xp&quot;,
+            &quot;atk&quot;,
+            &quot;def&quot;,
+            &quot;!kills&quot;,
+            &quot;!tutorial&quot;,
+            &quot;!visited&quot;,
+            &quot;skills&quot;
+          ],
+          &quot;after&quot;: {
+            &quot;karma&quot;: 10.0,
+            &quot;item_counter_cache&quot;: {
+              &quot;mined&quot;: {},
+              &quot;sold&quot;: {},
+              &quot;sown&quot;: {},
+              &quot;bought&quot;: {
+                &quot;cheese&quot;: 2
+              },
+              &quot;obtained&quot;: {},
+              &quot;looted&quot;: {},
+              &quot;harvested&quot;: {},
+              &quot;produced&quot;: {}
+            },
+            &quot;def&quot;: 10,
+            &quot;quests&quot;: {},
+            &quot;level&quot;: 5,
+            &quot;atk_xp&quot;: 0,
+            &quot;hp&quot;: 100,
+            &quot;inventory&quot;: [
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;slot&quot;: &quot;rhand&quot;
+              },
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;slot&quot;: &quot;armor&quot;
+              }
+            ],
+            &quot;commerce&quot;: {
+              &quot;npc_purchases&quot;: {},
+              &quot;npc_sales&quot;: {},
+              &quot;looted_items&quot;: {
+                &quot;bought.cheese&quot;: &quot;2&quot;
+              }
+            },
+            &quot;keyed&quot;: {
+              &quot;skills&quot;: {},
+              &quot;!kills&quot;: {},
+              &quot;!visited&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+              },
+              &quot;!tutorial&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            },
+            &quot;def_xp&quot;: 0,
+            &quot;slots&quot;: {
+              &quot;bank_kirdneh&quot;: [],
+              &quot;feet&quot;: [],
+              &quot;bag&quot;: [],
+              &quot;bank_deniran&quot;: [],
+              &quot;!ignore&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;5&quot;
+                  }
+                }
+              ],
+              &quot;skills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;7&quot;
+                  }
+                }
+              ],
+              &quot;head&quot;: [],
+              &quot;bank_nalwor&quot;: [],
+              &quot;bank&quot;: [],
+              &quot;!quests&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;2&quot;
+                  }
+                }
+              ],
+              &quot;rhand&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;club&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;rate&quot;: &quot;4&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;club&quot;,
+                    &quot;name&quot;: &quot;club&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;atk&quot;: &quot;6&quot;,
+                    &quot;id&quot;: &quot;742&quot;,
+                    &quot;class&quot;: &quot;club&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;legs&quot;: [],
+              &quot;bank_ados&quot;: [],
+              &quot;bank_fado&quot;: [],
+              &quot;spells&quot;: [],
+              &quot;finger&quot;: [],
+              &quot;pouch&quot;: [],
+              &quot;!tutorial&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                    &quot;first_move&quot;: &quot;1&quot;,
+                    &quot;timed_help&quot;: &quot;1&quot;,
+                    &quot;timed_password&quot;: &quot;1&quot;,
+                    &quot;id&quot;: &quot;8&quot;,
+                    &quot;timed_outfit&quot;: &quot;1&quot;,
+                    &quot;timed_rules&quot;: &quot;1&quot;,
+                    &quot;first_login&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;zaras_chest_ados&quot;: [],
+              &quot;!kills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;740&quot;
+                  }
+                }
+              ],
+              &quot;!visited&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                    &quot;id&quot;: &quot;741&quot;,
+                    &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+                  }
+                }
+              ],
+              &quot;armor&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;leather armor&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;def&quot;: &quot;6&quot;,
+                    &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;leather_armor&quot;,
+                    &quot;name&quot;: &quot;leather armor&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;id&quot;: &quot;743&quot;,
+                    &quot;class&quot;: &quot;armor&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;trade&quot;: [],
+              &quot;cloak&quot;: [],
+              &quot;lhand&quot;: [],
+              &quot;bank_magic&quot;: [],
+              &quot;keyring&quot;: []
+            },
+            &quot;money&quot;: 0,
+            &quot;name&quot;: &quot;qaplayer&quot;,
+            &quot;xp&quot;: 800,
+            &quot;statuses&quot;: [],
+            &quot;atk&quot;: 10,
+            &quot;attributes&quot;: {
+              &quot;def&quot;: &quot;10&quot;,
+              &quot;release&quot;: &quot;1.49&quot;,
+              &quot;hp&quot;: &quot;100&quot;,
+              &quot;def_item&quot;: &quot;6&quot;,
+              &quot;#clientid&quot;: &quot;-628319399&quot;,
+              &quot;type&quot;: &quot;player&quot;,
+              &quot;dir&quot;: &quot;3&quot;,
+              &quot;base_mana&quot;: &quot;0&quot;,
+              &quot;def_xp&quot;: &quot;0&quot;,
+              &quot;#db_id&quot;: &quot;2&quot;,
+              &quot;outfit&quot;: &quot;0&quot;,
+              &quot;atk&quot;: &quot;10&quot;,
+              &quot;base_hp&quot;: &quot;150&quot;,
+              &quot;id&quot;: &quot;30&quot;,
+              &quot;height&quot;: &quot;1&quot;,
+              &quot;karma&quot;: &quot;10.0&quot;,
+              &quot;visibility&quot;: &quot;100&quot;,
+              &quot;atk_xp&quot;: &quot;0&quot;,
+              &quot;level&quot;: &quot;5&quot;,
+              &quot;resistance&quot;: &quot;100&quot;,
+              &quot;mana&quot;: &quot;0&quot;,
+              &quot;x&quot;: &quot;12&quot;,
+              &quot;name&quot;: &quot;qaplayer&quot;,
+              &quot;xp&quot;: &quot;800&quot;,
+              &quot;width&quot;: &quot;1&quot;,
+              &quot;y&quot;: &quot;5&quot;,
+              &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+              &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+              &quot;atk_item&quot;: &quot;6&quot;,
+              &quot;age&quot;: &quot;70&quot;
+            },
+            &quot;base_hp&quot;: 150
+          }
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034014.819784,
+        &quot;id&quot;: 4,
+        &quot;op&quot;: &quot;combat_prepare&quot;,
+        &quot;args&quot;: {
+          &quot;target&quot;: &quot;qaplayer&quot;
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034015.089901,
+        &quot;id&quot;: 4,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;fixture_id&quot;: &quot;49dbe8b9-7533-45e0-9885-3d9997844042&quot;,
+          &quot;rat&quot;: {
+            &quot;visibility&quot;: &quot;100&quot;,
+            &quot;def&quot;: &quot;3&quot;,
+            &quot;level&quot;: &quot;0&quot;,
+            &quot;hp&quot;: &quot;20&quot;,
+            &quot;def_item&quot;: &quot;0&quot;,
+            &quot;description&quot;: &quot;You see a small rat that seems to be extremely hungry.&quot;,
+            &quot;type&quot;: &quot;creature&quot;,
+            &quot;title_type&quot;: &quot;enemy&quot;,
+            &quot;resistance&quot;: &quot;100&quot;,
+            &quot;ratk&quot;: &quot;0&quot;,
+            &quot;x&quot;: &quot;15&quot;,
+            &quot;width&quot;: &quot;1&quot;,
+            &quot;subclass&quot;: &quot;rat&quot;,
+            &quot;xp&quot;: &quot;100&quot;,
+            &quot;name&quot;: &quot;rat&quot;,
+            &quot;y&quot;: &quot;5&quot;,
+            &quot;atk&quot;: &quot;8&quot;,
+            &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+            &quot;base_hp&quot;: &quot;20&quot;,
+            &quot;id&quot;: &quot;32&quot;,
+            &quot;class&quot;: &quot;rodent&quot;,
+            &quot;atk_item&quot;: &quot;5&quot;,
+            &quot;height&quot;: &quot;1&quot;
+          },
+          &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;rat_present&quot;: true,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;corpse_present&quot;: false,
+          &quot;corpse&quot;: null
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034018.394242,
+        &quot;id&quot;: 5,
+        &quot;op&quot;: &quot;presence&quot;,
+        &quot;args&quot;: {
+          &quot;target&quot;: &quot;qaplayer&quot;
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034018.460046,
+        &quot;id&quot;: 5,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;online&quot;: false
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034018.4602702,
+        &quot;id&quot;: 6,
+        &quot;op&quot;: &quot;presence&quot;,
+        &quot;args&quot;: {
+          &quot;target&quot;: &quot;qaplayer&quot;
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034018.790805,
+        &quot;id&quot;: 6,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;online&quot;: false
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034036.993014,
+        &quot;id&quot;: 7,
+        &quot;op&quot;: &quot;presence&quot;,
+        &quot;args&quot;: {
+          &quot;target&quot;: &quot;qaplayer&quot;
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034037.294344,
+        &quot;id&quot;: 7,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;online&quot;: true
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034037.294455,
+        &quot;id&quot;: 8,
+        &quot;op&quot;: &quot;combat_cleanup&quot;,
+        &quot;args&quot;: {
+          &quot;target&quot;: &quot;qaplayer&quot;,
+          &quot;fixture_id&quot;: &quot;49dbe8b9-7533-45e0-9885-3d9997844042&quot;
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034037.6287649,
+        &quot;id&quot;: 8,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;fixture_id&quot;: &quot;49dbe8b9-7533-45e0-9885-3d9997844042&quot;,
+          &quot;rat&quot;: {
+            &quot;def&quot;: &quot;3&quot;,
+            &quot;hp&quot;: &quot;20&quot;,
+            &quot;def_item&quot;: &quot;0&quot;,
+            &quot;description&quot;: &quot;You see a small rat that seems to be extremely hungry.&quot;,
+            &quot;type&quot;: &quot;creature&quot;,
+            &quot;dir&quot;: &quot;4&quot;,
+            &quot;title_type&quot;: &quot;enemy&quot;,
+            &quot;speed&quot;: &quot;0.0&quot;,
+            &quot;ratk&quot;: &quot;0&quot;,
+            &quot;atk&quot;: &quot;8&quot;,
+            &quot;base_hp&quot;: &quot;20&quot;,
+            &quot;id&quot;: &quot;32&quot;,
+            &quot;class&quot;: &quot;rodent&quot;,
+            &quot;height&quot;: &quot;1&quot;,
+            &quot;visibility&quot;: &quot;100&quot;,
+            &quot;level&quot;: &quot;0&quot;,
+            &quot;resistance&quot;: &quot;100&quot;,
+            &quot;x&quot;: &quot;9&quot;,
+            &quot;width&quot;: &quot;1&quot;,
+            &quot;subclass&quot;: &quot;rat&quot;,
+            &quot;xp&quot;: &quot;100&quot;,
+            &quot;name&quot;: &quot;rat&quot;,
+            &quot;y&quot;: &quot;12&quot;,
+            &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+            &quot;atk_item&quot;: &quot;5&quot;
+          },
+          &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+          &quot;rat_present&quot;: false,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;corpse_present&quot;: false,
+          &quot;corpse&quot;: null
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;request&quot;,
+        &quot;time&quot;: 1791034037.629867,
+        &quot;id&quot;: 9,
+        &quot;op&quot;: &quot;restore&quot;,
+        &quot;args&quot;: {
+          &quot;target&quot;: &quot;qaplayer&quot;,
+          &quot;snapshot_id&quot;: &quot;eee1a29a-0f90-48f3-9839-15e0b8bba1e8&quot;
+        }
+      },
+      {
+        &quot;direction&quot;: &quot;response&quot;,
+        &quot;time&quot;: 1791034037.929539,
+        &quot;id&quot;: 9,
+        &quot;ok&quot;: true,
+        &quot;result&quot;: {
+          &quot;snapshot_id&quot;: &quot;eee1a29a-0f90-48f3-9839-15e0b8bba1e8&quot;,
+          &quot;before&quot;: {
+            &quot;karma&quot;: 10.0,
+            &quot;item_counter_cache&quot;: {
+              &quot;mined&quot;: {},
+              &quot;sold&quot;: {},
+              &quot;sown&quot;: {},
+              &quot;bought&quot;: {
+                &quot;cheese&quot;: 2
+              },
+              &quot;obtained&quot;: {},
+              &quot;looted&quot;: {},
+              &quot;harvested&quot;: {},
+              &quot;produced&quot;: {}
+            },
+            &quot;def&quot;: 10,
+            &quot;quests&quot;: {},
+            &quot;level&quot;: 5,
+            &quot;atk_xp&quot;: 0,
+            &quot;hp&quot;: 100,
+            &quot;inventory&quot;: [
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;slot&quot;: &quot;rhand&quot;
+              },
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;slot&quot;: &quot;armor&quot;
+              }
+            ],
+            &quot;commerce&quot;: {
+              &quot;npc_purchases&quot;: {},
+              &quot;npc_sales&quot;: {},
+              &quot;looted_items&quot;: {
+                &quot;bought.cheese&quot;: &quot;2&quot;
+              }
+            },
+            &quot;keyed&quot;: {
+              &quot;skills&quot;: {},
+              &quot;!kills&quot;: {},
+              &quot;!visited&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034032878&quot;
+              },
+              &quot;!tutorial&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;first_attacked&quot;: &quot;1&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            },
+            &quot;def_xp&quot;: 0,
+            &quot;slots&quot;: {
+              &quot;bank_kirdneh&quot;: [],
+              &quot;feet&quot;: [],
+              &quot;bag&quot;: [],
+              &quot;bank_deniran&quot;: [],
+              &quot;!ignore&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;5&quot;
+                  }
+                }
+              ],
+              &quot;skills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;7&quot;
+                  }
+                }
+              ],
+              &quot;head&quot;: [],
+              &quot;bank_nalwor&quot;: [],
+              &quot;bank&quot;: [],
+              &quot;!quests&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;2&quot;
+                  }
+                }
+              ],
+              &quot;rhand&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;club&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;rate&quot;: &quot;4&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;club&quot;,
+                    &quot;name&quot;: &quot;club&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;atk&quot;: &quot;6&quot;,
+                    &quot;id&quot;: &quot;747&quot;,
+                    &quot;class&quot;: &quot;club&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;legs&quot;: [],
+              &quot;bank_ados&quot;: [],
+              &quot;bank_fado&quot;: [],
+              &quot;spells&quot;: [],
+              &quot;finger&quot;: [],
+              &quot;pouch&quot;: [],
+              &quot;!tutorial&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                    &quot;first_move&quot;: &quot;1&quot;,
+                    &quot;timed_help&quot;: &quot;1&quot;,
+                    &quot;timed_password&quot;: &quot;1&quot;,
+                    &quot;first_attacked&quot;: &quot;1&quot;,
+                    &quot;id&quot;: &quot;8&quot;,
+                    &quot;timed_outfit&quot;: &quot;1&quot;,
+                    &quot;timed_rules&quot;: &quot;1&quot;,
+                    &quot;first_login&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;zaras_chest_ados&quot;: [],
+              &quot;!kills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;745&quot;
+                  }
+                }
+              ],
+              &quot;!visited&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                    &quot;id&quot;: &quot;746&quot;,
+                    &quot;int_semos_guard_house&quot;: &quot;1791034032878&quot;
+                  }
+                }
+              ],
+              &quot;armor&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;leather armor&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;def&quot;: &quot;6&quot;,
+                    &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;leather_armor&quot;,
+                    &quot;name&quot;: &quot;leather armor&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;id&quot;: &quot;748&quot;,
+                    &quot;class&quot;: &quot;armor&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;trade&quot;: [],
+              &quot;cloak&quot;: [],
+              &quot;lhand&quot;: [],
+              &quot;bank_magic&quot;: [],
+              &quot;keyring&quot;: []
+            },
+            &quot;money&quot;: 0,
+            &quot;name&quot;: &quot;qaplayer&quot;,
+            &quot;xp&quot;: 800,
+            &quot;statuses&quot;: [],
+            &quot;atk&quot;: 10,
+            &quot;attributes&quot;: {
+              &quot;def&quot;: &quot;10&quot;,
+              &quot;release&quot;: &quot;1.49&quot;,
+              &quot;hp&quot;: &quot;100&quot;,
+              &quot;def_item&quot;: &quot;6&quot;,
+              &quot;#clientid&quot;: &quot;-1401700099&quot;,
+              &quot;type&quot;: &quot;player&quot;,
+              &quot;base_mana&quot;: &quot;0&quot;,
+              &quot;def_xp&quot;: &quot;0&quot;,
+              &quot;#db_id&quot;: &quot;2&quot;,
+              &quot;outfit&quot;: &quot;0&quot;,
+              &quot;atk&quot;: &quot;10&quot;,
+              &quot;base_hp&quot;: &quot;150&quot;,
+              &quot;id&quot;: &quot;34&quot;,
+              &quot;height&quot;: &quot;1&quot;,
+              &quot;karma&quot;: &quot;10.0&quot;,
+              &quot;visibility&quot;: &quot;100&quot;,
+              &quot;atk_xp&quot;: &quot;0&quot;,
+              &quot;level&quot;: &quot;5&quot;,
+              &quot;resistance&quot;: &quot;100&quot;,
+              &quot;mana&quot;: &quot;0&quot;,
+              &quot;x&quot;: &quot;12&quot;,
+              &quot;name&quot;: &quot;qaplayer&quot;,
+              &quot;xp&quot;: &quot;800&quot;,
+              &quot;width&quot;: &quot;1&quot;,
+              &quot;y&quot;: &quot;5&quot;,
+              &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+              &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+              &quot;atk_item&quot;: &quot;6&quot;,
+              &quot;age&quot;: &quot;71&quot;
+            },
+            &quot;base_hp&quot;: 150
+          },
+          &quot;location_adjusted&quot;: false,
+          &quot;name&quot;: &quot;qaplayer&quot;,
+          &quot;restored&quot;: true,
+          &quot;location&quot;: {
+            &quot;actual&quot;: {
+              &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+              &quot;x&quot;: 13,
+              &quot;y&quot;: 11
+            },
+            &quot;reason&quot;: &quot;Exact original position restored&quot;,
+            &quot;requested&quot;: {
+              &quot;zone&quot;: &quot;int_semos_guard_house&quot;,
+              &quot;x&quot;: 13,
+              &quot;y&quot;: 11
+            },
+            &quot;max_manhattan_distance&quot;: 1,
+            &quot;location_adjusted&quot;: false
+          },
+          &quot;after&quot;: {
+            &quot;karma&quot;: 10.0,
+            &quot;item_counter_cache&quot;: {
+              &quot;mined&quot;: {},
+              &quot;sold&quot;: {},
+              &quot;sown&quot;: {},
+              &quot;bought&quot;: {
+                &quot;cheese&quot;: 2
+              },
+              &quot;obtained&quot;: {},
+              &quot;looted&quot;: {},
+              &quot;harvested&quot;: {},
+              &quot;produced&quot;: {}
+            },
+            &quot;def&quot;: 10,
+            &quot;quests&quot;: {},
+            &quot;level&quot;: 0,
+            &quot;atk_xp&quot;: 0,
+            &quot;hp&quot;: 100,
+            &quot;inventory&quot;: [
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;club&quot;,
+                &quot;slot&quot;: &quot;rhand&quot;
+              },
+              {
+                &quot;quantity&quot;: 1,
+                &quot;name&quot;: &quot;leather armor&quot;,
+                &quot;slot&quot;: &quot;armor&quot;
+              }
+            ],
+            &quot;commerce&quot;: {
+              &quot;npc_purchases&quot;: {},
+              &quot;npc_sales&quot;: {},
+              &quot;looted_items&quot;: {
+                &quot;bought.cheese&quot;: &quot;2&quot;
+              }
+            },
+            &quot;keyed&quot;: {
+              &quot;skills&quot;: {},
+              &quot;!kills&quot;: {},
+              &quot;!visited&quot;: {
+                &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+              },
+              &quot;!tutorial&quot;: {
+                &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                &quot;first_move&quot;: &quot;1&quot;,
+                &quot;timed_help&quot;: &quot;1&quot;,
+                &quot;timed_password&quot;: &quot;1&quot;,
+                &quot;timed_outfit&quot;: &quot;1&quot;,
+                &quot;timed_rules&quot;: &quot;1&quot;,
+                &quot;first_login&quot;: &quot;1&quot;
+              }
+            },
+            &quot;def_xp&quot;: 0,
+            &quot;slots&quot;: {
+              &quot;bank_kirdneh&quot;: [],
+              &quot;feet&quot;: [],
+              &quot;bag&quot;: [],
+              &quot;bank_deniran&quot;: [],
+              &quot;!ignore&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;5&quot;
+                  }
+                }
+              ],
+              &quot;skills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;7&quot;
+                  }
+                }
+              ],
+              &quot;head&quot;: [],
+              &quot;bank_nalwor&quot;: [],
+              &quot;bank&quot;: [],
+              &quot;!quests&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;2&quot;
+                  }
+                }
+              ],
+              &quot;rhand&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;club&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;description&quot;: &quot;You see a wooden club. It won&#x27;t kill much but is better than no weapon.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;rate&quot;: &quot;4&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;club&quot;,
+                    &quot;name&quot;: &quot;club&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;atk&quot;: &quot;6&quot;,
+                    &quot;id&quot;: &quot;749&quot;,
+                    &quot;class&quot;: &quot;club&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;legs&quot;: [],
+              &quot;bank_ados&quot;: [],
+              &quot;bank_fado&quot;: [],
+              &quot;spells&quot;: [],
+              &quot;finger&quot;: [],
+              &quot;pouch&quot;: [],
+              &quot;!tutorial&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;visit_semos_tavern&quot;: &quot;1&quot;,
+                    &quot;first_move&quot;: &quot;1&quot;,
+                    &quot;timed_help&quot;: &quot;1&quot;,
+                    &quot;timed_password&quot;: &quot;1&quot;,
+                    &quot;id&quot;: &quot;8&quot;,
+                    &quot;timed_outfit&quot;: &quot;1&quot;,
+                    &quot;timed_rules&quot;: &quot;1&quot;,
+                    &quot;first_login&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;zaras_chest_ados&quot;: [],
+              &quot;!kills&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;id&quot;: &quot;745&quot;
+                  }
+                }
+              ],
+              &quot;!visited&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: null,
+                  &quot;attributes&quot;: {
+                    &quot;int_semos_tavern_0&quot;: &quot;1790958829190&quot;,
+                    &quot;id&quot;: &quot;746&quot;,
+                    &quot;int_semos_guard_house&quot;: &quot;1791034010091&quot;
+                  }
+                }
+              ],
+              &quot;armor&quot;: [
+                {
+                  &quot;slots&quot;: {},
+                  &quot;name&quot;: &quot;leather armor&quot;,
+                  &quot;attributes&quot;: {
+                    &quot;visibility&quot;: &quot;100&quot;,
+                    &quot;def&quot;: &quot;6&quot;,
+                    &quot;description&quot;: &quot;You see a worn suit of leather armor. It will provide only minimal protection.&quot;,
+                    &quot;type&quot;: &quot;item&quot;,
+                    &quot;resistance&quot;: &quot;0&quot;,
+                    &quot;undroppableondeath&quot;: &quot;1&quot;,
+                    &quot;x&quot;: &quot;0&quot;,
+                    &quot;width&quot;: &quot;1&quot;,
+                    &quot;subclass&quot;: &quot;leather_armor&quot;,
+                    &quot;name&quot;: &quot;leather armor&quot;,
+                    &quot;y&quot;: &quot;0&quot;,
+                    &quot;id&quot;: &quot;750&quot;,
+                    &quot;class&quot;: &quot;armor&quot;,
+                    &quot;min_level&quot;: &quot;0&quot;,
+                    &quot;height&quot;: &quot;1&quot;
+                  }
+                }
+              ],
+              &quot;trade&quot;: [],
+              &quot;cloak&quot;: [],
+              &quot;lhand&quot;: [],
+              &quot;bank_magic&quot;: [],
+              &quot;keyring&quot;: []
+            },
+            &quot;money&quot;: 0,
+            &quot;name&quot;: &quot;qaplayer&quot;,
+            &quot;xp&quot;: 0,
+            &quot;statuses&quot;: [],
+            &quot;atk&quot;: 10,
+            &quot;attributes&quot;: {
+              &quot;def&quot;: &quot;10&quot;,
+              &quot;release&quot;: &quot;1.49&quot;,
+              &quot;hp&quot;: &quot;100&quot;,
+              &quot;def_item&quot;: &quot;6&quot;,
+              &quot;#clientid&quot;: &quot;-1401700099&quot;,
+              &quot;type&quot;: &quot;player&quot;,
+              &quot;dir&quot;: &quot;3&quot;,
+              &quot;base_mana&quot;: &quot;0&quot;,
+              &quot;def_xp&quot;: &quot;0&quot;,
+              &quot;#db_id&quot;: &quot;2&quot;,
+              &quot;outfit&quot;: &quot;0&quot;,
+              &quot;atk&quot;: &quot;10&quot;,
+              &quot;base_hp&quot;: &quot;100&quot;,
+              &quot;id&quot;: &quot;34&quot;,
+              &quot;height&quot;: &quot;1&quot;,
+              &quot;karma&quot;: &quot;10.0&quot;,
+              &quot;visibility&quot;: &quot;100&quot;,
+              &quot;atk_xp&quot;: &quot;0&quot;,
+              &quot;level&quot;: &quot;0&quot;,
+              &quot;resistance&quot;: &quot;100&quot;,
+              &quot;mana&quot;: &quot;0&quot;,
+              &quot;x&quot;: &quot;13&quot;,
+              &quot;name&quot;: &quot;qaplayer&quot;,
+              &quot;xp&quot;: &quot;0&quot;,
+              &quot;width&quot;: &quot;1&quot;,
+              &quot;y&quot;: &quot;11&quot;,
+              &quot;zoneid&quot;: &quot;int_semos_guard_house&quot;,
+              &quot;outfit_ext&quot;: &quot;body=0,dress=12,head=0,mouth=4,eyes=26,mask=0,hair=29,hat=0,detail=0&quot;,
+              &quot;atk_item&quot;: &quot;6&quot;,
+              &quot;age&quot;: &quot;71&quot;
+            },
+            &quot;base_hp&quot;: 100
+          },
+          &quot;restored_fields&quot;: [
+            &quot;bag&quot;,
+            &quot;equipment&quot;,
+            &quot;quests&quot;,
+            &quot;xp&quot;,
+            &quot;hp&quot;,
+            &quot;level&quot;,
+            &quot;base_hp&quot;,
+            &quot;karma&quot;,
+            &quot;location&quot;,
+            &quot;npc_purchases&quot;,
+            &quot;npc_sales&quot;,
+            &quot;looted_items&quot;,
+            &quot;item_counter_cache&quot;,
+            &quot;atk_xp&quot;,
+            &quot;def_xp&quot;,
+            &quot;atk&quot;,
+            &quot;def&quot;,
+            &quot;!kills&quot;,
+            &quot;!tutorial&quot;,
+            &quot;!visited&quot;,
+            &quot;skills&quot;
+          ]
+        }
+      }
+    ]
+  },
+  &quot;started&quot;: 1791033993.892302,
+  &quot;finished&quot;: 1791034041.107108
+}</pre></details></article></html>

@@ -1,0 +1,54 @@
+"""Serial, alternating before/after measurements of one real purchase case."""
+import hashlib
+import json
+import os
+from pathlib import Path
+import statistics
+import subprocess
+import sys
+import time
+
+work = Path(__file__).resolve().parent
+project = work.parents[1] / 'outputs/airtest-game-qa'
+sources = {'before': work / 'before', 'after': project}
+root = project / 'reports/ponytail-live-ab'
+rows = []
+orders = [('before', 'after')] + [
+    ('before', 'after') if index % 2 else ('after', 'before') for index in range(1, 6)]
+for pair, order in enumerate(orders):
+    for variant in order:
+        source = sources[variant]
+        folder = root / f'{pair:02d}-{variant}'
+        environment = dict(os.environ, PYTHONPATH=str(source / 'src'))
+        command = [sys.executable, '-m', 'gameqa', 'run', '--project', str(source),
+                   '--case', 'ST-SHOP-API-001', '--rounds', '1',
+                   '--experiment', f'ponytail-ab-{pair}-{variant}', '--report-dir', str(folder)]
+        started = time.perf_counter()
+        process = subprocess.run(command, cwd=source, env=environment,
+                                 capture_output=True, text=True)
+        elapsed = time.perf_counter() - started
+        (work / f'live-{pair:02d}-{variant}.log').write_text(process.stdout + process.stderr)
+        assert process.returncode == 0, f'{variant} pair {pair} failed; see private log'
+        summary = json.loads((folder / 'summary.json').read_text())
+        report = json.loads((folder / 'round-01/report.json').read_text())
+        case = report['cases'][0]
+        assert summary['consistent'] and summary['all_passed']
+        assert case['phases'] == {'setup': 'passed', 'call': 'passed', 'teardown': 'passed'}
+        assert not case['unstable'] and case['diagnostics']['restoration']['restored']
+        rows.append({'pair': pair, 'variant': variant, 'warmup': pair == 0,
+                     'elapsed_seconds': elapsed, 'outcome': case['outcome'],
+                     'restored': True, 'unstable': False, 'phases': case['phases'],
+                     'report': str(folder.relative_to(project)),
+                     'source_sha256': {name: hashlib.sha256((source / 'src/gameqa' / name).read_bytes()).hexdigest()
+                                       for name in ('bridge.py', 'evidence.py')}})
+        (work / 'live-progress.json').write_text(json.dumps(rows, indent=2) + '\n')
+        print(f'pair={pair} {variant}: {elapsed:.3f}s passed/restored', flush=True)
+samples = {variant: [row['elapsed_seconds'] for row in rows
+                     if row['variant'] == variant and not row['warmup']] for variant in sources}
+medians = {variant: statistics.median(values) for variant, values in samples.items()}
+result = {'case': 'ST-SHOP-API-001', 'method': 'serial alternating AB/BA, one warmup per version, five measurements per version',
+          'scope': 'CLI wall time including process startup, preparation, real purchase, restore and reports; same local server',
+          'samples': rows, 'median_seconds': medians,
+          'elapsed_reduction_percent': 100 * (medians['before'] - medians['after']) / medians['before']}
+(work / 'live-performance.json').write_text(json.dumps(result, indent=2) + '\n')
+print(json.dumps({'median_seconds': medians, 'elapsed_reduction_percent': result['elapsed_reduction_percent']}), flush=True)

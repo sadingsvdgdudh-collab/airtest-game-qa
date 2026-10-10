@@ -1,0 +1,267 @@
+{
+  "captured_utc": "2026-10-02T22:24:26.240213+00:00",
+  "game_source_commit": "cbe0825e9b46f2a8adf9adce8c5747ece13b17a0",
+  "experiment": "batch1-expanded-baseline",
+  "files": [
+    {
+      "path": "adapters/shardy_bridge/README.md",
+      "sha256": "77159f217da58e0a2c07126efdeb74446585d3f2cb4d215a6aaabe9a2ca1da81"
+    },
+    {
+      "path": "adapters/shardy_bridge/UPSTREAM-LICENSE",
+      "sha256": "6882c0a26d09ade7d0dfdcea766ffd867074abdabd60ce0a70f2054d9ff6ccd8"
+    },
+    {
+      "path": "adapters/shardy_bridge/bridge.mjs",
+      "sha256": "2072e7e6f96cbf4bde832b743bebe1c9b6704be11f8e9f5da1df4c7bae3d0e85"
+    },
+    {
+      "path": "adapters/shardy_bridge/check_live.py",
+      "sha256": "4d6cbd4eb2b2c14c5a69c12f29b60e1bac96dff406d0316b0a49f9cb6b400826"
+    },
+    {
+      "path": "adapters/shardy_bridge/pnpm-lock.yaml",
+      "sha256": "b1ce73d0962e5ff3bc39508793eb5c24919dfc6076c6bd78bc5b9c74a905fb0f"
+    },
+    {
+      "path": "adapters/shardy_bridge/prepare.sh",
+      "sha256": "f38cf5f03b78296cb318627a83c39a3522c32ac1a5d843d1a99b788d0598a93c"
+    },
+    {
+      "path": "adapters/shardy_bridge/start_backend.mjs",
+      "sha256": "dc994505975a511a4c9507c06005c5f2169c638ab3f9d7c734c5e49f88bf1046"
+    },
+    {
+      "path": "adapters/stendhal_bridge/QaCombat.java",
+      "sha256": "44e30e454200883fc4a478cdd2a1a173895a0095ac0940c8c7d90099d58fceb7"
+    },
+    {
+      "path": "adapters/stendhal_bridge/QaProbe.java",
+      "sha256": "26e880cb1e0f96995716dc82f12e83432265200a29b02505a84d3ca653b7926d"
+    },
+    {
+      "path": "adapters/stendhal_bridge/README.md",
+      "sha256": "e20b952f9cade5723f69ae5eb56bc8d535d6c35f6cff10401d55cfb49912fc41"
+    },
+    {
+      "path": "adapters/stendhal_bridge/StendhalBridge.java",
+      "sha256": "11c03ea6685f2568274de653bdee068231f020f3fb0ce46cb2cf98ab3a6c0850"
+    },
+    {
+      "path": "adapters/stendhal_bridge/build.sh",
+      "sha256": "d0406d241952bdb106b7840ac3aef2260fc6d4a4ea36587dce199aee8b61bf81"
+    },
+    {
+      "path": "adapters/stendhal_bridge/check_live.py",
+      "sha256": "78df9344e60df0bd7750459183bf68f6ade82fc49612927436f472bece8013cf"
+    },
+    {
+      "path": "adapters/stendhal_bridge/run.sh",
+      "sha256": "d01749f773a2da82bf6aee5a77bc363e24454121e6d793beaa315af651600ebf"
+    },
+    {
+      "path": "cases/conftest.py",
+      "sha256": "4b989df3bc9921641f7f5489e10800b2a21b1065f5f7a965df515d136b6e7b76"
+    },
+    {
+      "path": "cases/test_shardy_api.py",
+      "sha256": "c51525b07b325eb766851637c90bd02dc7bc1c02b37e10f4f3c1ae18243d1f71"
+    },
+    {
+      "path": "cases/test_shardy_ui.py",
+      "sha256": "a706d78d091b1b22053de8d31922dcb1bc6a36cc8882ab39c3a7c001ecb5ce31"
+    },
+    {
+      "path": "cases/test_stendhal_api.py",
+      "sha256": "6e1fdccfa07ad6f5668f332c6d9d6816fb6e77c24a261e8989639bc7e9b5b9ee"
+    },
+    {
+      "path": "cases/test_stendhal_combat.py",
+      "sha256": "471a74cb6ada2b71b403ab27ddb58b4f7549f5275e71a7fb33e0d73bea6a5a3e"
+    },
+    {
+      "path": "cases/test_stendhal_items_edges.py",
+      "sha256": "e4ebd3ffce53fc7db9fcbee534cb3114fe7d8943508624c7dccb004b46a59795"
+    },
+    {
+      "path": "cases/test_stendhal_quest_edges.py",
+      "sha256": "92bbb58ab98bb23f8ca3f959e6bd92aec8ae75f6407994195d0a08f977506fd2"
+    },
+    {
+      "path": "cases/test_stendhal_shop_edges.py",
+      "sha256": "c34f870a9821df013b471b0865d549ae5e6a68f17d5a7d328c3d3bc5bdb48a04"
+    },
+    {
+      "path": "cases/test_stendhal_ui.py",
+      "sha256": "1e621bdee040a647fa91a048e609a2d312d595cd05976f0af37405dfc2fd497f"
+    },
+    {
+      "path": "integrations/shardy_client/README.md",
+      "sha256": "8521db52c7f5b7f96518deb5986a3979b447660a5c79077ff6017877eaa0164c"
+    },
+    {
+      "path": "integrations/shardy_client/index.html",
+      "sha256": "12296fbdbffad011953ea9084b9829e6b2f3911aa29fa87976b30a3ab1de71b6"
+    },
+    {
+      "path": "integrations/shardy_client/server.mjs",
+      "sha256": "31c31aac6d4083d175145df45be5fb0972f4f782d771a34374f5c6dda24f1650"
+    },
+    {
+      "path": "integrations/stendhal/README.md",
+      "sha256": "97f697b74a6074ada49b4dc717311f0f56ef886f78bae1420d70d494be3c97c8"
+    },
+    {
+      "path": "integrations/stendhal/UPSTREAM-LICENSE.txt",
+      "sha256": "260270432dabb1653c0944a1091adc827711fccd0f1af636156a247d4b9abd0a"
+    },
+    {
+      "path": "integrations/stendhal/defects/overcharge/SellerBehaviour.java",
+      "sha256": "57eab1ccb98c1affacdfb353975ab069bc6f94e7bc7b6bff9b096513d34e4cae"
+    },
+    {
+      "path": "integrations/stendhal/defects/overcharge/overcharge.diff",
+      "sha256": "9b79f1ab694f938468e251f1474a155a7bf86f02239e27824e2c43638cbe8e29"
+    },
+    {
+      "path": "integrations/stendhal/network_patch/NIONetworkConnectionManager.java",
+      "sha256": "0b9d2cf3c2a0dcec37b6a6e110ca70089184531c5ad2e7498a062b33e6e92089"
+    },
+    {
+      "path": "integrations/stendhal/web_patch/ItemMap.ts",
+      "sha256": "9957f428b1e9e0c300360d831d0654e61ea3cb023065bdc28f0a528d7be88db0"
+    },
+    {
+      "path": "integrations/stendhal/web_patch/lazy-config.diff",
+      "sha256": "20cd9b31331c3fc52634aed48026111738546b11778076a242d6a70c154e09e0"
+    },
+    {
+      "path": "scripts/android/connect.sh",
+      "sha256": "8535c9afb512f2a0a431efe3fcfb9f052a0ef9020131c3fa83ad2372cc198210"
+    },
+    {
+      "path": "scripts/android/env.sh",
+      "sha256": "2f7ff5ae24ee96a9aca5ac0dd641ce7a3c5de5a85ee2d834241401332a6b7e50"
+    },
+    {
+      "path": "scripts/android/start.sh",
+      "sha256": "b5b0a6a18f6ec0253e323ccc818dd427c8399842a96d18d817c38414a4c3808d"
+    },
+    {
+      "path": "scripts/record_demo.py",
+      "sha256": "989c192c9dfe911e014939b7ed3eca3f24a81a5c7c1cc8ff0ca0bfd296f5e6b2"
+    },
+    {
+      "path": "scripts/stendhal/bootstrap_accounts.py",
+      "sha256": "091d9af6d2c1556a118e14047ca551b734d57a35d9e0871a995a374997df0e12"
+    },
+    {
+      "path": "scripts/stendhal/build_fault.py",
+      "sha256": "33a7b472466cc4d99eb58ba2cc7c0a4c36d19efab3dfb8a91c7dfeca8a9dd85d"
+    },
+    {
+      "path": "scripts/stendhal/compile_web.sh",
+      "sha256": "42177a330c2faee3022fe513dde87663b7b3f68a8dac19b8d349c473e58cf396"
+    },
+    {
+      "path": "scripts/stendhal/env.sh",
+      "sha256": "2239b1e9b162740e7ac41fc3d49ec086122c51e2c425126ba8ec4a55d0ea0822"
+    },
+    {
+      "path": "scripts/stendhal/setup.py",
+      "sha256": "fa39b01019e32c686b6a8b1df9de8a7addac90ecfa6499f7e30f3da295001acb"
+    },
+    {
+      "path": "scripts/stendhal/start.sh",
+      "sha256": "cb853d192905ae3a83a7d7f07d8013e3cf39f03c004c3336009fe0eed8d6d389"
+    },
+    {
+      "path": "scripts/stendhal/stop.sh",
+      "sha256": "8b422b9618178abb5ca6de973c6e8545a9d891fd55c504935fa3e6e5fb110c68"
+    },
+    {
+      "path": "src/airtest_game_qa.egg-info/PKG-INFO",
+      "sha256": "ee264674fbc39667d5febb5552dec8c67b95ce62bd3b0e6fdaefec12da14140e"
+    },
+    {
+      "path": "src/airtest_game_qa.egg-info/SOURCES.txt",
+      "sha256": "b6a1a54f92ffd5828182933296c3136af325103bcdbc8b63854345b3c55d4eb2"
+    },
+    {
+      "path": "src/airtest_game_qa.egg-info/dependency_links.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "src/airtest_game_qa.egg-info/entry_points.txt",
+      "sha256": "163faf654a0611706e3999e3ed7f7afb90eb5fde4651f162b0665a1986701fdc"
+    },
+    {
+      "path": "src/airtest_game_qa.egg-info/requires.txt",
+      "sha256": "0bfa9dfe27f985f4cd0155e69c1c8f567f7760af845b2979f4ad5a40168b52fc"
+    },
+    {
+      "path": "src/airtest_game_qa.egg-info/top_level.txt",
+      "sha256": "61165d141aadf7fa43b3ece40bf118ed343231086f388584b101fe296deb424a"
+    },
+    {
+      "path": "src/gameqa/__init__.py",
+      "sha256": "7ddbfda76aba78d8b3e6657cb61c0800cd2a2abee93117dc9336298b91ca4502"
+    },
+    {
+      "path": "src/gameqa/__main__.py",
+      "sha256": "538048af57cd812d04cd7588e3bdfd34f25edab5c6d3824909816dbdce0b4e98"
+    },
+    {
+      "path": "src/gameqa/bridge.py",
+      "sha256": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9"
+    },
+    {
+      "path": "src/gameqa/config.py",
+      "sha256": "f53e66a097f12c51be856681f5d3626682fb9a245257632a65be69ee4f03255b"
+    },
+    {
+      "path": "src/gameqa/device.py",
+      "sha256": "08f09b1d98ee60d64da8270029e05bc9b0a29b52a77823896c7f1af4737266cd"
+    },
+    {
+      "path": "src/gameqa/evidence.py",
+      "sha256": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811"
+    },
+    {
+      "path": "src/gameqa/pytest_plugin.py",
+      "sha256": "d96c77e63927c881fb3779154574e6f43bab038c3e35b01a8855ff524c87bf27"
+    },
+    {
+      "path": "src/gameqa/shardy.py",
+      "sha256": "af5a5773f51229ea806ea97cb55434160b455433d20b8da9faa6f83aefe7c206"
+    },
+    {
+      "path": "src/gameqa/shardy_ui.py",
+      "sha256": "5e9263e3010d3a7d494d97d66d34baa6d6801f4ea5a0132a5dae7ddcfebc2829"
+    },
+    {
+      "path": "src/gameqa/stendhal.py",
+      "sha256": "6b5130227d5c7fe5437027f1f0da9c954a47dbe6a1726ac3185542f3dc3e2adb"
+    },
+    {
+      "path": "src/gameqa/stendhal_ui.py",
+      "sha256": "c0a01210d7af757c957b3aa2d7170879d5e84f0ba2f4003f76a11e5704164093"
+    },
+    {
+      "path": "tests/test_bridge.py",
+      "sha256": "bd01b53509b686d2bea64b64c1a50ca61be0f81ea86e38f3e8f0d3acc87e0d18"
+    },
+    {
+      "path": "tests/test_evidence.py",
+      "sha256": "a414f0c258c18ea0f97c302b72b22868b6cad285d00f0444b84a73b4e5328f69"
+    },
+    {
+      "path": "tests/test_pytest_report.py",
+      "sha256": "4b26e62d8e2ca360db18c8f7b1d2f1d8bdfcc87b005ce833d62fcc91c455d364"
+    },
+    {
+      "path": "tests/test_stendhal_dialogue.py",
+      "sha256": "e73280e96c5a687b4c7728484cc2891eadee72e7b5f2ca32d62cd4c929814d3e"
+    }
+  ]
+}

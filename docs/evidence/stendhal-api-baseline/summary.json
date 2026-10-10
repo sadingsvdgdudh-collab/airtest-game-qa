@@ -1,0 +1,303 @@
+{
+  "rounds": 5,
+  "cases": [
+    {
+      "id": "ST-BAG-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-COMBAT-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-COMBAT-API-002",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-GROWTH-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-MAP-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-QUEST-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-SHOP-API-001",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-SHOP-API-002",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    },
+    {
+      "id": "ST-SHOP-API-003",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 2,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 3,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 4,
+          "outcome": "passed",
+          "unstable": false
+        },
+        {
+          "round": 5,
+          "outcome": "passed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": true,
+  "experiment": "baseline",
+  "exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0
+  ]
+}

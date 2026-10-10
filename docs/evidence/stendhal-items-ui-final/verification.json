@@ -1,0 +1,117 @@
+{
+  "verified_utc": "2026-10-03T11:09:20.201131+00:00",
+  "experiment": "items-ui-final-five",
+  "rounds": 5,
+  "execution_ids": [
+    "ST-BAG-UI-001",
+    "ST-BAG-UI-007"
+  ],
+  "counts": {
+    "cases": 10,
+    "observations": 260,
+    "assertions": 230,
+    "recorded_actions": 180,
+    "screenshots": 245,
+    "restores": 10,
+    "positive_slot_refusals": 5,
+    "equipment_round_trips": 5,
+    "real_drink_actions": 10,
+    "heal_and_cap_flows": 5
+  },
+  "all_passed": true,
+  "phases_all_passed": true,
+  "unstable_cases": 0,
+  "retried_observations": 0,
+  "all_restored": true,
+  "restored_fields_independently_compared": [
+    "money",
+    "xp",
+    "hp",
+    "level",
+    "base_hp",
+    "karma",
+    "atk_xp",
+    "def_xp",
+    "atk",
+    "def",
+    "quests",
+    "commerce",
+    "item_counter_cache",
+    "keyed",
+    "inventory",
+    "statuses",
+    "bag",
+    "head",
+    "armor",
+    "cloak",
+    "legs",
+    "feet",
+    "lhand",
+    "rhand",
+    "finger",
+    "attributes.atk_item",
+    "attributes.def_item",
+    "attributes.target"
+  ],
+  "permitted_location_adjustments": 0,
+  "source_hashes_match": true,
+  "source_files": 123,
+  "source_captured_before_first_case": true,
+  "framework_self_checks": 35,
+  "new_project_and_python_environment": false,
+  "existing_local_game_android_environment": true,
+  "credential_scan": "configured credential values absent from text attachments",
+  "per_round": [
+    {
+      "round": 1,
+      "ids": [
+        "ST-BAG-UI-001",
+        "ST-BAG-UI-007"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 2,
+      "ids": [
+        "ST-BAG-UI-001",
+        "ST-BAG-UI-007"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 3,
+      "ids": [
+        "ST-BAG-UI-001",
+        "ST-BAG-UI-007"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 4,
+      "ids": [
+        "ST-BAG-UI-001",
+        "ST-BAG-UI-007"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    },
+    {
+      "round": 5,
+      "ids": [
+        "ST-BAG-UI-001",
+        "ST-BAG-UI-007"
+      ],
+      "all_passed": true,
+      "all_restored": true
+    }
+  ],
+  "limitations": [
+    "仅背包装备和安全地图药水，不覆盖战斗UI、战中治疗或世界掉落",
+    "R1不回滚银行、成就DB、持续状态、审计日志或整个世界",
+    "固定720x1280与本地角色基线，跨槽协议ID允许原版重分配",
+    "同一药水ID一快照两次Drink，不当作两条设计或两次独立执行"
+  ]
+}

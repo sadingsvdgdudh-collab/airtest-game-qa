@@ -1,0 +1,23 @@
+{
+  "rounds": 1,
+  "cases": [
+    {
+      "id": "ST-QUEST-UI-007",
+      "observations": [
+        {
+          "round": 1,
+          "outcome": "failed",
+          "unstable": false
+        }
+      ],
+      "consistent": true,
+      "repeatable": true
+    }
+  ],
+  "consistent": true,
+  "all_passed": false,
+  "experiment": "quest-chain-calibration-01",
+  "exit_codes": [
+    1
+  ]
+}

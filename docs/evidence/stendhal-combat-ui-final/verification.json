@@ -1,0 +1,110 @@
+{
+  "verified_utc": "2026-10-03T13:54:18.581681+00:00",
+  "experiment": "combat-ui-final-fixed",
+  "rounds": 5,
+  "execution_ids": [
+    "ST-COMBAT-UI-001"
+  ],
+  "all_passed": true,
+  "phases_all_passed": true,
+  "unstable_cases": 0,
+  "retried_observations": 0,
+  "all_restored": true,
+  "permitted_location_adjustments": 0,
+  "counts": {
+    "cases": 5,
+    "observations": 120,
+    "assertions": 110,
+    "recorded_actions": 90,
+    "screenshots": 110,
+    "real_attacks": 5,
+    "rat_kills": 5,
+    "rat_and_corpse_cleanups": 5,
+    "restores": 5
+  },
+  "source_files": 136,
+  "source_hashes_match": true,
+  "source_captured_before_first_case": true,
+  "installed_combat_classes_match": true,
+  "framework_self_checks": 38,
+  "per_round": [
+    {
+      "round": 1,
+      "outcome": "passed",
+      "xp_before": 800,
+      "xp_after": 805,
+      "hp_after": 97,
+      "cleanup_and_exact_restore": true
+    },
+    {
+      "round": 2,
+      "outcome": "passed",
+      "xp_before": 800,
+      "xp_after": 805,
+      "hp_after": 98,
+      "cleanup_and_exact_restore": true
+    },
+    {
+      "round": 3,
+      "outcome": "passed",
+      "xp_before": 800,
+      "xp_after": 805,
+      "hp_after": 94,
+      "cleanup_and_exact_restore": true
+    },
+    {
+      "round": 4,
+      "outcome": "passed",
+      "xp_before": 800,
+      "xp_after": 805,
+      "hp_after": 99,
+      "cleanup_and_exact_restore": true
+    },
+    {
+      "round": 5,
+      "outcome": "passed",
+      "xp_before": 800,
+      "xp_after": 805,
+      "hp_after": 97,
+      "cleanup_and_exact_restore": true
+    }
+  ],
+  "restored_fields_compared": [
+    "money",
+    "xp",
+    "hp",
+    "level",
+    "base_hp",
+    "karma",
+    "atk_xp",
+    "def_xp",
+    "atk",
+    "def",
+    "quests",
+    "commerce",
+    "item_counter_cache",
+    "keyed",
+    "inventory",
+    "statuses",
+    "bag",
+    "head",
+    "armor",
+    "cloak",
+    "legs",
+    "feet",
+    "lhand",
+    "rhand",
+    "finger",
+    "attributes.atk_item",
+    "attributes.def_item",
+    "attributes.target"
+  ],
+  "configured_credentials_absent_from_report_text": true,
+  "existing_local_environment": true,
+  "limitations": [
+    "关联已有击杀设计，73设计/21接入/52待接入不变",
+    "没有固定伤害/完成秒数/随机掉落内容断言，不验证拾取、战中治疗、距离取消或死亡复活",
+    "R1和专用rat/尸体清理不回滚血迹、数据库审计/击杀日志或整个世界",
+    "本组仅一个ID五轮；当前33正常ID的历史组分别计数，不声称同一新版全部执行"
+  ]
+}
