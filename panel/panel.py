@@ -159,7 +159,7 @@ def probe():
     return {
         "main": {"listening": listening(32160), "http": http_code("http://127.0.0.1:8080/stendhal.html")},
         "emulator": {"device": emulator, "boot_completed": bool(booted)},
-        "shardy": {"backend": listening(3000), "client": listening(3001)},
+    "shardy": {"backend": listening(3000), "client": listening(3001)},
         "reverse": {str(p): f"tcp:{p}" in reverse for p in (8080, 3000, 3001)},
         "job": running_job(),
         "health": ({**(HEALTH["data"] or {"characters": []}), "checking": HEALTH["checking"]}
@@ -178,6 +178,11 @@ JOB_CMDS = {
     "cleanup": [str(PY), "scripts/cleanup_characters.py", "--clear-items"],
 }
 SERVICE_CMDS = {
+    "emulator-window": {                      # 与 emulator 同物，只是开窗口（方便人看着跑）
+        "start": ["env", "GAMEQA_EMULATOR_WINDOW=1", "bash", "scripts/android/start.sh"],
+        "stop": [str(ADB), "-s", EMULATOR, "emu", "kill"],
+        "log": WORK / "android/logs/emulator.log",
+    },
     "main": {
         "start": ["sh", "scripts/stendhal/start.sh", "main"],
         "stop": ["sh", "scripts/stendhal/stop.sh", "main"],
@@ -817,6 +822,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
 
   <section><h2><i class="dot" id="d-emu" aria-hidden="true"></i>模拟器 Android</h2>
     <button id="b-emu-start">启动模拟器</button><button id="b-emu-stop">停止模拟器</button>
+    <label class="muted"><input id="emu-window" type="checkbox" checked> 显示窗口（勾上才有模拟器画面；不勾=无窗口，适合无人值守）</label>
     <button id="b-connect">重新连接（端口映射）</button>
     <p class="muted" id="emu-note"></p>
     <p class="why" id="emu-why"></p></section>
@@ -1208,7 +1214,12 @@ $('b-healthcheck').onclick = async () => {
 $('b-connect').onclick = () => startJob('connect', 'bash scripts/android/connect.sh');
 $('b-main-start').onclick = async () => { await post('/api/service/main/start'); setTimeout(refreshState, 1500); };
 $('b-main-stop').onclick = async () => { await post('/api/service/main/stop'); setTimeout(refreshState, 1200); };
-$('b-emu-start').onclick = async () => { await post('/api/service/emulator/start'); setTimeout(refreshState, 4000); };
+$('b-emu-start').onclick = async () => {
+  const service = $('emu-window').checked ? 'emulator-window' : 'emulator';
+  $('emu-note').textContent = '启动中（' + (service === 'emulator-window' ? '带窗口' : '无窗口') + '，约 30–60 秒）…';
+  await post('/api/service/' + service + '/start');
+  setTimeout(() => { refreshState(); $('emu-note').textContent = service === 'emulator-window' ? '已发出启动：模拟器窗口应出现在桌面上' : '已发出启动（无窗口）'; }, 5000);
+};
 $('b-emu-stop').onclick = async () => { await post('/api/service/emulator/stop'); setTimeout(refreshState, 2000); };
 $('b-shardy-start').onclick = async () => { $('shardy-note').textContent = '启动中（约 5 秒）…'; await post('/api/service/shardy/start'); setTimeout(() => { refreshState(); $('shardy-note').textContent = '已发出启动，状态灯 5 秒后刷新'; }, 5000); };
 $('b-shardy-stop').onclick = async () => { $('shardy-note').textContent = '停止中…'; await post('/api/service/shardy/stop'); setTimeout(() => { refreshState(); $('shardy-note').textContent = '已停止'; }, 2000); };
