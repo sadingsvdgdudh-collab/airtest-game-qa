@@ -34,6 +34,35 @@ def test_retry_recovered_does_not_count_as_accepted():
     assert clean["all_passed"] is True and clean["infra_retries"] == 0
 
 
+def test_retry_metrics_separate_first_try_from_retried():
+    """重试率口径：重试才过单独计数，绝不算进一次通过。"""
+    def case(case_id, outcome, retried=False):
+        return {"id": case_id, "outcome": outcome,
+                "diagnostics": {"infra_retry": {"first_outcome": "error"}} if retried else {}}
+
+    summary = summarize([{"cases": [case("A", "passed"), case("B", "passed", True),
+                                    case("C", "passed", True), case("D", "failed")]}])
+    assert summary["observations"] == 4
+    assert summary["infra_retry_count"] == 2
+    assert summary["infra_retry_rate"] == 0.5
+    assert summary["first_try_passed"] == 1            # 只有 A 是一次通过
+    assert summary["all_passed"] is False
+    assert summary["unexplained_failures"] == ["D"]
+    empty = summarize([{"cases": []}])
+    assert empty["observations"] == 0 and empty["infra_retry_rate"] == 0.0
+    assert empty["first_try_passed"] == 0
+
+
+def test_retry_metrics_across_rounds_and_missing_flag():
+    """多轮：按 case × round 计数；没有重试标记的旧报告也要算得出来。"""
+    summary = summarize([{"cases": [{"id": "A", "outcome": "passed"}]},
+                          {"cases": [{"id": "A", "outcome": "passed",
+                                      "diagnostics": {"infra_retry": {"first_outcome": "error"}}}]}])
+    assert summary["observations"] == 2
+    assert summary["infra_retry_count"] == 1
+    assert summary["first_try_passed"] == 1
+
+
 def test_real_failures_are_reported_as_unexplained():
     summary = summarize([{"cases": [case("X", "failed", "AssertionError: nope")]}])
     assert summary["unexplained_failures"] == ["X"] and summary["all_passed"] is False

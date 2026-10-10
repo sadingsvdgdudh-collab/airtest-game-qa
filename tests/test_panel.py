@@ -47,6 +47,29 @@ def test_game_run_active_follows_the_shared_lock(tmp_path, monkeypatch):
     assert panel.game_run_active() is False
 
 
+def test_retry_rate_matches_the_summary_semantics():
+    """面板显示的重试率必须与 summary 口径一致：重试才过不算一次通过，>35% 提示。"""
+    def run(observations):
+        return {"cases": [{"observations": observations}]}
+
+    def obs(outcome, retried=False):
+        return {"outcome": outcome, "infra_retry": retried}
+
+    assert panel.retry_rate([])["rate"] == 0.0
+    assert panel.retry_rate([])["warn"] is False
+    no_retry = panel.retry_rate([run([obs("passed"), obs("passed"), obs("passed"), obs("failed")])])
+    assert no_retry["observations"] == 4 and no_retry["retried"] == 0
+    assert no_retry["first_try"] == 3 and no_retry["warn"] is False
+    quarter = panel.retry_rate([run([obs("passed"), obs("passed"), obs("passed"),
+                                     obs("passed", True)])])
+    assert quarter["rate"] == 0.25 and quarter["warn"] is False       # 25% 不提示
+    over = panel.retry_rate([run([obs("passed"), obs("passed"), obs("passed", True),
+                                  obs("passed", True)])])
+    assert over["rate"] == 0.5 and over["warn"] is True               # 50% 提示
+    assert over["threshold"] == 0.35
+    assert over["first_try"] == 2
+
+
 def test_count_cases_parses_collect_output(monkeypatch):
     monkeypatch.setattr(panel, "JOB_FILTERS", {"api1": ["--qa-kind", "api"]})
     monkeypatch.setattr(panel, "run", lambda argv, timeout=0: "cases/a.py::x\ncases/b.py::y\nnoise\n")
@@ -83,6 +106,11 @@ def test_http_page_and_state_endpoint():
         status, body = get(port, "/api/state")
         assert status == 200
         assert "main" in json.loads(body)
+        status, reports = get(port, "/api/reports")
+        assert status == 200
+        payload = json.loads(reports)
+        assert set(payload) == {"runs", "retry"}          # 结果页靠这两个字段
+        assert {"observations", "retried", "first_try", "rate", "warn", "threshold"} == set(payload["retry"])
     finally:
         server.shutdown()
         server.server_close()

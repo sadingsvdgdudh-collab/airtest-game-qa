@@ -559,23 +559,56 @@ def case_inventory():
     return data
 
 
+RETRY_WARN_RATE = 0.35
+
+
+def retry_rate(summaries):
+    """最近若干轮的重试率。
+
+    口径与 summary.json 一致：**重试才过不算一次通过**。
+    observations 是 case × round 的观测总数（分母），retried 是带重试标记的观测数，
+    first_try 是没走重试就通过的观测数。超过 35% 只给提示（warn=True），不阻断任何操作。
+    """
+    observations = retried = first_try = 0
+    for summary in summaries:
+        for case in summary.get("cases", []):
+            for observation in case.get("observations", []):
+                observations += 1
+                if observation.get("infra_retry"):
+                    retried += 1
+                elif observation.get("outcome") == "passed":
+                    first_try += 1
+    rate = (retried / observations) if observations else 0.0
+    return {"observations": observations, "retried": retried, "first_try": first_try,
+            "rate": round(rate, 4), "warn": rate > RETRY_WARN_RATE, "threshold": RETRY_WARN_RATE}
+
+
 def reports(limit=8):
-    found = []
+    found, summaries = [], []
     for folder in sorted((PROJECT / "reports").glob("*/summary.json"),
                          key=lambda p: p.stat().st_mtime, reverse=True):
         try:
             summary = json.loads(folder.read_text(encoding="utf-8"))
-            found.append({"run": folder.parent.name, "rounds": summary["rounds"],
-                          "experiment": summary.get("experiment", ""),
-                          "consistent": summary["consistent"], "all_passed": summary["all_passed"],
-                          "exit_codes": summary["exit_codes"],
-                          "failed": [c["id"] for c in summary["cases"]
-                                     if any(o["outcome"] != "passed" for o in c["observations"])]})
-        except (ValueError, KeyError):
+        except ValueError:
             continue
+        summaries.append(summary)
+        rows = [o for case in summary.get("cases", []) for o in case.get("observations", [])]
+        retried = sum(1 for o in rows if o.get("infra_retry"))
+        found.append({"run": folder.parent.name, "rounds": summary.get("rounds"),
+                      "experiment": summary.get("experiment", ""),
+                      "consistent": summary.get("consistent"), "all_passed": summary.get("all_passed"),
+                      "exit_codes": summary.get("exit_codes", []),
+                      "observations": len(rows),
+                      "infra_retry_count": summary.get("infra_retry_count", retried),
+                      "infra_retry_rate": summary.get("infra_retry_rate",
+                                                      round(retried / len(rows), 4) if rows else 0.0),
+                      "first_try_passed": summary.get("first_try_passed", sum(
+                          1 for o in rows if o.get("outcome") == "passed" and not o.get("infra_retry"))),
+                      "failed": [c["id"] for c in summary.get("cases", [])
+                                 if any(o.get("outcome") != "passed" for o in c.get("observations", []))]})
         if len(found) >= limit:
             break
-    return found
+    return {"runs": found, "retry": retry_rate(summaries)}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -696,6 +729,7 @@ table{width:100%;border-collapse:collapse;font-size:14px}
 td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left}
 .badge{padding:1px 8px;border-radius:10px;font-size:12px;color:#fff;background:var(--ok)}
 .badge.no{background:var(--bad)}
+.warnbox{padding:6px 10px;border-radius:6px;background:#fff8e1;border:1px solid #f0d58c;color:#8a6d1a}
 .muted{color:#5b6b7c;font-size:13px}
 #pick-bar{position:sticky;top:0;z-index:2;background:#fff;border-bottom:1px solid var(--line);
   padding:8px 0;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:14px}
@@ -764,7 +798,9 @@ td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left}
     <div id="cases-body"></div>
   </div>
   <div id="pane-rep" hidden>
-    <table><thead><tr><th>运行</th><th>实验</th><th>轮数</th><th>各轮一致</th><th>全部通过</th><th>失败用例</th><th></th></tr></thead>
+    <p id="rep-retry" class="muted">重试率：读取中…</p>
+    <p class="muted">口径：<b>重试才过不算一次通过</b>；超过 35% 只作提示，不阻断运行。</p>
+    <table><thead><tr><th>运行</th><th>实验</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>失败用例</th><th></th></tr></thead>
     <tbody id="rep-body"></tbody></table>
     <p class="muted">报告目录：<span id="rep-root"></span></p>
   </div>
@@ -929,20 +965,32 @@ function renderCharacterHealth(h) {
 
 async function refreshState() { state = await api('/api/state'); render(); }
 
+function pct(value) { return (100 * value).toFixed(1) + '%'; }
+
 async function loadReports() {
-  const rows = await api('/api/reports');
+  const data = await api('/api/reports');
+  const rows = data.runs || [];
+  const retry = data.retry || {observations: 0, retried: 0, rate: 0, warn: false, first_try: 0};
+  const box = $('rep-retry');
+  const text = '最近 ' + rows.length + ' 轮重试率：' + pct(retry.rate)
+    + '（重试才过 ' + retry.retried + ' / 观测 ' + retry.observations + '，一次通过 ' + retry.first_try + '）';
+  box.textContent = retry.observations ? text : '最近 ' + rows.length + ' 轮还没有可统计的观测。';
+  box.className = retry.warn ? 'warnbox' : 'muted';
   $('rep-root').textContent = '项目 reports/（目录名是 UTC 时间）';
   $('rep-body').innerHTML = rows.map((r) =>
     '<tr><td>' + r.run + '</td>'
     + '<td class="muted">' + (r.experiment === 'custom'
         ? '<span class="badge no">非验收组</span> custom' : (r.experiment || '—')) + '</td>'
     + '<td>' + r.rounds + '</td>'
+    + '<td>' + r.first_try_passed + ' / ' + r.observations + '</td>'
+    + '<td' + (r.infra_retry_rate > 0.35 ? ' class="warnbox"' : '') + '>' + r.infra_retry_count
+    + (r.observations ? '（' + pct(r.infra_retry_rate) + '）' : '') + '</td>'
     + '<td><span class="badge' + (r.consistent ? '' : ' no') + '">' + r.consistent + '</span></td>'
     + '<td><span class="badge' + (r.all_passed ? '' : ' no') + '">' + r.all_passed + '</span></td>'
     + '<td class="muted">' + (r.failed.join(', ') || '—') + '</td>'
     + '<td><a href="/reports/' + r.run + '/round-01/index.html" target="_blank">打开报告</a>'
     + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a></td></tr>').join('')
-    || '<tr><td colspan="6" class="muted">还没有运行记录。</td></tr>';
+    || '<tr><td colspan="8" class="muted">还没有运行记录。</td></tr>';
 }
 
 const MARK_TEXT = {A: '已实现 API', U: '已实现 UI', 'A?': '建议API·未实现',

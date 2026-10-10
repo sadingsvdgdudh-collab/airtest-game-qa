@@ -32,6 +32,15 @@ def infra_failed(report):
 
 
 def summarize(rounds):
+    """每轮报告合成一份 summary。
+
+    报告口径（不许含糊）：**"重试才过"不算一次通过**。
+    - observations：case × round 的观测总数，也就是分母
+    - infra_retry_count：带重试标记的观测数（不管最后过没过）
+    - infra_retry_rate：上面两者相除；没有观测时为 0.0
+    - first_try_passed：**没有**走重试就通过的观测数（这才是"一次通过"）
+    - all_passed 要求每条观测都 passed 且没走重试 —— 有重试的轮次永远不会被判成全绿
+    """
     by_case = defaultdict(list)
     for number, report in enumerate(rounds, 1):
         for case in report.get("cases", []):
@@ -45,13 +54,22 @@ def summarize(rounds):
         complete = outcomes <= {"passed", "failed"}
         cases.append({"id": case_id, "observations": observations, "consistent": consistent,
                       "repeatable": consistent and complete and not any(row["unstable"] for row in observations)})
+    order = [row for case in cases for row in case["observations"]]
+    retried = sum(1 for row in order if row["infra_retry"])
+    first_try = sum(1 for row in order if row["outcome"] == "passed" and not row["infra_retry"])
     return {"rounds": len(rounds), "cases": cases,
             "consistent": bool(cases) and all(row["repeatable"] for row in cases),
-              "infra_retries": sum(1 for row in cases for o in row["observations"] if o.get("infra_retry")),
-              "unexplained_failures": sorted(row["id"] for row in cases if any(
-                  o["outcome"] != "passed" and not o.get("infra_retry") for o in row["observations"])),
-              "all_passed": bool(cases) and all(len(row["observations"]) == len(rounds) and all(o["outcome"] == "passed" and not o.get("infra_retry")
-                                               for o in row["observations"]) for row in cases)}
+            "observations": len(order),
+            "infra_retry_count": retried,
+            "infra_retry_rate": round(retried / len(order), 4) if order else 0.0,
+            "first_try_passed": first_try,
+            "infra_retries": retried,
+            "unexplained_failures": sorted(row["id"] for row in cases if any(
+                obs["outcome"] != "passed" and not obs["infra_retry"] for obs in row["observations"])),
+            "all_passed": bool(cases) and all(
+                len(row["observations"]) == len(rounds)
+                and all(obs["outcome"] == "passed" and not obs["infra_retry"] for obs in row["observations"])
+                for row in cases)}
 
 
 def main(argv=None):
@@ -158,7 +176,10 @@ def execute(args, project, lock):
         '<style>body{margin:32px;font:16px system-ui}td,th{padding:14px;border-bottom:1px solid #ddd}a{margin-right:12px}</style>'
         f'<h1>多轮执行结果</h1><p>实验：{esc(args.experiment)}；轮数：{args.rounds}；'
         f'判定一致且稳定：{summary["consistent"]}；全部通过：{summary["all_passed"]}</p>'
-          f'<p>基础设施重试：{summary["infra_retries"]} 条（重试恢复不计完成验收）；非基础设施失败：{esc(summary["unexplained_failures"]) or "无"}</p>'
+          # 报告口径：重试才过必须显式标注，不许当一次通过（页面和 json 里都写清楚）
+          f'<p>一次通过：{summary["first_try_passed"]} / {summary["observations"]}；重试才过：{summary["infra_retry_count"]} 条（占 {summary["infra_retry_rate"]:.1%}，不计入一次通过；阈值 35% 仅供提示）</p>'
+          f'<p>非基础设施失败：'
+             f'{"、".join(esc(x) for x in summary["unexplained_failures"]) if summary["unexplained_failures"] else "无"}</p>'
         '<p>一致检出的缺陷仍是失败；跳过、报错、重试恢复和漏轮不能计为完成验收。</p>'
         '<table><tr><th>用例</th><th>每轮证据</th><th>可重复</th></tr>' + "".join(rows) + '</table></html>',
         encoding="utf-8")
