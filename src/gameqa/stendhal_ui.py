@@ -83,6 +83,22 @@ class StendhalUI:
         }
         return rows
 
+    def wait_for_image(self, path, title, seconds=75, threshold=0.7):
+        """轮询等界面渲染出来，命中后照常记一条观察；轮询本身不写记录。
+
+        为什么需要：`am start` 到首帧之间，硬件渲染约 5 秒，软件渲染（swiftshader）要 30–60 秒。
+        以前只 sleep(5) 就找模板，第 2 轮常常还没渲染完 → 登录步骤误报失败。
+        """
+        from airtest.core.api import Template, exists
+
+        template = Template(str(path), threshold=threshold)
+        deadline = time.monotonic() + seconds
+        while time.monotonic() < deadline:
+            if exists(template):
+                break
+            time.sleep(2)
+        return self.android.locate_image(path, title)
+
     def ensure_login(self):
         self.entered = False
         self.travel_log_open = False
@@ -93,8 +109,7 @@ class StendhalUI:
         url = self.config['url'] + separator + 'qa_session=' + str(time.time_ns())
         self.android.device.adb.shell(["am", "start", "-W", "-a", "android.intent.action.VIEW", "-d", url,
                                        "--es", "com.android.browser.application_id", "gameqa.stendhal"])
-        time.sleep(5)
-        button = self.android.locate_image(ASSETS / "login.png", "登录按钮")
+        button = self.wait_for_image(ASSETS / "login.png", "登录按钮")
         # ADBTOUCH uses a native tap at its default duration; longer duration is a swipe.
         # Activate the form, then focus the empty field, before sending text once.
         username = (button[0] + 150, button[1] - 36)
