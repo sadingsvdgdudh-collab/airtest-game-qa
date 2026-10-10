@@ -159,6 +159,7 @@ def probe():
     return {
         "main": {"listening": listening(32160), "http": http_code("http://127.0.0.1:8080/stendhal.html")},
         "emulator": {"device": emulator, "boot_completed": bool(booted)},
+        "shardy": {"backend": listening(3000), "client": listening(3001)},
         "reverse": {str(p): f"tcp:{p}" in reverse for p in (8080, 3000, 3001)},
         "job": running_job(),
         "health": ({**(HEALTH["data"] or {"characters": []}), "checking": HEALTH["checking"]}
@@ -186,6 +187,11 @@ SERVICE_CMDS = {
         "start": ["bash", "scripts/android/start.sh"],
         "stop": [str(ADB), "-s", EMULATOR, "emu", "kill"],
         "log": WORK / "android/logs/emulator.log",
+    },
+    "shardy": {
+        "start": ["bash", "scripts/shardy/start.sh"],
+        "stop": ["bash", "scripts/shardy/stop.sh"],
+        "log": WORK / "shardy/logs/panel.log",
     },
 }
 
@@ -764,6 +770,10 @@ td,th{padding:8px;border-bottom:1px solid var(--line);text-align:left}
     <p class="muted" id="emu-note"></p>
     <p class="why" id="emu-why"></p></section>
 
+  <section><h2><i class="dot" id="d-shardy"></i>Shardy 井字棋</h2>
+    <button id="b-shardy-start">启动 Shardy</button><button id="b-shardy-stop">停止 Shardy</button>
+    <p class="muted" id="shardy-note"></p>
+  </section>
   <section><h2><i class="dot" id="d-case"></i>用例</h2>
     <p class="muted">运行时到「用例清单」里勾：可以按项目/类型筛选、点「全选筛选结果」、改轮次，再点「执行所选」。
       空手跑一条时勾一条即可。</p>
@@ -904,10 +914,14 @@ function render() {
     ? ('主服在监听但 Web 入口返回 ' + main.http + '，检查 work/stendhal/runtime/log/server.log。') : '';
 
   dot($('d-emu'), emu.device && emu.boot_completed ? (rev['8080'] ? 'on' : 'warn') : (emu.device ? 'warn' : 'off'));
+  dot($('d-shardy'), state.shardy && state.shardy.backend && state.shardy.client ? 'on'
+      : (state.shardy && (state.shardy.backend || state.shardy.client) ? 'warn' : 'off'));
   $('emu-note').textContent = emu.device
     ? ('设备在线，开机' + (emu.boot_completed ? '完成' : '未完成') + '；端口映射 8080 ' + (rev['8080'] ? '已建' : '缺失')
        + '（自动重连已开启）')
     : '未检测到 emulator-5554。';
+  $('shardy-note').textContent = state.shardy
+    ? ('后端 3000 ' + (state.shardy.backend ? '在跑' : '没跑') + ' · 展示页 3001 ' + (state.shardy.client ? '在跑' : '没跑')) : '';
   $('b-emu-start').disabled = emu.device;
   $('b-emu-stop').disabled = !emu.device;
   $('b-connect').disabled = !emu.device;
@@ -1131,6 +1145,8 @@ $('b-main-start').onclick = async () => { await post('/api/service/main/start');
 $('b-main-stop').onclick = async () => { await post('/api/service/main/stop'); setTimeout(refreshState, 1200); };
 $('b-emu-start').onclick = async () => { await post('/api/service/emulator/start'); setTimeout(refreshState, 4000); };
 $('b-emu-stop').onclick = async () => { await post('/api/service/emulator/stop'); setTimeout(refreshState, 2000); };
+$('b-shardy-start').onclick = async () => { $('shardy-note').textContent = '启动中（约 5 秒）…'; await post('/api/service/shardy/start'); setTimeout(() => { refreshState(); $('shardy-note').textContent = '已发出启动，状态灯 5 秒后刷新'; }, 5000); };
+$('b-shardy-stop').onclick = async () => { $('shardy-note').textContent = '停止中…'; await post('/api/service/shardy/stop'); setTimeout(() => { refreshState(); $('shardy-note').textContent = '已停止'; }, 2000); };
 $('t-job').onclick = () => showTab('job');
 $('t-cases').onclick = () => { showTab('cases'); loadCases(); };
 $('t-rep').onclick = () => { showTab('rep'); loadReports(); };

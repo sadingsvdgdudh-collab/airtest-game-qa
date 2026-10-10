@@ -30,3 +30,9 @@ python panel/panel.py --state
 常驻显示**最近若干轮的重试率**：`重试才过 / 观测总数`，并给出一次通过条数。
 重试率 **>35% 标黄提示**（不阻断）；每轮表格里也有「一次通过」与「重试才过」两列。
 口径与 `summary.json` 一致：**重试才过不算一次通过**，详见 `docs/用例编写协议.md` 第六节。
+
+## 服务按钮
+
+面板可管三组服务：**主服 Stendhal**、**模拟器 Android**、**Shardy 井字棋**（后端 3000 + 展示页 3001）。
+Shardy 用 `scripts/shardy/start.sh` / `stop.sh`；机器相关的 node 路径放在工作区 `local.env`
+（`GAMEQA_NODE=/绝对路径/node`），不要写进仓库。状态灯：两个端口都在跑=绿、只起一个=黄、都没跑=灰。

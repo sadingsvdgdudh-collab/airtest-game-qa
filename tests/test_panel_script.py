@@ -44,6 +44,14 @@ def test_page_script_defines_the_core_functions():
         assert f"function {name}" in script or f"async function {name}" in script, f"页面脚本里没有 {name}"
 
 
+
+
+def test_page_has_the_shardy_service_controls():
+    for element in ("b-shardy-start", "b-shardy-stop", "d-shardy", "shardy-note"):
+        assert f'id="{element}"' in panel.HTML, f"面板页面里缺少 Shardy 元素 {element}"
+    assert "state.shardy" in page_script(), "状态灯没有读 state.shardy"
+
+
 def test_page_script_parses_as_javascript(tmp_path):
     node = node_binary()
     if node is None:
