@@ -174,6 +174,20 @@ def quest_phase(state, name):
     return state.get("quests", {}).get(name, "").split(";", 1)[0]
 
 
+def sold_count_session(state, item_name):
+    """游戏自己认的售出数量：`item_counter_cache.sold`（= `Player.getQuantityOfSoldItems()`）。
+
+    成就系统判的就是它（如 `achievement/condition/SoldNumberOfCondition.java`）。
+    1.49 的构造器把持久 `sold.*` 装进了 `bought`、`sold` 从不加载，所以这个字段每次登录从 0 开始，
+    且第一次读到的是"持久值 + 本次卖出"——按增量算会多 1。
+
+    `ST-SHOP-API-007/009` 用它断言"增量恰好 N"，**预期就是红的**：这是在登记缺陷，不是用例写错。
+    上游修好构造器后，这条会自己变绿。
+    """
+    sold = (state.get("item_counter_cache") or {}).get("sold") or {}
+    return int(sold.get(item_name, 0) or 0)
+
+
 def sold_count(state, item_name):
     """已售出数量：读**持久**计数，即 commerce.looted_items 里的 "sold.<item>"。
 
@@ -182,6 +196,9 @@ def sold_count(state, item_name):
     `sold` 字段则从不加载，于是每次登录都从 0 开始。后果是"会话内字段增量"错位：
     实测卖 2 件时基线读到 0、之后读到"持久值+2"，看起来多 1（真机复现 2 件→+3、1 件→+2）。
     持久映射才是真值：同一次实测里卖 2 件是 3→5（正好 +2）。
+
+    与它配对的是 `sold_count_session()`——那个读游戏自己用的字段，会红。
+    两条一起断言才算说清楚：数据没坏，但游戏读错了字段。
     """
     value = state.get("commerce", {}).get("looted_items", {}).get(f"sold.{item_name}", 0)
     return int(value or 0)

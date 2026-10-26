@@ -4,7 +4,7 @@ import pytest
 from gameqa.shop import NPC, SIANDRA, buy_and_confirm, confirm, sell
 from gameqa.sources import FOOD_ITEMS, SELL_ITEMS_PRICES, SELL_TO_KEEPER_PRICES, SHOP_TRADE_REPLIES
 from gameqa.stendhal import (await_exact_quantity, await_quantity, hello, leave, quantity, said,
-                             sold_count, use)
+                             sold_count, sold_count_session, use)
 
 TAVERN = "int_semos_tavern_0"      # Margaret 所在的 Semos 酒馆
 
@@ -37,9 +37,14 @@ def test_sell_two_cheese_to_keeper(qa, api_player, observer, prepare):
                  True, SELL_TO_KEEPER_PRICES)
         qa.check("出售2件后cheese剩1", quantity(after, "cheese", "bag"), 1, SELL_TO_KEEPER_PRICES)
         qa.check("出售2件收入10：金币20→30", after["money"], 30, SELL_TO_KEEPER_PRICES)
-        qa.check("售出计数增量恰好2",
+        qa.check("持久售出计数增量恰好2",
                  sold_count(after, "cheese") - sold_count(before, "cheese"), 2,
-                 SELL_TO_KEEPER_PRICES + "; commerce.looted_items[sold.cheese]（持久计数；sold 字段有 1.49 构造器 bug）")
+                 SELL_TO_KEEPER_PRICES + "; commerce.looted_items[sold.cheese]（持久真值）")
+        # 这一条**预期失败**：登记 Stendhal-003。成就判定读的就是这个字段，它在 1.49 里从 0 起跳。
+        qa.check("游戏自认的售出计数增量恰好2（已知缺陷：1.49 会话级字段）",
+                 sold_count_session(after, "cheese") - sold_count_session(before, "cheese"), 2,
+                 SELL_TO_KEEPER_PRICES + "; item_counter_cache.sold = Player.getQuantityOfSoldItems()；"
+                 "docs/缺陷/Stendhal-003-售出计数会话级.md")
     finally:
         leave(api_player)
 
@@ -62,9 +67,12 @@ def test_sell_more_than_held_is_refused(qa, api_player, observer, prepare):
                  True, SELL_TO_KEEPER_PRICES + "; 实测观测")
         qa.check("拒绝后cheese仍为1", quantity(after, "cheese", "bag"), 1, SELL_TO_KEEPER_PRICES)
         qa.check("拒绝后金币仍为20", after["money"], 20, SELL_TO_KEEPER_PRICES)
-        qa.check("拒绝后售出计数无增量",
+        qa.check("拒绝后持久售出计数无增量",
                  sold_count(after, "cheese") - sold_count(before, "cheese"), 0,
-                 SELL_TO_KEEPER_PRICES + "; commerce.looted_items[sold.cheese]（持久计数；sold 字段有 1.49 构造器 bug）")
+                 SELL_TO_KEEPER_PRICES + "; commerce.looted_items[sold.cheese]（持久真值）")
+        qa.check("拒绝后游戏自认的售出计数也无增量",
+                 sold_count_session(after, "cheese") - sold_count_session(before, "cheese"), 0,
+                 SELL_TO_KEEPER_PRICES + "; item_counter_cache.sold")
     finally:
         leave(api_player)
 
@@ -114,8 +122,12 @@ def test_cross_area_buy_sell_then_eat(qa, api_player, observer, prepare):
     sold = await_exact_quantity(observer, "cheese", 1)
     qa.check("重开会话后成交：金币60→65", sold["money"], 65, SELL_TO_KEEPER_PRICES)
     qa.check("卖出1件后cheese剩1", quantity(sold, "cheese"), 1, SELL_TO_KEEPER_PRICES)
-    qa.check("售出计数增量恰好1", sold_count(sold, "cheese") - sold_count(bar, "cheese"), 1,
-             SELL_TO_KEEPER_PRICES + "; commerce.looted_items[sold.cheese]（持久计数；sold 字段有 1.49 构造器 bug）")
+    qa.check("持久售出计数增量恰好1", sold_count(sold, "cheese") - sold_count(bar, "cheese"), 1,
+             SELL_TO_KEEPER_PRICES + "; commerce.looted_items[sold.cheese]（持久真值）")
+    qa.check("游戏自认的售出计数增量恰好1（已知缺陷：1.49 会话级字段）",
+             sold_count_session(sold, "cheese") - sold_count_session(bar, "cheese"), 1,
+             SELL_TO_KEEPER_PRICES + "; item_counter_cache.sold = Player.getQuantityOfSoldItems()；"
+             "docs/缺陷/Stendhal-003-售出计数会话级.md")
 
     # 吃掉剩下的 1 个
     use(api_player, sold, "cheese")
