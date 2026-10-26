@@ -48,6 +48,22 @@ reports/<时间戳>/
 allure generate --clean -o reports/<时间戳>/allure-html reports/<时间戳>/round-*/allure-results
 ```
 
+## 3.1 面板里怎么看
+
+面板（`panel/panel.py`）已经接上，两处：
+
+| 位置 | 效果 |
+| --- | --- |
+| 「用例清单」工具栏 | 多一个 **Allure** 勾选框；勾上再执行 → 给 `gameqa run` 追加 `--allure` |
+| 「结果」表格每行 | 有 Allure 产物的运行会多一个 **Allure** 链接，点开就是同一台服务器上的报告 |
+
+报告走面板已有的 `/reports/<run>/...` 静态通道，不需要另开端口，也不用点开本地文件。
+`allure-html/index.html` 用的是相对路径，挂在子路径下能正常加载 `assets/`。
+
+**顺带处理了一件事**：Allure 2.x 生成的页面里塞了 Google Analytics（`googletagmanager`），
+一打开就往外发请求。框架是离线优先的，所以生成后默认删掉那段脚本，
+需要保留时设 `GAMEQA_ALLURE_KEEP_GA=1`。删的只是外链和它的初始化块，不影响页面逻辑。
+
 ## 4. 映射关系
 
 | 框架里的东西 | 在 Allure 里的呈现 |
@@ -67,7 +83,8 @@ allure generate --clean -o reports/<时间戳>/allure-html reports/<时间戳>/r
 
 | 文件 | 改动 |
 | --- | --- |
-| `src/gameqa/allure_report.py` | 新增。可选适配层：`active()` 判定、`step()` 上下文、附件、`generate()` 调 CLI、`summary_link()`。全部 try/except 包裹，失败不影响测试 |
+| `src/gameqa/allure_report.py` | 新增。可选适配层：`active()` 判定、`step()` 上下文、附件、`generate()` 调 CLI、`strip_analytics()` 去掉 GA、`summary_link()`。全部 try/except 包裹，失败不影响测试 |
+| `panel/panel.py` | 工具栏加 Allure 勾选；结果表加 Allure 链接；`child_env()` 自动定位 allure 命令（Finder 启动时 PATH 很短） |
 | `src/gameqa/evidence.py` | `check/observe/action` 外包一层 `allure_report.step()`；关闭时是 `nullcontext`，零开销 |
 | `src/gameqa/pytest_plugin.py` | setup 挂层级与标签；`pytest_runtest_call(trylast)` 设标题（必须在 allure setup 收尾之后，否则被函数名覆盖）；`pytest_runtest_makereport` 在 teardown **yield 之前**落盘并挂附件 |
 | `src/gameqa/__main__.py` | `--allure` 开关、每轮传 `--alluredir`、跑完 `allure generate`、汇总页加链接 |
@@ -106,3 +123,6 @@ npm uninstall -g allure-commandline
 | Allure 结果内容 | 标题带用例号、7 个步骤（4 动作 + 1 观察 + 2 断言含期望/实际）、附件 `case.json` 与 `server.log` |
 | 不带 `--allure` | exit=0，不产生 `allure-results`，与原行为一致 |
 | 报告站点 | `allure-html/index.html` 约 2.0M，汇总页含「Allure 报告（第二视图）」链接 |
+| 面板内打开 | `/reports/<run>/allure-html/index.html` → 200，`assets/` 资源 200 |
+| 面板勾选跑一轮 | `POST /api/run {allure:true}` → 命令带 `--allure`，job passed，产物齐全 |
+| GA 已剔除 | 生成后的 `index.html` 里 `googletagmanager` 出现 0 次 |

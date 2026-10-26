@@ -10,6 +10,7 @@ from contextlib import nullcontext
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
 
@@ -137,6 +138,30 @@ def attach_case_folder(folder, outcome=None, unstable=False):
     return count
 
 
+GA_SCRIPT = re.compile(r"\s*<script async src=\"https://www\.googletagmanager\.com/gtag/js[^\"]*\"></script>")
+GA_INLINE = re.compile(r"\s*<script>\s*window\.dataLayer[\s\S]*?</script>")
+
+
+def strip_analytics(index_path):
+    """Allure 2.x 会在报告里塞 Google Analytics。
+
+    这个框架是离线优先的：报告一打开就向外发请求，不合适。默认删掉，
+    `GAMEQA_ALLURE_KEEP_GA=1` 可保留。删的是外链和它的初始化块，不影响页面逻辑。
+    """
+    if os.environ.get("GAMEQA_ALLURE_KEEP_GA", "").strip().lower() in TRUE_VALUES:
+        return False
+    index_path = Path(index_path)
+    try:
+        text = index_path.read_text(encoding="utf-8")
+        cleaned = GA_INLINE.sub("", GA_SCRIPT.sub("", text))
+        if cleaned != text:
+            index_path.write_text(cleaned, encoding="utf-8")
+            return True
+    except OSError:
+        return False
+    return False
+
+
 def cli():
     """定位 allure 命令：先看环境变量，再找 PATH。"""
     explicit = os.environ.get("GAMEQA_ALLURE_CLI", "").strip()
@@ -165,6 +190,7 @@ def generate(results_dirs, out_dir, timeout=300):
     if result.returncode != 0 or not (out / "index.html").exists():
         tail = (result.stdout or "").strip().splitlines()[-5:]
         return None, "allure generate 退出码 %s：%s" % (result.returncode, " / ".join(tail))
+    strip_analytics(out / "index.html")
     return out / "index.html", None
 
 

@@ -6,11 +6,13 @@
 自检（只打印状态探测结果，不起服务）:
     python panel.py --state
 """
+import ast
 import json
 import mimetypes
 import os
 import re
 import shlex
+import shutil
 import socket
 import subprocess
 import sys
@@ -39,6 +41,13 @@ def child_env():
         if len(parts) == 2 and parts[0] == "export" and "=" in parts[1]:
             key, value = parts[1].split("=", 1)
             env[key] = value
+    # 面板从 Finder/launchd 起时 PATH 很短，allure 在 npm 的 bin 下：显式补上
+    cli = env.get("GAMEQA_ALLURE_CLI") or shutil.which("allure", path=env.get("PATH", ""))
+    if not cli:
+        cli = next((str(path) for path in sorted((Path.home() / ".local/node").glob("*/bin/allure"))), None)
+    if cli:
+        env["GAMEQA_ALLURE_CLI"] = cli
+        env["PATH"] = str(Path(cli).parent) + os.pathsep + env.get("PATH", "")
     return env
 
 
@@ -362,6 +371,8 @@ def start_selection(payload, experiment="未命名-面板"):
         return "不能把 api 和 ui 用例混在一次运行里（共用管理员、商店NPC和浏览器）"
     argv = [str(PY), "-m", "gameqa", "run", "--case", ",".join(chosen), "--rounds", str(rounds),
             "--experiment", experiment, "--stop-after-failure"]
+    if payload.get("allure"):
+        argv.append("--allure")
     return start_job("自选-" + kinds[chosen[0]], argv, selected=chosen, rounds=rounds)
 
 
@@ -409,6 +420,50 @@ MARK_RE = re.compile(r"(?<![A-Za-z0-9])([AU]\?|[AU]|M\?)(?![A-Za-z0-9])")
 def base_of(case_id):
     match = BASE_RE.match(case_id)
     return match.group(1) if match else case_id
+
+
+def case_declarations():
+    """cases/*.py 里每个 pytest.mark.case 的静态声明：[{id, covers, path}]。
+
+    静态读 AST，不跑 collect，也不改框架——门禁与面板共用同一份读法。
+    """
+    found = []
+    for path in sorted((PROJECT / "cases").glob("*.py")):
+        try:
+            tree = ast.parse(path.read_text(encoding="utf-8"))
+        except SyntaxError:
+            continue
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.Call):
+                continue
+            func = node.func
+            if not (isinstance(func, ast.Attribute) and func.attr == "case"
+                    and isinstance(func.value, ast.Attribute) and func.value.attr == "mark"
+                    and isinstance(func.value.value, ast.Name) and func.value.value.id == "pytest"):
+                continue
+            meta = {keyword.arg: keyword.value for keyword in node.keywords if keyword.arg}
+            case_id = meta.get("id")
+            if not isinstance(case_id, ast.Constant) or not isinstance(case_id.value, str):
+                continue
+            covers = meta.get("covers")
+            values = []
+            if isinstance(covers, (ast.List, ast.Tuple)):
+                values = [element.value for element in covers.elts
+                          if isinstance(element, ast.Constant) and isinstance(element.value, str)]
+            found.append({"id": case_id.value, "covers": values, "path": path.name})
+    return found
+
+
+def cover_declarations():
+    """设计编号 → 声明 covers 它的执行用例。别名设计的代码侧依据。
+
+    别名设计（文档标 A/U、框架里没有独立用例）必须有这条声明，否则只是"文档自称已实现"。
+    """
+    found = {}
+    for row in case_declarations():
+        for cover in row["covers"]:
+            found.setdefault(cover, []).append(row["id"])
+    return found
 
 
 def documented_cases():
@@ -556,13 +611,20 @@ def case_inventory():
                  "doc": meta["doc"], "note": meta["note"]}
                 for case_id, meta in sorted(docs.items())
                 if case_id not in ids and case_id not in bases and (meta["marker"] or meta["primary"])]
-    # 文档声明"已实现"但框架里没有独立用例的：共用执行ID的别名设计，单独列，不算未实现
-    aliases = [row for row in designed if row["marker"] in ("A", "U")]
+    # 文档声明"已实现"但框架里没有独立用例的，分两档：
+    #   aliases —— 有 cases 里的 covers= 声明可反查，才算共用执行ID的别名设计，不算未实现；
+    #   claimed —— 只有文档一句话、代码里找不到 covers，属于"声明已实现但代码无据"，单列不合规。
+    covers = cover_declarations()
+    aliases = [dict(row, covers=covers[row["id"]]) for row in designed
+               if row["marker"] in ("A", "U") and row["id"] in covers]
+    claimed = [row for row in designed if row["marker"] in ("A", "U") and row["id"] not in covers]
     designed = [row for row in designed if row["marker"] not in ("A", "U")]
     unmatched = sorted(case_id for case_id in ids
                        if case_id not in docs and base_of(case_id) not in docs)
     data = {"implemented": implemented, "designed": designed, "aliases": aliases, "unmatched": unmatched,
+            "claimed": claimed,
             "counts": {"implemented": len(implemented), "designed": len(designed), "aliases": len(aliases),
+                       "claimed": len(claimed),
                        "documented_total": len(docs), "unmatched": len(unmatched),
                        "undocumented_implemented": sum(1 for row in implemented if not row["documented"]),
                        "untitled": sum(1 for row in implemented if not row["title"]),
@@ -608,6 +670,8 @@ def reports(limit=8):
         found.append({"run": folder.parent.name, "rounds": summary.get("rounds"),
                       "report": ("index.html" if (folder.parent / "index.html").exists()
                                  else "round-01/index.html"),
+                      "allure": ("allure-html/index.html"
+                                 if (folder.parent / "allure-html/index.html").exists() else None),
                       "experiment": summary.get("experiment", ""),
                       "consistent": summary.get("consistent"), "all_passed": summary.get("all_passed"),
                       "exit_codes": summary.get("exit_codes", []),
@@ -877,6 +941,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
       <span id="pick-count">已选 0 条</span>
       <span id="pick-eta">预计 —</span>
       <label>轮次 <input id="rounds" type="number" value="1" min="1" max="20"></label>
+      <label title="额外产出 Allure 报告（第二视图，不改变判定）"><input id="chk-allure" type="checkbox"> Allure</label>
       <button id="b-run" disabled>执行所选</button>
       <span class="why" id="pick-why"></span>
     </div>
@@ -1106,7 +1171,9 @@ async function loadReports() {
     + '<td><span class="badge' + (r.all_passed ? '' : ' no') + '">' + r.all_passed + '</span></td>'
     + '<td class="muted">' + (r.failed.join(', ') || '—') + '</td>'
     + '<td><a href="/reports/' + r.run + '/' + r.report + '" target="_blank">打开报告</a>'
-    + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a></td></tr>').join('')
+    + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a>'
+    + (r.allure ? ' <a href="/reports/' + r.run + '/' + r.allure + '" target="_blank">Allure</a>' : '')
+    + '</td></tr>').join('')
     || '<tr><td colspan="8" class="muted">还没有运行记录。</td></tr>';
 }
 
@@ -1136,7 +1203,8 @@ function caseSummary() {
 
 
   return '已实现 ' + c.implemented + ' 条 · 已设计未实现 ' + c.designed
-    + ' 条 · 声明已实现但无独立用例 ' + c.aliases + ' 条 · 文档共 ' + c.documented_total
+    + ' 条 · 声明已实现且代码有据 ' + c.aliases + ' 条 · 声明已实现但代码无据 ' + c.claimed
+    + ' 条 · 文档共 ' + c.documented_total
     + ' 条 · 实现但文档里找不到 ' + c.unmatched + ' 条 · 已实现但无文档标记 '
     + c.undocumented_implemented + ' 条 · 中文名待补 ' + c.untitled + ' 条 · 门禁欠账 ' + c.gate_debt + ' 条'
     + (f === 'all' ? ''
@@ -1186,8 +1254,15 @@ async function loadCases() {
   html += details('已设计未实现（文档里有、框架里没有）', table(['用例 ID', '文档标记', '文档来源', '文档备注'],
     d.designed.map((r) => [r.id, markText(r.marker), r.source || '—', r.note || r.doc])),
     ' data-game="doc"');
-  html += details('声明已实现但无独立用例（共用执行ID的别名）', table(['用例 ID', '文档标记', '文档备注'],
-    d.aliases.map((r) => [r.id, markText(r.marker), r.note || '—'])), ' data-game="doc"');
+  if (d.claimed.length) {
+    html += details('⚠ 声明已实现但代码无据（文档标 A/U，cases 里没有 covers= 声明）',
+      table(['用例 ID', '文档标记', '文档备注'],
+        d.claimed.map((r) => [r.id, markText(r.marker), r.note || '—'])), ' data-game="doc" open');
+  }
+  html += details('声明已实现但无独立用例（共用执行ID的别名，已有 covers= 反查）',
+    table(['用例 ID', '文档标记', '执行用例（covers）', '文档备注'],
+      d.aliases.map((r) => [r.id, markText(r.marker), r.covers.join('、'), r.note || '—'])),
+    ' data-game="doc"');
   html += details('实现但文档里找不到（编号对不上）', table(['用例 ID'], d.unmatched.map((id) => [id])),
     ' data-game="doc"');
   $('cases-body').innerHTML = html;
@@ -1274,7 +1349,7 @@ $('b-run').onclick = async () => {
   const seconds = estimateSeconds();
   if (seconds > 1200 && !confirm('预计要跑 ' + fmtDuration(seconds) + '，确定开始？')) return;
   const r = await fetch('/api/run', {method: 'POST', headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({cases: cases, rounds: rounds})}).then((response) => response.json());
+    body: JSON.stringify({cases: cases, rounds: rounds, allure: $('chk-allure').checked})}).then((response) => response.json());
   if (r.error) { $('pick-why').textContent = r.error; return; }
   beginJob(r.job, 'python -m gameqa run --case "' + cases.join(',') + '" --rounds ' + rounds
     + ' --experiment custom --stop-after-failure');
