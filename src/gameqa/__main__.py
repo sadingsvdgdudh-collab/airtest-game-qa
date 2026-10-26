@@ -3,10 +3,12 @@ from collections import defaultdict
 from datetime import datetime, timezone
 import json
 import html
+import os
 from pathlib import Path
 import subprocess
 import sys
 
+from . import allure_report
 from .config import load_config
 from .bridge import INFRA_SIGNATURES as _INFRA_SIGNATURES, redact
 from .run_lock import RunBusy, RunLock
@@ -89,6 +91,8 @@ def main(argv=None):
     run.add_argument("--experiment", default="未命名",
                      help="这次运行的用途标签（结果页会显示）；不写就是「未命名」")
     run.add_argument("--stop-after-failure", action="store_true")
+    run.add_argument("--allure", action="store_true",
+                     help="额外产出 Allure 报告（第二视图）；不改变判定，报告仍以 case.json/report.json 为准")
     run.add_argument("--qa-lock-fd", type=int, help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     if not 1 <= args.rounds <= 20:
@@ -106,6 +110,12 @@ def main(argv=None):
 
 def execute(args, project, lock):
     config = load_config(args.config)
+    use_allure = bool(args.allure)
+    if use_allure and not allure_report.available():
+        print("提示：未安装 allure-pytest，本次跳过 Allure（判定与报告不受影响）；"
+              "安装：pip install 'allure-pytest>=2.13,<3'", file=sys.stderr)
+        use_allure = False
+    child_env = {**os.environ, "GAMEQA_ALLURE": "1"} if use_allure else None
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
     folder = (args.report_dir or project / "reports" / run_id).resolve()
     folder.mkdir(parents=True, exist_ok=False)
@@ -121,9 +131,11 @@ def execute(args, project, lock):
                 command.extend([f"--qa-{field}", value])
         if args.stop_after_failure:
             command.append("-x")
+        if use_allure:
+            command.extend(["--alluredir", str(target / "allure-results")])
         result = subprocess.run(command, cwd=project, text=True, encoding="utf-8",
                                 stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                pass_fds=(lock.fileno(),))
+                                pass_fds=(lock.fileno(),), env=child_env)
         target.mkdir(parents=True, exist_ok=True)
         (target / "pytest.log").write_text(redact(result.stdout), encoding="utf-8")
         print(f"Round {number}/{args.rounds}: exit={result.returncode}; {target / 'index.html'}")
@@ -138,9 +150,11 @@ def execute(args, project, lock):
                              "--qa-config", config["_path"], "--qa-report-dir", str(retry_dir),
                              "--qa-experiment", args.experiment, "--qa-case", ",".join(retried),
                              "--qa-lock-fd", str(lock.fileno())]
+            if use_allure:
+                retry_command.extend(["--alluredir", str(folder / f"round-{number:02d}-retry" / "allure-results")])
             retry_result = subprocess.run(retry_command, cwd=project, text=True, encoding="utf-8",
                                           stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                          pass_fds=(lock.fileno(),))
+                                          pass_fds=(lock.fileno(),), env=child_env)
             retry_dir.mkdir(parents=True, exist_ok=True)
             (retry_dir / "pytest.log").write_text(redact(retry_result.stdout), encoding="utf-8")
             retry_report = (json.loads((retry_dir / "report.json").read_text(encoding="utf-8"))
@@ -165,6 +179,15 @@ def execute(args, project, lock):
             break
     summary = {**summarize(reports), "experiment": args.experiment, "exit_codes": exit_codes}
     (folder / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
+    allure_link = ""
+    if use_allure:
+        results = sorted(folder.glob("round-*/allure-results"))
+        html_path, problem = allure_report.generate(results, folder / "allure-html")
+        if html_path:
+            allure_link = allure_report.summary_link(folder, html_path)
+            print(f"Allure: {html_path}")
+        else:
+            print(f"提示：Allure 报告未生成（{problem}）；allure-results 已保留在 {folder}", file=sys.stderr)
     esc = lambda value: html.escape(str(value))
     rows = []
     for case in summary["cases"]:
@@ -182,6 +205,7 @@ def execute(args, project, lock):
           f'<p>非基础设施失败：'
              f'{"、".join(esc(x) for x in summary["unexplained_failures"]) if summary["unexplained_failures"] else "无"}</p>'
         '<p>一致检出的缺陷仍是失败；跳过、报错、重试恢复和漏轮不能计为完成验收。</p>'
+        + allure_link +
         '<table><tr><th>用例</th><th>每轮证据</th><th>可重复</th></tr>' + "".join(rows) + '</table></html>',
         encoding="utf-8")
     print(f"Repeatable: {summary['consistent']}; all passed: {summary['all_passed']}; {folder / 'summary.json'}")

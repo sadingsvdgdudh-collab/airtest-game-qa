@@ -1,0 +1,302 @@
+{
+  "collected": 49,
+  "executed_by_this_collection": 0,
+  "framework_self_checks_are_separate": true,
+  "collected_by": "2026-10-23 别名门禁改造后重新收集",
+  "cases": [
+    {
+      "id": "SH-DEFECT-API-001",
+      "game": "shardy",
+      "module": "known_defects",
+      "kind": "api"
+    },
+    {
+      "id": "SH-DEFECT-API-002",
+      "game": "shardy",
+      "module": "known_defects",
+      "kind": "api"
+    },
+    {
+      "id": "SH-ILLEGAL-API-001",
+      "game": "shardy",
+      "module": "core",
+      "kind": "api"
+    },
+    {
+      "id": "SH-MATCH-API-001",
+      "game": "shardy",
+      "module": "core",
+      "kind": "api"
+    },
+    {
+      "id": "SH-TURN-API-001",
+      "game": "shardy",
+      "module": "core",
+      "kind": "api"
+    },
+    {
+      "id": "SH-TURN-UI-001",
+      "game": "shardy",
+      "module": "core",
+      "kind": "ui"
+    },
+    {
+      "id": "SH-WIN-API-001",
+      "game": "shardy",
+      "module": "core",
+      "kind": "api"
+    },
+    {
+      "id": "ST-BAG-API-001",
+      "game": "stendhal",
+      "module": "inventory",
+      "kind": "api"
+    },
+    {
+      "id": "ST-BAG-API-007-cap",
+      "game": "stendhal",
+      "module": "inventory",
+      "kind": "api"
+    },
+    {
+      "id": "ST-BAG-API-007-heal",
+      "game": "stendhal",
+      "module": "inventory",
+      "kind": "api"
+    },
+    {
+      "id": "ST-BAG-UI-001",
+      "game": "stendhal",
+      "module": "inventory",
+      "kind": "ui"
+    },
+    {
+      "id": "ST-BAG-UI-007",
+      "game": "stendhal",
+      "module": "inventory",
+      "kind": "ui"
+    },
+    {
+      "id": "ST-COMBAT-API-001",
+      "game": "stendhal",
+      "module": "combat",
+      "kind": "api"
+    },
+    {
+      "id": "ST-COMBAT-API-002",
+      "game": "stendhal",
+      "module": "combat",
+      "kind": "api"
+    },
+    {
+      "id": "ST-COMBAT-API-004-cancel",
+      "game": "stendhal",
+      "module": "combat",
+      "kind": "api"
+    },
+    {
+      "id": "ST-COMBAT-API-004-distance",
+      "game": "stendhal",
+      "module": "combat",
+      "kind": "api"
+    },
+    {
+      "id": "ST-COMBAT-UI-001",
+      "game": "stendhal",
+      "module": "combat",
+      "kind": "ui"
+    },
+    {
+      "id": "ST-CRAFT-API-002",
+      "game": "stendhal",
+      "module": "craft",
+      "kind": "api"
+    },
+    {
+      "id": "ST-GROWTH-API-001",
+      "game": "stendhal",
+      "module": "growth",
+      "kind": "api"
+    },
+    {
+      "id": "ST-GROWTH-API-002",
+      "game": "stendhal",
+      "module": "growth",
+      "kind": "api"
+    },
+    {
+      "id": "ST-GROWTH-API-003",
+      "game": "stendhal",
+      "module": "growth",
+      "kind": "api"
+    },
+    {
+      "id": "ST-GROWTH-API-005",
+      "game": "stendhal",
+      "module": "growth",
+      "kind": "api"
+    },
+    {
+      "id": "ST-MAP-API-001",
+      "game": "stendhal",
+      "module": "combat",
+      "kind": "api"
+    },
+    {
+      "id": "ST-MAP-API-002",
+      "game": "stendhal",
+      "module": "combat",
+      "kind": "api"
+    },
+    {
+      "id": "ST-MINIGAME-API-001",
+      "game": "stendhal",
+      "module": "minigame",
+      "kind": "api"
+    },
+    {
+      "id": "ST-PET-API-002",
+      "game": "stendhal",
+      "module": "pet",
+      "kind": "api"
+    },
+    {
+      "id": "ST-QUEST-API-001",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "api"
+    },
+    {
+      "id": "ST-QUEST-API-002",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "api"
+    },
+    {
+      "id": "ST-QUEST-API-003",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "api"
+    },
+    {
+      "id": "ST-QUEST-API-004-handoff",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "api"
+    },
+    {
+      "id": "ST-QUEST-API-004-initial",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "api"
+    },
+    {
+      "id": "ST-QUEST-API-005",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "api"
+    },
+    {
+      "id": "ST-QUEST-UI-001",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "ui"
+    },
+    {
+      "id": "ST-QUEST-UI-007",
+      "game": "stendhal",
+      "module": "quest",
+      "kind": "ui"
+    },
+    {
+      "id": "ST-SHOP-API-001",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-002",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-003",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-004",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-005-fraction",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-005-maximum",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-005-negative",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-005-over-maximum",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-005-zero",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-006-merge",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-006-no-space",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-007",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-008",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-API-009",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "api"
+    },
+    {
+      "id": "ST-SHOP-UI-001",
+      "game": "stendhal",
+      "module": "shop",
+      "kind": "ui"
+    }
+  ]
+}

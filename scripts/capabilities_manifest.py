@@ -44,6 +44,7 @@ CHANNEL_BY_MODULE = {
     "shardy_ui.py": "ui",
     "device.py": "ui",
     "evidence.py": "both",
+    "allure_report.py": "both",
     "config.py": "both",
     "sources.py": "both",
     "run_lock.py": "both",

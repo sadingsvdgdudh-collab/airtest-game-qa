@@ -1,0 +1,21 @@
+.............................................F.......................... [ 64%]
+.......................................                                  [100%]
+=================================== FAILURES ===================================
+_______ test_every_documented_evidence_reference_is_on_disk_and_tracked ________
+
+    def test_every_documented_evidence_reference_is_on_disk_and_tracked():
+        problems = checker.check(PROJECT)
+>       assert problems == [], "克隆后会断链：\n" + "\n".join(
+            f"{path} <- {who} ({why})" for path, who, why in problems)
+E       AssertionError: 克隆后会断链：
+E         docs/evidence/alias-gate/collected-ids.json <- docs/验收清单.md (存在但未被 git 跟踪（克隆后是断链）)
+E         docs/evidence/alias-gate/offline-tests.log <- docs/验收清单.md (存在但未被 git 跟踪（克隆后是断链）)
+E       assert [('docs/evide... 跟踪（克隆后是断链）')] == []
+E         
+E         Left contains 2 more items, first extra item: ('docs/evidence/alias-gate/collected-ids.json', 'docs/验收清单.md', '存在但未被 git 跟踪（克隆后是断链）')
+E         Use -v to get more diff
+
+tests/test_evidence_links.py:16: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_evidence_links.py::test_every_documented_evidence_reference_is_on_disk_and_tracked
+1 failed, 110 passed in 13.95s

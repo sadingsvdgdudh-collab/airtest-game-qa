@@ -6,6 +6,7 @@ import time
 
 import pytest
 
+from . import allure_report
 from .bridge import Bridge, redact
 from .config import load_config, resolve_path
 from .device import AndroidDevice
@@ -51,6 +52,30 @@ def pytest_unconfigure(config):
         lock.close()
 
 
+CASE_ID = re.compile(r"S[TH]-[A-Z]+-[A-Z]+-\d+")
+COVER_ID = re.compile(r"[A-Za-z0-9_.-]+")
+
+
+def _check_covers(nodeid, meta):
+    """covers 声明：本用例实际执行到、但没有独立 pytest 用例的设计编号（别名设计）。
+
+    别名一旦只写在文档备注里就是文档自证；写进 marker 才能被 collect 校验、被面板反查、
+    进证据 metadata。规则：必须是设计编号形态、不能声明自己、不能重复。
+    """
+    covers = meta.get("covers", ())
+    if isinstance(covers, str) or not isinstance(covers, (list, tuple)):
+        raise pytest.UsageError(f"{nodeid}: covers must be a list of design ids")
+    seen = set()
+    for cover in covers:
+        if not isinstance(cover, str) or not COVER_ID.fullmatch(cover) or not CASE_ID.fullmatch(cover):
+            raise pytest.UsageError(f"{nodeid}: covers entry is not a design id: {cover!r}")
+        if cover == meta["id"]:
+            raise pytest.UsageError(f"{nodeid}: covers must not repeat the case id itself: {cover}")
+        if cover in seen:
+            raise pytest.UsageError(f"{nodeid}: duplicate covers entry: {cover}")
+        seen.add(cover)
+
+
 def pytest_collection_modifyitems(config, items):
     selected, deselected = [], []
     seen = set()
@@ -60,12 +85,13 @@ def pytest_collection_modifyitems(config, items):
             deselected.append(item)
             continue
         meta = dict(marker.kwargs)
-        required, optional = {"id", "game", "module", "kind"}, {"title"}
+        required, optional = {"id", "game", "module", "kind"}, {"title", "covers"}
         if not required <= set(meta) or not set(meta) <= required | optional:
             raise pytest.UsageError(f"{item.nodeid}: case marker requires id, game, module, kind"
                                     f"（可选 {', '.join(sorted(optional))}）")
         if not re.fullmatch(r"[A-Za-z0-9_.-]+", meta["id"]):
             raise pytest.UsageError(f"unsafe case id: {meta['id']}")
+        _check_covers(item.nodeid, meta)
         if meta["id"] in seen:
             raise pytest.UsageError(f"duplicate case id: {meta['id']}")
         seen.add(meta["id"])
@@ -97,13 +123,42 @@ def pytest_runtest_setup(item):
             "experiment": item.config.getoption("--qa-experiment"), "reproduce": shlex.join(reproduce)}
     item._qa_evidence = Evidence(meta["id"], item.config._qa_folder / meta["id"], meta)
     item.config._qa_records[meta["id"]] = item._qa_evidence
+    allure_report.set_identity(meta["id"], meta, item.config.getoption("--qa-experiment"))
+
+
+@pytest.hookimpl(trylast=True)
+def pytest_runtest_call(item):
+    # 标题必须在 allure 的 setup 钩子收尾之后设置：那边会用函数名覆盖 name。
+    meta = getattr(item, "_qa_meta", None)
+    if meta:
+        allure_report.set_title(meta.get("id"), meta.get("title"))
+
+
+def _finalize(evidence):
+    """按 phases 定 outcome 并落盘；重复调用是幂等的。"""
+    phases = evidence.data.get("phases", {})
+    if (phases.get("setup") == "failed" or phases.get("teardown") == "failed"
+            or evidence.data.get("failure_kind") == "preparation_error"):
+        evidence.data["outcome"] = "error"
+    elif phases.get("call") == "failed":
+        evidence.data["outcome"] = "failed"
+    elif "skipped" in phases.values():
+        evidence.data["outcome"] = "skipped"
+    else:
+        evidence.data["outcome"] = "passed"
+    return evidence.write()
 
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
+    evidence = getattr(item, "_qa_evidence", None)
+    if evidence and call.when == "teardown":
+        # 附件必须在 allure 停表之前挂上：等到 yield 之后再挂会被静默丢弃。
+        _finalize(evidence)
+        allure_report.attach_case_folder(evidence.folder, evidence.data.get("outcome"),
+                                         bool(evidence.data.get("unstable")))
     result = yield
     report = result.get_result()
-    evidence = getattr(item, "_qa_evidence", None)
     if not evidence:
         return
     phases = evidence.data.setdefault("phases", {})
@@ -113,16 +168,7 @@ def pytest_runtest_makereport(item, call):
     if report.skipped:
         evidence.data["skip_reason"] = str(report.longrepr)
     if report.when == "teardown":
-        if (phases.get("setup") == "failed" or phases.get("teardown") == "failed"
-                or evidence.data.get("failure_kind") == "preparation_error"):
-            evidence.data["outcome"] = "error"
-        elif phases.get("call") == "failed":
-            evidence.data["outcome"] = "failed"
-        elif "skipped" in phases.values():
-            evidence.data["outcome"] = "skipped"
-        else:
-            evidence.data["outcome"] = "passed"
-        evidence.write()
+        _finalize(evidence)
 
 
 def pytest_sessionfinish(session, exitstatus):

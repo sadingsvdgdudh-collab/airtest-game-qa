@@ -2,9 +2,9 @@
   "schema_version": "1.1",
   "framework_root": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa",
   "reviewer": "auto:scripts/capabilities_manifest.py",
-  "checked_at": "2026-10-10T14:08:27+00:00",
+  "checked_at": "2026-10-26T08:32:36+00:00",
   "counts": {
-    "function": 102,
+    "function": 115,
     "asset": 68
   },
   "capabilities": [
@@ -589,6 +589,123 @@
       "notes": "自动生成；签名 (game)"
     },
     {
+      "id": "allure_report.active",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "active",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "allure_report.attach_case_folder",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "attach_case_folder",
+      "notes": "自动生成；签名 (folder, outcome, unstable)"
+    },
+    {
+      "id": "allure_report.attach_file",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "attach_file",
+      "notes": "自动生成；签名 (path, label)"
+    },
+    {
+      "id": "allure_report.attach_text",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "attach_text",
+      "notes": "自动生成；签名 (body, label)"
+    },
+    {
+      "id": "allure_report.available",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "available",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "allure_report.check_label",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "check_label",
+      "notes": "自动生成；签名 (title, expected, actual)"
+    },
+    {
+      "id": "allure_report.cli",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "cli",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "allure_report.enabled",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "enabled",
+      "notes": "自动生成；签名 ()"
+    },
+    {
+      "id": "allure_report.generate",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "generate",
+      "notes": "自动生成；签名 (results_dirs, out_dir, timeout)"
+    },
+    {
+      "id": "allure_report.set_identity",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "set_identity",
+      "notes": "自动生成；签名 (case_id, meta, experiment)"
+    },
+    {
+      "id": "allure_report.set_title",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "set_title",
+      "notes": "自动生成；签名 (case_id, title)"
+    },
+    {
+      "id": "allure_report.step",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "step",
+      "notes": "自动生成；签名 (title, kind)"
+    },
+    {
+      "id": "allure_report.summary_link",
+      "kind": "function",
+      "channel": "both",
+      "file": "src/gameqa/allure_report.py",
+      "sha256": "9374ca7a5ffc8b1756cf1841a527004788cc27454fe3d3b7b2c4535028933f17",
+      "symbol": "summary_link",
+      "notes": "自动生成；签名 (folder, html_path)"
+    },
+    {
       "id": "bridge.Bridge.call",
       "kind": "function",
       "channel": "api",
@@ -764,7 +881,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/evidence.py",
-      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "sha256": "5e8db7ea22baccc47c2ac908e6882e4346026b2e035054c284588d1c8eb8acfc",
       "symbol": "Evidence.action",
       "notes": "自动生成；签名 (title, operation)"
     },
@@ -773,7 +890,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/evidence.py",
-      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "sha256": "5e8db7ea22baccc47c2ac908e6882e4346026b2e035054c284588d1c8eb8acfc",
       "symbol": "Evidence.attach",
       "notes": "自动生成；签名 (path, label)"
     },
@@ -782,7 +899,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/evidence.py",
-      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "sha256": "5e8db7ea22baccc47c2ac908e6882e4346026b2e035054c284588d1c8eb8acfc",
       "symbol": "Evidence.check",
       "notes": "自动生成；签名 (title, actual, expected, source)"
     },
@@ -791,7 +908,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/evidence.py",
-      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "sha256": "5e8db7ea22baccc47c2ac908e6882e4346026b2e035054c284588d1c8eb8acfc",
       "symbol": "Evidence.observe",
       "notes": "自动生成；签名 (title, operation, retries)"
     },
@@ -800,7 +917,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/evidence.py",
-      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "sha256": "5e8db7ea22baccc47c2ac908e6882e4346026b2e035054c284588d1c8eb8acfc",
       "symbol": "Evidence.write",
       "notes": "自动生成；签名 ()"
     },
@@ -809,7 +926,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/evidence.py",
-      "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
+      "sha256": "5e8db7ea22baccc47c2ac908e6882e4346026b2e035054c284588d1c8eb8acfc",
       "symbol": "write_report",
       "notes": "自动生成；签名 (folder, records, metadata)"
     },

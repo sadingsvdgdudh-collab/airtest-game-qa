@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 import time
 
+from . import allure_report
 from .bridge import TransientError, redact
 
 
@@ -17,12 +18,13 @@ class Evidence:
     def check(self, title, actual, expected, source):
         if not source:
             raise ValueError("business assertion needs a rule source")
-        passed = actual == expected
-        self.data["steps"].append({"title": title, "expected": redact(expected),
-                                   "actual": redact(actual), "source": source,
-                                   "outcome": "passed" if passed else "failed"})
-        if not passed:
-            raise AssertionError(f"{title}: expected={expected!r}, actual={actual!r}; source={source}")
+        with allure_report.step(allure_report.check_label(title, expected, actual), kind="check"):
+            passed = actual == expected
+            self.data["steps"].append({"title": title, "expected": redact(expected),
+                                       "actual": redact(actual), "source": source,
+                                       "outcome": "passed" if passed else "failed"})
+            if not passed:
+                raise AssertionError(f"{title}: expected={expected!r}, actual={actual!r}; source={source}")
 
     def observe(self, title, operation, retries=1):
         """Retry observations only. Pass business actions to action(), never here."""
@@ -30,36 +32,38 @@ class Evidence:
             raise ValueError("observation retries must be between 0 and 3")
         step = {"title": title, "kind": "observation", "attempts": []}
         self.data["steps"].append(step)
-        for attempt in range(retries + 1):
-            started = time.monotonic()
-            try:
-                result = operation()
-                step["attempts"].append({"number": attempt + 1, "outcome": "passed",
-                                          "elapsed": time.monotonic() - started})
-                step["outcome"] = "passed"
-                return result
-            except TransientError as exc:
-                step["attempts"].append({"number": attempt + 1, "outcome": "failed",
-                                          "error": str(exc), "elapsed": time.monotonic() - started})
-                step["outcome"] = "failed"
-                self.data["unstable"] = True
-                if attempt == retries:
+        with allure_report.step(f"[观察] {title}", kind="observe"):
+            for attempt in range(retries + 1):
+                started = time.monotonic()
+                try:
+                    result = operation()
+                    step["attempts"].append({"number": attempt + 1, "outcome": "passed",
+                                              "elapsed": time.monotonic() - started})
+                    step["outcome"] = "passed"
+                    return result
+                except TransientError as exc:
+                    step["attempts"].append({"number": attempt + 1, "outcome": "failed",
+                                              "error": str(exc), "elapsed": time.monotonic() - started})
+                    step["outcome"] = "failed"
+                    self.data["unstable"] = True
+                    if attempt == retries:
+                        raise
+                except Exception as exc:
+                    step["outcome"] = "failed"
+                    step["attempts"].append({"number": attempt + 1, "outcome": "failed", "error": str(exc)})
                     raise
-            except Exception as exc:
-                step["outcome"] = "failed"
-                step["attempts"].append({"number": attempt + 1, "outcome": "failed", "error": str(exc)})
-                raise
 
     def action(self, title, operation):
         step = {"title": title, "kind": "business_action", "outcome": "running"}
         self.data["steps"].append(step)
-        try:
-            result = operation()
-            step["outcome"] = "passed"
-            return result
-        except Exception as exc:
-            step.update(outcome="failed", error=str(exc))
-            raise
+        with allure_report.step(f"[动作] {title}", kind="action"):
+            try:
+                result = operation()
+                step["outcome"] = "passed"
+                return result
+            except Exception as exc:
+                step.update(outcome="failed", error=str(exc))
+                raise
 
     def attach(self, path, label):
         path = Path(path).resolve()
