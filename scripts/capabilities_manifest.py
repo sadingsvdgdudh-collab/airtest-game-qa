@@ -45,6 +45,7 @@ CHANNEL_BY_MODULE = {
     "device.py": "ui",
     "evidence.py": "both",
     "allure_report.py": "both",
+    "allure_i18n.py": "both",
     "config.py": "both",
     "sources.py": "both",
     "run_lock.py": "both",

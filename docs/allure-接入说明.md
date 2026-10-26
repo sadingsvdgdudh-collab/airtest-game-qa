@@ -64,6 +64,25 @@ allure generate --clean -o reports/<时间戳>/allure-html reports/<时间戳>/r
 一打开就往外发请求。框架是离线优先的，所以生成后默认删掉那段脚本，
 需要保留时设 `GAMEQA_ALLURE_KEEP_GA=1`。删的只是外链和它的初始化块，不影响页面逻辑。
 
+## 3.2 中文界面
+
+**Allure 2.46 自带中文**，不用逐条翻译——生成后把语言标成 `zh-CN` 就是中文。
+实测概览/套件/行为/图表/时间轴/包 六个路由，中文覆盖完整，残留只有品牌词 `Allure`、语言下拉里的语言代码和数据本身。
+
+做法（`src/gameqa/allure_i18n.py`，生成时自动执行）：
+
+1. `index.html`：`lang="en"` → `lang="zh-CN"`，`<title>Allure Report</title>` → `<title>测试报告</title>`
+2. `widgets/summary.json`：`reportName` → `测试报告`（页面大标题）
+
+| 变量 | 默认 | 作用 |
+| --- | --- | --- |
+| `GAMEQA_ALLURE_I18N` | `zh` | 设为 `off` 保持英文 |
+| `GAMEQA_ALLURE_TITLE` | `测试报告` | 改报告标题 |
+
+> 走过的弯路记一下：一开始写了一套「英文→中文」字典 + MutationObserver 逐节点替换（100 多条）。
+> 后来发现 Allure 本来就有中文包，只要 `<html lang>` 设对；字典方案反而把自带翻译覆盖成自己的写法。
+> 所以字典整段删了，只剩 6 行补丁——**能用上游的就别自己造**。
+
 ## 4. 映射关系
 
 | 框架里的东西 | 在 Allure 里的呈现 |
@@ -124,5 +143,7 @@ npm uninstall -g allure-commandline
 | 不带 `--allure` | exit=0，不产生 `allure-results`，与原行为一致 |
 | 报告站点 | `allure-html/index.html` 约 2.0M，汇总页含「Allure 报告（第二视图）」链接 |
 | 面板内打开 | `/reports/<run>/allure-html/index.html` → 200，`assets/` 资源 200 |
+| 中文覆盖 | 6 个路由渲染后中文标签 21 个，残留英文只有 `Allure`/`am`/`stendhal` |
+| 报告标题 | `<title>测试报告</title>`，页面大标题「测试报告 2026/10/26」 |
 | 面板勾选跑一轮 | `POST /api/run {allure:true}` → 命令带 `--allure`，job passed，产物齐全 |
 | GA 已剔除 | 生成后的 `index.html` 里 `googletagmanager` 出现 0 次 |

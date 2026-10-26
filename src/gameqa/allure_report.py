@@ -14,6 +14,8 @@ import re
 import shutil
 import subprocess
 
+from . import allure_i18n
+
 
 TRUE_VALUES = {"1", "true", "yes", "on"}
 ATTACH_MAX_BYTES = 4 * 1024 * 1024  # 单个附件上限，避免把几十 G 的日志塞进报告
@@ -191,6 +193,7 @@ def generate(results_dirs, out_dir, timeout=300):
         tail = (result.stdout or "").strip().splitlines()[-5:]
         return None, "allure generate 退出码 %s：%s" % (result.returncode, " / ".join(tail))
     strip_analytics(out / "index.html")
+    allure_i18n.localize(out)
     return out / "index.html", None
 
 
