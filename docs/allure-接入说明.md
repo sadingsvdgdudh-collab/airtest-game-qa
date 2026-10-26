@@ -108,6 +108,27 @@ python -m gameqa allure
 实测：5 条用例、163 个结果文件、重建后趋势点从 1 → 2 → 3 递增；再用同样输入重建会打印
 「没有新的运行，跳过重建」。
 
+## 3.4 总报告自动同步
+
+带 `--allure` 的 `gameqa run` **跑完会自动刷新总报告**，不用再手动点：
+
+```text
+Round 1/1: exit=1; reports/…/round-01/index.html
+Allure: reports/…/allure-html/index.html
+总报告已同步（199 个结果文件）→ reports/_allure/index.html
+```
+
+| 开关 | 作用 |
+| --- | --- |
+| 默认 | 带 `--allure` 就跑完自动合并 |
+| `--no-allure-merge` | 只出单次报告，不动总报告（大批量跑批时少 10 秒） |
+| 面板 | 勾了 Allure 就等于带 `--allure`，跑完自动同步；「重建总报告」只用于补历史 |
+
+**一个必须知道的边界**：没带 `--allure` 的运行**不会**进总报告——allure-results 是 pytest 跑的时候才产生的，
+事后补不出来。合并时会提示 `另有 N 次运行没带 --allure，未包含`，看到这句就说明历史里有洞。
+
+所以「单次报告有、总报告没有」的排查顺序：先看那次运行有没有 `allure-results/` 目录 → 再看总报告要不要重建。
+
 ## 4. 映射关系
 
 | 框架里的东西 | 在 Allure 里的呈现 |
@@ -140,6 +161,9 @@ python -m gameqa allure
 1. **标题被函数名覆盖**：allure 的 `pytest_runtest_setup` 是 hookwrapper，收尾时用 `allure_name(item)` 重设 `name`。标题必须在它之后设 → 放到 `pytest_runtest_call(trylast)`。
 2. **附件静默丢失**：allure 在 `makereport(teardown)` 的收尾里停表，yield 之后再挂附件不会报错但也不生效。必须在 yield 之前挂。
 3. **API 变更**：allure-pytest 2.16 没有 `allure.attach_file`，要用 `allure.attach.file(...)`。
+4. **失败用例的标题会被重置**：通过用例标题正常，失败用例在收尾时 name 退回函数名
+   （`test_sell_two_cheese_to_keeper`）。所以标题要在 `makereport(teardown)` 的 **yield 之前再设一次**，
+   和附件同一个时机。
 
 ## 7. 回滚
 

@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "framework_root": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa",
   "reviewer": "auto:scripts/capabilities_manifest.py",
-  "checked_at": "2026-10-26T09:11:24+00:00",
+  "checked_at": "2026-10-26T09:17:16+00:00",
   "counts": {
     "function": 121,
     "asset": 68
@@ -620,7 +620,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "active",
       "notes": "自动生成；签名 ()"
     },
@@ -629,7 +629,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "attach_case_folder",
       "notes": "自动生成；签名 (folder, outcome, unstable)"
     },
@@ -638,7 +638,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "attach_file",
       "notes": "自动生成；签名 (path, label)"
     },
@@ -647,7 +647,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "attach_text",
       "notes": "自动生成；签名 (body, label)"
     },
@@ -656,7 +656,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "available",
       "notes": "自动生成；签名 ()"
     },
@@ -665,7 +665,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "check_label",
       "notes": "自动生成；签名 (title, expected, actual)"
     },
@@ -674,7 +674,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "cli",
       "notes": "自动生成；签名 ()"
     },
@@ -683,7 +683,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "enabled",
       "notes": "自动生成；签名 ()"
     },
@@ -692,7 +692,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "generate",
       "notes": "自动生成；签名 (results_dirs, out_dir, timeout)"
     },
@@ -701,7 +701,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "merge",
       "notes": "自动生成；签名 (project, out, results_glob)"
     },
@@ -710,7 +710,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "set_identity",
       "notes": "自动生成；签名 (case_id, meta, experiment)"
     },
@@ -719,7 +719,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "set_title",
       "notes": "自动生成；签名 (case_id, title)"
     },
@@ -728,7 +728,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "step",
       "notes": "自动生成；签名 (title, kind)"
     },
@@ -737,7 +737,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "strip_analytics",
       "notes": "自动生成；签名 (index_path)"
     },
@@ -746,7 +746,7 @@
       "kind": "function",
       "channel": "both",
       "file": "src/gameqa/allure_report.py",
-      "sha256": "ac710aee311b867817ca7b3479e70e6b694c1ed2df11f5649bf31ffa8fd09ef4",
+      "sha256": "45c95d1030bcde7e6a6ee0be95006d810f63f9370fd5d7c2603f9706985f9d8b",
       "symbol": "summary_link",
       "notes": "自动生成；签名 (folder, html_path)"
     },

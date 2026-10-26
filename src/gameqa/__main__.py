@@ -91,6 +91,8 @@ def main(argv=None):
     run.add_argument("--experiment", default="未命名",
                      help="这次运行的用途标签（结果页会显示）；不写就是「未命名」")
     run.add_argument("--stop-after-failure", action="store_true")
+    run.add_argument("--no-allure-merge", action="store_true",
+                     help="带 --allure 跑完后不自动刷新总报告（默认刷新）")
     run.add_argument("--allure", action="store_true",
                      help="额外产出 Allure 报告（第二视图）；不改变判定，报告仍以 case.json/report.json 为准")
     run.add_argument("--qa-lock-fd", type=int, help=argparse.SUPPRESS)
@@ -120,14 +122,15 @@ def merge_reports(args, project):
         print("项目里没有 reports/ 目录，先跑一轮", file=sys.stderr)
         return 1
     out = (args.out or project / "reports" / "_allure").resolve()
-    html_path, problem, files = allure_report.merge(project, out)
+    html_path, problem, files, missing = allure_report.merge(project, out)
     if not html_path:
         print(f"总报告未生成：{problem}", file=sys.stderr)
         return 1
     if files == 0 and problem:
         print(f"{problem}：{html_path}")
     else:
-        print(f"合并 {files} 个结果文件 → {html_path}")
+        note = f"（另有 {missing} 次运行没带 --allure，未包含）" if missing else ""
+        print(f"合并 {files} 个结果文件{note} → {html_path}")
     return 0
 
 
@@ -211,6 +214,14 @@ def execute(args, project, lock):
             print(f"Allure: {html_path}")
         else:
             print(f"提示：Allure 报告未生成（{problem}）；allure-results 已保留在 {folder}", file=sys.stderr)
+        if not args.no_allure_merge:
+            merged, merge_problem, files, missing = allure_report.merge(project, project / "reports" / "_allure")
+            if merged and files:
+                print(f"总报告已同步（{files} 个结果文件）→ {merged}")
+            elif merged:
+                print(f"总报告无需更新：{merge_problem}")
+            else:
+                print(f"提示：总报告未更新（{merge_problem}）", file=sys.stderr)
     esc = lambda value: html.escape(str(value))
     rows = []
     for case in summary["cases"]:

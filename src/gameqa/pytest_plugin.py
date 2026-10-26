@@ -154,6 +154,9 @@ def pytest_runtest_makereport(item, call):
     evidence = getattr(item, "_qa_evidence", None)
     if evidence and call.when == "teardown":
         # 附件必须在 allure 停表之前挂上：等到 yield 之后再挂会被静默丢弃。
+        # 标题同理要在这里再设一次——失败用例的 name 会在收尾被重置回函数名（实测）。
+        meta = getattr(item, "_qa_meta", None) or {}
+        allure_report.set_title(meta.get("id"), meta.get("title"))
         _finalize(evidence)
         allure_report.attach_case_folder(evidence.folder, evidence.data.get("outcome"),
                                          bool(evidence.data.get("unstable")))

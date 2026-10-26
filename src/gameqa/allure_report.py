@@ -206,8 +206,10 @@ def merge(project, out, results_glob="reports/*/round-*/allure-results"):
     project = Path(project).resolve()
     out = Path(out).resolve() if not Path(out).is_absolute() else Path(out)
     sources = sorted(project.glob(results_glob))
+    runs_without = sorted({path.parent.parent.parent for path in project.glob("reports/*/round-01")
+                           if not (path / "allure-results").is_dir()})
     if not sources:
-        return None, "没有可合并的 allure-results（先跑几轮带 --allure 的用例）", 0
+        return None, "没有可合并的 allure-results（先跑几轮带 --allure 的用例）", 0, len(runs_without)
     # 没有新运行就不要再生成：否则每重建一次就多一个内容相同的趋势点
     marker = out / ".merged.json"
     fingerprint = [str(source.relative_to(project)) for source in sources]
@@ -215,7 +217,7 @@ def merge(project, out, results_glob="reports/*/round-*/allure-results"):
         if marker.exists() and json.loads(marker.read_text(encoding="utf-8")) == fingerprint:
             html_path = out / "index.html"
             if html_path.exists():
-                return html_path, "没有新的运行，跳过重建", 0
+                return html_path, "没有新的运行，跳过重建", 0, len(runs_without)
     except (OSError, ValueError):
         pass
     staging = out.parent / ".allure-merge-staging"
@@ -252,7 +254,7 @@ def merge(project, out, results_glob="reports/*/round-*/allure-results"):
             marker.write_text(json.dumps(fingerprint, ensure_ascii=False, indent=2), encoding="utf-8")
         except OSError:
             pass
-    return html_path, problem, copied
+    return html_path, problem, copied, len(runs_without)
 
 
 def summary_link(folder, html_path):
