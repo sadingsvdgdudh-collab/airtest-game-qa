@@ -197,6 +197,64 @@ def generate(results_dirs, out_dir, timeout=300):
     return out / "index.html", None
 
 
+def merge(project, out, results_glob="reports/*/round-*/allure-results"):
+    """把历史所有轮的 allure-results 合成一份总报告。
+
+    合并方式：先把各轮的原始结果硬链接到暂存目录（同名附件不重复占空间），
+    再一次性交给 allure generate。同一用例跨轮因为 historyId 相同，会归到同一条历史里。
+    """
+    project = Path(project).resolve()
+    out = Path(out).resolve() if not Path(out).is_absolute() else Path(out)
+    sources = sorted(project.glob(results_glob))
+    if not sources:
+        return None, "没有可合并的 allure-results（先跑几轮带 --allure 的用例）", 0
+    # 没有新运行就不要再生成：否则每重建一次就多一个内容相同的趋势点
+    marker = out / ".merged.json"
+    fingerprint = [str(source.relative_to(project)) for source in sources]
+    try:
+        if marker.exists() and json.loads(marker.read_text(encoding="utf-8")) == fingerprint:
+            html_path = out / "index.html"
+            if html_path.exists():
+                return html_path, "没有新的运行，跳过重建", 0
+    except (OSError, ValueError):
+        pass
+    staging = out.parent / ".allure-merge-staging"
+    if staging.exists():
+        shutil.rmtree(staging)
+    staging.mkdir(parents=True)
+    copied = 0
+    for index, source in enumerate(sources):
+        for item in sorted(source.iterdir()):
+            if not item.is_file():
+                continue
+            target = staging / item.name
+            if target.exists():
+                target = staging / f"{index:03d}-{item.name}"
+            try:
+                os.link(item, target)          # APFS 硬链接，零拷贝
+            except OSError:
+                shutil.copy2(item, target)
+            copied += 1
+    # 上次总报告的 history/*.json 带进来，趋势才有延续（Allure 官方的增量做法）
+    previous = out / "history"
+    if previous.is_dir():
+        # 注意：必须放在 results 的 history/ 子目录里，平铺在根目录会被忽略（实测）
+        history_dir = staging / "history"
+        history_dir.mkdir()
+        for item in sorted(previous.glob("*.json")):
+            target = history_dir / item.name
+            if not target.exists():
+                shutil.copy2(item, target)
+    html_path, problem = generate([staging], out)
+    shutil.rmtree(staging, ignore_errors=True)
+    if html_path:
+        try:
+            marker.write_text(json.dumps(fingerprint, ensure_ascii=False, indent=2), encoding="utf-8")
+        except OSError:
+            pass
+    return html_path, problem, copied
+
+
 def summary_link(folder, html_path):
     """给多轮汇总页补一行入口；纯字符串，不改页面结构。"""
     try:

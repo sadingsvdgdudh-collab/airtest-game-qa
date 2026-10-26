@@ -685,7 +685,8 @@ def reports(limit=8):
                                  if any(o.get("outcome") != "passed" for o in c.get("observations", []))]})
         if len(found) >= limit:
             break
-    return {"runs": found, "retry": retry_rate(summaries)}
+    merged = (PROJECT / "reports" / "_allure" / "index.html").exists()
+    return {"runs": found, "retry": retry_rate(summaries), "merged": merged}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -750,6 +751,11 @@ class Handler(BaseHTTPRequestHandler):
             payload = json.loads(self.rfile.read(length) or b"{}") if length else {}
         except ValueError:
             return self.send_json({"error": "请求体不是合法 JSON"}, 400)
+        if urllib.parse.urlparse(self.path).path == "/api/allure/merge":
+            job_id = start_job("allure-merge", [str(PY), "-m", "gameqa", "allure"])
+            if not job_id:
+                return self.send_json({"error": "已有任务在跑，稍后再试"}, 409)
+            return self.send_json({"job": job_id})
         if urllib.parse.urlparse(self.path).path == "/api/run":
             result = start_selection(payload)
             if isinstance(result, str):
@@ -949,6 +955,10 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
   </div>
   <div id="pane-rep" hidden>
     <p id="rep-retry" class="muted">重试率：读取中…</p>
+    <p>总报告（所有历史运行合成一份）：
+      <span id="rep-merged">检查中…</span>
+      <button id="b-merge">重建总报告</button>
+      <span class="why" id="merge-why"></span></p>
     <p class="muted">口径：<b>重试才过不算一次通过</b>；超过 35% 只作提示，不阻断运行。</p>
     <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>失败用例</th><th></th></tr></thead>
     <tbody id="rep-body"></tbody></table>
@@ -1161,6 +1171,9 @@ async function loadReports() {
       + '" target="_blank">打开报告</a></div><div class="lbl">多轮汇总页</div></div>',
   ].join('') : '<p class="muted">还没有运行记录。到「用例清单」勾选执行。</p>';
   $('rep-root').textContent = '项目 reports/（目录名是 UTC 时间）';
+  $('rep-merged').innerHTML = data.merged
+    ? '<a href="/reports/_allure/index.html" target="_blank">打开总报告（Allure）</a>'
+    : '还没有总报告，点右边按钮合成';
   $('rep-body').innerHTML = rows.map((r) =>
     '<tr><td>' + r.run + '</td>'
     + '<td>' + r.rounds + '</td>'
@@ -1343,6 +1356,14 @@ $('game-filter').onchange = () => { applyFilter(); };
 $('kind-filter').onchange = () => { applyFilter(); };
 $('cases-body').addEventListener('change', updatePick);
 $('rounds').addEventListener('input', updatePick);
+$('b-merge').onclick = async () => {
+  $('merge-why').textContent = '正在合成…';
+  const r = await fetch('/api/allure/merge', {method: 'POST'}).then((x) => x.json());
+  if (r.error) { $('merge-why').textContent = r.error; return; }
+  $('merge-why').textContent = '已开始（约 10 秒），完成后回到本页刷新';
+  beginJob(r.job, 'python -m gameqa allure');
+};
+
 $('b-run').onclick = async () => {
   const cases = picked().map((box) => box.value);
   const rounds = roundsValue();

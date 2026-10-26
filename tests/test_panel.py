@@ -109,7 +109,7 @@ def test_http_page_and_state_endpoint():
         status, reports = get(port, "/api/reports")
         assert status == 200
         payload = json.loads(reports)
-        assert set(payload) == {"runs", "retry"}          # 结果页靠这两个字段
+        assert set(payload) == {"runs", "retry", "merged"}   # merged=总报告是否存在
         assert {"observations", "retried", "first_try", "rate", "warn", "threshold"} == set(payload["retry"])
     finally:
         server.shutdown()

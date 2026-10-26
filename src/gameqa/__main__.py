@@ -94,10 +94,16 @@ def main(argv=None):
     run.add_argument("--allure", action="store_true",
                      help="额外产出 Allure 报告（第二视图）；不改变判定，报告仍以 case.json/report.json 为准")
     run.add_argument("--qa-lock-fd", type=int, help=argparse.SUPPRESS)
+    merge = sub.add_parser("allure", help="把历史各轮的 Allure 结果合成一份总报告")
+    merge.add_argument("--project", type=Path, default=Path.cwd())
+    merge.add_argument("--out", type=Path, help="输出目录，默认 reports/_allure")
+    merge.add_argument("--config")
     args = parser.parse_args(argv)
+    project = args.project.resolve()
+    if args.command == "allure":
+        return merge_reports(args, project)
     if not 1 <= args.rounds <= 20:
         parser.error("rounds must be between 1 and 20")
-    project = args.project.resolve()
     if not (project / "cases").is_dir():
         parser.error("run in the project root or pass --project")
     try:
@@ -106,6 +112,23 @@ def main(argv=None):
     except RunBusy as error:
         print(str(error), file=sys.stderr)
         return 2
+
+
+def merge_reports(args, project):
+    """把 reports/*/round-*/allure-results 合成一份总报告（作为第二视图的历史入口）。"""
+    if not (project / "reports").is_dir():
+        print("项目里没有 reports/ 目录，先跑一轮", file=sys.stderr)
+        return 1
+    out = (args.out or project / "reports" / "_allure").resolve()
+    html_path, problem, files = allure_report.merge(project, out)
+    if not html_path:
+        print(f"总报告未生成：{problem}", file=sys.stderr)
+        return 1
+    if files == 0 and problem:
+        print(f"{problem}：{html_path}")
+    else:
+        print(f"合并 {files} 个结果文件 → {html_path}")
+    return 0
 
 
 def execute(args, project, lock):
