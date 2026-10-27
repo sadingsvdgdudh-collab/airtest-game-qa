@@ -371,7 +371,8 @@ def start_selection(payload, experiment="未命名-面板"):
         return "不能把 api 和 ui 用例混在一次运行里（共用管理员、商店NPC和浏览器）"
     argv = [str(PY), "-m", "gameqa", "run", "--case", ",".join(chosen), "--rounds", str(rounds),
             "--experiment", experiment, "--stop-after-failure"]
-    if payload.get("allure"):
+    # 默认出 Allure（界面勾选框也默认勾上）；显式传 false 才关
+    if payload.get("allure", True):
         argv.append("--allure")
     return start_job("自选-" + kinds[chosen[0]], argv, selected=chosen, rounds=rounds)
 
@@ -956,7 +957,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
       <span id="pick-count">已选 0 条</span>
       <span id="pick-eta">预计 —</span>
       <label>轮次 <input id="rounds" type="number" value="1" min="1" max="20"></label>
-      <label title="额外产出 Allure 报告（第二视图，不改变判定）"><input id="chk-allure" type="checkbox"> Allure</label>
+      <label title="额外产出 Allure 报告（第二视图，不改变判定）"><input id="chk-allure" type="checkbox" checked> Allure</label>
       <button id="b-run" disabled>执行所选</button>
       <span class="why" id="pick-why"></span>
     </div>
