@@ -667,6 +667,8 @@ def reports(limit=8):
         summaries.append(summary)
         rows = [o for case in summary.get("cases", []) for o in case.get("observations", [])]
         retried = sum(1 for o in rows if o.get("infra_retry"))
+        failed_ids = [c["id"] for c in summary.get("cases", [])
+                      if any(o.get("outcome") != "passed" for o in c.get("observations", []))]
         found.append({"run": folder.parent.name, "rounds": summary.get("rounds"),
                       "report": ("index.html" if (folder.parent / "index.html").exists()
                                  else "round-01/index.html"),
@@ -682,7 +684,13 @@ def reports(limit=8):
                       "first_try_passed": summary.get("first_try_passed", sum(
                           1 for o in rows if o.get("outcome") == "passed" and not o.get("infra_retry"))),
                       "failed": [c["id"] for c in summary.get("cases", [])
-                                 if any(o.get("outcome") != "passed" for o in c.get("observations", []))]})
+                                 if any(o.get("outcome") != "passed" for o in c.get("observations", []))],
+                      "business": summary.get("business_failures", []),
+                      "environment": summary.get("environment_failures", []),
+                      "harness": summary.get("harness_failures", []),
+                      **({"unclassified": sorted(set(failed_ids) - set(
+                          summary.get("business_failures", []) + summary.get("environment_failures", [])
+                          + summary.get("harness_failures", [])))} if failed_ids else {})})
         if len(found) >= limit:
             break
     merged = (PROJECT / "reports" / "_allure" / "index.html").exists()
@@ -960,7 +968,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
       <button id="b-merge">重建总报告</button>
       <span class="why" id="merge-why"></span></p>
     <p class="muted">口径：<b>重试才过不算一次通过</b>；超过 35% 只作提示，不阻断运行。</p>
-    <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>失败用例</th><th></th></tr></thead>
+    <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>业务失败</th><th>环境失败</th><th>未分类</th><th></th></tr></thead>
     <tbody id="rep-body"></tbody></table>
     <p class="muted">报告目录：<span id="rep-root"></span></p>
   </div>
@@ -1187,7 +1195,7 @@ async function loadReports() {
     + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a>'
     + (r.allure ? ' <a href="/reports/' + r.run + '/' + r.allure + '" target="_blank">Allure</a>' : '')
     + '</td></tr>').join('')
-    || '<tr><td colspan="8" class="muted">还没有运行记录。</td></tr>';
+    || '<tr><td colspan="10" class="muted">还没有运行记录。</td></tr>';
 }
 
 const MARK_TEXT = {A: '已实现 API', U: '已实现 UI', 'A?': '建议API·未实现',

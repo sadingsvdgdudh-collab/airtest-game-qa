@@ -4,7 +4,37 @@ from pathlib import Path
 import time
 
 from . import allure_report
-from .bridge import TransientError, redact
+from .bridge import INFRA_SIGNATURES, TransientError, redact
+
+
+FAILURE_CLASSES = ("none", "business", "environment", "harness", "skipped")
+
+
+def classify_failure(data):
+    """把一次执行归类，供报告把“游戏坏了”和“环境没起来”分开。
+
+    - business：断言跑完但不成立 → 游戏/需求的问题，**不允许重试掩盖**
+    - environment：命中基础设施签名（后端没起、掉线、超时、模板图没找到）
+    - harness：既不是业务也不是已知环境签名 → 大概率是用例或封装写错
+    - skipped：缺能力没跑
+    """
+    outcome = data.get("outcome")
+    if outcome == "skipped":
+        return "skipped"
+    if outcome in (None, "running", "passed"):
+        return "none"
+    text = json.dumps({"phases": data.get("phases", {}),
+                       "steps": [step for step in data.get("steps", []) if step.get("outcome") == "failed"],
+                       "diagnostics": data.get("diagnostics", {})}, ensure_ascii=False)
+    infra = any(signature in text for signature in INFRA_SIGNATURES)
+    asserted = any(step.get("outcome") == "failed" and "expected" in step
+                   for step in data.get("steps", []))
+    if outcome == "failed":
+        # 断言失败一律算业务：哪怕消息里恰好引用了 "Game connection closed" 这类文本。
+        if asserted or "AssertionError" in text:
+            return "business"
+        return "environment" if infra else "harness"
+    return "environment" if infra else "harness"
 
 
 class Evidence:

@@ -33,6 +33,25 @@ def infra_failed(report):
     return picked
 
 
+def class_summary(cases):
+    """业务 / 环境 / 框架 三类分开数：混在一起看，等于把环境噪音算成缺陷。"""
+    ids = {"business": set(), "environment": set(), "harness": set(), "skipped": set()}
+    counts = {"business": 0, "environment": 0, "harness": 0, "skipped": 0}
+    for row in cases:
+        for observation in row["observations"]:
+            kind = observation.get("failure_class") or "none"
+            if kind in ids:
+                counts[kind] += 1
+                ids[kind].add(row["id"])
+    return {
+        "failure_counts": counts,
+        "business_failures": sorted(ids["business"]),
+        "environment_failures": sorted(ids["environment"]),
+        "harness_failures": sorted(ids["harness"]),
+        "skipped_cases": sorted(ids["skipped"]),
+    }
+
+
 def summarize(rounds):
     """每轮报告合成一份 summary。
 
@@ -47,6 +66,7 @@ def summarize(rounds):
     for number, report in enumerate(rounds, 1):
         for case in report.get("cases", []):
             by_case[case["id"]].append({"round": number, "outcome": case["outcome"],
+                                        "failure_class": case.get("failure_class", "none"),
                                         "unstable": case.get("unstable", False),
                                         "infra_retry": bool((case.get("diagnostics") or {}).get("infra_retry"))})
     cases = []
@@ -68,6 +88,7 @@ def summarize(rounds):
             "infra_retries": retried,
             "unexplained_failures": sorted(row["id"] for row in cases if any(
                 obs["outcome"] != "passed" and not obs["infra_retry"] for obs in row["observations"])),
+            **class_summary(cases),
             "all_passed": bool(cases) and all(
                 len(row["observations"]) == len(rounds)
                 and all(obs["outcome"] == "passed" and not obs["infra_retry"] for obs in row["observations"])

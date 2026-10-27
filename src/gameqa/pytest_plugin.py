@@ -10,7 +10,7 @@ from . import allure_report
 from .bridge import Bridge, redact
 from .config import load_config, resolve_path
 from .device import AndroidDevice
-from .evidence import Evidence, write_report
+from .evidence import Evidence, classify_failure, write_report
 from .run_lock import RunBusy, RunLock
 
 
@@ -146,6 +146,7 @@ def _finalize(evidence):
         evidence.data["outcome"] = "skipped"
     else:
         evidence.data["outcome"] = "passed"
+    evidence.data["failure_class"] = classify_failure(evidence.data)
     return evidence.write()
 
 
@@ -158,6 +159,7 @@ def pytest_runtest_makereport(item, call):
         meta = getattr(item, "_qa_meta", None) or {}
         allure_report.set_title(meta.get("id"), meta.get("title"))
         _finalize(evidence)
+        allure_report.add_label("failure_class", evidence.data.get("failure_class") or "none")
         allure_report.attach_case_folder(evidence.folder, evidence.data.get("outcome"),
                                          bool(evidence.data.get("unstable")))
     result = yield

@@ -89,6 +89,16 @@ def check_label(title, expected, actual):
     return f"{title}｜期望 {_short(expected)} / 实际 {_short(actual)}"
 
 
+def add_label(name, value):
+    """给当前用例补一个标签；失败不抛。"""
+    if not active():
+        return
+    try:
+        _allure().dynamic.label(str(name), str(value))
+    except Exception:
+        pass
+
+
 def set_title(case_id, title=None):
     """标题单独设置：allure 的 setup 收尾会用函数名覆盖 name，必须在之后调用。"""
     if not active():
