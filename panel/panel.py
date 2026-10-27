@@ -686,7 +686,7 @@ def retry_rate(summaries):
         for case in summary.get("cases", []):
             for observation in case.get("observations", []):
                 observations += 1
-                if observation.get("infra_retry"):
+                if observation.get("infra_retry") or observation.get("unstable"):
                     retried += 1
                 elif observation.get("outcome") == "passed":
                     first_try += 1
@@ -1007,7 +1007,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
       <span id="rep-merged">检查中…</span>
       <button id="b-merge">重建总报告</button>
       <span class="why" id="merge-why"></span></p>
-    <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>业务失败</th><th>环境失败</th><th>未分类</th><th></th></tr></thead>
+    <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>可重复</th><th>全部通过</th><th>业务失败</th><th>环境失败</th><th>未分类</th><th></th></tr></thead>
     <tbody id="rep-body"></tbody></table>
     <p class="muted">报告目录：<span id="rep-root"></span></p>
   </div>
