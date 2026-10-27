@@ -36,7 +36,16 @@ def redact(value):
 # 基础设施抖动的签名：这些不是用例判定的业务事实。
 # 运行器据此决定"可以重跑一次"，封装层据此决定"不要把准备失败记成用例的错"。
 INFRA_SIGNATURES = ("is not online", "Game connection closed", "TimeoutException",
-                    "SocketException", "EOFException", "bridge exited", "no confirmed response")
+                    "SocketException", "EOFException", "bridge exited", "no confirmed response",
+                    "handshake did not complete")
+
+# 命中时补一句"该往哪看"，避免把环境问题误读成"缺陷没复现出来"
+INFRA_HINTS = {
+    "handshake did not complete":
+        "Shardy 后端可能没启动：bash scripts/shardy/start.sh（端口 3000/3001）",
+    "bridge exited":
+        "协议桥进程已退出：看 <report>/<case>/bridge.stderr 与 bridge.log",
+}
 
 
 def is_infrastructure_error(error):
@@ -194,7 +203,9 @@ class Bridge:
                         self.close()
                         kind = TransientError if read_only else IndeterminateAction
                         raise kind(f"{op}: {error.get('type')}; action was not resent")
-                    raise BridgeError(f"{error.get('type', 'BridgeError')}: {error.get('message', error)}")
+                    text = f"{error.get('type', 'BridgeError')}: {error.get('message', error)}"
+                    hint = next((value for key, value in INFRA_HINTS.items() if key in text), None)
+                    raise BridgeError(f"{text}；{hint}" if hint else text)
                 elapsed = time.monotonic() - started
                 if elapsed > self.stall_threshold:
                     self._dump_stall(op, elapsed, timed_out=False)

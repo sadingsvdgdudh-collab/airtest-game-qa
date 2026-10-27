@@ -2,7 +2,7 @@
   "schema_version": "1.1",
   "framework_root": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa",
   "reviewer": "auto:scripts/capabilities_manifest.py",
-  "checked_at": "2026-10-26T09:17:16+00:00",
+  "checked_at": "2026-10-27T00:10:23+00:00",
   "counts": {
     "function": 121,
     "asset": 68
@@ -755,7 +755,7 @@
       "kind": "function",
       "channel": "api",
       "file": "src/gameqa/bridge.py",
-      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "sha256": "b99a5bf53b1c65ca6eb9572217e978c75583731aa8af7b662fc69354cd5c278a",
       "symbol": "Bridge.call",
       "notes": "自动生成；签名 (op, args, read_only, timeout)"
     },
@@ -764,7 +764,7 @@
       "kind": "function",
       "channel": "api",
       "file": "src/gameqa/bridge.py",
-      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "sha256": "b99a5bf53b1c65ca6eb9572217e978c75583731aa8af7b662fc69354cd5c278a",
       "symbol": "Bridge.close",
       "notes": "自动生成；签名 ()"
     },
@@ -773,7 +773,7 @@
       "kind": "function",
       "channel": "api",
       "file": "src/gameqa/bridge.py",
-      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "sha256": "b99a5bf53b1c65ca6eb9572217e978c75583731aa8af7b662fc69354cd5c278a",
       "symbol": "Bridge.reopen",
       "notes": "自动生成；签名 ()"
     },
@@ -782,7 +782,7 @@
       "kind": "function",
       "channel": "api",
       "file": "src/gameqa/bridge.py",
-      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "sha256": "b99a5bf53b1c65ca6eb9572217e978c75583731aa8af7b662fc69354cd5c278a",
       "symbol": "is_infrastructure_error",
       "notes": "自动生成；签名 (error)"
     },
@@ -791,7 +791,7 @@
       "kind": "function",
       "channel": "api",
       "file": "src/gameqa/bridge.py",
-      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "sha256": "b99a5bf53b1c65ca6eb9572217e978c75583731aa8af7b662fc69354cd5c278a",
       "symbol": "jstack_binary",
       "notes": "自动生成；签名 ()"
     },
@@ -800,7 +800,7 @@
       "kind": "function",
       "channel": "api",
       "file": "src/gameqa/bridge.py",
-      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "sha256": "b99a5bf53b1c65ca6eb9572217e978c75583731aa8af7b662fc69354cd5c278a",
       "symbol": "redact",
       "notes": "自动生成；签名 (value)"
     },
@@ -809,7 +809,7 @@
       "kind": "function",
       "channel": "api",
       "file": "src/gameqa/bridge.py",
-      "sha256": "7dc8362fa1dbd4ef68f4bc8428e359cb813103189a30e7c804a42f4daa316c60",
+      "sha256": "b99a5bf53b1c65ca6eb9572217e978c75583731aa8af7b662fc69354cd5c278a",
       "symbol": "server_pid",
       "notes": "自动生成；签名 (server_log)"
     },
