@@ -129,6 +129,25 @@ Allure: reports/…/allure-html/index.html
 
 所以「单次报告有、总报告没有」的排查顺序：先看那次运行有没有 `allure-results/` 目录 → 再看总报告要不要重建。
 
+## 3.5 环境未执行 vs 业务失败：分开写
+
+同一条用例的多次尝试会进同一个「重试」表。但**"准备阶段就炸"和"断言跑完但不成立"不是一回事**：
+前者其实没测。所以合并时把 broken（= 我们的 error）单独拆一份：
+
+```
+SH-TURN-UI-001 · 界面与接口双方交替落子…        passed  retries=1
+【环境未执行】SH-TURN-UI-001 · 界面与接口…      broken  retries=0
+```
+
+实现（`allure_report._split_unexecuted`，只改合并时的暂存副本，不动原始结果）：
+
+| 字段 | 处理 | 为什么 |
+| --- | --- | --- |
+| `fullName` | 追加 `#environment` | Allure 的树按 fullName 归并，不改会被覆盖 |
+| `historyId` | `md5(fullName + "#environment")` | 重试只在同类之间统计 |
+| `testCaseId` | 同上 | **漏了这个会被当同一条丢掉**（实测：改了 fullName/historyId 仍不显示） |
+| `name` | 前缀 `【环境未执行】` | 列表里一眼分得开 |
+
 ## 4. 映射关系
 
 | 框架里的东西 | 在 Allure 里的呈现 |

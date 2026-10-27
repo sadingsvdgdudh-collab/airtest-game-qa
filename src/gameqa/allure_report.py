@@ -7,6 +7,7 @@
 """
 
 from contextlib import nullcontext
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -208,6 +209,39 @@ def generate(results_dirs, out_dir, timeout=300):
     return out / "index.html", None
 
 
+ENV_PREFIX = "【环境未执行】"
+
+
+def _split_unexecuted(path):
+    """把"用例体没跑"的 broken 结果从正常重试里拆出来。
+
+    Allure 的重试表把同一条测试的所有尝试排在一起；"准备阶段就炸"和"断言跑完但不成立"
+    混在一起会误导（前者其实没测）。这里给 broken 单独一个 historyId 并加前缀，
+    在报告里落成另一行，重试只和同类比。
+    """
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return False
+    if data.get("status") != "broken":
+        return False
+    full_name = data.get("fullName") or ""
+    if not full_name:
+        return False
+    name = data.get("name") or full_name
+    if name.startswith(ENV_PREFIX):
+        return False
+    # 只改 historyId 不够：Allure 的树按 fullName 归并，会让两条互相覆盖
+    data["fullName"] = full_name + "#environment"
+    canonical = hashlib.md5((full_name + "#environment").encode("utf-8")).hexdigest()
+    data["historyId"] = canonical
+    data["testCaseId"] = canonical      # Allure 也按 testCaseId 去重，漏了会被当成同一条丢掉
+    data["name"] = ENV_PREFIX + name
+    path.unlink()                       # 硬链接不能原地改，先断开再写新文件
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    return True
+
+
 def merge(project, out, results_glob="reports/*/round-*/allure-results"):
     """把历史所有轮的 allure-results 合成一份总报告。
 
@@ -248,6 +282,9 @@ def merge(project, out, results_glob="reports/*/round-*/allure-results"):
             except OSError:
                 shutil.copy2(item, target)
             copied += 1
+    split = 0
+    for item in staging.glob("*-result.json"):
+        split += int(_split_unexecuted(item))
     # 上次总报告的 history/*.json 带进来，趋势才有延续（Allure 官方的增量做法）
     previous = out / "history"
     if previous.is_dir():
