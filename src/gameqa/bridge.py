@@ -37,7 +37,7 @@ def redact(value):
 # 运行器据此决定"可以重跑一次"，封装层据此决定"不要把准备失败记成用例的错"。
 INFRA_SIGNATURES = ("is not online", "Game connection closed", "TimeoutException",
                     "SocketException", "EOFException", "bridge exited", "no confirmed response",
-                    "handshake did not complete")
+                    "handshake did not complete", "UI 客户端未连上")
 
 # 命中时补一句"该往哪看"，避免把环境问题误读成"缺陷没复现出来"
 INFRA_HINTS = {

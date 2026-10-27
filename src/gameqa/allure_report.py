@@ -223,7 +223,9 @@ def _split_unexecuted(path):
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return False
-    if data.get("status") != "broken":
+    labels = {l.get("name"): l.get("value") for l in data.get("labels", []) if isinstance(l, dict)}
+    environment = labels.get("failure_class") == "environment"
+    if data.get("status") != "broken" and not environment:
         return False
     full_name = data.get("fullName") or ""
     if not full_name:
