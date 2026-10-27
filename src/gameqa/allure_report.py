@@ -125,8 +125,9 @@ def set_identity(case_id, meta, experiment=None):
         allure.dynamic.tag(f"kind:{meta.get('kind')}")
         for cover in meta.get("covers", ()) or ():
             allure.dynamic.tag(f"covers:{cover}")
+        # experiment 只能当标签：当 parameter 会进 historyId，同一用例换实验名就变成两条
         if experiment:
-            allure.dynamic.parameter("experiment", experiment)
+            allure.dynamic.label("experiment", experiment)
         allure.dynamic.parameter("case_id", case_id)
     except Exception:
         pass
