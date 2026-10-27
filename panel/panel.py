@@ -875,6 +875,7 @@ tbody tr:nth-child(even){background:#fbfcfe}
 tbody tr:nth-child(even):hover{background:#f4f8fb}
 .badge{padding:1px 8px;border-radius:10px;font-size:12px;color:#fff;background:var(--ok)}
 .badge.no{background:var(--bad)}
+.badge.env{background:#94a3b8}
 .warnbox{padding:6px 10px;border-radius:var(--r1);background:var(--warn-bg);border:1px solid #f0d58c;color:var(--warn)}
 .muted{color:var(--muted);font-size:13px}
 #pick-bar{position:sticky;top:0;z-index:2;background:var(--card);border-bottom:1px solid var(--line-2);
@@ -1189,7 +1190,9 @@ async function loadReports() {
     + (r.observations ? '（' + pct(r.infra_retry_rate) + '）' : '') + '</td>'
     + '<td><span class="badge' + (r.consistent ? '' : ' no') + '">' + r.consistent + '</span></td>'
     + '<td><span class="badge' + (r.all_passed ? '' : ' no') + '">' + r.all_passed + '</span></td>'
-    + '<td class="muted">' + (r.failed.join(', ') || '—') + '</td>'
+    + '<td>' + (r.business.length ? '<span class="badge no">' + r.business.join(', ') + '</span>' : '—') + '</td>'
+    + '<td>' + (r.environment.length ? '<span class="badge env">' + r.environment.join(', ') + '</span>' : '—') + '</td>'
+    + '<td class="muted">' + (((r.unclassified || []).join(', ')) || '—') + '</td>'
     + '<td><a href="/reports/' + r.run + '/' + r.report + '" target="_blank">打开报告</a>'
     + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a>'
     + (r.allure ? ' <a href="/reports/' + r.run + '/' + r.allure + '" target="_blank">Allure</a>' : '')
