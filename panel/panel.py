@@ -252,6 +252,14 @@ def job_report_dir(job):
     return max(fresh, key=lambda p: p.stat().st_mtime) if fresh else None
 
 
+NON_CASE_DIRS = {"allure-results", "attachments"}
+
+
+def case_dirs(round_dir):
+    """一轮目录下的用例子目录；allure-results/attachments 不是用例。"""
+    return [x for x in round_dir.iterdir() if x.is_dir() and x.name not in NON_CASE_DIRS]
+
+
 def job_progress(job):
     """所有任务都有已运行时长；gameqa 类任务再给轮次、本轮用例数和预估剩余。"""
     info = {"elapsed": round(time.monotonic() - job["started"], 1)}
@@ -267,12 +275,11 @@ def job_progress(job):
     if not dirs:
         return info
     done = [d for d in dirs if (d / "report.json").exists()]
-    cases = len([x for x in dirs[-1].iterdir() if x.is_dir()])
+    cases = len(case_dirs(dirs[-1]))
     info["round"] = min(len(done) + 1, rounds)
     info["rounds"] = rounds
     info["cases"] = cases
-    info["per_round"] = max((len([x for x in d.iterdir() if x.is_dir()]) for d in done),
-                            default=0) or total or 0
+    info["per_round"] = max((len(case_dirs(d)) for d in done), default=0) or total or 0
     if done:                                   # 多轮：按已完成的轮平均
         info["eta"] = round(info["elapsed"] / len(done) * (rounds - len(done)))
     elif rounds == 1 and total and cases >= 2:  # 单轮：最新那个用例还在跑，按已完成条数估
@@ -313,11 +320,39 @@ def drain(job):
     threading.Thread(target=character_health, kwargs={"force": True}, daemon=True).start()
 
 
+BUSY_REASON = {"text": ""}
+
+
+def busy_text():
+    """当前到底被什么挡住——比一句"已有任务在跑"有用。"""
+    if running_job():
+        return "已有任务在跑"
+    if HEALTH["checking"]:
+        return "角色健康检查进行中（通常几秒）"
+    return "运行锁被占用（可能是另一个终端在跑）"
+
+
+def wait_health(timeout=45):
+    """任务刚结束时面板会立刻做一次角色健康检查；等它结束再开新任务，别直接 409。"""
+    deadline = time.monotonic() + timeout
+    while True:
+        with LOCK:
+            if not HEALTH["checking"]:
+                return True
+            if running_job():          # 真有任务在跑，不等
+                return False
+        if time.monotonic() >= deadline:
+            return False
+        time.sleep(0.5)
+
+
 def start_job(name, argv=None, selected=None, rounds=None):
     if argv is None and name not in JOB_CMDS:
         raise KeyError(name)
+    wait_health()
     with LOCK:
         if running_job() or HEALTH["checking"]:
+            BUSY_REASON["text"] = busy_text()
             return None
         try:
             lock = RunLock.acquire(PROJECT)
@@ -766,7 +801,7 @@ class Handler(BaseHTTPRequestHandler):
         if urllib.parse.urlparse(self.path).path == "/api/allure/merge":
             job_id = start_job("allure-merge", [str(PY), "-m", "gameqa", "allure"])
             if not job_id:
-                return self.send_json({"error": "已有任务在跑，稍后再试"}, 409)
+                return self.send_json({"error": BUSY_REASON["text"] or "已有任务在跑，稍后再试"}, 409)
             return self.send_json({"job": job_id})
         if urllib.parse.urlparse(self.path).path == "/api/run":
             result = start_selection(payload)
