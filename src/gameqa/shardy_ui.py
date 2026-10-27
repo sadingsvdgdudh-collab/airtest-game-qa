@@ -13,13 +13,24 @@ class ShardyUI:
         self.android, self.config = android, config
         self.anchor = None
 
+    def wait_image(self, name, title, timeout=90):
+        """等页面出现再动手：Chrome 冷启动在模拟器上常常超过 5 秒，固定 sleep 会截到白屏。"""
+        from .bridge import TransientError
+        deadline = time.monotonic() + timeout
+        while True:
+            try:
+                return self.android.locate_image(ASSETS / name, title)
+            except TransientError:
+                if time.monotonic() >= deadline:
+                    raise
+                time.sleep(1)
+
     def start(self):
         self.android.device.adb.shell(["am", "force-stop", "com.android.chrome"])
         self.android.device.adb.shell(["am", "start", "-a", "android.intent.action.VIEW", "-d", self.config["url"]])
-        time.sleep(5)
-        self.android.touch_image(ASSETS / "connect.png", "连接原版Shardy服务端")
-        time.sleep(0.8)
-        self.anchor = self.android.locate_image(ASSETS / "start.png", "连接成功后的开始匹配按钮")
+        anchor = self.wait_image("connect.png", "连接原版Shardy服务端")
+        self.android.touch(anchor, "连接原版Shardy服务端")
+        self.anchor = self.wait_image("start.png", "连接成功后的开始匹配按钮")
         self.android.touch(self.anchor, "界面开始真实匹配")
 
     def position(self, x, y):

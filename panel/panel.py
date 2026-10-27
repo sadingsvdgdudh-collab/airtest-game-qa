@@ -370,7 +370,10 @@ def start_selection(payload, experiment="未命名-面板"):
     if len({kinds[case_id] for case_id in chosen}) > 1:
         return "不能把 api 和 ui 用例混在一次运行里（共用管理员、商店NPC和浏览器）"
     argv = [str(PY), "-m", "gameqa", "run", "--case", ",".join(chosen), "--rounds", str(rounds),
-            "--experiment", experiment, "--stop-after-failure"]
+            "--experiment", experiment]
+    # 面板按钮默认"失败即停"；跑全量时传 false，否则第一条红后面全不跑
+    if payload.get("stop_on_failure", True):
+        argv.append("--stop-after-failure")
     # 默认出 Allure（界面勾选框也默认勾上）；显式传 false 才关
     if payload.get("allure", True):
         argv.append("--allure")
