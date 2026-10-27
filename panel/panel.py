@@ -1007,7 +1007,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
       <span id="rep-merged">检查中…</span>
       <button id="b-merge">重建总报告</button>
       <span class="why" id="merge-why"></span></p>
-    <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>各轮一致</th><th>全部通过</th><th>业务失败</th><th>环境失败</th><th>未分类</th><th></th></tr></thead>
+    <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>业务失败</th><th>环境失败</th><th>未分类</th><th></th></tr></thead>
     <tbody id="rep-body"></tbody></table>
     <p class="muted">报告目录：<span id="rep-root"></span></p>
   </div>
@@ -1227,8 +1227,6 @@ async function loadReports() {
     + '<td>' + r.first_try_passed + ' / ' + r.observations + '</td>'
     + '<td' + (r.infra_retry_rate > 0.35 ? ' class="warnbox"' : '') + '>' + r.infra_retry_count
     + (r.observations ? '（' + pct(r.infra_retry_rate) + '）' : '') + '</td>'
-    + '<td><span class="badge' + (r.consistent ? '' : ' no') + '">' + r.consistent + '</span></td>'
-    + '<td><span class="badge' + (r.all_passed ? '' : ' no') + '">' + r.all_passed + '</span></td>'
     + '<td>' + (r.business.length ? '<span class="badge no">' + r.business.join(', ') + '</span>' : '—') + '</td>'
     + '<td>' + (r.environment.length ? '<span class="badge env">' + r.environment.join(', ') + '</span>' : '—') + '</td>'
     + '<td class="muted">' + (((r.unclassified || []).join(', ')) || '—') + '</td>'
@@ -1236,7 +1234,7 @@ async function loadReports() {
     + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a>'
     + (r.allure ? ' <a href="/reports/' + r.run + '/' + r.allure + '" target="_blank">Allure</a>' : '')
     + '</td></tr>').join('')
-    || '<tr><td colspan="10" class="muted">还没有运行记录。</td></tr>';
+    || '<tr><td colspan="8" class="muted">还没有运行记录。</td></tr>';
 }
 
 const MARK_TEXT = {A: '已实现 API', U: '已实现 UI', 'A?': '建议API·未实现',
