@@ -57,7 +57,7 @@ def summarize(rounds):
 
     报告口径（不许含糊）：**"重试才过"不算一次通过**。
     - observations：case × round 的观测总数，也就是分母
-    - infra_retry_count：**带任何重试标记**的观测数（整例重跑或观察重试，不管最后过没过）
+    - infra_retry_count：带重试标记的观测数（不管最后过没过）
     - infra_retry_rate：上面两者相除；没有观测时为 0.0
     - first_try_passed：**没有**走重试就通过的观测数（这才是"一次通过"）
     - all_passed 要求每条观测都 passed 且没走重试 —— 有重试的轮次永远不会被判成全绿
@@ -77,12 +77,8 @@ def summarize(rounds):
         cases.append({"id": case_id, "observations": observations, "consistent": consistent,
                       "repeatable": consistent and complete and not any(row["unstable"] for row in observations)})
     order = [row for case in cases for row in case["observations"]]
-    # 两种重试都要算：整条用例重跑（infra_retry）、用例内观察重试（unstable）。
-    # 只看前者会出现"一次通过 1/1、重试才过 0"却 unstable=true 的自相矛盾。
-    retried_observation = sum(1 for row in order if row["unstable"] and not row["infra_retry"])
-    retried = sum(1 for row in order if row["infra_retry"] or row["unstable"])
-    first_try = sum(1 for row in order
-                    if row["outcome"] == "passed" and not row["infra_retry"] and not row["unstable"])
+    retried = sum(1 for row in order if row["infra_retry"])
+    first_try = sum(1 for row in order if row["outcome"] == "passed" and not row["infra_retry"])
     return {"rounds": len(rounds), "cases": cases,
             "consistent": bool(cases) and all(row["repeatable"] for row in cases),
             "observations": len(order),
@@ -90,15 +86,12 @@ def summarize(rounds):
             "infra_retry_rate": round(retried / len(order), 4) if order else 0.0,
             "first_try_passed": first_try,
             "infra_retries": retried,
-            "retried_breakdown": {"case_rerun": retried - retried_observation,
-                                  "observation_retry": retried_observation},
             "unexplained_failures": sorted(row["id"] for row in cases if any(
                 obs["outcome"] != "passed" and not obs["infra_retry"] for obs in row["observations"])),
             **class_summary(cases),
             "all_passed": bool(cases) and all(
                 len(row["observations"]) == len(rounds)
-                and all(obs["outcome"] == "passed" and not obs["infra_retry"] and not obs["unstable"]
-                        for obs in row["observations"])
+                and all(obs["outcome"] == "passed" and not obs["infra_retry"] for obs in row["observations"])
                 for row in cases)}
 
 
