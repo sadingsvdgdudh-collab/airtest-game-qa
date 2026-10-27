@@ -965,7 +965,7 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
   </div>
   <div id="pane-rep" hidden>
     <p id="rep-retry" class="muted">重试率：读取中…</p>
-    <p>总报告（所有历史运行合成一份）：
+    <p>总报告：
       <span id="rep-merged">检查中…</span>
       <button id="b-merge">重建总报告</button>
       <span class="why" id="merge-why"></span></p>
