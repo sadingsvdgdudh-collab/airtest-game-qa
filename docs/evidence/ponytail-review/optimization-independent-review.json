@@ -5,25 +5,25 @@
   "source_checks": [
     {
       "phase": "before",
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/ponytail-review/before/src/gameqa/bridge.py",
+      "path": "<work>/ponytail-review/before/src/gameqa/bridge.py",
       "sha256": "16840d857415bd51dc8f244214616bf270f6255f956dd52c323a173243c971d9",
       "recorded_matches_actual": true
     },
     {
       "phase": "before",
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/ponytail-review/before/src/gameqa/evidence.py",
+      "path": "<work>/ponytail-review/before/src/gameqa/evidence.py",
       "sha256": "875354475e108f0a86d532b5eeec0966f05df606d3dd1fd8cb97d10ed01c9811",
       "recorded_matches_actual": true
     },
     {
       "phase": "after",
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/src/gameqa/bridge.py",
+      "path": "<repo>/src/gameqa/bridge.py",
       "sha256": "a7e2320bb479d53279d74aa7e80a82bbb18f33b89c781b82af591b8a1ceca70d",
       "recorded_matches_actual": true
     },
     {
       "phase": "after",
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/src/gameqa/evidence.py",
+      "path": "<repo>/src/gameqa/evidence.py",
       "sha256": "8461d0f9544df1ec1b91298aff222fbc6857c46c464dd23acfc9495c603e22c6",
       "recorded_matches_actual": true
     }

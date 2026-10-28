@@ -15,7 +15,7 @@
         "kind": "api",
         "nodeid": "cases/test_stendhal_combat.py::test_player_equips_weapon_and_really_kills_rat",
         "experiment": "completion-helper-compatibility",
-        "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-COMBAT-API-001 --rounds 1 --experiment completion-helper-compatibility"
+        "reproduce": "python -m gameqa run --project <repo> --case ST-COMBAT-API-001 --rounds 1 --experiment completion-helper-compatibility"
       },
       "outcome": "passed",
       "unstable": false,
@@ -7529,7 +7529,7 @@
         "kind": "api",
         "nodeid": "cases/test_stendhal_combat.py::test_nonexistent_and_self_targets_do_not_start_combat",
         "experiment": "completion-helper-compatibility",
-        "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-COMBAT-API-002 --rounds 1 --experiment completion-helper-compatibility"
+        "reproduce": "python -m gameqa run --project <repo> --case ST-COMBAT-API-002 --rounds 1 --experiment completion-helper-compatibility"
       },
       "outcome": "passed",
       "unstable": false,
@@ -10214,7 +10214,7 @@
         "kind": "api",
         "nodeid": "cases/test_stendhal_combat.py::test_valid_movement_control_then_outside_map_is_rejected",
         "experiment": "completion-helper-compatibility",
-        "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-MAP-API-001 --rounds 1 --experiment completion-helper-compatibility"
+        "reproduce": "python -m gameqa run --project <repo> --case ST-MAP-API-001 --rounds 1 --experiment completion-helper-compatibility"
       },
       "outcome": "passed",
       "unstable": false,

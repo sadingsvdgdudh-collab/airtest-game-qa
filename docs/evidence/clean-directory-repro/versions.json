@@ -1,8 +1,8 @@
 {
   "captured_utc": "2026-10-03T06:11:44.541293+00:00",
   "python": "3.12.14",
-  "python_executable": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/bin/python",
-  "base_python": "/Users/Zhuanz/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+  "python_executable": "<work>/clean-repro-batch2/venv/bin/python",
+  "base_python": "<home>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
   "platform": "macOS-15.6.1-arm64-arm-64bit",
   "system_site_packages": false,
   "requirements_lock_sha256": "f5ffa4b7b9e8493a62ec29496a7b5ff19c44243fd1e8d46f0da6c49bf8f3c475",
@@ -385,10 +385,10 @@
     }
   ],
   "import_origins": {
-    "gameqa": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project/src/gameqa/__init__.py",
-    "pytest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/lib/python3.12/site-packages/pytest/__init__.py",
-    "airtest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/lib/python3.12/site-packages/airtest/__init__.py",
-    "numpy": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/lib/python3.12/site-packages/numpy/__init__.py"
+    "gameqa": "<work>/clean-repro-batch2/project/src/gameqa/__init__.py",
+    "pytest": "<work>/clean-repro-batch2/venv/lib/python3.12/site-packages/pytest/__init__.py",
+    "airtest": "<work>/clean-repro-batch2/venv/lib/python3.12/site-packages/airtest/__init__.py",
+    "numpy": "<work>/clean-repro-batch2/venv/lib/python3.12/site-packages/numpy/__init__.py"
   },
   "scope": "new project directory and new Python venv; shared host and base Python runtime; Java/Android/game installation not performed"
 }

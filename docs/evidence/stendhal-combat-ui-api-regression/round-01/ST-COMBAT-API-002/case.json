@@ -7,7 +7,7 @@
     "kind": "api",
     "nodeid": "cases/test_stendhal_combat.py::test_nonexistent_and_self_targets_do_not_start_combat",
     "experiment": "combat-ui-api-regression",
-    "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-COMBAT-API-002 --rounds 1 --experiment combat-ui-api-regression --config /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/config.local.toml"
+    "reproduce": "python -m gameqa run --project <repo> --case ST-COMBAT-API-002 --rounds 1 --experiment combat-ui-api-regression --config <work>/config.local.toml"
   },
   "outcome": "passed",
   "unstable": false,

@@ -1,6 +1,6 @@
 ============================= test session starts ==============================
 platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
-rootdir: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa
+rootdir: <repo>
 configfile: pyproject.toml
 collected 32 items / 31 deselected / 1 selected
 
@@ -46,17 +46,17 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
         if not target:
             self.screenshot(f"{title}：定位失败")
 >           raise TransientError(f"image not found: {path}")
-E           gameqa.bridge.TransientError: image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png
+E           gameqa.bridge.TransientError: image not found: <repo>/assets/stendhal/username-qaplayer.png
 
 src/gameqa/device.py:40: TransientError
 =============================== warnings summary ===============================
 cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect
 cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect
-  /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/python-env/lib/python3.12/site-packages/airtest/core/android/cap_methods/adbcap.py:10: UserWarning: Currently using ADB screenshots, the efficiency may be very low.
+  <work>/python-env/lib/python3.12/site-packages/airtest/core/android/cap_methods/adbcap.py:10: UserWarning: Currently using ADB screenshots, the efficiency may be very low.
     warnings.warn("Currently using ADB screenshots, the efficiency may be very low.")
 
 cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect
-  /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/python-env/lib/python3.12/site-packages/airtest/core/android/touch_methods/touch_proxy.py:82: UserWarning: Currently using ADB touch, the efficiency may be very low.
+  <work>/python-env/lib/python3.12/site-packages/airtest/core/android/touch_methods/touch_proxy.py:82: UserWarning: Currently using ADB touch, the efficiency may be very low.
     warnings.warn("Currently using ADB touch, the efficiency may be very low.")
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html

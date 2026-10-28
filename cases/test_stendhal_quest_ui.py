@@ -15,7 +15,11 @@ STATS_REGION = (0, 325, 96, 470)
 REWARD_FIELDS = ("money", "xp", "karma", "level", "base_hp", "hp")
 
 
-@pytest.mark.case(id="ST-QUEST-UI-001", game="stendhal", module="quest", kind="ui", title="界面接取并交付送酒任务：奖励、升级、重登后保持")
+@pytest.mark.case(id="ST-QUEST-UI-001", game="stendhal", module="quest", kind="ui",
+                  title="界面接取并交付送酒任务：奖励、升级、重登后保持",
+                  # 设计 ST-GROWTH-UI-001（成长显示/持久化）没有独立 pytest 用例：它要求的判据
+                  # 就是本例交付后的等级/最大生命/统计栏与重登、重复对话幂等断言，故声明共用。
+                  covers=["ST-GROWTH-UI-001"])
 def test_android_quest_rewards_log_growth_and_reconnect(qa, stendhal_ui, observer, prepare):
     qa.data["diagnostics"]["coverage_limit"] = (
         "本例用管理员准备一瓶beer及NPC附近位置；真实UI完成接取、交付、任务日志和重登。"
@@ -51,17 +55,17 @@ def test_android_quest_rewards_log_growth_and_reconnect(qa, stendhal_ui, observe
     qa.check("UI交付后任务完成", quest_phase(rewarded, "beer_hayunn"), "done", BEER)
     qa.check("UI交付实际消耗一瓶beer", quantity(rewarded, "beer"), 0, BEER)
     qa.check("UI交付奖励20金币", rewarded["money"], 120, BEER)
-    qa.check("UI交付奖励50经验", rewarded["xp"], 50, BEER)
+    qa.check("ST-GROWTH-UI-001/交付奖励50经验", rewarded["xp"], 50, BEER)
     qa.check("UI交付奖励10karma", rewarded["karma"], 30, BEER)
-    qa.check("任务奖励使角色升到1级", rewarded["level"], 1, LEVEL)
-    qa.check("一级升级增加10最大生命", rewarded["base_hp"], before["base_hp"] + 10, LEVEL_UPDATE)
-    qa.check("升级恢复到新最大生命", rewarded["hp"], before["base_hp"] + 10, LEVEL_UPDATE)
+    qa.check("ST-GROWTH-UI-001/奖励使角色升到1级", rewarded["level"], 1, LEVEL)
+    qa.check("ST-GROWTH-UI-001/一级升级增加10最大生命", rewarded["base_hp"], before["base_hp"] + 10, LEVEL_UPDATE)
+    qa.check("ST-GROWTH-UI-001/升级恢复到新最大生命", rewarded["hp"], before["base_hp"] + 10, LEVEL_UPDATE)
     stendhal_ui.open_travel_log(completed=True)
     stendhal_ui.check_image("quest-completed", "完成日志显示交付及奖励记录", LOG_REGION, BEER)
     stendhal_ui.close_travel_log()
     for name, title in (("xp-50", "经验显示50"), ("level-1", "等级显示1"),
                         ("xp-next-50", "下一级尚需50经验"), ("hp-110", "生命显示110/110")):
-        stendhal_ui.check_image(name, "首次奖励后" + title, STATS_REGION,
+        stendhal_ui.check_image(name, "ST-GROWTH-UI-001/首次奖励后" + title, STATS_REGION,
                                 (LEVEL_UPDATE if name == 'hp-110' else LEVEL) + '; ' + STATS)
 
     # Keep the complete quest values, including their timestamp/count suffixes.
@@ -71,7 +75,7 @@ def test_android_quest_rewards_log_growth_and_reconnect(qa, stendhal_ui, observe
         "rewards": saved_rewards, "beer": quantity(rewarded, "beer"), "quests": saved_quests}
     stendhal_ui.relogin(observer)
     reconnected = observer.inspect()
-    qa.check("实际断开重登后所有奖励和成长字段保持", {key: reconnected[key] for key in REWARD_FIELDS},
+    qa.check("ST-GROWTH-UI-001/实际断开重登后所有奖励和成长字段保持", {key: reconnected[key] for key in REWARD_FIELDS},
              saved_rewards, BEER + "; " + LEVEL_UPDATE + "; 实际断开后的角色持久化")
     qa.check("实际断开重登后全部任务槽完整保持", reconnected["quests"], saved_quests,
              BEER + "; 实际断开后的角色持久化")
@@ -81,7 +85,7 @@ def test_android_quest_rewards_log_growth_and_reconnect(qa, stendhal_ui, observe
     stendhal_ui.close_travel_log()
     for name, title in (("xp-50", "经验显示50"), ("level-1", "等级显示1"),
                         ("xp-next-50", "下一级尚需50经验"), ("hp-110", "生命显示110/110")):
-        stendhal_ui.check_image(name, "重登后" + title, STATS_REGION,
+        stendhal_ui.check_image(name, "ST-GROWTH-UI-001/重登后" + title, STATS_REGION,
                                 (LEVEL_UPDATE if name == 'hp-110' else LEVEL) + '; ' + STATS)
 
     stendhal_ui.dialogue("bye", "hi Hayunn Naratha", "task", "yes")
@@ -89,7 +93,7 @@ def test_android_quest_rewards_log_growth_and_reconnect(qa, stendhal_ui, observe
     stendhal_ui.check_image("quest-unrepeatable", "NPC实际回应已完成任务不可重复",
                             (100, 575, 565, 1220), BEER)
     repeated = observer.inspect()
-    qa.check("重登后重复真实UI对话不重复领奖或升级", {key: repeated[key] for key in REWARD_FIELDS},
+    qa.check("ST-GROWTH-UI-001/重登后重复真实UI对话不重复领奖或升级", {key: repeated[key] for key in REWARD_FIELDS},
              saved_rewards, BEER + "; " + LEVEL_UPDATE)
     qa.check("重复真实UI对话不改写完整任务槽", repeated["quests"], saved_quests, BEER)
     qa.check("重复真实UI对话不生成beer", quantity(repeated, "beer"), 0, BEER)

@@ -11,7 +11,8 @@ docs/能力清单.md 转录，两个表示之间会漂移。本脚本直接从�
 
 清单契约（技能侧 modules/testcase-builder/scripts/automation_evidence.py）：
     schema_version  "1.1"（1.1 起每条能力必须带 channel）
-    framework_root  本仓库路径（技能侧可用环境变量 QA_FRAMEWORK_ROOT 覆盖）；
+    framework_root  固定写成 "<repo>"：清单要能公开托管，不写本机绝对路径；
+                    消费方以清单所在仓库根为基准解析（可用 QA_FRAMEWORK_ROOT 覆盖）；
                     等值检查（--check / 自检）**忽略它的位置差异**，重生成时刷新为本机路径
     reviewer        生成者标识（本脚本为 auto:…）
     checked_at      ISO 时间；能力集合未变化时保留原值，因此 --check 是等值比较
@@ -34,6 +35,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "docs/框架能力清单.json"
 SCHEMA = "1.1"
+PORTABLE_ROOT = "<repo>"
 REVIEWER = "auto:scripts/capabilities_manifest.py"
 
 # 框架机制不是"写用例能用的词汇"，与 docs/能力清单.md 的口径保持一致
@@ -141,9 +143,9 @@ def build(previous: dict | None = None) -> dict:
         checked_at = previous.get("checked_at", checked_at)
     return {
         "schema_version": SCHEMA,
-        # 保留原值：framework_root 是本机绝对路径，位置变了不该让 --check 判"过期"
-        # （重生成时会刷新成本机路径，见 main()）。
-        "framework_root": previous.get("framework_root", str(ROOT)),
+        # 固定占位符：换成绝对路径会让清单带着本机路径进公开仓库，
+        # 也会让换机器后 --check 判"过期"。
+        "framework_root": PORTABLE_ROOT,
         "reviewer": REVIEWER,
         "checked_at": checked_at,
         "counts": {
@@ -172,7 +174,6 @@ def main():
             sys.exit(f"{OUT.name} 已过期，跑 python scripts/capabilities_manifest.py 重写")
         print(f"{OUT.name} 是最新的")
         return
-    text = dumps({**json.loads(text), "framework_root": str(ROOT)})   # 写出时刷新为本机路径
     OUT.write_text(text, encoding="utf-8")
     data = json.loads(text)
     print(f"已写出 {OUT.relative_to(ROOT)}：能力 {len(data['capabilities'])} 条"

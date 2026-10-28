@@ -1,6 +1,6 @@
 {
   "captured_utc": "2026-10-03T17:34:00.973632+00:00",
-  "formal_execution_project": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa",
+  "formal_execution_project": "<repo>",
   "scope": "公开执行源、图像、锁定依赖、自检和安装助手；docs及README在正式运行后更新，不在此冻结范围",
   "files": {
     "adapters/stendhal_bridge/StendhalBridge.java": "fb1a3700de68206d4a53b72e65d0725cc0ee39d136d4b1aa77864c5d68db9f09",

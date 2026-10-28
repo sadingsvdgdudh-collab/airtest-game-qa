@@ -1,6 +1,6 @@
 airtest==1.4.3
 # Editable install with no version control (airtest-game-qa==0.1.0)
--e /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project
+-e <work>/clean-repro-batch2/project
 cached-property==1.5.2
 certifi==2026.7.22
 charset-normalizer==3.5.2

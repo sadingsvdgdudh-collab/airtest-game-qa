@@ -1,4 +1,4 @@
-注: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project/adapters/stendhal_bridge/StendhalBridge.java使用或覆盖了已过时的 API。
+注: <work>/clean-repro-batch2/project/adapters/stendhal_bridge/StendhalBridge.java使用或覆盖了已过时的 API。
 注: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
-注: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project/adapters/stendhal_bridge/QaProbe.java使用了未经检查或不安全的操作。
+注: <work>/clean-repro-batch2/project/adapters/stendhal_bridge/QaProbe.java使用了未经检查或不安全的操作。
 注: 有关详细信息, 请使用 -Xlint:unchecked 重新编译。

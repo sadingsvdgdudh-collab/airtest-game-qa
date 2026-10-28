@@ -1,6 +1,6 @@
 {
   "captured_utc": "2026-10-03T10:59:04.982723+00:00",
-  "formal_execution_project": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa",
+  "formal_execution_project": "<repo>",
   "scope": "公开执行源码、配置模板、锁定依赖、图像素材与框架自检；文档和安装生成物不在冻结范围",
   "files": {
     "adapters/shardy_bridge/README.md": "77159f217da58e0a2c07126efdeb74446585d3f2cb4d215a6aaabe9a2ca1da81",

@@ -7,7 +7,7 @@
     "kind": "api",
     "nodeid": "cases/test_stendhal_api.py::test_buy_two_cheese",
     "experiment": "clean-directory-api-smoke",
-    "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project --case ST-SHOP-API-001 --rounds 1 --experiment clean-directory-api-smoke --config /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/config.local.toml"
+    "reproduce": "python -m gameqa run --project <work>/clean-repro-batch2/project --case ST-SHOP-API-001 --rounds 1 --experiment clean-directory-api-smoke --config <work>/clean-repro-batch2/config.local.toml"
   },
   "outcome": "passed",
   "unstable": false,

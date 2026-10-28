@@ -34,7 +34,7 @@ def node_binary():
     found = shutil.which("node")
     if found:
         return found
-    bundled = Path("/Users/Zhuanz/.dsh/dsh-runtimes/dsh-primary-runtime/dependencies/node/bin/node")
+    bundled = Path.home() / ".dsh/dsh-runtimes/dsh-primary-runtime/dependencies/node/bin/node"
     return str(bundled) if bundled.exists() else None
 
 

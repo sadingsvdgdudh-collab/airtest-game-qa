@@ -28,7 +28,7 @@ pip install -r requirements-allure.txt
 
 # 2) Allure CLI（Java 实现；本机已有 JDK 21）
 npm install -g allure-commandline
-# 本机实际位置：/Users/Zhuanz/.local/node/v24.18.0/bin/allure
+# 本机实际位置：<home>/.local/node/v24.18.0/bin/allure
 ```
 
 未装 `allure-pytest` 时传 `--allure` 只打印一行提示，**不影响测试结果和退出码**。
@@ -190,7 +190,7 @@ SH-TURN-UI-001 · 界面与接口双方交替落子…        passed  retries=1
 
 ```bash
 # ① 切回原分支（改动都在 allure-integration 分支上，main 未被触碰）
-cd /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa
+cd <repo>
 git switch main
 
 # ② 用快照回滚单个文件

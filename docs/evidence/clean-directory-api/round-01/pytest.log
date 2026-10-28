@@ -1,6 +1,6 @@
 ============================= test session starts ==============================
 platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
-rootdir: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project
+rootdir: <work>/clean-repro-batch2/project
 configfile: pyproject.toml
 collected 32 items / 31 deselected / 1 selected
 

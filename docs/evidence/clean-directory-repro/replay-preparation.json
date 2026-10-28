@@ -3,7 +3,7 @@
   "updated_copy_file": "src/gameqa/stendhal_ui.py",
   "old_copy_sha256": "436e843df5e51119147281a832219c72c5eb7d0cc72f38954d776fe73977c3c7",
   "new_copy_sha256": "8e599fe6fd1c81b2d144f06a659ea974a0428b09cea14febf05e49cabd4a2d4d",
-  "private_config": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/config.local.toml",
+  "private_config": "<work>/clean-repro-batch2/config.local.toml",
   "config_changes": "games.*.bridge_cwd point to new copy; games.*.server_log converted to absolute paths preserving original file targets; all other values unchanged",
   "updated_game_count": 2,
   "public_source_count": 91,
@@ -560,21 +560,21 @@
   "compiled_utc": "2026-10-03T06:21:43.694378+00:00",
   "bridge_build": {
     "initial_exit_code": 1,
-    "initial_log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/bridge-build.log",
+    "initial_log": "<work>/clean-repro-batch2/bridge-build.log",
     "initial_failure": "new copy directory changes relative work/JDK defaults",
     "successful_exit_code": 0,
-    "successful_log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/bridge-build-fixed.log",
+    "successful_log": "<work>/clean-repro-batch2/bridge-build-fixed.log",
     "command": [
       "sh",
       "adapters/stendhal_bridge/build.sh"
     ],
     "install_probe": false,
     "service_restart": false,
-    "build_dir": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/bridge-classes",
+    "build_dir": "<work>/clean-repro-batch2/bridge-classes",
     "environment_overrides": {
-      "GAMEQA_WORK_DIR": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work",
-      "GAMEQA_CONFIG": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/config.local.toml",
-      "BRIDGE_BUILD_DIR": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/bridge-classes"
+      "GAMEQA_WORK_DIR": "<work>",
+      "GAMEQA_CONFIG": "<work>/clean-repro-batch2/config.local.toml",
+      "BRIDGE_BUILD_DIR": "<work>/clean-repro-batch2/bridge-classes"
     },
     "compiled_classes": {
       "StendhalBridge.class": "0b3a2a06474cb0f325005bbed48701fe628d3eb1980899602cdbbd3800555c4c",
@@ -584,23 +584,23 @@
       "games/stendhal/server/script/QaCombat.class": "e75e49d2edf00f8bcec15e9da8ad7e7247eccaa27acb9c97439b40beb8083f89",
       "games/stendhal/server/script/QaProbe$Saved.class": "ea3022c62c295f2e1206741864e364af3e1256c85398036d4e97eb5f646f3375"
     },
-    "effective_runtime_path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime"
+    "effective_runtime_path": "<work>/stendhal/runtime"
   },
   "config_relative_server_log_games": [],
-  "ready_live_command_script": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/run-ui-five.sh",
+  "ready_live_command_script": "<work>/clean-repro-batch2/run-ui-five.sh",
   "ready_live_command_script_executed": false,
-  "report_directory_for_future_run": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-ui-batch2-final",
+  "report_directory_for_future_run": "<repo>/reports/stendhal-ui-batch2-final",
   "config_log_targets_preserved": true,
   "log_paths_resolved_count": 2,
   "updated_utc": "2026-10-03T06:27:47.220374+00:00",
   "root_controlled_live_run_pending": true,
   "latest_case_sync": "cases/test_stendhal_quest_ui.py",
   "experiment_for_future_run": "batch2-ui-final-clean-directory",
-  "post_fix_summary": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/post-fix-summary.json",
+  "post_fix_summary": "<work>/clean-repro-batch2/post-fix-summary.json",
   "ready_live_environment_overrides": {
-    "GAMEQA_WORK_DIR": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work",
-    "GAMEQA_CONFIG": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/config.local.toml",
-    "BRIDGE_BUILD_DIR": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/bridge-classes",
-    "STENDHAL_RUNTIME": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime"
+    "GAMEQA_WORK_DIR": "<work>",
+    "GAMEQA_CONFIG": "<work>/clean-repro-batch2/config.local.toml",
+    "BRIDGE_BUILD_DIR": "<work>/clean-repro-batch2/bridge-classes",
+    "STENDHAL_RUNTIME": "<work>/stendhal/runtime"
   }
 }

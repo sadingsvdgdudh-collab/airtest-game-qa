@@ -29,7 +29,7 @@ def test_manifest_is_fresh_and_matches_code():
 def test_manifest_satisfies_skill_contract():
     data = json.loads(generator.OUT.read_text(encoding="utf-8"))
     assert data["schema_version"] == "1.1"
-    assert Path(data["framework_root"]).is_absolute()
+    assert data["framework_root"] == "<repo>"   # 公开托管：不写本机绝对路径
     assert data["reviewer"] and data["checked_at"]
     capabilities = data["capabilities"]
     assert capabilities, "能力清单为空"

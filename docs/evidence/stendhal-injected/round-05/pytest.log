@@ -1,6 +1,6 @@
 ============================= test session starts ==============================
 platform darwin -- Python 3.12.14, pytest-9.1.1, pluggy-1.6.0
-rootdir: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa
+rootdir: <repo>
 configfile: pyproject.toml
 collected 16 items / 15 deselected / 1 selected
 

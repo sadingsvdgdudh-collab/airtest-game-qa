@@ -2,7 +2,7 @@
 """Stendhal QA 面板：CLI 的薄壳。只绑 127.0.0.1，只用标准库，不复制运行逻辑。
 
 启动:
-    /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/python-env/bin/python panel.py
+    $QA_WORK/python-env/bin/python panel.py
 自检（只打印状态探测结果，不起服务）:
     python panel.py --state
 """
@@ -23,11 +23,11 @@ import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-PROJECT = Path(os.environ.get("QA_PROJECT", "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa"))
+PROJECT = Path(os.environ.get("QA_PROJECT", str(Path(__file__).resolve().parents[1])))
 sys.path.insert(0, str(PROJECT / "src"))
 from gameqa.run_lock import RunBusy, RunLock, run_active
 
-WORK = Path(os.environ.get("QA_WORK", "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work"))
+WORK = Path(os.environ.get("QA_WORK", str(Path(__file__).resolve().parents[1].parent.parent / "work")))
 PY = WORK / "python-env/bin/python"
 ADB = WORK / "android/sdk/platform-tools/adb"
 PORT = int(os.environ.get("QA_PORT", "8787"))

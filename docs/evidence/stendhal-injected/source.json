@@ -7,45 +7,45 @@
     "tcp": 32161,
     "http": 8081
   },
-  "runtime_database": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime-fault/database/h2db",
+  "runtime_database": "<work>/stendhal/runtime-fault/database/h2db",
   "hashes": {
     "upstream_seller": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/source/src/games/stendhal/server/entity/npc/behaviour/impl/SellerBehaviour.java",
+      "path": "<work>/stendhal/source/src/games/stendhal/server/entity/npc/behaviour/impl/SellerBehaviour.java",
       "sha256": "150f96a1f3ecc0e632b52a83558cdc896041b0c6cc538e779e077742c3821edc",
       "bytes": 5260
     },
     "injected_seller": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/integrations/stendhal/defects/overcharge/SellerBehaviour.java",
+      "path": "<repo>/integrations/stendhal/defects/overcharge/SellerBehaviour.java",
       "sha256": "57eab1ccb98c1affacdfb353975ab069bc6f94e7bc7b6bff9b096513d34e4cae",
       "bytes": 5620
     },
     "defect_diff": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/integrations/stendhal/defects/overcharge/overcharge.diff",
+      "path": "<repo>/integrations/stendhal/defects/overcharge/overcharge.diff",
       "sha256": "9b79f1ab694f938468e251f1474a155a7bf86f02239e27824e2c43638cbe8e29",
       "bytes": 635
     },
     "injected_class": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/fault/classes/games/stendhal/server/entity/npc/behaviour/impl/SellerBehaviour.class",
+      "path": "<work>/stendhal/fault/classes/games/stendhal/server/entity/npc/behaviour/impl/SellerBehaviour.class",
       "sha256": "34e98526c5ad85b5b2c2a3a10995d8773ed0ef54785ae4315fbb91b9d580d41a",
       "bytes": 4147
     },
     "server_jar": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime/stendhal-server-1.49.jar",
+      "path": "<work>/stendhal/runtime/stendhal-server-1.49.jar",
       "sha256": "0e898c0ce17a09da9d47a7284025ec18ed7f148aad8f26ece31de7cc35e49570",
       "bytes": 2932629
     },
     "original_probe_class": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime/data/script/games/stendhal/server/script/QaProbe.class",
+      "path": "<work>/stendhal/runtime/data/script/games/stendhal/server/script/QaProbe.class",
       "sha256": "609e597fa7350c53495405c7673665aaea7ed303f83ed9291159420bc4b2721e",
       "bytes": 22540
     },
     "fault_probe_class": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/stendhal/runtime-fault/data/script/games/stendhal/server/script/QaProbe.class",
+      "path": "<work>/stendhal/runtime-fault/data/script/games/stendhal/server/script/QaProbe.class",
       "sha256": "609e597fa7350c53495405c7673665aaea7ed303f83ed9291159420bc4b2721e",
       "bytes": 22540
     },
     "case_source": {
-      "path": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/cases/test_stendhal_api.py",
+      "path": "<repo>/cases/test_stendhal_api.py",
       "sha256": "cf6dff03f98639c7af887e1676919f507485090f9d72d67d034b0a6fc41b99a8",
       "bytes": 5977
     }

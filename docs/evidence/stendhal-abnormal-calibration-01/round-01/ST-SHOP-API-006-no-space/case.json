@@ -7,7 +7,7 @@
     "kind": "api",
     "nodeid": "cases/test_stendhal_shop_no_space.py::test_purchase_without_any_reachable_storage_does_not_charge",
     "experiment": "abnormal-calibration-01",
-    "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-SHOP-API-006-no-space --rounds 1 --experiment abnormal-calibration-01"
+    "reproduce": "python -m gameqa run --project <repo> --case ST-SHOP-API-006-no-space --rounds 1 --experiment abnormal-calibration-01"
   },
   "outcome": "failed",
   "unstable": false,

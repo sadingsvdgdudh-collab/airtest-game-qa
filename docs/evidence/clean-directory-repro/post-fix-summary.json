@@ -1,7 +1,7 @@
 {
   "checked_utc": "2026-10-03T06:30:09.450471+00:00",
   "scope": "new project working directory and fresh Python venv on same Mac; existing Java/Android/game runtime reused; no actual game execution",
-  "source_manifest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/post-fix-source.json",
+  "source_manifest": "<work>/clean-repro-batch2/post-fix-source.json",
   "public_source_file_count": 91,
   "current_original_and_copy_match": true,
   "original_changes_during_offline_checks": [],
@@ -23,10 +23,10 @@
   },
   "locked_package_count": 40,
   "all_locked_versions_match": true,
-  "historic_old97_manifest_retained": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/frozen-source.json",
+  "historic_old97_manifest_retained": "<work>/clean-repro-batch2/frozen-source.json",
   "historic_old97_status": "expected source changes in stendhal_ui.py and test_stendhal_quest_ui.py; historical measurement preserved; not reused as current freeze",
-  "ready_live_script": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/run-ui-five.sh",
+  "ready_live_script": "<work>/clean-repro-batch2/run-ui-five.sh",
   "ready_live_script_executed": false,
-  "future_report_directory": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-ui-batch2-final",
+  "future_report_directory": "<repo>/reports/stendhal-ui-batch2-final",
   "future_experiment": "batch2-ui-final-clean-directory"
 }

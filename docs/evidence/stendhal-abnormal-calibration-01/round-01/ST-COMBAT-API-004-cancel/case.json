@@ -7,7 +7,7 @@
     "kind": "api",
     "nodeid": "cases/test_stendhal_combat_edges.py::test_cancel_after_real_damage_stops_player_attack_while_rat_remains_alive",
     "experiment": "abnormal-calibration-01",
-    "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-COMBAT-API-004-cancel --rounds 1 --experiment abnormal-calibration-01"
+    "reproduce": "python -m gameqa run --project <repo> --case ST-COMBAT-API-004-cancel --rounds 1 --experiment abnormal-calibration-01"
   },
   "outcome": "passed",
   "unstable": false,

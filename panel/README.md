@@ -4,7 +4,7 @@
 
 ```sh
 # 默认 http://127.0.0.1:8787/
-QA_PROJECT="$PWD" /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/python-env/bin/python panel/panel.py
+QA_PROJECT="$PWD" <work>/python-env/bin/python panel/panel.py
 
 # 只看状态（不开服务），适合脚本与自检
 python panel/panel.py --state

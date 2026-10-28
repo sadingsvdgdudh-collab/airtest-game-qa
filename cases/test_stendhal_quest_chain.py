@@ -44,7 +44,12 @@ def checkpoint(qa, state, title, money, beer, xp, level, karma, phase):
         qa.check(title + '：karma', state['karma'], karma, BEER)
 
 
-@pytest.mark.case(id='ST-QUEST-UI-007', game='stendhal', module='quest', kind='ui', title='界面全链路：接取→跨图行走→买酒→交付→升级→重登')
+@pytest.mark.case(id='ST-QUEST-UI-007', game='stendhal', module='quest', kind='ui',
+                  title='界面全链路：接取→跨图行走→买酒→交付→升级→重登',
+                  # 设计 ST-QUEST-API-007（跨商店/成长）当前由本 UI 链路执行：判据同为本例的
+                  # 金币20→10→30、beer0→1→0、done/XP50/level1/HP110、karma+10 与重登持久化。
+                  # 协议侧独立 API 用例仍未实现，见 docs/功能用例目录.md 该行备注。
+                  covers=['ST-QUEST-API-007'])
 def test_accept_walk_buy_deliver_grow_and_reconnect(qa, stendhal_ui, observer, prepare):
     ui = stendhal_ui
     qa.data['diagnostics']['coverage_limit'] = (

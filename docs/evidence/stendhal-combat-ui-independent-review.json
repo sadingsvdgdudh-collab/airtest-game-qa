@@ -2,10 +2,10 @@
   "verified_utc": "2026-10-03T14:00:53.053936+00:00",
   "experiment": "combat-ui-final-fixed",
   "audit_mode": "formal five-round verification",
-  "report_dir": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-final",
+  "report_dir": "<repo>/reports/stendhal-combat-ui-final",
   "rounds": 5,
   "all_checks_passed": true,
-  "source_manifest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/combat_ui_final_source.json",
+  "source_manifest": "<work>/combat_ui_final_source.json",
   "source_manifest_sha256": "2b7842cf76e1dac5142812790d13c7655e5d028a0c178e7de334b78f806d2f9f",
   "checks_performed": 1969,
   "checks_by_category": {
@@ -1053,43 +1053,43 @@
   "archive_comparison": {
     "groups": [
       {
-        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-final",
+        "original": "<repo>/reports/stendhal-combat-ui-final",
         "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-final",
         "files_compared": 142,
         "byte_identical": true
       },
       {
-        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-first",
+        "original": "<repo>/reports/stendhal-combat-ui-first",
         "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-first",
         "files_compared": 130,
         "byte_identical": true
       },
       {
-        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-calibration-01",
+        "original": "<repo>/reports/stendhal-combat-ui-calibration-01",
         "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-calibration-01",
         "files_compared": 27,
         "byte_identical": true
       },
       {
-        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-calibration-02",
+        "original": "<repo>/reports/stendhal-combat-ui-calibration-02",
         "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-calibration-02",
         "files_compared": 28,
         "byte_identical": true
       },
       {
-        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-calibration-03",
+        "original": "<repo>/reports/stendhal-combat-ui-calibration-03",
         "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-calibration-03",
         "files_compared": 28,
         "byte_identical": true
       },
       {
-        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/reports/stendhal-combat-ui-api-regression",
+        "original": "<repo>/reports/stendhal-combat-ui-api-regression",
         "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-api-regression",
         "files_compared": 11,
         "byte_identical": true
       },
       {
-        "original": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/combat-ui-disconnect-recovery",
+        "original": "<work>/combat-ui-disconnect-recovery",
         "archive": "outputs/airtest-game-qa/docs/evidence/stendhal-combat-ui-disconnect-recovery",
         "files_compared": 19,
         "byte_identical": true

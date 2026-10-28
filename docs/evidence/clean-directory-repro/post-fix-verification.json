@@ -1,33 +1,33 @@
 {
-  "source_manifest": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/post-fix-source.json",
+  "source_manifest": "<work>/clean-repro-batch2/post-fix-source.json",
   "scope": "offline selfchecks and collect-only after login and quest position fixes; zero live game executions",
   "results": [
     {
       "name": "post-fix-offline-tests",
       "command": [
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/bin/python",
+        "<work>/clean-repro-batch2/venv/bin/python",
         "-m",
         "pytest",
         "tests",
         "-q"
       ],
-      "cwd": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project",
+      "cwd": "<work>/clean-repro-batch2/project",
       "started_utc": "2026-10-03T06:28:18.724591+00:00",
       "finished_utc": "2026-10-03T06:28:20.782618+00:00",
       "exit_code": 0,
-      "log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/post-fix-offline-tests.log"
+      "log": "<work>/clean-repro-batch2/post-fix-offline-tests.log"
     },
     {
       "name": "post-fix-collect-only",
       "command": [
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/bin/python",
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/collect_only_post_fix.py"
+        "<work>/clean-repro-batch2/venv/bin/python",
+        "<work>/clean-repro-batch2/collect_only_post_fix.py"
       ],
-      "cwd": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project",
+      "cwd": "<work>/clean-repro-batch2/project",
       "started_utc": "2026-10-03T06:28:20.783220+00:00",
       "finished_utc": "2026-10-03T06:28:20.910776+00:00",
       "exit_code": 0,
-      "log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/post-fix-collect-only.log"
+      "log": "<work>/clean-repro-batch2/post-fix-collect-only.log"
     }
   ]
 }

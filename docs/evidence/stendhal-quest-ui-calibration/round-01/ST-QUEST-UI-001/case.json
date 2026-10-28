@@ -7,7 +7,7 @@
     "kind": "ui",
     "nodeid": "cases/test_stendhal_quest_ui.py::test_android_quest_rewards_log_growth_and_reconnect",
     "experiment": "quest-ui-calibration",
-    "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-QUEST-UI-001 --rounds 1 --experiment quest-ui-calibration --config /Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/config.local.toml",
+    "reproduce": "python -m gameqa run --project <repo> --case ST-QUEST-UI-001 --rounds 1 --experiment quest-ui-calibration --config <work>/config.local.toml",
     "device": {
       "uri": "Android:///emulator-5554?cap_method=ADBCAP&touch_method=ADBTOUCH&ime_method=ADBIME",
       "system": "Android 14 / API 34 ARM64",
@@ -46,13 +46,13 @@
         {
           "number": 1,
           "outcome": "failed",
-          "error": "image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png",
+          "error": "image not found: <repo>/assets/stendhal/username-qaplayer.png",
           "elapsed": 0.7965333340107463
         },
         {
           "number": 2,
           "outcome": "failed",
-          "error": "image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png",
+          "error": "image not found: <repo>/assets/stendhal/username-qaplayer.png",
           "elapsed": 0.7162589169893181
         }
       ],
@@ -121,7 +121,7 @@
   "started": 1790984150.0350761,
   "phases": {
     "setup": "failed",
-    "setup_detail": "android = <gameqa.device.AndroidDevice object at 0x102eb9430>\ngame_config = {'version': '1.49', 'bridge_command': ['sh', 'adapters/stendhal_bridge/run.sh'], 'bridge_cwd': '../outputs/airtest-game-qa', 'server_log': 'stendhal/runtime/log/server.log', ...}\n\n    @pytest.fixture\n    def stendhal_ui(android, game_config):\n        ui = StendhalUI(android, game_config)\n        try:\n>           ui.ensure_login()\n\ncases/conftest.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/gameqa/stendhal_ui.py:26: in ensure_login\n    self.android.locate_image(ASSETS / 'username-qaplayer.png', '登录前确认用户名已实际输入',\nsrc/gameqa/device.py:42: in locate_image\n    return self.evidence.observe(f\"定位：{title}\", locate)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/gameqa/evidence.py:36: in observe\n    result = operation()\n             ^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def locate():\n        template = Template(str(Path(path)), threshold=threshold)\n        if region is None:\n            target = exists(template)\n        else:\n            x1, y1, x2, y2 = region\n            screen = self.device.snapshot()\n            target = template.match_in(screen[y1:y2, x1:x2])\n            if target:\n                target = (target[0] + x1, target[1] + y1)\n        self.evidence.data['diagnostics'].setdefault('visual_observations', []).append(\n            {'title': title, 'template': Path(path).name, 'region': region,\n             'threshold': threshold, 'matched': bool(target), 'position': target or None})\n        if not target:\n            self.screenshot(f\"{title}：定位失败\")\n>           raise TransientError(f\"image not found: {path}\")\nE           gameqa.bridge.TransientError: image not found: /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa/assets/stendhal/username-qaplayer.png\n\nsrc/gameqa/device.py:40: TransientError",
+    "setup_detail": "android = <gameqa.device.AndroidDevice object at 0x102eb9430>\ngame_config = {'version': '1.49', 'bridge_command': ['sh', 'adapters/stendhal_bridge/run.sh'], 'bridge_cwd': '../outputs/airtest-game-qa', 'server_log': 'stendhal/runtime/log/server.log', ...}\n\n    @pytest.fixture\n    def stendhal_ui(android, game_config):\n        ui = StendhalUI(android, game_config)\n        try:\n>           ui.ensure_login()\n\ncases/conftest.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nsrc/gameqa/stendhal_ui.py:26: in ensure_login\n    self.android.locate_image(ASSETS / 'username-qaplayer.png', '登录前确认用户名已实际输入',\nsrc/gameqa/device.py:42: in locate_image\n    return self.evidence.observe(f\"定位：{title}\", locate)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsrc/gameqa/evidence.py:36: in observe\n    result = operation()\n             ^^^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def locate():\n        template = Template(str(Path(path)), threshold=threshold)\n        if region is None:\n            target = exists(template)\n        else:\n            x1, y1, x2, y2 = region\n            screen = self.device.snapshot()\n            target = template.match_in(screen[y1:y2, x1:x2])\n            if target:\n                target = (target[0] + x1, target[1] + y1)\n        self.evidence.data['diagnostics'].setdefault('visual_observations', []).append(\n            {'title': title, 'template': Path(path).name, 'region': region,\n             'threshold': threshold, 'matched': bool(target), 'position': target or None})\n        if not target:\n            self.screenshot(f\"{title}：定位失败\")\n>           raise TransientError(f\"image not found: {path}\")\nE           gameqa.bridge.TransientError: image not found: <repo>/assets/stendhal/username-qaplayer.png\n\nsrc/gameqa/device.py:40: TransientError",
     "teardown": "passed"
   },
   "finished": 1790984162.667351

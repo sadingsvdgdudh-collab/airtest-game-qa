@@ -4,65 +4,65 @@
     {
       "name": "venv-create",
       "command": [
-        "/Users/Zhuanz/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+        "<home>/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
         "-m",
         "venv",
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv"
+        "<work>/clean-repro-batch2/venv"
       ],
-      "cwd": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2",
+      "cwd": "<work>/clean-repro-batch2",
       "started_utc": "2026-10-03T06:09:18.761283+00:00",
       "finished_utc": "2026-10-03T06:09:20.203891+00:00",
       "exit_code": 0,
-      "log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv-create.log"
+      "log": "<work>/clean-repro-batch2/venv-create.log"
     },
     {
       "name": "pip-lock-install",
       "command": [
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/bin/python",
+        "<work>/clean-repro-batch2/venv/bin/python",
         "-m",
         "pip",
         "--disable-pip-version-check",
         "install",
         "-r",
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project/requirements-lock.txt"
+        "<work>/clean-repro-batch2/project/requirements-lock.txt"
       ],
-      "cwd": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project",
+      "cwd": "<work>/clean-repro-batch2/project",
       "started_utc": "2026-10-03T06:09:20.204384+00:00",
       "finished_utc": "2026-10-03T06:09:42.344082+00:00",
       "exit_code": 0,
-      "log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/pip-lock-install.log"
+      "log": "<work>/clean-repro-batch2/pip-lock-install.log"
     },
     {
       "name": "pip-editable-install",
       "command": [
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/bin/python",
+        "<work>/clean-repro-batch2/venv/bin/python",
         "-m",
         "pip",
         "--disable-pip-version-check",
         "install",
         "--no-deps",
         "-e",
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project"
+        "<work>/clean-repro-batch2/project"
       ],
-      "cwd": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project",
+      "cwd": "<work>/clean-repro-batch2/project",
       "started_utc": "2026-10-03T06:09:42.344799+00:00",
       "finished_utc": "2026-10-03T06:09:44.913429+00:00",
       "exit_code": 0,
-      "log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/pip-editable-install.log"
+      "log": "<work>/clean-repro-batch2/pip-editable-install.log"
     },
     {
       "name": "pip-check",
       "command": [
-        "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/venv/bin/python",
+        "<work>/clean-repro-batch2/venv/bin/python",
         "-m",
         "pip",
         "check"
       ],
-      "cwd": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/project",
+      "cwd": "<work>/clean-repro-batch2/project",
       "started_utc": "2026-10-03T06:09:44.913915+00:00",
       "finished_utc": "2026-10-03T06:09:45.111296+00:00",
       "exit_code": 0,
-      "log": "/Users/Zhuanz/Documents/Codex/2026-10-02/shi/work/clean-repro-batch2/pip-check.log"
+      "log": "<work>/clean-repro-batch2/pip-check.log"
     }
   ]
 }

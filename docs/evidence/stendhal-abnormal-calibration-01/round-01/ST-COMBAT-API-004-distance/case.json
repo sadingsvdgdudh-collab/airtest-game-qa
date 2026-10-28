@@ -7,7 +7,7 @@
     "kind": "api",
     "nodeid": "cases/test_stendhal_combat_edges.py::test_distant_melee_attack_selects_target_without_dealing_damage",
     "experiment": "abnormal-calibration-01",
-    "reproduce": "python -m gameqa run --project /Users/Zhuanz/Documents/Codex/2026-10-02/shi/outputs/airtest-game-qa --case ST-COMBAT-API-004-distance --rounds 1 --experiment abnormal-calibration-01"
+    "reproduce": "python -m gameqa run --project <repo> --case ST-COMBAT-API-004-distance --rounds 1 --experiment abnormal-calibration-01"
   },
   "outcome": "error",
   "unstable": false,
