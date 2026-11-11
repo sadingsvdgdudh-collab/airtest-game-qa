@@ -88,6 +88,12 @@ class AndroidDevice:
         self.evidence.action(title, lambda: touch(position, duration=duration))
         self.screenshot(title)
 
+    def long_press(self, position, title, duration=1.0):
+        """长按：ADBTOUCH 下 touch 的 duration 不生效，用原地 swipe 才拿得到 hold 菜单。"""
+        from airtest.core.api import swipe
+        self.evidence.action(title, lambda: swipe(position, position, duration=duration))
+        self.screenshot(title)
+
     def text(self, content, title, enter=True):
         from airtest.core.api import text
         self.evidence.action(title, lambda: text(content, enter=enter))

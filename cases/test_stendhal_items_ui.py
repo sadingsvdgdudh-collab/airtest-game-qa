@@ -9,8 +9,8 @@ from cases.test_stendhal_items_edges import POTION, FEEDER, HEAL, USE
 SWORD = SOURCE + 'data/conf/items/swords.xml#L717-L735'
 EQUIP = SOURCE + 'src/games/stendhal/server/actions/equip/SourceObject.java#L318-L345'
 ATK = SOURCE + 'src/games/stendhal/server/entity/RPEntity.java#L2755-L2775; ' + SOURCE + 'src/js/stendhal/ui/component/PlayerStatsComponent.ts#L140-L150'
-BAG = (568, 343, 657, 461)
-RHAND = (568, 260, 596, 289)
+BAG = (566, 300, 660, 428)
+RHAND = (565, 218, 598, 252)
 FEET = (597, 313, 625, 341)
 STATS = (0, 325, 96, 470)
 EQUIPMENT = ('head', 'armor', 'cloak', 'legs', 'feet', 'lhand', 'rhand', 'finger')

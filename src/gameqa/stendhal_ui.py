@@ -269,7 +269,7 @@ class StendhalUI:
         self.wait_image(icon, region)
         position = self.android.locate_image(ASSETS / (icon + '.png'), '定位道具：' + icon,
                                              region=region, threshold=0.9)
-        self.android.touch(position, '长按道具打开菜单：' + icon, duration=0.5)
+        self.android.long_press(position, '长按道具打开菜单：' + icon, duration=1.0)
         time.sleep(0.4)
         button = self.android.locate_image(ASSETS / (menu + '-menu.png'), '道具菜单：' + menu,
                                            region=(530, 220, 665, 570), threshold=0.9)
