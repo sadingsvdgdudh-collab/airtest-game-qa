@@ -83,7 +83,7 @@ class StendhalUI:
         }
         return rows
 
-    def wait_for_image(self, path, title, seconds=75, threshold=0.7):
+    def wait_for_image(self, path, title, seconds=75, threshold=0.7, region=None):
         """轮询等界面渲染出来，命中后照常记一条观察；轮询本身不写记录。
 
         为什么需要：`am start` 到首帧之间，硬件渲染约 5 秒，软件渲染（swiftshader）要 30–60 秒。
@@ -94,10 +94,13 @@ class StendhalUI:
         template = Template(str(path), threshold=threshold)
         deadline = time.monotonic() + seconds
         while time.monotonic() < deadline:
-            if exists(template):
+            if region is None:
+                if exists(template):
+                    break
+            elif self.android.peek_image(path, region=region, threshold=threshold):
                 break
             time.sleep(2)
-        return self.android.locate_image(path, title)
+        return self.android.locate_image(path, title, region=region, threshold=threshold)
 
     def ensure_login(self):
         self.entered = False
@@ -116,11 +119,11 @@ class StendhalUI:
         self.android.touch(username, "激活登录表单")
         self.android.touch(username, "聚焦用户名输入框")
         time.sleep(0.5)
-        self.android.locate_image(ASSETS / 'username-focused.png', '输入前确认用户名框实际聚焦',
-                                  region=(170, 205, 470, 330), threshold=0.9)
+        self.wait_for_image(ASSETS / 'username-focused.png', '输入前确认用户名框实际聚焦',
+                            seconds=20, region=(170, 205, 470, 330), threshold=0.9)
         self.android.text(self.config["target"], "输入测试用户名", enter=False)
-        self.android.locate_image(ASSETS / 'username-qaplayer.png', '登录前确认用户名已实际输入',
-                                  region=(175, 205, 470, 328), threshold=0.9)
+        self.wait_for_image(ASSETS / 'username-qaplayer.png', '登录前确认用户名已实际输入',
+                            seconds=20, region=(175, 205, 470, 328), threshold=0.9)
         self.android.touch((button[0] + 150, button[1] - 18), "密码输入框")
         time.sleep(0.5)
         password = os.environ[self.config["player_password_env"]]
