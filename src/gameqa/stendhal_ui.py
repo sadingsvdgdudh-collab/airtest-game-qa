@@ -269,10 +269,23 @@ class StendhalUI:
         self.wait_image(icon, region)
         position = self.android.locate_image(ASSETS / (icon + '.png'), '定位道具：' + icon,
                                              region=region, threshold=0.9)
-        self.android.long_press(position, '长按道具打开菜单：' + icon, duration=1.0)
-        time.sleep(0.4)
-        button = self.android.locate_image(ASSETS / (menu + '-menu.png'), '道具菜单：' + menu,
-                                           region=(530, 220, 665, 570), threshold=0.9)
+        menu_path = ASSETS / (menu + '-menu.png')
+        menu_region = (520, 200, 680, 580)
+        for attempt in (1, 2):
+            self.android.long_press(position, f'长按道具打开菜单：{icon}（第 {attempt} 次）', duration=1.0)
+            # 菜单不是按下就出现：等它真的画出来，等不到就再长按一次
+            deadline = time.monotonic() + 3
+            while time.monotonic() < deadline:
+                if self.android.peek_image(menu_path, region=menu_region, threshold=0.9):
+                    break
+                time.sleep(0.3)
+            else:
+                continue
+            break
+        else:
+            self.android.screenshot(f'道具菜单没出现：{menu}')
+        button = self.android.locate_image(menu_path, '道具菜单：' + menu,
+                                           region=menu_region, threshold=0.9)
         self.android.touch(button, '选择道具菜单：' + menu)
         time.sleep(0.4)
 
