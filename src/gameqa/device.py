@@ -89,9 +89,19 @@ class AndroidDevice:
         self.screenshot(title)
 
     def long_press(self, position, title, duration=1.0):
-        """长按：ADBTOUCH 下 touch 的 duration 不生效，用原地 swipe 才拿得到 hold 菜单。"""
-        from airtest.core.api import swipe
-        self.evidence.action(title, lambda: swipe(position, position, duration=duration))
+        """长按：用 input motionevent 造真实的 DOWN → 保持 → UP。
+
+        ADBTOUCH 下 touch(duration) 不生效，原地 swipe 也只是"按下+抬起"，
+        客户端都不认成 hold；motionevent 才是真正的按住不动。
+        """
+        x, y = int(position[0]), int(position[1])
+
+        def press():
+            self.device.adb.shell(["input", "motionevent", "DOWN", str(x), str(y)])
+            time.sleep(duration)
+            self.device.adb.shell(["input", "motionevent", "UP", str(x), str(y)])
+
+        self.evidence.action(title, press)
         self.screenshot(title)
 
     def text(self, content, title, enter=True):
