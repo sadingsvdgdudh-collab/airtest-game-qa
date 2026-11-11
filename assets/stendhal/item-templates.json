@@ -70,14 +70,14 @@
     "sha256": "88ac6e0c76e9f8fc948189948c33e1f5739096f4d8a522b91c2f703356244d75"
   },
   "atk-sword": {
-    "source": "calibration/items-armed.png",
+    "source": "calibration/stats-armed-20261111.png",
     "crop": [
-      0,
-      360,
-      54,
-      373
+      2,
+      325,
+      58,
+      337
     ],
-    "sha256": "08a9491658b0242f168237eb740babdb2a334664b16601e49426a2145209c68f"
+    "sha256": "f709902979fb2d4f7cf949f9a046f183418c1096272cd1943acb28d8f83d9261"
   },
   "feet-refusal": {
     "source": "calibration/items-rejected.png",

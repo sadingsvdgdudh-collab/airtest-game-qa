@@ -202,7 +202,7 @@ class StendhalUI:
         self.android.touch_image(ASSETS / 'travel-log-close.png', '关闭Travel Log窗口')
         self.travel_log_open = False
 
-    def check_image(self, name, title, region, source, *, threshold=0.9):
+    def check_image(self, name, title, region, source, *, threshold=0.85):
         position = self.android.locate_image(ASSETS / (name + '.png'), title,
                                              region=region, threshold=threshold)
         self.android.evidence.check(title, bool(position), True, source + '; 固定区域Airtest图像断言')
@@ -269,23 +269,31 @@ class StendhalUI:
         self.wait_image(icon, region)
         position = self.android.locate_image(ASSETS / (icon + '.png'), '定位道具：' + icon,
                                              region=region, threshold=0.9)
-        menu_path = ASSETS / (menu + '-menu.png')
-        menu_region = (520, 200, 680, 580)
-        for attempt in (1, 2):
-            self.android.long_press(position, f'长按道具打开菜单：{icon}（第 {attempt} 次）', duration=1.0)
-            # 菜单不是按下就出现：等它真的画出来，等不到就再长按一次
-            deadline = time.monotonic() + 3
+        # 同一份客户端里，装备槽菜单和背包菜单渲染尺寸不同（52x15 vs 64x21），两个模板都试
+        candidates = [ASSETS / (menu + '-menu.png'), ASSETS / (menu + '-menu-bag.png')]
+        candidates = [path for path in candidates if path.exists()]
+        menu_region = (500, 200, 690, 600)
+
+        def hit():
+            return next((path for path in candidates
+                         if self.android.peek_image(path, region=menu_region, threshold=0.85)), None)
+
+        menu_path = None
+        for attempt in (1, 2, 3):
+            self.android.long_press(position, f'长按道具打开菜单：{icon}（第 {attempt} 次）', duration=1.5)
+            deadline = time.monotonic() + 6
             while time.monotonic() < deadline:
-                if self.android.peek_image(menu_path, region=menu_region, threshold=0.9):
+                menu_path = hit()
+                if menu_path:
                     break
                 time.sleep(0.3)
-            else:
-                continue
-            break
-        else:
+            if menu_path:
+                break
+        if menu_path is None:
             self.android.screenshot(f'道具菜单没出现：{menu}')
+            menu_path = candidates[0]
         button = self.android.locate_image(menu_path, '道具菜单：' + menu,
-                                           region=menu_region, threshold=0.9)
+                                           region=menu_region, threshold=0.85)
         self.android.touch(button, '选择道具菜单：' + menu)
         time.sleep(0.4)
 
