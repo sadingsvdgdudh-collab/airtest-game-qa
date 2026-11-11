@@ -45,6 +45,17 @@ class AndroidDevice:
             row[1] += time.monotonic() - start
         return path
 
+    def peek_image(self, path, *, region=None, threshold=0.7):
+        """只判断在不在，不写证据、不截图。给“界面就绪”轮询用。"""
+        from airtest.core.api import Template, exists
+        template = Template(str(Path(path)), threshold=threshold)
+        if region is None:
+            return exists(template)
+        x1, y1, x2, y2 = region
+        screen = self.device.snapshot()
+        target = template.match_in(screen[y1:y2, x1:x2])
+        return (target[0] + x1, target[1] + y1) if target else None
+
     def locate_image(self, path, title, *, region=None, threshold=0.7):
         from airtest.core.api import Template, exists
         def locate():

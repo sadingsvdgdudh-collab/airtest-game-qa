@@ -34,3 +34,17 @@ def test_business_failure_that_quotes_infra_text_stays_business():
 def test_passed_and_skipped():
     assert classify_failure(case("passed", {"call": "passed"})) == "none"
     assert classify_failure(case("skipped", {"call": "skipped"})) == "skipped"
+
+
+def test_ui_not_rendered_counts_as_environment():
+    """界面还没把东西画出来（图找不到）属于环境未就绪，不该记成框架失败。"""
+    data = case("failed", {"call": "failed",
+                           "call_detail": "gameqa.bridge.TransientError: image not found: /x/club-icon.png"},
+                [{"title": "定位：定位道具：club-icon", "outcome": "failed"}])
+    assert classify_failure(data) == "environment"
+
+
+def test_login_throttled_counts_as_environment():
+    data = case("error", {"setup": "failed",
+                          "setup_detail": "LoginFailedException: Login failed: There have been too many failed login attempts"})
+    assert classify_failure(data) == "environment"

@@ -29,6 +29,11 @@ def classify_failure(data):
     infra = any(signature in text for signature in INFRA_SIGNATURES)
     asserted = any(step.get("outcome") == "failed" and "expected" in step
                    for step in data.get("steps", []))
+    # 这几条与 outcome 无关：不管落在 setup 还是 call，都是环境问题
+    if "too many failed login attempts" in text.lower():
+        return "environment"
+    if "image not found" in text:
+        return "environment"
     if outcome == "failed":
         # 断言失败一律算业务：哪怕消息里恰好引用了 "Game connection closed" 这类文本。
         if asserted or "AssertionError" in text:

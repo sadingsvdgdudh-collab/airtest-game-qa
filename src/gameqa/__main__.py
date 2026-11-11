@@ -18,6 +18,10 @@ from .run_lock import RunBusy, RunLock
 # 断言失败（failed）绝不重试——那是真结果；重试恢复的也不算完成验收（见 index.html 的说明）。
 INFRA_SIGNATURES = _INFRA_SIGNATURES
 
+# 这些虽然也是环境问题，但**不能重试**：每失败一次都会写下一条登录事件，
+# 把"最近失败次数"的窗口往后推，越重试锁得越久（实测 9077 条全都是这么堆出来的）。
+NO_RETRY_SIGNATURES = ("too many failed login attempts",)
+
 
 def infra_failed(report):
     """挑出因基础设施抖动而失败的用例 id（只看签名，业务断言不含签名故不会被重试）。"""
@@ -28,6 +32,8 @@ def infra_failed(report):
         # 只看签名，不看 outcome：抖动可能落在用例体内，那样会被记成 failed；
         # 业务断言的文本里没有这些签名，所以照样不会被重试。
         text = json.dumps(case.get("phases", {}), ensure_ascii=False)
+        if any(signature in text.lower() for signature in NO_RETRY_SIGNATURES):
+            continue                      # 账号被限流：再试一次只会延长封锁
         if any(signature in text for signature in INFRA_SIGNATURES):
             picked.append(case["id"])
     return picked

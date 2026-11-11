@@ -117,10 +117,10 @@ class StendhalUI:
         self.android.touch(username, "聚焦用户名输入框")
         time.sleep(0.5)
         self.android.locate_image(ASSETS / 'username-focused.png', '输入前确认用户名框实际聚焦',
-                                  region=(170, 255, 352, 285), threshold=0.9)
+                                  region=(170, 205, 470, 330), threshold=0.9)
         self.android.text(self.config["target"], "输入测试用户名", enter=False)
         self.android.locate_image(ASSETS / 'username-qaplayer.png', '登录前确认用户名已实际输入',
-                                  region=(175, 255, 347, 283), threshold=0.9)
+                                  region=(175, 205, 470, 328), threshold=0.9)
         self.android.touch((button[0] + 150, button[1] - 18), "密码输入框")
         time.sleep(0.5)
         password = os.environ[self.config["player_password_env"]]
@@ -128,9 +128,15 @@ class StendhalUI:
         self.android.hide_keyboard()
         self.android.touch_image(ASSETS / "login.png", "提交登录")
         time.sleep(1)
-        self.android.touch_image(ASSETS / "character-qaplayer.png", "选择测试角色")
+        character = self.wait_for_image(ASSETS / "character-qaplayer.png", "选择测试角色")
+        self.android.touch(character, "选择测试角色")
         time.sleep(2)
-        self.android.locate_image(ASSETS / "send.png", "进入游戏后聊天按钮")
+        try:
+            self.wait_for_image(ASSETS / "send.png", "进入游戏后聊天按钮")
+        except Exception as error:
+            raise type(error)(
+                f"image not found: {ASSETS / 'send.png'}；若屏幕出现 Login failed（too many failed login attempts），"
+                "说明账号被登录限流，等几分钟再跑，或重启本地服务端清掉限流") from error
         self.entered = True
         self.android.screenshot("角色进入实际游戏地图")
 
@@ -241,7 +247,23 @@ class StendhalUI:
         self.android.touch(button, '选择一次原版菜单：' + entry)
         time.sleep(0.4)
 
+    def wait_image(self, icon, region, timeout=10):
+        """等某个图标真的画出来再动手。
+
+        服务端说背包里有，不等于屏幕上已经画出来：客户端 perception 是增量下发的，
+        页面刚加载时背包面板可能是空的（实测 ST-COMBAT-UI-001 就栽在这）。
+        这里只探测不写证据，超时后交给 locate_image 抛错并留截图。
+        """
+        deadline = time.monotonic() + timeout
+        while True:
+            if self.android.peek_image(ASSETS / (icon + '.png'), region=region, threshold=0.9):
+                return True
+            if time.monotonic() >= deadline:
+                return False
+            time.sleep(0.4)
+
     def choose_item_menu(self, icon, region, menu):
+        self.wait_image(icon, region)
         position = self.android.locate_image(ASSETS / (icon + '.png'), '定位道具：' + icon,
                                              region=region, threshold=0.9)
         self.android.touch(position, '长按道具打开菜单：' + icon, duration=0.5)
@@ -254,6 +276,7 @@ class StendhalUI:
     def move_item(self, icon, origin, destination, region, *, menu="hold"):
         # Original mobile client supports Hold, then touching an inventory slot.
         self.choose_item_menu(icon, origin, menu)
+        self.wait_image(destination, region, timeout=5)
         target = self.android.locate_image(ASSETS / (destination + '.png'), '目标槽位：' + destination,
                                            region=region, threshold=0.9)
         self.android.touch(target, '将道具放入：' + destination)

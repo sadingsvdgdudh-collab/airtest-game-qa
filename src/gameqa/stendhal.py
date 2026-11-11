@@ -174,6 +174,16 @@ def quest_phase(state, name):
     return state.get("quests", {}).get(name, "").split(";", 1)[0]
 
 
+def quest_completed_count(state, name):
+    """任务完成次数：槽位 `phase;timestamp;count` 的第三段。
+
+    三种实测形态：未接取没有槽位、进行中只有 `start`（无 count 段）、
+    已完成是 `done;1791006280328;1`。前两种都按 0 计。
+    """
+    parts = state.get("quests", {}).get(name, "").split(";")
+    return int(parts[2]) if len(parts) == 3 and parts[2].isdigit() else 0
+
+
 def sold_count_session(state, item_name):
     """游戏自己认的售出数量：`item_counter_cache.sold`（= `Player.getQuantityOfSoldItems()`）。
 

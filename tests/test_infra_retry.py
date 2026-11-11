@@ -126,3 +126,10 @@ def test_unconfirmed_prepare_is_reported_as_preparation_error():
     except Exception:
         pass
     assert genuine.evidence.data.get("failure_kind") == "preparation_error"
+
+
+def test_throttled_login_is_not_retried():
+    """登录被限流：每失败一次都会写一条登录事件，重试只会把封锁窗口推得更远。"""
+    report = {"cases": [case("THROTTLED", "error",
+                             "LoginFailedException: There have been too many failed login attempts")]}
+    assert infra_failed(report) == []
