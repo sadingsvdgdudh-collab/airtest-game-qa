@@ -6,11 +6,12 @@ from gameqa.sources import SOURCE
 from cases.test_stendhal_items_edges import POTION, FEEDER, HEAL, USE
 
 
+SWORD = SOURCE + 'data/conf/items/swords.xml#L717-L735'
 EQUIP = SOURCE + 'src/games/stendhal/server/actions/equip/SourceObject.java#L318-L345'
 BAG = (566, 300, 660, 428)
 RHAND = (565, 218, 598, 252)
 FEET = (597, 313, 625, 341)
-STATS = (0, 325, 96, 470)
+STATS = (0, 290, 140, 470)
 EQUIPMENT = ('head', 'armor', 'cloak', 'legs', 'feet', 'lhand', 'rhand', 'finger')
 
 
@@ -41,7 +42,7 @@ def test_android_two_potions_heal_and_cap_at_maximum(qa, stendhal_ui, observer, 
              [item['name'] for item in before['slots']['bag']], ['minor potion'], '固定本地UI背包基线；R1完整恢复')
     qa.check('前置没有持续状态或主动战斗', [before['statuses'], before['attributes'].get('target')], [[], None], HEAL)
     stendhal_ui.check_image('hp-40', '开始时界面显示HP40/100', STATS, HEAL, threshold=0.98)
-    stendhal_ui.check_image('potion-two', '开始时背包显示两瓶药水', (568, 343, 596, 372), POTION, threshold=0.98)
+    stendhal_ui.check_image('potion-two', '开始时背包显示两瓶药水', (568, 301, 596, 329), POTION, threshold=0.98)
     for remaining, hp, image in ((1, 90, 'potion-one'), (0, 100, 'bag-empty')):
         stendhal_ui.choose_item_menu('minor-potion-icon', BAG, 'drink')
         after = await_exact_quantity(observer, 'minor potion', remaining)
@@ -54,4 +55,4 @@ def test_android_two_potions_heal_and_cap_at_maximum(qa, stendhal_ui, observer, 
                  [after['statuses'], after['attributes'].get('target')], [[], None], FEEDER)
         stendhal_ui.check_image('hp-' + str(hp), 'Drink后界面显示HP' + str(hp) + '/100', STATS, HEAL, threshold=0.98)
         # Fixed dedicated character has no other bag items; final empty first slot is meaningful.
-        stendhal_ui.check_image(image, 'Drink后背包数量或空槽：剩' + str(remaining), (568, 343, 596, 372), FEEDER, threshold=0.98)
+        stendhal_ui.check_image(image, 'Drink后背包数量或空槽：剩' + str(remaining), (568, 301, 596, 329), FEEDER, threshold=0.98)

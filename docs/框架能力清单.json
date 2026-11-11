@@ -2,10 +2,10 @@
   "schema_version": "1.1",
   "framework_root": "<repo>",
   "reviewer": "auto:scripts/capabilities_manifest.py",
-  "checked_at": "2026-11-11T17:20:00+00:00",
+  "checked_at": "2026-11-11T17:29:16+00:00",
   "counts": {
     "function": 132,
-    "asset": 73
+    "asset": 74
   },
   "capabilities": [
     {
@@ -126,6 +126,14 @@
       "channel": "ui",
       "file": "assets/stendhal/calibration/combat-rat.png",
       "sha256": "1b5d03c167e3b3a13d5ef4966945ed103f9d40722483eb50ef3fb3e6e41ad90c",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/hp40-20261111.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/hp40-20261111.png",
+      "sha256": "dbeef6ff225e3ca827e44ca6976ee04c5f6569dfa74e95a78875131c2c879432",
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {
@@ -381,7 +389,7 @@
       "kind": "asset",
       "channel": "ui",
       "file": "assets/stendhal/hp-40.png",
-      "sha256": "cab858c0de6112bfb9476912e2c1f7a54777b8b2bf78fae94c701f7c5c5d374e",
+      "sha256": "d1a2b1bbc39cb4f3f1fbd64d04777338c890f563ca6eab9c1522e73b98b92c3a",
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {

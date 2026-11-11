@@ -130,14 +130,14 @@
     "sha256": "2e02f96890f8c84594b45f2bc96594ee3290600bce98e3c01eec9940ebbb7dca"
   },
   "hp-40": {
-    "source": "calibration/potion-two.png",
+    "source": "calibration/hp40-20261111.png",
     "crop": [
-      0,
-      337,
-      74,
-      351
+      2,
+      298,
+      50,
+      310
     ],
-    "sha256": "cab858c0de6112bfb9476912e2c1f7a54777b8b2bf78fae94c701f7c5c5d374e"
+    "sha256": "d1a2b1bbc39cb4f3f1fbd64d04777338c890f563ca6eab9c1522e73b98b92c3a"
   },
   "hp-90": {
     "source": "calibration/potion-one.png",
