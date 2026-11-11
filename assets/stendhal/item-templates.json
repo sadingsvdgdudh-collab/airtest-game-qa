@@ -1,13 +1,13 @@
 {
   "club-icon": {
-    "source": "calibration/items-prepared.png",
+    "source": "calibration/items-20261111.png",
     "crop": [
-      572,
-      264,
-      590,
-      285
+      571,
+      226,
+      589,
+      244
     ],
-    "sha256": "dd9f7fa04307e7826c5d572ea3e3092aad16aa2c6f833b77a6836610eb48c3a1"
+    "sha256": "4d0a7f4e64d746d393908963f3100e16590d8ab2e0c71a8c11c56f910e703a98"
   },
   "short-sword-icon": {
     "source": "calibration/items-prepared.png",
@@ -20,14 +20,14 @@
     "sha256": "6558c6542290f866d0f5c5047472d5de689dc0f17154d93c78b6f6315744e773"
   },
   "hold-menu": {
-    "source": "calibration/items-menu.png",
+    "source": "calibration/items-menu-20261111.png",
     "crop": [
-      590,
-      394,
-      619,
-      408
+      546,
+      270,
+      598,
+      285
     ],
-    "sha256": "98f66bffb91c96f0afb0cce12f0871f52ca925afafcdd8a92fb3caf8468aa3e1"
+    "sha256": "929c8cf89a88a97e47ea8df4f968f519344470172ce0949ff654cb2779447a50"
   },
   "rhand-empty": {
     "source": "calibration/items-empty-hand.png",
@@ -60,14 +60,14 @@
     "sha256": "f42f617c54942df34a0644b17d45945bb2cb7d26fe23462f2ac6e22b7d535696"
   },
   "atk-empty": {
-    "source": "calibration/items-empty-hand.png",
+    "source": "calibration/stats-20261111.png",
     "crop": [
-      0,
-      360,
-      46,
-      373
+      2,
+      325,
+      50,
+      337
     ],
-    "sha256": "50c4b8b20c38051cfcd53bc00d39cedc55695e00ea303870ac0f03a9b9c82d12"
+    "sha256": "88ac6e0c76e9f8fc948189948c33e1f5739096f4d8a522b91c2f703356244d75"
   },
   "atk-sword": {
     "source": "calibration/items-armed.png",
