@@ -2,10 +2,10 @@
   "schema_version": "1.1",
   "framework_root": "<repo>",
   "reviewer": "auto:scripts/capabilities_manifest.py",
-  "checked_at": "2026-11-11T17:08:10+00:00",
+  "checked_at": "2026-11-11T17:20:00+00:00",
   "counts": {
     "function": 132,
-    "asset": 71
+    "asset": 73
   },
   "capabilities": [
     {
@@ -53,7 +53,7 @@
       "kind": "asset",
       "channel": "ui",
       "file": "assets/stendhal/atk-sword.png",
-      "sha256": "08a9491658b0242f168237eb740babdb2a334664b16601e49426a2145209c68f",
+      "sha256": "f709902979fb2d4f7cf949f9a046f183418c1096272cd1943acb28d8f83d9261",
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {
@@ -289,6 +289,14 @@
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {
+      "id": "asset:assets/stendhal/calibration/stats-armed-20261111.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/stats-armed-20261111.png",
+      "sha256": "1013f05f2633dff121ff74e71f3bc0588c82484dec3aee80dc56c18f3ac7fcb3",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
       "id": "asset:assets/stendhal/character-qaplayer.png",
       "kind": "asset",
       "channel": "ui",
@@ -326,6 +334,14 @@
       "channel": "ui",
       "file": "assets/stendhal/feet-refusal.png",
       "sha256": "39adaac5b34b8bb8678f8b2a435d05180a5125732adc4da1572830deab58c2d3",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/hold-menu-bag.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/hold-menu-bag.png",
+      "sha256": "52f50921802e739503a0ea420b163e3ba7eff23a477789baa8a7cd52d0bc117e",
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {
@@ -1598,7 +1614,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.check_image",
       "notes": "自动生成；签名 (name, title, region, source, threshold)"
     },
@@ -1607,7 +1623,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.check_image_absent",
       "notes": "自动生成；签名 (name, title, region, source)"
     },
@@ -1616,7 +1632,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.choose_creature_menu",
       "notes": "自动生成；签名 (entry, region, threshold)"
     },
@@ -1625,7 +1641,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.choose_item_menu",
       "notes": "自动生成；签名 (icon, region, menu)"
     },
@@ -1634,7 +1650,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.close",
       "notes": "自动生成；签名 ()"
     },
@@ -1643,7 +1659,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.close_travel_log",
       "notes": "自动生成；签名 ()"
     },
@@ -1652,7 +1668,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.dialogue",
       "notes": "自动生成；签名 (*words)"
     },
@@ -1661,7 +1677,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.ensure_login",
       "notes": "自动生成；签名 ()"
     },
@@ -1670,7 +1686,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.move_item",
       "notes": "自动生成；签名 (icon, origin, destination, region, menu)"
     },
@@ -1679,7 +1695,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.open_creature_menu",
       "notes": "自动生成；签名 (label, region, offset, threshold)"
     },
@@ -1688,7 +1704,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.open_travel_log",
       "notes": "自动生成；签名 (completed)"
     },
@@ -1697,7 +1713,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.record_timing",
       "notes": "自动生成；签名 ()"
     },
@@ -1706,7 +1722,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.relogin",
       "notes": "自动生成；签名 (observer)"
     },
@@ -1715,7 +1731,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.say",
       "notes": "自动生成；签名 (words)"
     },
@@ -1724,7 +1740,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.wait_for_image",
       "notes": "自动生成；签名 (path, title, seconds, threshold, region)"
     },
@@ -1733,7 +1749,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.wait_image",
       "notes": "自动生成；签名 (icon, region, timeout)"
     },
@@ -1742,7 +1758,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "StendhalUI.walk",
       "notes": "自动生成；签名 (observer, zone, size, destination, next_zone)"
     },
@@ -1751,7 +1767,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "map_touch",
       "notes": "自动生成；签名 (position, size, destination)"
     },
@@ -1760,7 +1776,7 @@
       "kind": "function",
       "channel": "ui",
       "file": "src/gameqa/stendhal_ui.py",
-      "sha256": "5f57752f4e5efc596476d356fba2d545dfeda61829489b30604dabee5785523d",
+      "sha256": "183b502fa5fca31288f18f31388afc45c7b9bf7459d6a5545c299eda939ab0fe",
       "symbol": "minimap_touch",
       "notes": "自动生成；签名 (size, destination)"
     }
