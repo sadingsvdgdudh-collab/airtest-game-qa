@@ -10,8 +10,8 @@ LEVEL = SOURCE + "src/games/stendhal/common/Level.java#L38-L43"
 LEVEL_UPDATE = SOURCE + "src/games/stendhal/server/entity/RPEntity.java#L1162-L1175"
 STATS = SOURCE + "src/js/stendhal/ui/component/PlayerStatsComponent.ts#L117-L161"
 NPC_POSITION = SOURCE + "src/games/stendhal/server/maps/semos/guardhouse/RetiredAdventurerNPC.java#L92-L109"
-LOG_REGION = (290, 290, 597, 555)
-STATS_REGION = (0, 325, 96, 470)
+LOG_REGION = (290, 255, 600, 560)
+STATS_REGION = (0, 290, 140, 470)
 REWARD_FIELDS = ("money", "xp", "karma", "level", "base_hp", "hp")
 
 

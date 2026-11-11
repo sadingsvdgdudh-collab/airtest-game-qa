@@ -40,14 +40,14 @@
     "sha256": "07c2d8d350bd003af6e70403873221cef1867b8eb81fdce69f90559624b4d917"
   },
   "quest-title": {
-    "source": "calibration/quest-start.png",
+    "source": "calibration/quest-log-20261111.png",
     "crop": [
-      299,
-      306,
-      402,
-      326
+      301,
+      268,
+      403,
+      283
     ],
-    "sha256": "c70dde77d08cfb95eba1cc9056feaae54a0fc5cd930d5d2fd2756efde75af213"
+    "sha256": "b07a5bb1461ecce1a72536db3ce38f03bc5ef649ff263d4b5234c2c61d08e0a0"
   },
   "quest-completed": {
     "source": "calibration/quest-completed.png",
@@ -100,14 +100,14 @@
     "sha256": "5f8064ff41a7799c6f3bc6d82236be7511df5618768a815ad58511846569d38f"
   },
   "hp-110": {
-    "source": "calibration/quest-completed.png",
+    "source": "calibration/quest-hp110-20261111.png",
     "crop": [
-      0,
-      336,
-      87,
-      352
+      2,
+      301,
+      56,
+      314
     ],
-    "sha256": "2cdeba4b8039bb2931ee114e1e93f318baf85d6d738050372019ae691f48448e"
+    "sha256": "ac370ce932429314f1e2b27dd3842c6edd1631c5d4b9e5ea0bf32d88b3989322"
   },
   "quest-unrepeatable": {
     "source": "calibration/quest-repeat.png",

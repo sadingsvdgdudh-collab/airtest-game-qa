@@ -2,10 +2,10 @@
   "schema_version": "1.1",
   "framework_root": "<repo>",
   "reviewer": "auto:scripts/capabilities_manifest.py",
-  "checked_at": "2026-11-11T17:29:16+00:00",
+  "checked_at": "2026-11-11T17:39:36+00:00",
   "counts": {
     "function": 132,
-    "asset": 74
+    "asset": 76
   },
   "capabilities": [
     {
@@ -273,6 +273,22 @@
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {
+      "id": "asset:assets/stendhal/calibration/quest-hp110-20261111.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/quest-hp110-20261111.png",
+      "sha256": "46633f2be071f912315d92218dab29a90f5c9e92d946398338858f4f5a8c9538",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
+      "id": "asset:assets/stendhal/calibration/quest-log-20261111.png",
+      "kind": "asset",
+      "channel": "ui",
+      "file": "assets/stendhal/calibration/quest-log-20261111.png",
+      "sha256": "47a83c1c305c51ab739f3477d0649e962f662b447bb4dd7066f423b5cda69a0c",
+      "notes": "自动生成；Airtest 视觉模板（UI 通道）"
+    },
+    {
       "id": "asset:assets/stendhal/calibration/quest-repeat.png",
       "kind": "asset",
       "channel": "ui",
@@ -381,7 +397,7 @@
       "kind": "asset",
       "channel": "ui",
       "file": "assets/stendhal/hp-110.png",
-      "sha256": "2cdeba4b8039bb2931ee114e1e93f318baf85d6d738050372019ae691f48448e",
+      "sha256": "ac370ce932429314f1e2b27dd3842c6edd1631c5d4b9e5ea0bf32d88b3989322",
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {
@@ -469,7 +485,7 @@
       "kind": "asset",
       "channel": "ui",
       "file": "assets/stendhal/quest-title.png",
-      "sha256": "c70dde77d08cfb95eba1cc9056feaae54a0fc5cd930d5d2fd2756efde75af213",
+      "sha256": "b07a5bb1461ecce1a72536db3ce38f03bc5ef649ff263d4b5234c2c61d08e0a0",
       "notes": "自动生成；Airtest 视觉模板（UI 通道）"
     },
     {
