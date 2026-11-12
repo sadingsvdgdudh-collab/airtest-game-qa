@@ -90,8 +90,12 @@ def serve():
     return server
 
 
+# 本机代理会拦截 127.0.0.1（实测返回 502），测面板必须绕过代理直连
+LOCAL = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+
+
 def get(port, path, timeout=60):
-    with urllib.request.urlopen(f"http://127.0.0.1:{port}{path}", timeout=timeout) as response:
+    with LOCAL.open(f"http://127.0.0.1:{port}{path}", timeout=timeout) as response:
         return response.status, response.read().decode("utf-8", "replace")
 
 
