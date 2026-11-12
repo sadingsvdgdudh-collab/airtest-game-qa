@@ -695,7 +695,7 @@ def retry_rate(summaries):
             "rate": round(rate, 4), "warn": rate > RETRY_WARN_RATE, "threshold": RETRY_WARN_RATE}
 
 
-def reports(limit=8):
+def reports(limit=20):
     found, summaries = [], []
     for folder in sorted((PROJECT / "reports").glob("*/summary.json"),
                          key=lambda p: p.stat().st_mtime, reverse=True):
@@ -907,6 +907,8 @@ td,th{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;verti
 .recent .cell{border:1px solid var(--line);border-radius:var(--r2);padding:8px 10px;background:#fbfcfe}
 .recent .cell .num{font:600 17px/1.2 var(--mono)}
 .recent .cell .lbl{font-size:12px;color:var(--muted)}
+.scroll-box{max-height:420px;overflow-y:auto;border:1px solid var(--line);border-radius:var(--r2)}
+.scroll-box table{margin:0}
 thead th{position:sticky;top:0;background:var(--card);z-index:1;font-size:13px;color:var(--muted);
   border-bottom:1px solid var(--line-2)}
 tbody tr:hover{background:#f7fafc}
@@ -1007,8 +1009,10 @@ tbody tr:nth-child(even):hover{background:#f4f8fb}
       <span id="rep-merged">检查中…</span>
       <button id="b-merge">重建总报告</button>
       <span class="why" id="merge-why"></span></p>
+    <div class="scroll-box">
     <table><thead><tr><th>运行</th><th>轮数</th><th>一次通过</th><th>重试才过</th><th>业务失败</th><th>环境失败</th><th>未分类</th><th></th></tr></thead>
     <tbody id="rep-body"></tbody></table>
+    </div>
     <p class="muted">报告目录：<span id="rep-root"></span></p>
   </div>
 </div>
@@ -1060,6 +1064,8 @@ async function pollJob() {
 }
 
 function showTab(which) {
+  // 支持 #结果 / #用例 深链接，方便直接把某个页签发给别人
+  if (location.hash !== '#' + which) history.replaceState(null, '', '#' + which);
   $('pane-job').hidden = which !== 'job';
   $('pane-cases').hidden = which !== 'cases';
   $('pane-rep').hidden = which !== 'rep';
@@ -1067,6 +1073,12 @@ function showTab(which) {
   $('t-cases').className = which === 'cases' ? 'active' : '';
   $('t-rep').className = which === 'rep' ? 'active' : '';
 }
+
+// 刷新后停在同一个页签
+(function restoreTab(){
+  const which = (location.hash || '').replace('#','');
+  if (['job','cases','rep'].includes(which)) showTab(which);
+})();
 
 function dot(el, cls, text) { el.className = 'dot ' + cls; el.title = text || ''; }
 
