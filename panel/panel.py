@@ -1232,7 +1232,8 @@ async function loadReports() {
     + '<td class="muted">' + (((r.unclassified || []).join(', ')) || '—') + '</td>'
     + '<td><a href="/reports/' + r.run + '/' + r.report + '" target="_blank">打开报告</a>'
     + ' <a href="/reports/' + r.run + '/summary.json" target="_blank">summary</a>'
-    + (r.allure ? ' <a href="/reports/' + r.run + '/' + r.allure + '" target="_blank">Allure</a>' : '')
+    + (r.allure ? ' <a href="/reports/' + r.run + '/' + r.allure + '" target="_blank">Allure</a>'
+               : ' <span class="muted" title="本次运行没产出 Allure（用 --no-allure 跑过，或生成失败）">无 Allure</span>')
     + '</td></tr>').join('')
     || '<tr><td colspan="8" class="muted">还没有运行记录。</td></tr>';
 }

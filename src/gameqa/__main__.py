@@ -120,8 +120,10 @@ def main(argv=None):
     run.add_argument("--stop-after-failure", action="store_true")
     run.add_argument("--no-allure-merge", action="store_true",
                      help="带 --allure 跑完后不自动刷新总报告（默认刷新）")
-    run.add_argument("--allure", action="store_true",
-                     help="额外产出 Allure 报告（第二视图）；不改变判定，报告仍以 case.json/report.json 为准")
+    run.add_argument("--allure", dest="allure", action="store_true", default=True,
+                     help="额外产出 Allure 报告（默认开；第二视图，不改变判定）")
+    run.add_argument("--no-allure", dest="allure", action="store_false",
+                     help="本次不产出 Allure（也不刷新总报告）")
     run.add_argument("--qa-lock-fd", type=int, help=argparse.SUPPRESS)
     merge = sub.add_parser("allure", help="把历史各轮的 Allure 结果合成一份总报告")
     merge.add_argument("--project", type=Path, default=Path.cwd())

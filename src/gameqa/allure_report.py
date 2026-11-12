@@ -181,7 +181,12 @@ def cli():
     explicit = os.environ.get("GAMEQA_ALLURE_CLI", "").strip()
     if explicit:
         return explicit if Path(explicit).exists() else None
-    return shutil.which("allure")
+    found = shutil.which("allure")
+    if found:
+        return found
+    # 从 Finder/短 PATH 或脚本里跑时，npm 的全局 bin 不在 PATH 上
+    return next((str(path) for path in sorted((Path.home() / ".local/node").glob("*/bin/allure"))
+                 if path.exists()), None)
 
 
 def generate(results_dirs, out_dir, timeout=300):
